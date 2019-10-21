@@ -30,4 +30,8 @@ public class UJ_MemberDao {
 		
 		return conn;
 	}
+	
+	public int test() {
+		return 0;
+	}
 }
