@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>공지사항</h2>
+	<h2>1022공지사항</h2>
 	Error Page<p>
 	<%=exception.getMessage() %>
 </body>
