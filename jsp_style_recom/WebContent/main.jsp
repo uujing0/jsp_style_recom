@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>Main Page</h2>
+	<h2> Page1</h2>
 </body>
 </html>
