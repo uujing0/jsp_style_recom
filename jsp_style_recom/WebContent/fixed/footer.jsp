@@ -5,16 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
-</head>
-<%@include file="fixed/header.jsp" %>
-<body>
-<<<<<<< HEAD
+<style type="text/css">
+footer{
+	padding: 4%;
+	background-color: #D5D5D5;
 	
-=======
-	<h2>Main Page</h2>
-	test
->>>>>>> refs/remotes/origin/JM
-</body>
-<%@include file="fixed/footer.jsp" %>
+}
+</style>
+</head>
+<footer>
+footer
+</footer>
 </html>
