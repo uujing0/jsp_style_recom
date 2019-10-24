@@ -13,6 +13,13 @@
 		document.getElementById("gender_selector_male").style.color="white";
 		document.getElementById("gender_selector_female").style.backgroundColor="#FFD8D8";
 		document.getElementById("gender_selector_female").style.color="black";
+		$("#search_tag").empty();
+		for(var i = 1 ; i <= 10 ; i++){
+			$("#search_tag").append("#<span class='tag'>"+i+"번바지 </span>");
+			if(i == 5){
+				$("#search_tag").append("<br>");
+			}
+		}
 		//남성복 태그를 불러오는 코드
 	}
 	
@@ -21,6 +28,13 @@
 		document.getElementById("gender_selector_male").style.color="black";
 		document.getElementById("gender_selector_female").style.backgroundColor="#CC3D3D";
 		document.getElementById("gender_selector_female").style.color="white";
+		$("#search_tag").empty();
+		for(var i = 1 ; i <= 10 ; i++){
+			$("#search_tag").append("#<span class='tag'>"+i+"번옷 </span>");
+			if(i == 5){
+				$("#search_tag").append("<br>");
+			}
+		}
 		//여성복 태그를 불러오는코드
 	}
 
@@ -264,6 +278,7 @@ header a:active{color: black; text-decoration: none;}
 				<td><a href="style.do">스타일 추천</a></td>
 				<td><a href="board.do">게시판</a></td>
 				<td><a href="member.do">회원관리</a></td>
+				<td><a href="member.do">메뉴바미확정</a></td>
 			</tr>
 		</table>
 	</div>
