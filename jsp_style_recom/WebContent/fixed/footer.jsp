@@ -5,8 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+footer{
+	padding: 4%;
+	background-color: #D5D5D5;
+	
+}
+</style>
 </head>
-<body>
-
-</body>
+<footer>
+footer
+</footer>
 </html>

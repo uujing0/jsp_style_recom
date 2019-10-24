@@ -5,8 +5,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
 
-</body>
+<style type="text/css">
+header{
+	border: 1px solid;
+	padding: 4%;
+	background-color: #D5D5D5;
+	
+}
+
+#logo{
+	float: left;
+	background-color: red;
+	padding: 5%;
+	margin: 1px;
+	/* width: 5%;
+	height: 100% */
+}
+</style>
+
+</head>
+<header>
+<div id="">
+
+</div>
+header
+</header>
 </html>

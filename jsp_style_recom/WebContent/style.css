@@ -4,3 +4,18 @@ table { background-color: yellow; }
 tr:hover { background-color: orange; }
 td { background-color: #FFE271; text-align: center; padding: 10px;}
 .left { text-align: left; }
+header{
+	border: 1px double;
+	padding: 5%;
+	background-color: #E4F7BA;
+	
+}
+
+#logo{
+	float: left;
+	background-color: red;
+	padding: 5%;
+	margin: 1px;
+	/* width: 5%;
+	height: 100% */
+}
