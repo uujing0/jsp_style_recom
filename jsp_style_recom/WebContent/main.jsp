@@ -9,12 +9,7 @@
 </head>
 <%@include file="fixed/header.jsp" %>
 <body>
-<<<<<<< HEAD
-	
-=======
-	<h2>Main Page</h2>
-	test
->>>>>>> refs/remotes/origin/JM
+
 </body>
 <%@include file="fixed/footer.jsp" %>
 </html>
