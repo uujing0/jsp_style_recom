@@ -5,11 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	location.href = "main.do"
-</script>
+<style type="text/css">
+	#iposition {
+		position:absolute; top:200px; left:400px;
+	}
+</style>
 </head>
 <body>
-	
+	<h2>상풍 상세 페이지</h2>
+    <iframe id="iposition" src="prd_Detail.html" width="1200" height="1000" scrolling="auto" frameborder="0"></iframe>
+
 </body>
 </html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>홈페이지</title>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#nav ul.sub").hide();
+			$("#nav ul.menu li").click(function(){
+				$("ul",this).slideToggle("nomal");
+			});
+		});
+	</script>
+	
+	<style>
+
+	#nav { position : absolute; top: 200px; font-family:'arial'; }
+	#nav ul{ width:200px; margin:0; padding:0; }
+	#nav ul.menu li{ position:relative; float:left; width:200px; list-style-type:none; font-size:20px;  }
+	#nav ul.menu li a{ display:block; width:200px; height:100%; line-height:100px; text-indent:20px; color:#000; font-weight:bold; text-decoration:none; }
+	#nav ul.menu li a:hover{ background:#eee; }
+	#nav ul.menu li .sub a{ position:relative; float:left; display:block; width:200px; z-index:999; background:#ccc; }
+	#nav ul.menu li .sub a:hover{ background:#444; color:#fff; }
+	</style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="nav" >
+		<ul class="menu">
+			<li><a href="#">MENU 1</a>
+				<ul class="sub">
+					<li><a href="#">SUB MENU 1-1</a></li>
+					<li><a href="#">SUB MENU 1-2</a></li>
+				</ul>
+			</li>
+			<li><a href="#">MENU 2</a>
+				<ul class="sub">
+					<li><a href="#">SUB MENU 2-1</a></li>
+					<li><a href="#">SUB MENU 2-2</a></li>
+					<li><a href="#">SUB MENU 2-3</a></a></li>
+				</ul>
+			</li>
+			<li><a href="#">MENU 3</a>
+				<ul class="sub">
+					<li><a href="#">SUB MENU 3-1s</a></li>
+					<li><a href="#">SUB MENU 3-2</a></li>
+					<li><a href="#">SUB MENU 3-3</a></a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+<header class="header">
+         <div class="header__square">● ● ●</div>
+         <div class="header__title">메인페이지</div>
+     </header>
+
+     <main class="main">
+         <div class="main__info">
+             <hgriup class="main__titles">
+                 <h6 class="main__pre-title">이것이 웰시코디</h6>
+                 <h2 class="main__title">웰시 코디</h2>
+                 <h5 class="main__subtitle">웰시코디의 홈페이지를 보고 계십니다.</h5>
+             </hgriup>
+         </div>
+
+        <div class="main__photo">
+            <div class="main__navigation">
+                <span class="navigation__arrow">←</span>
+                <span class="navigation__pagess">1/4</span>
+                <span class="navigation__arrow">→</span>
+            </div>
+        </div>
+     </main>
+
+
+
+</body>
+</html>
