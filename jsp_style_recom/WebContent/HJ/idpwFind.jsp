@@ -81,7 +81,7 @@ table {table-layout:fixed;word-wrap:break-word;border-collapse:collapse}
 									<legend>비밀번호 찾기 폼</legend>
 									<p><label>ID</label> <input type="text" name="MEM_ID"  title="아이디 입력" placeholder="아이디" required=required/></p>
 									<p><label>이름</label> <input type="text" name="MEM_NAME" title="이름 입력" placeholder="이름" required=required/></p>
-									<p><label>이메일</label> <input type="text" name="MEM_EMAIL"  title= "이메일 입력" placeholder="메일"  required=required/></p>
+									<p><label>이메일</label> <input type="text" name="MEM_EMAIL"  title= "이메일 입력" placeholder="메일"  required=required /></p>
 									<button type="submit">찾기</button>
 								</fieldset>
 							</form>
