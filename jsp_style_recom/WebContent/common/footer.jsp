@@ -58,7 +58,7 @@ footer{
 			<button id="bottom_login_button" class="left_button">로그인</button>
 			<button id="bottom_signup_button" class="right_button">회원가입</button>
 			<button id="bottom_logout_button" class="left_button">로그아웃</button>
-			<button id="bottom_my_page_button" class="right_button">마이페이지</button>
+			<button id="bottom_my_page_button" class="right_button">마이코기</button>
 		</div>
 	</div>
 	<div id="footer_left">

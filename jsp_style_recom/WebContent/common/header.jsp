@@ -118,12 +118,14 @@
 /* header style start */
 header{
 	border: 1px solid;
-	background-color: #5D5D5D;
+	background-color: #ce6d39;
 	height: 130px;
-	border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
+	/* border-bottom-left-radius: 30px;
+	//border-bottom-right-radius: 30px; */
+	border: none;
+	/* linear-gradient( direction, ) */
 }
-
+ 
 header a:link{color: white; text-decoration: none;}
 header a:visited{color: white; text-decoration: none;}
 header a:hover{color: black; text-decoration: none;}
@@ -131,7 +133,7 @@ header a:active{color: black; text-decoration: none;}
 
 #logo_title{
 	font-size: 50px;
-	color: white;
+	color: navy;
 }
 
 /* icon */
@@ -329,7 +331,7 @@ header a:active{color: black; text-decoration: none;}
 		<button id="top_login_button" class="left_button">로그인</button>
 		<button id="top_signup_button" class="right_button">회원가입</button>
 		<button id="top_logout_button" class="left_button">로그아웃</button>
-		<button id="top_my_page_button" class="right_button">마이페이지</button>
+		<button id="top_my_page_button" class="right_button">마이코기</button>
 	</div>
 </div>
 
@@ -347,7 +349,7 @@ header a:active{color: black; text-decoration: none;}
 	</div>
 	<br>
 	<div id="search_bar">
-		<form action="">
+		<form action="main.do">
 			<input type="submit" value="검색" id="search_button">
 			<select id="search_target">
 				<option value="0">스타일</option>
