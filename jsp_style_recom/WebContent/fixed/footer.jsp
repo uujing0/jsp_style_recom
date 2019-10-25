@@ -5,11 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+footer{
+	padding: 4%;
+	background-color: #D5D5D5;
+	
+}
+</style>
 </head>
-<%@include file="fixed/header.jsp" %>
-<body>
-	<h2>Main Page</h2>
-	test
-</body>
-<%@include file="fixed/footer.jsp" %>
+<footer>
+footer
+</footer>
 </html>
