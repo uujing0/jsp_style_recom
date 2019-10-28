@@ -34,6 +34,11 @@ public class HotTagDao {
 	public static void count(String search_word) {
 		
 		String[] word_de = search_word.split(" ");
+		
+		for(int i=0 ; i<word_de.length ; i++) {
+			
+		}
+		
 		String tag_search = "%"+search_word+"%";
 		
 		
