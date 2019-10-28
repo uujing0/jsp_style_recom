@@ -31,7 +31,29 @@ public class WeatherAction implements CommandProcess {
 			String[] citys = { "서울", "인천", "수원", "파주", "이천", "평택", "춘천", "원주", "강릉", "대전", "세종", "홍성", "청주", "충주", "영동",
 					"광주", "목포", "여수", "순천", "광양", "나주", "전주", "군산", "정읍", "남원", "고창", "무주", "부산", "울산", "창원", "진주",
 					"거창", "통영", "대구", "안동", "포항", "경주", "운진", "울릉도", "제주", "서귀포" };
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
+			Calendar c1 = Calendar.getInstance();
+			Calendar c2 = Calendar.getInstance();
+			Calendar c3 = Calendar.getInstance();
+			Calendar c4 = Calendar.getInstance();
+			Calendar c5 = Calendar.getInstance();
+			Calendar c6 = Calendar.getInstance();
+			Calendar c7 = Calendar.getInstance();
+			
+			String day1 = df.format(c1.getTime());
+			c2.add(Calendar.DATE, 1);
+			String day2 = df.format(c2.getTime());
+			c3.add(Calendar.DATE, 2);
+			String day3 = df.format(c3.getTime());
+			c4.add(Calendar.DATE, 3);
+			String day4 = df.format(c4.getTime());
+			c5.add(Calendar.DATE, 4);
+			String day5 = df.format(c5.getTime());
+			c6.add(Calendar.DATE, 5);
+			String day6 = df.format(c6.getTime());
+			c7.add(Calendar.DATE, 6);
+			String day7 = df.format(c7.getTime());
 			// 각 게시물하나에 해당하는 XML 노드를 담을 리스트
 			ArrayList<HashMap<String, String>> pubList = new ArrayList<HashMap<String, String>>();
 			ArrayList<HashMap<String, String>> pubList1 = new ArrayList<HashMap<String, String>>();
@@ -303,20 +325,7 @@ public class WeatherAction implements CommandProcess {
 				int idx = tmEf.indexOf(" ");
 				String day = tmEf.substring(0, idx);
 				// System.out.println("tmEf1 : "+day);
-				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-
-				Calendar c1 = Calendar.getInstance();
-				Calendar c2 = Calendar.getInstance();
-				Calendar c3 = Calendar.getInstance();
-				Calendar c4 = Calendar.getInstance();
-				c1.add(Calendar.DATE, 3);
-				String day3 = df.format(c1.getTime());
-				c2.add(Calendar.DATE, 4);
-				String day4 = df.format(c2.getTime());
-				c3.add(Calendar.DATE, 5);
-				String day5 = df.format(c3.getTime());
-				c4.add(Calendar.DATE, 6);
-				String day6 = df.format(c4.getTime());
+				
 			//	System.out.println("날짜검사1->" + day5);
 			//	System.out.println("날짜검사2->" + day6);
 
@@ -338,21 +347,21 @@ public class WeatherAction implements CommandProcess {
 
 				String ct = pub1.get("city");
 
-				if (day.compareTo(day3) == 0 && city == ct) {
+				if (day.compareTo(day4) == 0 && city == ct) {
 					wfKor[3] = tmpWf;
 					imgWfKor[3] = tmpImgWfKor;
 					rs[3] = Rs;
 					Tmx[2] = TempM;
 					Tmn[2] = TempN;
 				}
-				if (day.compareTo(day4) == 0 && city == ct) {
+				if (day.compareTo(day5) == 0 && city == ct) {
 					wfKor[4] = tmpWf;
 					imgWfKor[4] = tmpImgWfKor;
 					rs[4] = Rs;
 					Tmx[3] = TempM;
 					Tmn[3] = TempN;
 				}
-				if (day.compareTo(day5) == 0 && city == ct) {
+				if (day.compareTo(day6) == 0 && city == ct) {
 					wfKor[5] = tmpWf;
 					imgWfKor[5] = tmpImgWfKor;
 					rs[5] = Rs;
@@ -360,7 +369,7 @@ public class WeatherAction implements CommandProcess {
 					Tmx[4] = TempM;
 					Tmn[4] = TempN;
 				}
-				if (day.compareTo(day6) == 0 && city == ct) {
+				if (day.compareTo(day7) == 0 && city == ct) {
 					wfKor[6] = tmpWf;
 					imgWfKor[6] = tmpImgWfKor;
 					rs[6] = Rs;
@@ -370,6 +379,14 @@ public class WeatherAction implements CommandProcess {
 				}
 
 			}
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd E요일");
+			day1 = sdf.format(c1.getTime());
+			day2 = sdf.format(c2.getTime());
+			day3 = sdf.format(c3.getTime());
+			day4 = sdf.format(c4.getTime());
+			day5 = sdf.format(c5.getTime());
+			day6 = sdf.format(c6.getTime());
+			day7 = sdf.format(c7.getTime());
 			request.setAttribute("city", city);
 
 			request.setAttribute("wfKor0", wfKor[0]);
@@ -401,14 +418,20 @@ public class WeatherAction implements CommandProcess {
 			request.setAttribute("Tmn4", Tmn[4]);
 			request.setAttribute("Tmx5", Tmx[5]);
 			request.setAttribute("Tmn5", Tmn[5]);
-			
+			request.setAttribute("day1", day1);
+			request.setAttribute("day2", day2);
+			request.setAttribute("day3", day3);
+			request.setAttribute("day4", day4);
+			request.setAttribute("day5", day5);
+			request.setAttribute("day6", day6);
+			request.setAttribute("day7", day7);
 
 			System.out.println("Tmx[0]->"+Tmx[0]);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "/mypage/weather.jsp";
+		return "mypagemain.jsp";
 	}
 
 }
