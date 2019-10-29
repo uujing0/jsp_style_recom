@@ -13,6 +13,13 @@
 		document.getElementById("gender_selector_male").style.color="white";
 		document.getElementById("gender_selector_female").style.backgroundColor="#FFD8D8";
 		document.getElementById("gender_selector_female").style.color="black";
+		$("#search_tag").empty();
+		for(var i = 1 ; i <= 10 ; i++){
+			$("#search_tag").append(i+".<span class='tag'>셔츠 </span>");
+			if(i == 5){
+				$("#search_tag").append("<br>");
+			}
+		}
 		//남성복 태그를 불러오는 코드
 	}
 	
@@ -21,6 +28,13 @@
 		document.getElementById("gender_selector_male").style.color="black";
 		document.getElementById("gender_selector_female").style.backgroundColor="#CC3D3D";
 		document.getElementById("gender_selector_female").style.color="white";
+		$("#search_tag").empty();
+		for(var i = 1 ; i <= 10 ; i++){
+			$("#search_tag").append(i+".<span class='tag'>바지 </span>");
+			if(i == 5){
+				$("#search_tag").append("<br>");
+			}
+		}
 		//여성복 태그를 불러오는코드
 	}
 
@@ -40,8 +54,17 @@
 			genderSelectorFemale()
 		})
 		
-		$("#logout").hide();
-		$("#my_page").hide();
+		//로그인 상태일시 가리는 버튼
+		//$("#top_login_button").hide();
+		//$("#top_id/pw_button").hide();
+		//$("#bottom_login_button").hide();
+		//$("#bottom_my_page_button").hide();
+		
+		//로그아웃 상태일시 가리는 버튼
+		$("#top_logout_button").hide();
+		$("#top_my_page_button").hide();
+		$("#bottom_logout_button").hide();
+		$("#bottom_my_page_button").hide();
 	})
 </script>
 
@@ -249,10 +272,10 @@ header a:active{color: black; text-decoration: none;}
 	</div>
 	<br>
 	<div id="member_space">
-		<button id="login" class="left_button">로그인</button>
-		<button id="find_id/pw" class="right_button">회원가입</button>
-		<button id="logout" class="left_button">로그아웃</button>
-		<button id="my_page" class="right_button">마이페이지</button>
+		<button id="top_login_button" class="left_button">로그인</button>
+		<button id="top_id/pw_button" class="right_button">회원가입</button>
+		<button id="top_logout_button" class="left_button">로그아웃</button>
+		<button id="top_my_page_button" class="right_button">마이페이지</button>
 	</div>
 </div>
 
@@ -264,6 +287,7 @@ header a:active{color: black; text-decoration: none;}
 				<td><a href="style.do">스타일 추천</a></td>
 				<td><a href="board.do">게시판</a></td>
 				<td><a href="member.do">회원관리</a></td>
+				<td><a href="member.do">메뉴바미확정</a></td>
 			</tr>
 		</table>
 	</div>

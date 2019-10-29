@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 
 </head>
-<%@include file="fixed/header.jsp" %>
+<%@include file="common/header.jsp" %>
 <body>
 
 </body>
-<%@include file="fixed/footer.jsp" %>
+<%@include file="common/footer.jsp" %>
 </html>
