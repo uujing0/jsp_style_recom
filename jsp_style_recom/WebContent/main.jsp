@@ -6,7 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<%@include file="common/header.jsp" %>
 <body>
 	<h2>Main Page</h2>
+	test
 </body>
+<%@include file="common/footer.jsp" %>
 </html>
