@@ -123,6 +123,7 @@ img{
 #head{
 	font-size:25px;
 	background-color: #86E57F;
+	text-align:center;
 }
 #page{
 	text-align:center;
@@ -131,7 +132,7 @@ img{
 	padding-bottom: 77px;
 }
 #style{
-
+	text-align:center;
 }
 #center{
 	float:left;

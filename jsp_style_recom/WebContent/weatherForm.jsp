@@ -10,7 +10,13 @@
 <style type="text/css">
 	select{
 		width: 100px;
-		height: 23px;
+		height: 25px;
+		border-radius: 5px;
+		border:solid;
+		border-color: #CE6D39;
+	}
+	input{
+		
 	}
 	div#selector{
 		float:left;
@@ -22,7 +28,8 @@
 <body>
 <div id="selector">
 <form action="weather.do">
-지역 <select name="sido">
+<span style="border-radius: 5px;border:solid;border-color: #CE6D39;background-color: white;font-size:17px;">지역선택</span> 
+	<select name="sido">
 		<option value="1168066000" <c:if test="${city eq '서울특별시'}"> selected </c:if>>서울특별시</option>
 		<option value="4281025000" <c:if test="${city eq '강원도'}"> selected </c:if>>강원도</option>
 		<option value="4125053500" <c:if test="${city eq '경기북부'}"> selected </c:if>>경기북부</option>
@@ -42,7 +49,7 @@
 		<option value="4480038000" <c:if test="${city eq '충청남도'}"> selected </c:if>>충청남도</option>
 		<option value="4376031000" <c:if test="${city eq '충청북도'}"> selected </c:if>>충청북도</option>
 	</select>
-	<input type="submit" value="검색">
+	<input type="submit" value="확인" style="border-radius: 5px;border:solid;border-color: #CE6D39;background-color: white;height: 25px;">
 </form>
 </div>
 </body>
