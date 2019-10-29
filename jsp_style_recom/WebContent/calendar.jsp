@@ -1,19 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!-- 처음 접속 주소(서울을 defalut값으로 지정)weather.do?sido=1168066000 -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>mypage</title>
+<title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="TH_style.css" />
-
 </head>
 <%@include file="/common/header.jsp"%>
 <body bgcolor="#FFEEE4">
-<%@include file="weatherForm.jsp"%>	
 <div id="content">
 <div id="side_left">
 			<div id="head">마이페이지</div>
@@ -27,7 +22,9 @@
 		</div>
 
 <div id="center">	
-<%@include file="mypage.jsp"%>
+<div id="center">
+달력들어갈자리
+</div>
 </div>
 	<div id="recent_style">
 			<div id="head">최근본옷</div><br>
@@ -47,5 +44,4 @@
 		</div>
 </body>
 <%@include file="/common/footer.jsp"%>
-
 </html>

@@ -22,15 +22,15 @@ public class WeatherAction implements CommandProcess {
 			System.out.println("addr->" + addr);
 			TH_TownDao TD = TH_TownDao.getInstance();
 			String city = TD.citycode(addr);
-			System.out.println("city->"+city);
+			System.out.println("city->" + city);
 			String urlStr = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=" + addr;
 			String urlStrW = "http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108";
-			// ¼­¹ö¿¡¼­¸®ÅÏµÉ XMLµ¥ÀÌÅÍÀÇ ¿¤¸®¸ÕÆ® ÀÌ¸§ ¹è¿­
+			// ì„œë²„ì—ì„œë¦¬í„´ë  XMLë°ì´í„°ì˜ ì—˜ë¦¬ë¨¼íŠ¸ ì´ë¦„ ë°°ì—´
 			String[] fieldNames = { "temp", "wfKor", "wfEn", "pop", "hour", "day", "tmx", "tmn", "r12" };
 			String[] fieldNames1 = { "tmEf", "wf", "tmx", "tmn", "rnSt" };
-			String[] citys = { "¼­¿ï", "ÀÎÃµ", "¼ö¿ø", "ÆÄÁÖ", "ÀÌÃµ", "ÆòÅÃ", "ÃáÃµ", "¿øÁÖ", "°­¸ª", "´ëÀü", "¼¼Á¾", "È«¼º", "Ã»ÁÖ", "ÃæÁÖ", "¿µµ¿",
-					"±¤ÁÖ", "¸ñÆ÷", "¿©¼ö", "¼øÃµ", "±¤¾ç", "³ªÁÖ", "ÀüÁÖ", "±º»ê", "Á¤À¾", "³²¿ø", "°íÃ¢", "¹«ÁÖ", "ºÎ»ê", "¿ï»ê", "Ã¢¿ø", "ÁøÁÖ",
-					"°ÅÃ¢", "Åë¿µ", "´ë±¸", "¾Èµ¿", "Æ÷Ç×", "°æÁÖ", "¿îÁø", "¿ï¸ªµµ", "Á¦ÁÖ", "¼­±ÍÆ÷" };
+			String[] citys = { "ì„œìš¸", "ì¸ì²œ", "ìˆ˜ì›", "íŒŒì£¼", "ì´ì²œ", "í‰íƒ", "ì¶˜ì²œ", "ì›ì£¼", "ê°•ë¦‰", "ëŒ€ì „", "ì„¸ì¢…", "í™ì„±", "ì²­ì£¼", "ì¶©ì£¼", "ì˜ë™",
+					"ê´‘ì£¼", "ëª©í¬", "ì—¬ìˆ˜", "ìˆœì²œ", "ê´‘ì–‘", "ë‚˜ì£¼", "ì „ì£¼", "êµ°ì‚°", "ì •ì", "ë‚¨ì›", "ê³ ì°½", "ë¬´ì£¼", "ë¶€ì‚°", "ìš¸ì‚°", "ì°½ì›", "ì§„ì£¼",
+					"ê±°ì°½", "í†µì˜", "ëŒ€êµ¬", "ì•ˆë™", "í¬í•­", "ê²½ì£¼", "ìš´ì§„", "ìš¸ë¦‰ë„", "ì œì£¼", "ì„œê·€í¬" };
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
 			Calendar c1 = Calendar.getInstance();
@@ -40,7 +40,7 @@ public class WeatherAction implements CommandProcess {
 			Calendar c5 = Calendar.getInstance();
 			Calendar c6 = Calendar.getInstance();
 			Calendar c7 = Calendar.getInstance();
-			
+
 			String day1 = df.format(c1.getTime());
 			c2.add(Calendar.DATE, 1);
 			String day2 = df.format(c2.getTime());
@@ -54,7 +54,8 @@ public class WeatherAction implements CommandProcess {
 			String day6 = df.format(c6.getTime());
 			c7.add(Calendar.DATE, 6);
 			String day7 = df.format(c7.getTime());
-			// °¢ °Ô½Ã¹°ÇÏ³ª¿¡ ÇØ´çÇÏ´Â XML ³ëµå¸¦ ´ãÀ» ¸®½ºÆ®
+			System.out.println("dayë“¤" + day3 + day4 + day5 + day6 + day7);
+			// ê° ê²Œì‹œë¬¼í•˜ë‚˜ì— í•´ë‹¹í•˜ëŠ” XML ë…¸ë“œë¥¼ ë‹´ì„ ë¦¬ìŠ¤íŠ¸
 			ArrayList<HashMap<String, String>> pubList = new ArrayList<HashMap<String, String>>();
 			ArrayList<HashMap<String, String>> pubList1 = new ArrayList<HashMap<String, String>>();
 
@@ -63,41 +64,43 @@ public class WeatherAction implements CommandProcess {
 			double Temp1 = -100.0;
 			double[] rs = new double[7];
 
-			double[] Tmx = new double[6];
+			double[] Tmx = new double[6] ;
+
 			double[] Tmn = new double[6];
+			int result = 0;
 			try {
-				// XMLÆÄ½Ì ÁØºñ
+				// XMLíŒŒì‹± ì¤€ë¹„
 				DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
 				DocumentBuilder b = f.newDocumentBuilder();
 
-				// À§¿¡¼­ ±¸¼ºÇÑ URLÀ» ÅëÇØ XMl ÆÄ½Ì ½ÃÀÛ
+				// ìœ„ì—ì„œ êµ¬ì„±í•œ URLì„ í†µí•´ XMl íŒŒì‹± ì‹œì‘
 				Document doc = b.parse(urlStr);
 				// System.out.println("doc->" + doc);
 				doc.getDocumentElement().normalize();
 
-				// ¼­¹ö¿¡¼­ ÀÀ´äÇÑ XMLµ¥ÀÌÅÍ¸¦ data(¹ßÇà¹®¼­ 1°³ ÇØ´ç)ÅÂ±×·Î °¢°¢ ³ª´®(ÆÄ¶ó¹ÌÅÍ·Î ¿äÃ»ÇÑ sizeÇ×¸ñÀÇ ¼ö¸¸Å­)
+				// ì„œë²„ì—ì„œ ì‘ë‹µí•œ XMLë°ì´í„°ë¥¼ data(ë°œí–‰ë¬¸ì„œ 1ê°œ í•´ë‹¹)íƒœê·¸ë¡œ ê°ê° ë‚˜ëˆ”(íŒŒë¼ë¯¸í„°ë¡œ ìš”ì²­í•œ sizeí•­ëª©ì˜ ìˆ˜ë§Œí¼)
 				NodeList items = doc.getElementsByTagName("data");
 
-				// for ·çÇÁ½ÃÀÛ
+				// for ë£¨í”„ì‹œì‘
 				for (int i = 0; i < items.getLength(); i++) {
-					// i¹øÂ° publication ÅÂ±×¸¦ °¡Á®¿Í¼­
+					// ië²ˆì§¸ publication íƒœê·¸ë¥¼ ê°€ì ¸ì™€ì„œ
 					Node n = items.item(i);
 
 					Element e = (Element) n;
 					HashMap<String, String> pub = new HashMap<String, String>();
 
-					// for ·çÇÁ ½ÃÀÛ
+					// for ë£¨í”„ ì‹œì‘
 					for (String name : fieldNames) {
-						// "hour", "day", "temp", "tmx", "tmn", "sky", "pty", "wfKor"....¿¡ ÇØ´çÇÏ´Â °ªÀ» XML
-						// ³ëµå¿¡¼­ °¡Á®¿È
+						// "hour", "day", "temp", "tmx", "tmn", "sky", "pty", "wfKor"....ì— í•´ë‹¹í•˜ëŠ” ê°’ì„ XML
+						// ë…¸ë“œì—ì„œ ê°€ì ¸ì˜´
 						NodeList titleList = e.getElementsByTagName(name);
 						Element titleElem = (Element) titleList.item(0);
 
 						Node titleNode = titleElem.getChildNodes().item(0);
-						// °¡Á®¿Â XML °ªÀ» ¸Ê¿¡ ¿¤¸®¸ÕÆ® ÀÌ¸§ - °ª ½ÖÀ¸·Î ³ÖÀ½
+						// ê°€ì ¸ì˜¨ XML ê°’ì„ ë§µì— ì—˜ë¦¬ë¨¼íŠ¸ ì´ë¦„ - ê°’ ìŒìœ¼ë¡œ ë„£ìŒ
 						pub.put(name, titleNode.getNodeValue());
 					}
-					// µ¥ÀÌÅÍ°¡ ÀüºÎ µé¾î°£ ¸ÊÀ» ¸®½ºÆ®¿¡ ³Ö°í È­¸é¿¡ »Ñ¸± ÁØºñ.
+					// ë°ì´í„°ê°€ ì „ë¶€ ë“¤ì–´ê°„ ë§µì„ ë¦¬ìŠ¤íŠ¸ì— ë„£ê³  í™”ë©´ì— ë¿Œë¦´ ì¤€ë¹„.
 					pubList.add(pub);
 					// System.out.println(pub);
 
@@ -107,42 +110,42 @@ public class WeatherAction implements CommandProcess {
 				System.out.println(e.getMessage());
 			}
 			try {
-				// XMLÆÄ½Ì ÁØºñ
+				// XMLíŒŒì‹± ì¤€ë¹„
 				DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
 				DocumentBuilder b = f.newDocumentBuilder();
 
-				// À§¿¡¼­ ±¸¼ºÇÑ URLÀ» ÅëÇØ XMl ÆÄ½Ì ½ÃÀÛ
+				// ìœ„ì—ì„œ êµ¬ì„±í•œ URLì„ í†µí•´ XMl íŒŒì‹± ì‹œì‘
 				Document doc = b.parse(urlStrW);
 				// System.out.println("doc->" + doc);
 				doc.getDocumentElement().normalize();
 
-				// ¼­¹ö¿¡¼­ ÀÀ´äÇÑ XMLµ¥ÀÌÅÍ¸¦ data(¹ßÇà¹®¼­ 1°³ ÇØ´ç)ÅÂ±×·Î °¢°¢ ³ª´®(ÆÄ¶ó¹ÌÅÍ·Î ¿äÃ»ÇÑ sizeÇ×¸ñÀÇ ¼ö¸¸Å­)
+				// ì„œë²„ì—ì„œ ì‘ë‹µí•œ XMLë°ì´í„°ë¥¼ data(ë°œí–‰ë¬¸ì„œ 1ê°œ í•´ë‹¹)íƒœê·¸ë¡œ ê°ê° ë‚˜ëˆ”(íŒŒë¼ë¯¸í„°ë¡œ ìš”ì²­í•œ sizeí•­ëª©ì˜ ìˆ˜ë§Œí¼)
 				NodeList items = doc.getElementsByTagName("data");
 				// System.out.println("items->" + items);
-				// for ·çÇÁ½ÃÀÛ
+				// for ë£¨í”„ì‹œì‘
 				for (int i = 0; i < items.getLength(); i++) {
-					// i¹øÂ° publication ÅÂ±×¸¦ °¡Á®¿Í¼­
+					// ië²ˆì§¸ publication íƒœê·¸ë¥¼ ê°€ì ¸ì™€ì„œ
 
 					Node n1 = items.item(i);
 
 					Element e1 = (Element) n1;
 					HashMap<String, String> pub1 = new HashMap<String, String>();
 
-					// for ·çÇÁ ½ÃÀÛ
+					// for ë£¨í”„ ì‹œì‘
 					for (String name : fieldNames1) {
-						// "hour", "day", "temp", "tmx", "tmn", "sky", "pty", "wfKor"....¿¡ ÇØ´çÇÏ´Â °ªÀ» XML
-						// ³ëµå¿¡¼­ °¡Á®¿È
+						// "hour", "day", "temp", "tmx", "tmn", "sky", "pty", "wfKor"....ì— í•´ë‹¹í•˜ëŠ” ê°’ì„ XML
+						// ë…¸ë“œì—ì„œ ê°€ì ¸ì˜´
 						NodeList titleList = e1.getElementsByTagName(name);
 						Element titleElem1 = (Element) titleList.item(0);
 						Node titleNode1 = titleElem1.getChildNodes().item(0);
 
-						// °¡Á®¿Â XML °ªÀ» ¸Ê¿¡ ¿¤¸®¸ÕÆ® ÀÌ¸§ - °ª ½ÖÀ¸·Î ³ÖÀ½
+						// ê°€ì ¸ì˜¨ XML ê°’ì„ ë§µì— ì—˜ë¦¬ë¨¼íŠ¸ ì´ë¦„ - ê°’ ìŒìœ¼ë¡œ ë„£ìŒ
 						pub1.put(name, titleNode1.getNodeValue());
 						int j = i / 13;
 						pub1.put("city", citys[j]);
 
 					}
-					// µ¥ÀÌÅÍ°¡ ÀüºÎ µé¾î°£ ¸ÊÀ» ¸®½ºÆ®¿¡ ³Ö°í È­¸é¿¡ »Ñ¸± ÁØºñ.
+					// ë°ì´í„°ê°€ ì „ë¶€ ë“¤ì–´ê°„ ë§µì„ ë¦¬ìŠ¤íŠ¸ì— ë„£ê³  í™”ë©´ì— ë¿Œë¦´ ì¤€ë¹„.
 					pubList1.add(pub1);
 					// System.out.println("pub1->" + pub1);
 				}
@@ -158,121 +161,148 @@ public class WeatherAction implements CommandProcess {
 				if (tmpWfKor == null)
 					tmpWfKor = "";
 
-				String tmpImgWfKor = "ico01";
+				String tmpImgWfKor = "images/ico01.png";
 				String tmpWfDay = pub.get("day");
 				String tmpWfHour = pub.get("hour");
 
-				if (tmpWfKor.equals("±¸¸§ Á¶±İ"))
-					tmpImgWfKor = "ico02";
-				else if (tmpWfKor.equals("±¸¸§ ¸¹À½"))
-					tmpImgWfKor = "ico03";
-				else if (tmpWfKor.equals("Èå¸²"))
-					tmpImgWfKor = "ico04";
-				else if (tmpWfKor.equals("ºñ"))
-					tmpImgWfKor = "ico05";
-				else if (tmpWfKor.equals("´«/ºñ"))
-					tmpImgWfKor = "ico06";
-				else if (tmpWfKor.equals("´«"))
-					tmpImgWfKor = "ico07";
+				if (tmpWfKor.equals("êµ¬ë¦„ ì¡°ê¸ˆ"))
+					tmpImgWfKor = "images/ico02.png";
+				else if (tmpWfKor.equals("êµ¬ë¦„ ë§ìŒ"))
+					tmpImgWfKor = "images/ico03.png";
+				else if (tmpWfKor.equals("íë¦¼"))
+					tmpImgWfKor = "images/ico04.png";
+				else if (tmpWfKor.equals("ë¹„"))
+					tmpImgWfKor = "images/ico05.png";
+				else if (tmpWfKor.equals("ëˆˆ/ë¹„"))
+					tmpImgWfKor = "images/ico06.png";
+				else if (tmpWfKor.equals("ëˆˆ"))
+					tmpImgWfKor = "images/ico07.png";
 
 				String rsWfRS = pub.get("r12");
 				// System.out.println("rsWfRS->" + rsWfRS);
 				if (rsWfRS == null)
 					break;
-				Double Rs = Double.parseDouble(rsWfRS);// ¹Ş¾Æ¿Â °­¼ö·®
+				Double Rs = Double.parseDouble(rsWfRS);// ë°›ì•„ì˜¨ ê°•ìˆ˜ëŸ‰
 
 				String tmpWfTemp = pub.get("temp");
 				tmpWfTemp = tmpWfTemp.replace('"', ' ');
-				Double Temp = Double.parseDouble(tmpWfTemp);// ¹Ş¾Æ¿Â ¿Âµµ
-				// ÃÖ°í¿Âµµ
+				Double Temp = Double.parseDouble(tmpWfTemp);// ë°›ì•„ì˜¨ ì˜¨ë„
+				// ìµœê³ ì˜¨ë„
 				String tmx = pub.get("tmx");
 				// System.out.println(tmx);
 				tmx = tmx.replace('"', ' ');
-				Double TempM = Double.parseDouble(tmx);// ¹Ş¾Æ¿Â ¿Âµµ
-				// ÃÖÀú¿Âµµ
+				Double TempM = Double.parseDouble(tmx);// ë°›ì•„ì˜¨ ì˜¨ë„
+				// ìµœì €ì˜¨ë„
 				String tmn = pub.get("tmn");
 				tmn = tmn.replace('"', ' ');
-				Double TempN = Double.parseDouble(tmn);// ¹Ş¾Æ¿Â ¿Âµµ
+				Double TempN = Double.parseDouble(tmn);// ë°›ì•„ì˜¨ ì˜¨ë„
 
 				if (tmpWfDay.equals("0")) {
 					switch (tmpWfHour) {
 					case ("3"): {
-
+						if (result == 1)
+							break;
 						wfKor[0] = tmpWfKor;
+						System.out.println("wfKor[0]->" + wfKor[0]);
 						imgWfKor[0] = tmpImgWfKor;
 						rs[0] = Rs;
 						Temp1 = Temp;
+						result = 1;
 						// System.out.println(tmpWfDay);
 					}
 					case ("6"): {
+						if (result == 1)
+							break;
 						wfKor[0] = tmpWfKor;
+						System.out.println("wfKor[0]->" + wfKor[0]);
 						imgWfKor[0] = tmpImgWfKor;
 						rs[0] = Rs;
 						if (Temp1 == -100.0)
 							Temp1 = Temp;
 						else
 							break;
+						result = 1;
 						// System.out.println(tmpWfDay);
 
 					}
 					case ("9"): {
+						if (result == 1)
+							break;
 						wfKor[0] = tmpWfKor;
+						System.out.println("wfKor[0]->" + wfKor[0]);
 						imgWfKor[0] = tmpImgWfKor;
 						rs[0] = Rs;
 						if (Temp1 == -100.0)
 							Temp1 = Temp;
 						else
 							break;
+						result = 1;
 						// System.out.println(tmpWfDay);
 
 					}
 					case ("12"): {
+						if (result == 1)
+							break;
 						wfKor[0] = tmpWfKor;
+						System.out.println("wfKor[0]->" + wfKor[0]);
 						imgWfKor[0] = tmpImgWfKor;
 						rs[0] = Rs;
 						if (Temp1 == -100.0)
 							Temp1 = Temp;
 						else
 							break;
+						result = 1;
 						// System.out.println(tmpWfDay);
 
 					}
 					case ("15"): {
+						if (result == 1)
+							break;
 						wfKor[0] = tmpWfKor;
+						System.out.println("wfKor[0]->" + wfKor[0]);
 						imgWfKor[0] = tmpImgWfKor;
 						rs[0] = Rs;
 						if (Temp1 == -100.0)
 							Temp1 = Temp;
 						else
 							break;
+						result = 1;
 						// System.out.println(tmpWfDay);
 
 					}
 					case ("18"): {
+						if (result == 1)
+							break;
 						wfKor[0] = tmpWfKor;
+						System.out.println("wfKor[0]->" + wfKor[0]);
 						imgWfKor[0] = tmpImgWfKor;
 						rs[0] = Rs;
 						if (Temp1 == -100.0)
 							Temp1 = Temp;
 						else
 							break;
+						result = 1;
 						// System.out.println(tmpWfDay);
 
 					}
 					case ("21"): {
+						if (result == 1)
+							break;
 						wfKor[0] = tmpWfKor;
+						System.out.println("wfKor[0]->" + wfKor[0]);
 						imgWfKor[0] = tmpImgWfKor;
 						rs[0] = Rs;
 						if (Temp1 == -100.0)
 							Temp1 = Temp;
 						else
 							break;
+						result = 1;
 						// System.out.println(tmpWfDay);
 
 					}
 					}
 				}
-				// ³»ÀÏ³¯¾¾Á¤º¸¹Ş±â
+				// ë‚´ì¼ë‚ ì”¨ì •ë³´ë°›ê¸°
 				if (tmpWfDay.equals("1")) {
 					wfKor[1] = tmpWfKor;
 					imgWfKor[1] = tmpImgWfKor;
@@ -283,7 +313,7 @@ public class WeatherAction implements CommandProcess {
 
 				}
 
-				// ¸ğ·¹ ³¯¾¾ Á¤º¸ ¹Ş±â
+				// ëª¨ë ˆ ë‚ ì”¨ ì •ë³´ ë°›ê¸°
 				if (!tmpWfKor.equals("") && tmpWfDay.equals("2")) {
 					wfKor[2] = tmpWfKor;
 					imgWfKor[2] = tmpImgWfKor;
@@ -296,90 +326,100 @@ public class WeatherAction implements CommandProcess {
 
 			}
 
-			// ÁÖ°£³¯¾¾Á¤º¸
+			// ì£¼ê°„ë‚ ì”¨ì •ë³´
 			for (int i = 0; i < pubList1.size(); i++) {
 				HashMap<String, String> pub1 = pubList1.get(i);
 				// "tmEf", "wf","tmx","tmn","rnSt"
 
 				String tmpWf = pub1.get("wf");
+				tmpWf = tmpWf.replace('"', ' ');
 				if (tmpWf == null)
 					tmpWf = "";
 
-				String tmpImgWfKor = "ico01";
+				String tmpImgWfKor1 = "images/ico01.png";
 
-				if (tmpWf.equals("±¸¸§ Á¶±İ"))
-					tmpImgWfKor = "ico02";
-				else if (tmpWf.equals("±¸¸§ ¸¹À½"))
-					tmpImgWfKor = "ico03";
-				else if (tmpWf.equals("Èå¸²"))
-					tmpImgWfKor = "ico04";
-				else if (tmpWf.equals("ºñ"))
-					tmpImgWfKor = "ico05";
-				else if (tmpWf.equals("´«/ºñ"))
-					tmpImgWfKor = "ico06";
-				else if (tmpWf.equals("´«"))
-					tmpImgWfKor = "ico07";
+				if (tmpWf.equals("êµ¬ë¦„ì¡°ê¸ˆ"))
+					tmpImgWfKor1 = "images/ico02.png";
+				else if (tmpWf.equals("êµ¬ë¦„ë§ìŒ"))
+					tmpImgWfKor1 = "images/ico03.png";
+				else if (tmpWf.equals("íë¦¼"))
+					tmpImgWfKor1 = "images/ico04.png";
+				else if (tmpWf.equals("ë¹„"))
+					tmpImgWfKor1 = "images/ico05.png";
+				else if (tmpWf.equals("ëˆˆ/ë¹„"))
+					tmpImgWfKor1 = "images/ico06.png";
+				else if (tmpWf.equals("ëˆˆ"))
+					tmpImgWfKor1 = "images/ico07.png";
 
 				String tmEf = pub1.get("tmEf");
 				// System.out.println(tmEf);
 				int idx = tmEf.indexOf(" ");
 				String day = tmEf.substring(0, idx);
-				// System.out.println("tmEf1 : "+day);
-				
-			//	System.out.println("³¯Â¥°Ë»ç1->" + day5);
-			//	System.out.println("³¯Â¥°Ë»ç2->" + day6);
+				System.out.println("tmEf1 : " + day);
+
+				// System.out.println("ë‚ ì§œê²€ì‚¬1->" + day5);
+				// System.out.println("ë‚ ì§œê²€ì‚¬2->" + day6);
 
 				String rsWfRS = pub1.get("rnSt");
 				// System.out.println("rsWfRS->" + rsWfRS);
-				if (rsWfRS == null)
-					break;
-				Double Rs = Double.parseDouble(rsWfRS);// ¹Ş¾Æ¿Â °­¼ö·®
+				Double Rs = Double.parseDouble(rsWfRS);// ë°›ì•„ì˜¨ ê°•ìˆ˜ëŸ‰
 
-				// ÃÖ°í¿Âµµ
+				// ìµœê³ ì˜¨ë„
 				String tmx = pub1.get("tmx");
 				// System.out.println(tmx);
 				tmx = tmx.replace('"', ' ');
-				Double TempM = Double.parseDouble(tmx);// ¹Ş¾Æ¿Â ¿Âµµ
-				// ÃÖÀú¿Âµµ
+				Double TempM = Double.parseDouble(tmx);// ë°›ì•„ì˜¨ ì˜¨ë„
+				// ìµœì €ì˜¨ë„
 				String tmn = pub1.get("tmn");
 				tmn = tmn.replace('"', ' ');
-				Double TempN = Double.parseDouble(tmn);// ¹Ş¾Æ¿Â ¿Âµµ
+				Double TempN = Double.parseDouble(tmn);// ë°›ì•„ì˜¨ ì˜¨ë„
 
 				String ct = pub1.get("city");
 
-				if (day.compareTo(day4) == 0 && city == ct) {
+				if (day.compareTo(day4) == 0 && city.equals(ct)) {
 					wfKor[3] = tmpWf;
-					imgWfKor[3] = tmpImgWfKor;
+					imgWfKor[3] = tmpImgWfKor1;
 					rs[3] = Rs;
 					Tmx[2] = TempM;
 					Tmn[2] = TempN;
+			//		System.out.println("------------------------------------------------4"+wfKor[3]+imgWfKor[3]+rs[3]+Tmx[2]+Tmn[2]);
+					result++;
 				}
-				if (day.compareTo(day5) == 0 && city == ct) {
+				if (day.compareTo(day5) == 0 && city.equals(ct)) {
 					wfKor[4] = tmpWf;
-					imgWfKor[4] = tmpImgWfKor;
+					imgWfKor[4] = tmpImgWfKor1;
 					rs[4] = Rs;
 					Tmx[3] = TempM;
 					Tmn[3] = TempN;
+			//		System.out.println("------------------------------------------------5"+wfKor[4]+imgWfKor[4]+rs[4]+Tmx[3]+Tmn[3]);
+					result++;
 				}
-				if (day.compareTo(day6) == 0 && city == ct) {
+				if (day.compareTo(day6) == 0 && city.equals(ct)) {
 					wfKor[5] = tmpWf;
-					imgWfKor[5] = tmpImgWfKor;
+					imgWfKor[5] = tmpImgWfKor1;
 					rs[5] = Rs;
-			///		System.out.println("¿Âµµµé1" + TempM + " " + TempN);
+					/// System.out.println("ì˜¨ë„ë“¤1" + TempM + " " + TempN);
 					Tmx[4] = TempM;
 					Tmn[4] = TempN;
+			//		System.out.println("------------------------------------------------6"+wfKor[5]+imgWfKor[5]+rs[5]+Tmx[4]+Tmn[4]);
+					result++;
 				}
-				if (day.compareTo(day7) == 0 && city == ct) {
+				if (day.compareTo(day7) == 0 && city.equals(ct)) {
 					wfKor[6] = tmpWf;
-					imgWfKor[6] = tmpImgWfKor;
+					imgWfKor[6] = tmpImgWfKor1;
 					rs[6] = Rs;
-			//		System.out.println("¿Âµµµé2" + TempM + " " + TempN);
+					// System.out.println("ì˜¨ë„ë“¤2" + TempM + " " + TempN);
 					Tmx[5] = TempM;
 					Tmn[5] = TempN;
+				//	System.out.println("------------------------------------------------7"+wfKor[6]+imgWfKor[6]+rs[6]+Tmx[5]+Tmn[5]);
+					result++;
+				}
+				if(result==9) {
+					break;
 				}
 
 			}
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd E¿äÀÏ");
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd Eìš”ì¼");
 			day1 = sdf.format(c1.getTime());
 			day2 = sdf.format(c2.getTime());
 			day3 = sdf.format(c3.getTime());
@@ -426,7 +466,24 @@ public class WeatherAction implements CommandProcess {
 			request.setAttribute("day6", day6);
 			request.setAttribute("day7", day7);
 
-			System.out.println("Tmx[0]->"+Tmx[0]);
+			request.setAttribute("wfKor0", wfKor[0]);
+			request.setAttribute("wfKor1", wfKor[1]);
+			request.setAttribute("wfKor2", wfKor[2]);
+			request.setAttribute("wfKor3", wfKor[3]);
+			request.setAttribute("wfKor4", wfKor[4]);
+			request.setAttribute("wfKor5", wfKor[5]);
+			request.setAttribute("wfKor6", wfKor[6]);
+
+			request.setAttribute("imgWfKor0", imgWfKor[0]);
+			request.setAttribute("imgWfKor1", imgWfKor[1]);
+			request.setAttribute("imgWfKor2", imgWfKor[2]);
+			request.setAttribute("imgWfKor3", imgWfKor[3]);
+			request.setAttribute("imgWfKor4", imgWfKor[4]);
+			request.setAttribute("imgWfKor5", imgWfKor[5]);
+			request.setAttribute("imgWfKor6", imgWfKor[6]);
+			/*for(int i = 0;i<6;i++)
+				System.out.println("ì˜¨ë„Tmx"+i+" "+Tmx[i]);
+*/
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

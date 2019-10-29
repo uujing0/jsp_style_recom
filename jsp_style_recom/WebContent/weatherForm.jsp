@@ -10,12 +10,18 @@
 		width: 100px;
 		height: 23px;
 	}
+	div#selector{
+		float:left;
+		padding-top:1%;
+		padding-left:15%;
+	}
 </style>
 </head>
 <body>
+<div id="selector">
 <form action="weather.do">
-<select name="sido" id="search_area" class="search_area" title="시도 선택">
-		<option value="4281025000">강원도</option>
+지역 <select name="sido">
+		<option value="4281025000" >강원도</option>
 		<option value="4125053500">경기북부</option>
 		<option value="4111759600">경기남부</option>
 		<option value="4817074000">경상남도</option>
@@ -36,5 +42,6 @@
 	</select>
 	<input type="submit" value="검색">
 </form>
+</div>
 </body>
 </html>

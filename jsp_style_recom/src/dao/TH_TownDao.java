@@ -13,41 +13,41 @@ public class TH_TownDao {
 		String city = "";
 
 		if (addr.equals( "4281025000"))
-			city = "°­¿øµµ";
+			city = "ê°•ë¦‰";
 		else if (addr.equals( "4125053500"))
-			city = "ÆÄÁÖ";
+			city = "íŒŒì£¼";
 		else if (addr.equals( "4111759600"))
-			city = "¼ö¿ø";
+			city = "ìˆ˜ì›";
 		else if (addr.equals( "4817074000"))
-			city = "ÁøÁÖ";
+			city = "ì§„ì£¼";
 		else if (addr.equals( "4717069000"))
-			city = "¾Èµ¿";
+			city = "ì•ˆë™";
 		else if (addr.equals( "2920054000"))
-			city = "±¤ÁÖ";
+			city = "ê´‘ì£¼";
 		else if (addr.equals( "2720065000"))
-			city = "´ë±¸";
+			city = "ëŒ€êµ¬";
 		else if (addr.equals( "3023052000"))
-			city = "´ëÀü";
+			city = "ëŒ€ì „";
 		else if (addr.equals("2644058000"))
-			city = "ºÎ»ê";
+			city = "ë¶€ì‚°";
 		else if (addr.equals( "1168066000"))
-			city = "¼­¿ï";
+			city = "ì„œìš¸";
 		else if (addr.equals( "3611055000"))
-			city = "¼¼Á¾";
+			city = "ì„¸ì¢…";
 		else if (addr.equals( "3114056000"))
-			city = "¿ï»ê";
+			city = "ìš¸ì‚°";
 		else if (addr.equals( "2871025000"))
-			city = "ÀÎÃµ";
+			city = "ì¸ì²œ";
 		else if (addr.equals( "4681025000"))
-			city = "¸ñÆ÷";
+			city = "ëª©í¬";
 		else if (addr.equals( "4579031000"))
-			city = "±º»ê";
+			city = "êµ°ì‚°";
 		else if (addr.equals( "5013025300"))
-			city = "Á¦ÁÖ";
+			city = "ì œì£¼";
 		else if (addr.equals( "4480038000"))
-			city = "È«¼º";
+			city = "í™ì„±";
 		else if (addr.equals( "4376031000"))
-			city = "±«»ê";
+			city = "ê´´ì‚°";
 		return city;
 	}
 }

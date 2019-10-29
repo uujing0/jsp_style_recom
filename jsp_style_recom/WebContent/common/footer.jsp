@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
 <style type="text/css">
 footer{
+	float:left;
+	width:92%;
 	padding: 4%;
 	background-color: #D5D5D5;
 	
@@ -18,13 +16,14 @@ footer{
 	float: left
 }
 #footer_center{
+	float:left;
 	margin-left: 140px;
 	margin-right: 140px;
 	text-align: center;
 }
 
 </style>
-</head>
+
 <footer>
 	<div id="footer_right">
 		<div id="member_space">
@@ -41,4 +40,3 @@ footer{
 		footer
 	</div>
 </footer>
-</html>
