@@ -7,13 +7,13 @@
 <c:if test="${mem_pw != null }">
 	<script type="text/javascript">
 		alert("당신의 패스워드는 ${mem_pw} 입니다.");  
-		history.go(-1);
+		history.go(-2);
 	</script>
 </c:if>
 <c:if test="${mem_pw == null }">  
 	<script type="text/javascript">
 		alert("아이디가 없습니다.");  
-		history.go(-1);
+		history.go(-2);
 	</script>
 </c:if>
 </body>

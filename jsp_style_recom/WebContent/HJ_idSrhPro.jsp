@@ -7,13 +7,13 @@
 <c:if test="${mem_id != null }">
 	<script type="text/javascript">
 		alert("당신의 아이디는 ${mem_id} 입니다.");  
-		history.go(-1);
+		history.go(-2);
 	</script>
 </c:if>
 <c:if test="${mem_id == null }">  
 	<script type="text/javascript">
 		alert("아이디가 없습니다.");  
-		history.go(-1);
+		history.go(-2);
 	</script>
 </c:if>
 </body>
