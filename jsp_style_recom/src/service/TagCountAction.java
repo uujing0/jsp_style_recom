@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.HotTag;
 import dao.HotTagDao;
 
 public class TagCountAction implements CommandProcess{
@@ -15,11 +16,12 @@ public class TagCountAction implements CommandProcess{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String returnPage = "main.jsp";
+		String returnPage = "main.do";
 		String search_word = request.getParameter("search_word");
+		String search_target = request.getParameter("search_target");
 		
 		//검색시 선택한 항목에따라 리턴하는 페이지가 달라진다. 0:스타일 검색 1:게시글 검색
-		if(Integer.parseInt(request.getParameter("search_target")) == 0) {
+		if(search_target.equals("0")) {
 			//returnPage = "style.jsp";
 			System.out.println("스타일 검색");
 		}else {
@@ -27,12 +29,17 @@ public class TagCountAction implements CommandProcess{
 			System.out.println("게시판 검색");
 		}
 		
-		//검색단어와 연관된 태그의 카운터를 증가시키는 함수
 		try {
-			HotTagDao.count(search_word);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			HotTagDao ht = HotTagDao.getInstance();
+			int result = ht.count(search_word);
+			if(result > 0 ) {
+				System.out.println("HotTagDao.count success");
+			}else {
+				System.out.println("HotTagDao.count failed");
+			}
+		} catch (Exception e) {
+			System.out.println("HotTagDao.count error : "+e.getMessage());
 		}
 		
 		//검색 결과 페이지로 검색 단어를 get방식으로 전송한다.

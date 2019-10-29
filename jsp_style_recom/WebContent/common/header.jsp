@@ -349,13 +349,13 @@ header a:active{color: black; text-decoration: none;}
 	</div>
 	<br>
 	<div id="search_bar">
-		<form action="main.do">
+		<form action="search.do" method="get">
 			<input type="submit" value="검색" id="search_button">
-			<select id="search_target">
-				<option value="0">스타일</option>
+			<select id="search_target" name="search_target">
+				<option value="0" selected="selected">스타일</option>
 				<option value="1">게시판</option>
 			</select>
-			<input type="text" id="search_word" class= "search_word" value="">
+			<input type="text" id="search_word" name="search_word" class= "search_word" value="">
 		</form>
 		<div id="gender_selector">
 			<button id="gender_selector_male">남</button>
