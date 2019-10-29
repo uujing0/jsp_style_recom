@@ -4,51 +4,71 @@
 
 		
 		<div id="today">
-			<span style="font-weight:bold">${day1 }</span><br>${wfKor0 }<br> ${Temp1}&deg;C<br> 강수확률 :
-			${rs0 }%<br> <img alt="" src="${imgWfKor0 }"><p>
-			스타일<p>추천<p>사진<p>들어갈곳<p>사진<p>몇개<p>넣을까요
+			<p style="font-size:25px;">오늘</p><span style="font-size:25px;">${day1 }</span><br><br>
+			<img alt="" src="${imgWfKor0 }" align="left">
+			<span style="font-size:23px">${wfKor0 }</span><br>${Temp1}&deg;C<br>강수확률<br>${rs0 }%<br>
+			<br>스타일<p><br>추천<p><br>사진<p>들어갈곳<p>사진<p>몇개<p>넣을까요
 		</div>
 		<div id="day">
 			<div id="day_top">
-				<span style="font-weight:bold">${day2 }</span><br>${wfKor1 }<br> 최고온도 : ${Tmx0}&deg;C<br>
-				최저온도 : ${Tmn0 }&deg;C<br> 강수확률 : ${rs1 }%<br> 
-				<img alt="" src="${imgWfKor1 }"><p>
-			스타일사진<p>들어갈곳
+				<span style="font-size:16px;">${day2 }</span><br>
+				<img alt="" src="${imgWfKor1 }" align="left">
+				<span style="font-size:16px">${wfKor1 }</span><br>
+				<span style="color:red;">${Tmx0}&deg;C</span><br><span style="color:blue;">${Tmn0 }&deg;C</span>
+				<br> 강수확률<br>${rs1 }%<br> 
+				<p><br><br><br><br>
+			스타일사진<p>들어갈곳<br><br><br>
 
 			</div>
 
 			<div id="day_top">
-				<span style="font-weight:bold">${day3 }</span><br>${wfKor2 }<br>${Tmx1}&deg;C/${Tmn1 }&deg;C<br> 강수확률 : ${rs2 }%<br> 
-				<img alt="" src="${imgWfKor2 }"><p>
-			스타일사진<p><br>들어갈곳
+				<span style="font-size:16px;">${day3 }</span><br>
+				<img alt="" src="${imgWfKor2 }" align="left">
+				<span style="font-size:16px">${wfKor2 }</span><br>
+				<span style="color:red;">${Tmx1}&deg;C</span><br><span style="color:blue;">${Tmn1 }&deg;C</span>
+				<br> 강수확률<br>${rs2 }%<br> 
+				<p><br><br><br><br>
+			스타일사진<p>들어갈곳<br><br><br>
 			</div>
 
 			<div id="day_top">
-				<span style="font-weight:bold">${day4 }</span><br>${wfKor3 }<br> 최고온도 : ${Tmx2}&deg;C<br>
-				최저온도 : ${Tmn2 }&deg;C<br> 강수확률 : ${rs3 }%<br> 
-				<img alt="" src="${imgWfKor3 }"><p>
-			스타일사진<p>들어갈곳
+				<span style="font-size:16px;">${day4 }</span><br>
+				<img alt="" src="${imgWfKor3 }" align="left">
+				<span style="font-size:16px">${wfKor3 }</span><br>
+				<span style="color:red;">${Tmx2}&deg;C</span><br><span style="color:blue;">${Tmn2 }&deg;C</span>
+				<br> 강수확률<br>${rs3 }%<br> 
+				<p><br><br><br><br>
+			스타일사진<p>들어갈곳<br><br><br>
 			</div>
 
 			<div id="day_bottom">
-				<span style="font-weight:bold">${day5 }</span><br>${wfKor4 }<br> 최고온도 : ${Tmx3}&deg;C<br>
-				최저온도 : ${Tmn3 }&deg;C<br> 강수확률 : ${rs4 }%<br> 
-				<img alt="" src="${imgWfKor4 }"><p>
-			스타일사진<p>들어갈곳
+				<span style="font-size:16px;">${day5 }</span><br>
+				<img alt="" src="${imgWfKor4 }" align="left">
+				<span style="font-size:16px">${wfKor4 }</span><br>
+				<span style="color:red;">${Tmx3}&deg;C</span><br><span style="color:blue;">${Tmn3 }&deg;C</span>
+				<br> 강수확률<br>${rs4 }%<br> 
+				<p><br><br><br><br>
+			스타일사진<p>들어갈곳<br><br><br>
 			</div>
 
 			<div id="day_bottom">
-				<span style="font-weight:bold">${day6 }</span><br>${wfKor5 }<br> 최고온도 : ${Tmx4}&deg;C<br>
-				최저온도 : ${Tmn4 }&deg;C<br> 강수확률 : ${rs5 }%<br> 
-				<img alt="" src="${imgWfKor5 }"><p>
-			스타일사진<p>들어갈곳
+				<span style="font-size:16px;">${day6 }</span><br>
+				<img alt="" src="${imgWfKor5 }" align="left">
+				<span style="font-size:16px">${wfKor5 }</span><br>
+				<span style="color:red;">${Tmx4}&deg;C</span><br><span style="color:blue;">${Tmn4 }&deg;C</span>
+				<br> 강수확률<br>${rs5 }%<br> 
+				<p><br><br><br><br>
+			스타일사진<p>들어갈곳<br><br><br>
 			</div>
 
 			<div id="day_bottom">
-				<span style="font-weight:bold">${day7 }</span><br>${wfKor6 }<br> 최고온도 : ${Tmx5}&deg;C<br>
-				최저온도 : ${Tmn5 }&deg;C<br> 강수확률 : ${rs6 }%<br> 
-				<img alt="" src="${imgWfKor6 }"><p>
-			스타일사진<p>들어갈곳
+				<span style="font-size:16px;">${day7 }</span><br>
+				<img alt="" src="${imgWfKor6 }" align="left">
+				<span style="font-size:16px">${wfKor6 }</span><br>
+				<span style="color:red;">${Tmx5}&deg;C</span><br><span style="color:blue;">${Tmn5 }&deg;C</span>
+				<br> 강수확률<br>${rs6 }%<br> 
+				<p><br><br><br><br>
+			스타일사진<p>들어갈곳<br><br><br>
 			</div>
 		</div>
 

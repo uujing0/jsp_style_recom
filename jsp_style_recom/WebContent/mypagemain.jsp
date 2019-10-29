@@ -12,8 +12,8 @@
 
 </head>
 <%@include file="/common/header.jsp"%>
-<body bgcolor="#FFEEE4">
-<%@include file="weatherForm.jsp"%>	
+<body>
+<%@include file="weatherForm.jsp"%><pre style="font-size:18px;font-weight:bold;">                      ${city }날씨</pre>	
 <div id="content">
 <div id="side_left">
 			<div id="head">마이페이지</div>

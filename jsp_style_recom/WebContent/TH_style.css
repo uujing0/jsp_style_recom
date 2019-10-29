@@ -1,6 +1,8 @@
 @charset "UTF-8";
+@font-face { font-family: 'NanumGothic'; src: url(fonts/NanumGothic.ttf) format('truetype'); }
+
 div {
-	text-align: center;
+	font-family: NanumGothic;
 }
 a:link{
 	text-decoration:none;
@@ -36,18 +38,20 @@ div#side_left {
 }
 
 #today {
-	font-size:20px;
+	font-weight:bold;
+	font-size:20.5px;
 	border:solid;
 	width: 24%;
 	height: 65%;
 	border-color: #d5d5d5;
 	float: left;
 	border-radius:10px;
-	float: left;
 	margin-left: 1.2%;
 	margin-top: 1%;
 	margin-bottom: 0.8%;
 	background-color: white;
+	text-align: center;
+	padding-top: 1.5%;
 }
 
 #recent_style {
@@ -62,7 +66,8 @@ div#side_left {
 }
 
 #day {
-	font-size:13px;
+	font-weight:bold;
+	font-size:15px;
 	margin-left: 1%;
 	width: 73%;
 	float: left;
@@ -79,6 +84,7 @@ div#side_left {
 	background-color: white;
 	float: left;
 	padding: 1%;
+	text-align: center;
 }
 
 #day_bottom {
@@ -91,6 +97,7 @@ div#side_left {
 	border-radius:10px;
 	float: left;
 	padding: 1%;
+	text-align: center;
 }
 
 #content {
@@ -101,6 +108,7 @@ div#side_left {
 img{
 	width: 103.922px;
 	height: 104.656px;
+	align:left;
 }
 #bookmark {
 	border:solid;

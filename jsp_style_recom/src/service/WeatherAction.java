@@ -481,6 +481,8 @@ public class WeatherAction implements CommandProcess {
 			request.setAttribute("imgWfKor4", imgWfKor[4]);
 			request.setAttribute("imgWfKor5", imgWfKor[5]);
 			request.setAttribute("imgWfKor6", imgWfKor[6]);
+			city=TD.location(addr);
+			request.setAttribute("city", city);
 			/*for(int i = 0;i<6;i++)
 				System.out.println("온도Tmx"+i+" "+Tmx[i]);
 */
