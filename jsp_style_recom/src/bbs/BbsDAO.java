@@ -20,8 +20,8 @@ public class BbsDAO {
 
 	public BbsDAO() {
 		try {
-			String dbURL = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
-			String dbID = "scott";
+			String dbURL = "jdbc:oracle:thin:@211.183.2.63:1521:xe";
+			String dbID = "J20191001";
 			String dbPassword = "tiger";
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -44,7 +44,7 @@ public class BbsDAO {
 	}
 
 	public int getNext() {
-		String SQL = "SELECT bd_id FROM board ORDER BY bd_id DESC";
+		String SQL = "SELECT bd_id FROM board ORDER BY bd_id DESC"; 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			rs = pstmt.executeQuery();

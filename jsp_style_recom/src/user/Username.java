@@ -2,12 +2,18 @@ package user;
 
 public class Username {
 private String userID;
-private String UserPassword;
+private String mem_pw;
 private String UserName;
 private String userGender;
 private String userEmail;
 private String mem_id;
 
+public String getMem_pw() {
+	return mem_pw;
+}
+public void setMem_pw(String mem_pw) {
+	this.mem_pw = mem_pw;
+}
 public String getMem_id() {
 	return mem_id;
 }
@@ -19,12 +25,6 @@ public String getUserID() {
 }
 public void setUserID(String userID) {
 	this.userID = userID;
-}
-public String getUserPassword() {
-	return UserPassword;
-}
-public void setUserPassword(String userPassword) {
-	UserPassword = userPassword;
 }
 public String getUserName() {
 	return UserName;

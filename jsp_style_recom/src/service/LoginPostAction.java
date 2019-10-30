@@ -17,7 +17,7 @@ public class LoginPostAction implements CommandProcess{
 		
 		System.out.println("mem_id: " + request.getParameter("mem_id"));
 		
-		int result = userDAO.login((String) request.getParameter("mem_id"), (String) request.getParameter("userPassword")); 
+		int result = userDAO.login((String) request.getParameter("mem_id"), (String) request.getParameter("mem_pw")); 
 		 /* login ���������� ID, Password �Էµ� ������ �Ѿ�ͼ� login�Լ��� �־ ����
 		 -2(DB����), -1(���̵� ����), 0(�α��� ����), 1(�α��� ����)�� ����*/
 		
