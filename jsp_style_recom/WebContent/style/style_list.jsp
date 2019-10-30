@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>추천 리스트 뷰</title>
+<title>추천 리스트</title>
 <script type="text/javascript">
 
 </script>
@@ -85,6 +85,14 @@ border:none;
 	background-color:gray; 
 
 } 
+select{
+      width: 100px;
+      height: 25px;
+      border-radius: 5px;
+      
+      border:solid;
+      border-color: #CE6D39;
+   }
 
 /* #body_hh_1_2{
     margin-left: 50px;

@@ -316,7 +316,7 @@ header a:active{color: black; text-decoration: none;}
 <div id="header_left">
 	<div id="header_logo">
 		<a href="main.do">
-			<img alt="dog_icon" src="images/dog_icon.png" id="dog_icon">
+			<img alt="dog_icon" src="../images/dog_icon.png" id="dog_icon">
 			<span id="logo_title">웰시코디</span>
 		</a>
 	</div>
@@ -324,7 +324,7 @@ header a:active{color: black; text-decoration: none;}
 
 <div id="header_right">
 	<div id="weather_today">
-		<img alt="sun_icon" src="images/sun_icon.png" id="sun_icon" height="50px" width="50px"> 
+		<img alt="sun_icon" src="../images/sun_icon.png" id="sun_icon" height="50px" width="50px"> 
 	</div>
 	<br>
 	<div id="member_space">
