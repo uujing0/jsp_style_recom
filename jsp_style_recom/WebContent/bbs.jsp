@@ -119,25 +119,25 @@
 			<table class="table" style="text-align:center; border: 4px; border-style:double; border-width: thick;">
 	<tbody>
 				<tr>
-							   <td colspan="5" style="background-color: #F17F42; color : black;text-align:center; font-style: italic;
-							   font-size: 20px; font-weight: bold;" > 공지사항</td>
+							   <td colspan="5" style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; " > NOTICE</td>
 					
 					
 				</tr>
 				<tr>
-					<th style="background-color: #F17F42; color : black;text-align:center; font-style: italic;
-							   font-size: 20px; font-weight: bold;">번호</th>
+					<th style="background-color: #F17F42; color : white; text-align:center; font-style: italic;
+							   font-size: 15px; ">NO</th>
 							   
-					<th style="background-color: #F17F42; color : black;text-align:center; font-style: italic;
-							   font-size: 20px; font-weight: bold;">제목</th>
+					<th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">SUBJECT</th>
 							   
-					<th style="background-color: #F17F42; color : black;text-align:center; font-style: italic;
-							   font-size: 20px; font-weight: bold;">작성자</th>
+					<th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">WRITER</th>
 							   
-					<th style="background-color: #F17F42; color : black;text-align:center; font-style: italic;
-							   font-size: 20px; font-weight: bold;">작성일</th>
-							   <th style="background-color: #F17F42; color : black;text-align:center; font-style: italic;
-							   font-size: 20px; font-weight: bold;">조회수</th>
+					<th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px;">DATE</th>
+							   <th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">HIT</th>
 					
 				</tr>
 			</tbody>		
@@ -165,19 +165,19 @@
 			
 			<thead>
 				<tr>
-					<th style="background-color: #F17F42; color : black;text-align:center; font-style: italic;
-							   font-size: 20px; font-weight: bold;">번호</th>
+					<th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">NO</th>
 							   
-					<th style="background-color: #F17F42; color : black;text-align:center; font-style: italic;
-							   font-size: 20px; font-weight: bold;">제목</th>
+					<th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">SUBJECT</th>
 							   
-					<th style="background-color: #F17F42; color : black;text-align:center; font-style: italic;
-							   font-size: 20px; font-weight: bold;">작성자</th>
+					<th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">WRITER</th>
 							   
-					<th style="background-color: #F17F42; color : black;text-align:center; font-style: italic;
-							   font-size: 20px; font-weight: bold;">작성일</th>
-							   <th style="background-color: #F17F42; color : black;text-align:center; font-style: italic;
-							   font-size: 20px; font-weight: bold;">조회수</th>
+					<th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">DATE</th>
+							   <th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">HIT</th>
 					
 				</tr>
 			</thead>

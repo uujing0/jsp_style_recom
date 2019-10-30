@@ -259,6 +259,7 @@ public class BbsDAO {
 				   + "     , bd_Content"
 				   + "     , bd_notice"
 				   + "     , bd_file_url"
+				   + "     , bd_readcount"
 				   + " FROM board "
 				   + "WHERE 1=1"
 				   + "  AND bd_id = ? "
@@ -276,6 +277,7 @@ public class BbsDAO {
 				board.setBd_content(rs.getString(5));
 				board.setBd_notice(rs.getString(6));
 				board.setBd_file_url(rs.getString(7));
+				board.setBd_readcount(rs.getInt(8));
 				return board;
 			}
 		} catch (Exception e) {

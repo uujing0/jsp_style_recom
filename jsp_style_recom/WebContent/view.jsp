@@ -140,24 +140,28 @@
 			<tbody>
 				<tr>
 					<td style = "width: 20%;">글 제목</td>
-					<td colspan="2"> ${board.bd_title}</td>
+					<td colspan="1"> ${board.bd_title}</td>
+					<td></td>
 				</tr>
 				
 				<tr>
 					<td>작성자</td>
-					<td colspan="2"> ${board.mem_id}</td>
+					<td colspan="1"> ${board.mem_id}</td>
+					<td></td>
 				</tr>			
 				
 				<tr>
-					<td>작성일자</td>
-					<td colspan="2">
+					<td>작성일</td>
+					<td colspan="1">
 					${board.bd_date}
+					<td>조회수 : ${board.bd_readcount} </td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td colspan="2" style="min-height: 200px;">
+					<td colspan="1" style="min-height: 200px;">
 					 ${board.bd_content}
 					 </td>
+					 <td></td>
 				</tr>
 							
 				<tr>
@@ -172,6 +176,7 @@
 							<br><br><input type="text" id="content" name="content"/>
 							<button id="write_comment" class="btn btn-warning btn-sm">댓글작성</button>
 						</td>
+						<td></td>
 					</c:if>
 					<c:if test="${mem_id == null}">
 						<td></td>
@@ -189,8 +194,9 @@
 								<c:if test="${mem_id == comment.mem_id}">
 									<button name="comment_delete" id="${comment.cm_id}" class="btn btn-warning btn-sm">댓글삭제</button> 					
 								</c:if>
-								<b>　　　　　작성자 :</b> ${comment.mem_id}　|<b>　작성일 :</b> ${comment.cm_date }
-							</td>
+								</td>
+								<td>　　　　　작성자 : ${comment.mem_id}　<br>　　　　　　　　　　　　　작성일 : ${comment.cm_date }</td>
+							
 						</tr>
 				
 				</c:forEach>
