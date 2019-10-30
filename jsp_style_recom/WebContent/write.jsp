@@ -23,7 +23,7 @@
         // instance, using default configuration.
         //CK에디터 파일 저장 URL설정 및 추가 플러그인 불러오기
         var editorConfig = {
-			filebrowserUploadUrl : "/borad/FileController?type=image", //이미지만 업로드
+			filebrowserUploadUrl : "FileController?type=image", //이미지만 업로드
 			extraPlugins : 'uploadimage',/* 
 			FilesystemEncoding: 'ko' */
 		};

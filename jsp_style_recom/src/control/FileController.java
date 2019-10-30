@@ -45,7 +45,7 @@ public class FileController extends HttpServlet {
 		File file = null;
 		
 		//���� ������ ���
-        String realPath = "C:\\jsp\\borad\\WebContent\\upload";
+        String realPath = "C:\\Users\\user\\git\\jsp_style_recom\\jsp_style_recom\\WebContent\\upload";
 		
 		System.out.println(realPath);
 		MultipartRequest multi = new MultipartRequest(request, realPath,
