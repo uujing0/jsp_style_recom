@@ -2,22 +2,30 @@ package bbs;
 
 import java.util.Date;
 
-/* 게시판 */
+/* 寃뚯떆�뙋 */
 
 public class Board {
-	private int bd_id; /* 게시글ID */
-	private String bd_date; /* 게시날짜 */
-	private String bd_title; /* 제목 */
-	private String bd_file_url; /* 파일주소 */
-	private String bd_content; /* 내용 */
-	private int bd_readcount; /* 조회수 */
-	private String bd_notice; /* 공지여부 */
+	private int bd_id; /* 寃뚯떆湲�ID */
+	private String bd_date; /* 寃뚯떆�궇吏� */
+	private String bd_title; /* �젣紐� */
+	private String bd_file_url; /* �뙆�씪二쇱냼 */
+	private String bd_content; /* �궡�슜 */
+	private int bd_readcount; /* 議고쉶�닔 */
+	private String bd_notice; /* 怨듭��뿬遺� */
 	private int bbsNO;
 	private String mem_id;
-	
-	
+	private int commentCount;
+
 	public String getMem_id() {
 		return mem_id;
+	}
+
+	public int getCommentCount() {
+		return commentCount;
+	}
+
+	public void setCommentCount(int commentCount) {
+		this.commentCount = commentCount;
 	}
 
 	public void setMem_id(String mem_id) {

@@ -119,16 +119,15 @@ public class BbsDAO {
 
 	public ArrayList<Board> getList() {
 		String SQL = "SELECT ROWNUM AS bbsNO"
-				   + "     , bd_id"
-				   + "     , bd_Title"
-				   + "     , mem_id"
-				   + "     , to_char(bd_date,'yyyy-mm-dd') as bd_date "
-				   + "     , bd_readcount"
-				   +       "  FROM ( SELECT *  "
-				   + "           FROM board "
-				   + "          WHERE 1=1 and bd_notice = 0"
-				   + "          ORDER BY 1 DESC)";
-
+				   + "     , b.bd_id"
+				   + "     , b.bd_Title"
+				   + "     , b.mem_id"
+				   + "     , to_char(b.bd_date,'yyyy-mm-dd') as bd_date "
+				   + "     , b.bd_readcount"
+				   + "     , (select count(*) from board_comment bc where b.bd_id = bc.bd_id) as commentCount"
+				   + "     from board b"
+				   + "     where b.BD_NOTICE = 0"
+				   + "     ORDER BY bd_id DESC";
 		ArrayList<Board> list = new ArrayList<Board>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -143,6 +142,7 @@ public class BbsDAO {
 				board.setMem_id(rs.getString(4));
 				board.setBd_date(rs.getString(5));
 				board.setBd_readcount(rs.getInt(6));
+				board.setCommentCount(rs.getInt(7));
 
 				list.add(board);
 			}
@@ -154,18 +154,19 @@ public class BbsDAO {
 		}
 		return list;
 	}
+	
 	public ArrayList<Board> getList2() {
 		String SQL = "SELECT ROWNUM AS bbsNO"
-				   + "     , bd_id"
-				   + "     , bd_Title"
-				   + "     , mem_id"
-				   + "     , to_char(bd_date,'yyyy-mm-dd') as bd_date "
-				   + "     , bd_readcount"
-				   +       "  FROM ( SELECT *  "
-				   + "           FROM board "
-				   + "          WHERE 1=1 and bd_notice = 1"
-				   + "          ORDER BY 1 DESC)";
-
+				   + "     , b.bd_id"
+				   + "     , b.bd_Title"
+				   + "     , b.mem_id"
+				   + "     , to_char(b.bd_date,'yyyy-mm-dd') as bd_date "
+				   + "     , b.bd_readcount"
+				   + "     , (select count(*) from board_comment bc where b.bd_id = bc.bd_id) as commentCount"
+				   + "     from board b"
+				   + "     where b.BD_NOTICE = 1"
+					+ "     ORDER BY bd_id DESC";
+				   
 		ArrayList<Board> list = new ArrayList<Board>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -180,7 +181,7 @@ public class BbsDAO {
 				board.setMem_id(rs.getString(4));
 				board.setBd_date(rs.getString(5));
 				board.setBd_readcount(rs.getInt(6));
-
+				board.setCommentCount(rs.getInt(7));
 				list.add(board);
 			}
 			rs.close();
@@ -369,20 +370,7 @@ public class BbsDAO {
 	}
 	return bd_id;
 	
-}	public int count(int bd_id)	{
-	String SQL = "select count(*)as count from boardcomment where cm_id =? ";
-	try {
-		
-		PreparedStatement pstmt = conn.prepareStatement(SQL);
-		pstmt.setInt(1, bd_id);
-		pstmt.executeUpdate();
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
-	return bd_id;
-	
-}
-	
+}	
 	public List<Board> list(int startRow, int endRow) throws SQLException {
 		List<Board> list = new ArrayList<Board>();
 		Connection conn = null;
@@ -436,5 +424,4 @@ public class BbsDAO {
 		}
 		return tot;
 	}
-	}
-
+}

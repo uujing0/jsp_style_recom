@@ -12,7 +12,14 @@ public class BoardComment {
 	private String cm_date; 	
 	private int available;/* 게시날짜 */
 	private String star;
+	private String count;
 	
+	public String getCount() {
+		return count;
+	}
+	public void setCount(String count) {
+		this.count = count;
+	}
 	public String getCm_date() {
 		return cm_date;
 	}

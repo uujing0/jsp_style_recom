@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" 
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -276,7 +275,7 @@ header a:active{color: black; text-decoration: none;}
 			<tr>
 				<td><a href="main.do">메인메뉴</a></td>
 				<td><a href="style.do">스타일 추천</a></td>
-				<td><a href="board.do">게시판</a></td>
+				<td><a href="bbs.do">게시판</a></td>
 				<td><a href="member.do">회원관리</a></td>
 				<td><a href="member.do">메뉴바미확정</a></td>
 			</tr>
