@@ -5,9 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>추천 리스트</title>
+
+<script type="text/javascript" src="../js/jquery.js"></script>  
 <script type="text/javascript">
 
+
+/* $('#sit1').click(function(){
+
+		var id = $('#id').val();
+		var sendData = 'id='+id;
+		$.post('style_list_action.jsp', sendData,
+				function(sit1){
+					$('#sit1').html(sit1);
+			
+				});	
+	
+}); */
 </script>
+
 <style type="text/css">
 #category_list{
 margin-top: 40px;
@@ -134,26 +149,24 @@ select{
 </form></td>
 </tr>
 <tr><th>상황별</th>
-<td>오피스룩</td>
-<td>웨딩하객/셀럽룩</td>
-<td>캠퍼스개강룩</td>
-<td>집근처마실룩</td>
-<td>피크닉룩</td>
+<td><input type="button" value="오피스룩" id="sit1"></td>
+<td><input type="button" value="웨딩하객/셀럽룩" id="sit2"></td>
+<td><input type="button" value="캠퍼스개강룩" id="sit3"></td>
+<td><input type="button" value="집근처마실룩" id="sit4"></td>
+<td><input type="button" value="피크닉룩" id="sit5"></td>
 </tr>
 <tr><th>체형별</th>
-<td>통통</td>
-<td>슬림</td>
-<td>키작은</td>
-<td>키큰</td>
+<td><input type="button" value="통통" id="body1"></td>
+<td><input type="button" value="슬림" id="body2"></td>
+<td><input type="button" value="키작은" id="body3"></td>
+<td><input type="button" value="키큰" id="body4"></td>
 </tr>
 <tr><th>분위기별</th>
-<td>모던시크</td>
-<td>상큼발랄</td>
-<td>심플베이직</td>
-<td>럭셔리</td>
-<td>러블리</td>
-</tr>
-<tr><th>태그별</th>
+<td><input type="button" value="모던시크" id="mood1"></td>
+<td><input type="button" value="상큼발랄" id="mood2"></td>
+<td><input type="button" value="심플베이직" id="mood3"></td>
+<td><input type="button" value="럭셔리" id="mood4"></td>
+<td><input type="button" value="러블리" id="mood5"></td>
 </tr>
 </table>
 
