@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bbs.BbsDAO;
+import dao.YJ_BbsDAO;
 
 public class ViewAction implements CommandProcess{
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		BbsDAO bbsDAO = new BbsDAO();
+		YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
 		
 		int bd_id = Integer.parseInt(request.getParameter("bd_id"));
 		bbsDAO.Views(bd_id);

@@ -3,22 +3,22 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   BbsDAO.java
 
-package bbs;
+package dao;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import bbs.Board;
+import dao.Board;
 
 // Referenced classes of package bbs:
 //            Bbs
 
-public class BbsDAO {
+public class YJ_BbsDAO {
 	private Connection conn;
 	private ResultSet rs;
 
-	public BbsDAO() {
+	public YJ_BbsDAO() {
 		try {
 			String dbURL = "jdbc:oracle:thin:@211.183.2.63:1521:xe";
 			String dbID = "J20191001";

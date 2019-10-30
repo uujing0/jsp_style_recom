@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import bbs.BbsDAO;
+import dao.YJ_BbsDAO;
 
 public class UpdatePostAction implements CommandProcess{
 
@@ -115,7 +115,7 @@ public class UpdatePostAction implements CommandProcess{
 		
 		int bd_id = Integer.parseInt(request.getParameter("bd_id"));
 		System.out.println("bd_id->"+bd_id);
-		BbsDAO bbsDAO = new BbsDAO();
+		YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
 		int result = bbsDAO.update(bd_id, request.getParameter("bd_title"), request.getParameter("bd_notice"),request.getParameter("bd_content"));
 		return "bbs.do";
 

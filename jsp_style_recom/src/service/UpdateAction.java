@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bbs.BbsDAO;
-import bbs.Board;
+import dao.YJ_BbsDAO;
+import dao.Board;
 
 public class UpdateAction implements CommandProcess{
 
@@ -35,7 +35,7 @@ public class UpdateAction implements CommandProcess{
 		if(bd_id == 0){
 		}
 		
-		BbsDAO bbsDAO = new BbsDAO();
+		YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
 		
 		Board board = bbsDAO.getBbs(bd_id);
 		System.out.println("bd_id->"+bd_id);

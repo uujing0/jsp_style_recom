@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bbs.BbsDAO;
+import dao.YJ_BbsDAO;
 
 public class DeleteCommentAction implements CommandProcess{
 
@@ -14,7 +14,7 @@ public class DeleteCommentAction implements CommandProcess{
 			throws ServletException, IOException {
 		int cm_id = Integer.parseInt(request.getParameter("cm_id"));
 		
-		BbsDAO bbsDAO = new BbsDAO();
+		YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
 		bbsDAO.deleteComment(cm_id);
 		return "";
 	}

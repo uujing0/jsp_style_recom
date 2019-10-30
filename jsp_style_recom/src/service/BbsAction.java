@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bbs.BbsDAO;
-import bbs.Board;
+import dao.YJ_BbsDAO;
+import dao.Board;
 
 public class BbsAction implements CommandProcess{
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		BbsDAO bd = new BbsDAO();
+		YJ_BbsDAO bd = new YJ_BbsDAO();
 		request.setAttribute("bbsList", bd.getList());
-		BbsDAO bd1 = new BbsDAO(); //�ȳ��ϼ��� �ϴ�
+		YJ_BbsDAO bd1 = new YJ_BbsDAO(); //�ȳ��ϼ��� �ϴ�
 		request.setAttribute("bbsList2", bd1.getList2()); 
 		return "bbs.jsp"; 
 	}

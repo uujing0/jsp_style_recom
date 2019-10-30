@@ -7,14 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bbs.BbsDAO;
-import bbs.Board;
+import dao.YJ_BbsDAO;
+import dao.Board;
 
 public class DeleteAction implements CommandProcess{
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		BbsDAO bbsDAO = new BbsDAO();
+		YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
 		HttpSession httpSession = request.getSession(true);
 		
 		String mem_id = (String) httpSession.getAttribute("mem_id"); //�ش� ������ ���� �ִ´�.

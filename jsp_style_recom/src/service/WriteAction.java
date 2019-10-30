@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import bbs.BbsDAO;
+import dao.YJ_BbsDAO;
 
 public class WriteAction implements CommandProcess{
 
@@ -84,7 +84,7 @@ public class WriteAction implements CommandProcess{
 		{
 			return "main.jsp";
 		}
-		BbsDAO bbsDAO = new BbsDAO();
+		YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
 		int result = bbsDAO.write(request.getParameter("bd_title"), mem_id, request.getParameter("bd_content"), "", 0, request.getParameter("bd_notice"));
 		
 		return "bbs.do";
