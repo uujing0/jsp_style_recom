@@ -17,7 +17,7 @@
 <div id="content">
 <div id="side_left">
 			<div id="head">마이페이지</div>
-			<div id="page"><a href="calendar.jsp">달력</a></div>
+			<div id="page"><a href="calendar.do">달력</a></div>
 			
 			<div id="page"><a href="myInfo.do">내정보</a></div>
 			

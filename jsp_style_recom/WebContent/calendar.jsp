@@ -8,11 +8,11 @@
 <link rel="stylesheet" type="text/css" href="TH_style.css" />
 </head>
 <%@include file="/common/header.jsp"%>
-<body bgcolor="#FFEEE4">
+<body>
 <div id="content">
 <div id="side_left">
 			<div id="head">마이페이지</div>
-			<div id="page"><a href="calendar.jsp">달력</a></div>
+			<div id="page"><a href="calendar.do">달력</a></div>
 			
 			<div id="page"><a href="myInfo.do">내정보</a></div>
 			
@@ -22,9 +22,9 @@
 		</div>
 
 <div id="center">	
-<div id="center">
-달력들어갈자리
-</div>
+
+<%@include file="TH_calendar.jsp"%>
+
 </div>
 	<div id="recent_style">
 			<div id="head">최근본옷</div><br>
