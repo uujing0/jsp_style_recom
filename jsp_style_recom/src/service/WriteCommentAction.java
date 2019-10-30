@@ -1,4 +1,4 @@
-package action;
+package service;
 
 import java.io.IOException;
 
@@ -8,10 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import bbs.BbsDAO;
 
-	public class WriteCommentAction implements Action {
+	public class WriteCommentAction implements CommandProcess{
 
-		@Override
-		public String process(HttpServletRequest request, HttpServletResponse response)
+		public String requestPro(HttpServletRequest request, HttpServletResponse response)
 				throws ServletException, IOException {
 			String mem_id = request.getParameter("mem_id");
 			String content = request.getParameter("content");

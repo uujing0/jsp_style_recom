@@ -35,7 +35,7 @@
 
 			
 			$.ajax({
-				url: "/borad/writeComment.do?content="+content+"&&mem_id="+mem_id+"&&bd_id="+bd_id+"&&cm_date="+cm_date+"&&star="+star,
+				url: "writeComment.do?content="+content+"&&mem_id="+mem_id+"&&bd_id="+bd_id+"&&cm_date="+cm_date+"&&star="+star,
 				type: "POST",
 				success : function(data){
 	 				location.reload();
@@ -46,7 +46,7 @@
 		$('button[name="comment_delete"]').click(function(){
 			var cm_id = $(this).attr("id");
 			$.ajax({
-				url: "/borad/deleteComment.do?cm_id="+cm_id,
+				url: "deleteComment.do?cm_id="+cm_id,
 				type: "POST",
 				success : function(data){
 					location.reload();
@@ -74,14 +74,14 @@
 				
 			</button>
 			
-			<a class="navbar-brand" href="/borad/bbs.do">JSP 게시판</a>
+			<a class="navbar-brand" href="bbs.do">JSP 게시판</a>
 				<!-- Bootstrap navbar 기본 메뉴바 -->
 		</div>
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav"> <!-- navbar-nav => 네비게이션 바의 메뉴 -->
-				<li><a href="/borad/main.do">메인</a></li>
-				<li class="active"><a href="/borad/bbs.do">게시판</a></li>
+				<li><a href="main.do">메인</a></li>
+				<li class="active"><a href="bbs.do">게시판</a></li>
 				<!-- 메뉴, 게시판의 main.jsp와 bbs.jsp의 파일로 각각 이동 -->
 			</ul>
 
@@ -97,8 +97,8 @@
 							<ul class="dropdown-menu">
 								<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
 						
-								<li><a href="/borad/login.do">로그인</a></li>
-								<li><a href="/borad/join.do">회원가입</a></li>
+								<li><a href="login.do">로그인</a></li>
+								<li><a href="join.do">회원가입</a></li>
 							</ul>
 						</li>	
 				</ul>
@@ -116,7 +116,7 @@
 							<ul class="dropdown-menu">
 								<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
 						
-								<li><a href="/borad/logout.do">로그아웃</a></li>
+								<li><a href="logout.do">로그아웃</a></li>
 							</ul>
 						</li>	
 				</ul>
@@ -198,14 +198,14 @@
 			<!-- 글쓰기 버튼 => 실제로 데이터를 액션페이지로 보냄 -->
 			</table>
 			
-			<a href="/borad/bbs.do" class="btn btn-warning"">목록</a>
+			<a href="bbs.do" class="btn btn-warning"">목록</a>
 			<c:if test="${mem_id != null && mem_id == board.mem_id}">
-				<a href="/borad/update.do?bd_id=${board.bd_id}" class="btn btn-warning">수정</a>
-				<a onclick ="return confirm('정말로 삭제하시겠습니까?')" href="/borad/delete.do?bd_id=${board.bd_id}" class="btn btn-warning"">삭제</a>
+				<a href="update.do?bd_id=${board.bd_id}" class="btn btn-warning">수정</a>
+				<a onclick ="return confirm('정말로 삭제하시겠습니까?')" href="delete.do?bd_id=${board.bd_id}" class="btn btn-warning"">삭제</a>
 			</c:if>
 			
 			<c:if test="${mem_id != null}">
-				<a href="/borad/writeView.do" class="btn btn-warning" pull-right">글쓰기</a>
+				<a href="writeView.do" class="btn btn-warning" pull-right">글쓰기</a>
 				<!-- <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a> -->
 			</c:if>
 			

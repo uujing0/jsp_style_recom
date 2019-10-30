@@ -1,4 +1,4 @@
-package action;
+package service;
 
 import java.io.IOException;
 
@@ -9,10 +9,9 @@ import javax.servlet.http.HttpSession;
 
 import bbs.BbsDAO;
 
-public class ViewAction implements Action {
+public class ViewAction implements CommandProcess{
 
-	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response)
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		BbsDAO bbsDAO = new BbsDAO();
 		

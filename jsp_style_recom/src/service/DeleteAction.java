@@ -1,4 +1,4 @@
-package action;
+package service;
 
 import java.io.IOException;
 
@@ -10,10 +10,9 @@ import javax.servlet.http.HttpSession;
 import bbs.BbsDAO;
 import bbs.Board;
 
-public class DeleteAction implements Action {
+public class DeleteAction implements CommandProcess{
 
-	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response)
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		BbsDAO bbsDAO = new BbsDAO();
 		HttpSession httpSession = request.getSession(true);
@@ -45,15 +44,15 @@ public class DeleteAction implements Action {
 			int result = bbsDAO.delete(bd_id);
 
 			if (result == -1) {
-				return "/borad/bbs.do";
+				return "bbs.do";
 			}
 			//DB�� �����Ҷ� PRIMARY������ mem_id�� �־��� ������, ������ ���̵ڴ� �����Ұ�
 
 			else {
-				return "/borad/bbs.do";
+				return "bbs.do";
 			}
 		}
-		return "/borad/bbs.do";
+		return "bbs.do";
 	}
 
 }

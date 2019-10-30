@@ -31,7 +31,7 @@
 				
 			</button>
 			
-			<a class="navbar-brand" href="/borad/main.do">JSP 게시판</a>
+			<a class="navbar-brand" href="main.do">JSP 게시판</a>
 				<!-- Bootstrap navbar 기본 메뉴바 -->
 		</div>
 		
@@ -52,7 +52,7 @@
 						<ul class="dropdown-menu">
 							<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
 						
-							<li class="active"><a href="/borad/login.do">로그인</a></li>
+							<li class="active"><a href="login.do">로그인</a></li>
 							<!-- active = 활성화 되었을때 로그인, 회원가입-->
 							
 							<li><a href="join.jsp">회원가입</a></li>
@@ -70,7 +70,7 @@
 			<div class="jumbotron" style="padding-top: 20px;">
 				<!-- jumbotron indicates a big box(큰 상자) -->
 			
-				<form method="post" action="/borad/loginPostAction.do">
+				<form method="post" action="loginPostAction.do">
 				<img alt="그림 없음" src="Circle.png">
 					<h2 style="text-align : center;">로그인 화면</h2>
 					<div class="form-group">

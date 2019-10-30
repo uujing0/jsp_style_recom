@@ -65,14 +65,14 @@
 				
 			</button>
 			
-			<a class="navbar-brand" href="/borad/bbs.do">웰시코디</a>
+			<a class="navbar-brand" href="bbs.do">웰시코디</a>
 				<!-- Bootstrap navbar 기본 메뉴바 -->
 		</div>
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav"> <!-- navbar-nav => 네비게이션 바의 메뉴 -->
-				<li><a href="/borad/main.do">메인</a></li>
-				<li class="active"><a href="/borad/bbs.do">게시판</a></li>
+				<li><a href="main.do">메인</a></li>
+				<li class="active"><a href="bbs.do">게시판</a></li>
 				<!-- 메뉴, 게시판의 main.jsp와 bbs.jsp의 파일로 각각 이동 -->
 			</ul>
 
@@ -88,8 +88,8 @@
 							<ul class="dropdown-menu">
 								<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
 						
-								<li><a href="/borad/login.do">로그인</a></li>
-								<li><a href="/borad/join.do">회원가입</a></li>
+								<li><a href="login.do">로그인</a></li>
+								<li><a href="join.do">회원가입</a></li>
 							</ul>
 						</li>	
 				</ul>
@@ -146,7 +146,7 @@
 				<c:forEach var="bbs1" items="${bbsList2}">
 					<tr>
 						<td>${bbs1.bbsNO}
-						<td><a href="/borad/view.do?bd_id=${bbs1.bd_id}">&nbsp${bbs1.bd_title}</a>
+						<td><a href="view.do?bd_id=${bbs1.bd_id}">&nbsp${bbs1.bd_title}</a>
 						<c:if test="${bbs1.commentCount>0}">
 							[${bbs1.commentCount}]
 						</c:if>
@@ -185,7 +185,7 @@
 				<c:forEach var="board" items="${bbsList}">
 					<tr>
 						<td>${board.bbsNO}
-						<td><a href="/borad/view.do?bd_id=${board.bd_id}">${board.bd_title}</a>
+						<td><a href="view.do?bd_id=${board.bd_id}">${board.bd_title}</a>
 						<c:if test="${board.commentCount>0}">
 							[${board.commentCount}]
 						</c:if>
@@ -199,7 +199,7 @@
 			
 			</table>
 			<c:if test="${mem_id != null}">
-				<a href="/borad/writeView.do" class="btn btn-primary pull-right">글쓰기</a>
+				<a href="writeView.do" class="btn btn-primary pull-right">글쓰기</a>
 			</c:if>
 		<br>
 		
@@ -208,5 +208,5 @@
 	</div>
 	<script src="js/bootstrap.js"></script>
 </body>
-<%@include file="fixed/footer.jsp" %> 
+<%@include file="common/footer.jsp" %> 
 </html>

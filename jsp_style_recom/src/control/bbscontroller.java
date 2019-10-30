@@ -1,4 +1,4 @@
-package controller;
+package control;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,28 +17,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import action.Action;
+import service.Action;
 import bbs.BbsDAO;
 
 /**
  * Servlet implementation class BbsController
  */
-@WebServlet(
-		urlPatterns = { 
-				"/BbsController", 
-				"*.do"
-		}, 
-		initParams = { 
-				@WebInitParam(name = "property", value = "web.properties")
-		})
-public class BbsController extends HttpServlet {
+
+public class bbscontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Object> commandMap = new HashMap<String, Object>();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BbsController() {
+    public bbscontroller() {
         super();
         // TODO Auto-generated constructor stub
     }

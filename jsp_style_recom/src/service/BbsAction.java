@@ -1,4 +1,4 @@
-package action;
+package service;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,13 +13,13 @@ import javax.servlet.http.HttpSession;
 import bbs.BbsDAO;
 import bbs.Board;
 
-public class BbsAction implements Action {
+public class BbsAction implements CommandProcess{
 
-	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		BbsDAO bd = new BbsDAO();
 		request.setAttribute("bbsList", bd.getList());
-		BbsDAO bd1 = new BbsDAO(); //¾È³çÇÏ¼¼¿ä ÀÏ´Ü
+		BbsDAO bd1 = new BbsDAO(); //ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½
 		request.setAttribute("bbsList2", bd1.getList2()); 
 		return "bbs.jsp"; 
 	}

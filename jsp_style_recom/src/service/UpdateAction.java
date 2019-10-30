@@ -1,4 +1,4 @@
-package action;
+package service;
 
 import java.io.IOException;
 
@@ -10,10 +10,9 @@ import javax.servlet.http.HttpSession;
 import bbs.BbsDAO;
 import bbs.Board;
 
-public class UpdateAction implements Action {
+public class UpdateAction implements CommandProcess{
 
-	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response)
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String mem_id = null;
@@ -42,7 +41,7 @@ public class UpdateAction implements Action {
 		System.out.println("bd_id->"+bd_id);
 		request.setAttribute("board", board);
 		System.out.println("board - > "+ board.getBd_notice());
-		return "/update.jsp";
+		return "update.jsp";
 	}
 
 }

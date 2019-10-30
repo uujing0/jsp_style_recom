@@ -1,4 +1,4 @@
-package action;
+package service;
 
 import java.io.IOException;
 
@@ -9,11 +9,10 @@ import javax.servlet.http.HttpSession;
 
 import bbs.BbsDAO;
 
-public class IndexAction implements Action {
+public class IndexAction implements CommandProcess{
 
-	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		return "/bbs.jsp";
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {return "/bbs.jsp";
 	}
 
 }

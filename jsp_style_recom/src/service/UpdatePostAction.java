@@ -1,4 +1,4 @@
-package action;
+package service;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,10 +15,9 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import bbs.BbsDAO;
 
-public class UpdatePostAction implements Action {
+public class UpdatePostAction implements CommandProcess{
 
-	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response)
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		request.setCharacterEncoding("UTF-8");
@@ -118,7 +117,7 @@ public class UpdatePostAction implements Action {
 		System.out.println("bd_id->"+bd_id);
 		BbsDAO bbsDAO = new BbsDAO();
 		int result = bbsDAO.update(bd_id, request.getParameter("bd_title"), request.getParameter("bd_notice"),request.getParameter("bd_content"));
-		return "/board/bbs.do";
+		return "bbs.do";
 
 	}
 

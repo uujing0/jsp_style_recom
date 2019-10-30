@@ -1,4 +1,4 @@
-package action;
+package service;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,10 +17,9 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import bbs.BbsDAO;
 
-public class WriteAction implements Action {
+public class WriteAction implements CommandProcess{
 
-	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response)
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 //		String fileName = "";
 //		File file = null;
@@ -88,6 +87,6 @@ public class WriteAction implements Action {
 		BbsDAO bbsDAO = new BbsDAO();
 		int result = bbsDAO.write(request.getParameter("bd_title"), mem_id, request.getParameter("bd_content"), "", 0, request.getParameter("bd_notice"));
 		
-		return "/borad/bbs.do";
+		return "bbs.do";
 	}
 }

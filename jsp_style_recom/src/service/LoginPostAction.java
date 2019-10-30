@@ -1,4 +1,4 @@
-package action;
+package service;
 
 import java.io.IOException;
 
@@ -9,10 +9,9 @@ import javax.servlet.http.HttpSession;
 
 import user.UserDAO;
 
-public class LoginPostAction implements Action {
+public class LoginPostAction implements CommandProcess{
 
-	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response)
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		UserDAO userDAO = new UserDAO();
 		

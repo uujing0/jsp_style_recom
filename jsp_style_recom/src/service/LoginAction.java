@@ -1,4 +1,4 @@
-package action;
+package service;
 
 import java.io.IOException;
 
@@ -7,13 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class JoinAction implements Action {
+import user.UserDAO;
+import user.Username;
 
-	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response)
+public class LoginAction implements CommandProcess{
+
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return null;
+		return "/login.jsp";
 	}
 
 }

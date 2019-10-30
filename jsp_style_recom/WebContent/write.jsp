@@ -99,8 +99,8 @@
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav"> <!-- navbar-nav => 네비게이션 바의 메뉴 -->
-				<li><a href="/borad/main.do">메인</a></li>
-				<li class="active"><a href="/borad/bbs.do">게시판</a></li>
+				<li><a href="main.do">메인</a></li>
+				<li class="active"><a href="bbs.do">게시판</a></li>
 				<!-- 메뉴, 게시판의 main.jsp와 bbs.jsp의 파일로 각각 이동 -->
 			</ul>
 
@@ -149,7 +149,7 @@
 	
 	<div clas="container">
 		<div class="container-fluid">
-		<form method = "post" action="/borad/write.do" >
+		<form method = "post" action="write.do" >
 			<table class="table table-striped" style="text-align:center; border: 1px solid #dddddd">
 				<thead>
 					<tr>

@@ -1,4 +1,4 @@
-package action;
+package service;
 
 import java.io.IOException;
 
@@ -8,10 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import bbs.BbsDAO;
 
-public class DeleteCommentAction implements Action {
+public class DeleteCommentAction implements CommandProcess{
 
-	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response)
+	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int cm_id = Integer.parseInt(request.getParameter("cm_id"));
 		
