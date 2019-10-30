@@ -4,18 +4,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class HotTagDao {
-	private static HotTagDao instance;
-	private HotTagDao() {}
+public class JM_HotTagDao {
+	private static JM_HotTagDao instance;
+	private JM_HotTagDao() {}
 	
-	public static HotTagDao getInstance() {
+	public static JM_HotTagDao getInstance() {
 		if (instance == null) {
-			instance = new HotTagDao();
+			instance = new JM_HotTagDao();
 		}
 		return instance;
 	}
@@ -52,6 +53,7 @@ public class HotTagDao {
 			pstmt = conn.prepareStatement(select_sql);//기존 검색어의 카운트 값을 받아온다.
 			pstmt.setString(1, search_word);
 			rs = pstmt.executeQuery();
+			
 			if(rs.next()) {//결과값이 있으면 실행한다.
 				int new_count = Integer.parseInt(rs.getString(1)) + 1;//기존 검색어의 카운트 값에 +1한다.
 				pstmt.close();//기존의 pstmt를 닫아 새로운 pstmt를 만들 준비를 한다.
@@ -67,11 +69,8 @@ public class HotTagDao {
 				}else {
 					System.out.println("검색어 카운트 실패");
 				}
-			}		
-			
-		}catch (Exception e) {
-			System.out.println("검색한 단어가 없습니다.");
-			try {//검색결과 검색한 단어가 없을 경우 새로운 검색 태그를 만든다. 새로운 태그의 카운트는 1로 시작
+			}else {//결과값이 없을 경우 실행한다.
+				System.out.println("검색한 단어가 없습니다.");
 				System.out.println("새로운 검색 태그를 만듭니다.");
 				pstmt.close();
 				rs.close();
@@ -83,10 +82,9 @@ public class HotTagDao {
 				}else {
 					System.out.println("새로운 검색 태그 생성에 실패했습니다.");
 				}
-			}catch (Exception e2) {
-				System.out.println("HotTagDao.count error\nerror1 : " + e.getMessage() + "\nerror2 : " + e2.getMessage());
 			}
 			
+		}catch (Exception e) {	System.out.println("JM_HotTagDao.count error\nerror : " + e.getMessage());	
 		}finally {
 			if(rs != null) rs.close();
 			if(pstmt != null) pstmt.close();
@@ -96,6 +94,38 @@ public class HotTagDao {
 		return result;
 	}
 	
-	
+	public static ArrayList<String> tagList() throws SQLException {
+		
+		ArrayList<String> tagList = new ArrayList<String>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT ht_keyword FROM hot_tag ORDER BY ht_count desc, ht_gender_type";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);//기존 검색어의 카운트 값을 받아온다.
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				for(int i = 1 ; i <= 10 ; i++) {
+					tagList.add(rs.getString(1));
+					rs.next();
+				}
+			}else {
+				System.out.println("검색어 리스트를 찾을 수 없음");
+			}
+			
+		} catch (Exception e) {	System.out.println(e.getMessage()); }
+		finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
+		return tagList;
+	}
 	
 }

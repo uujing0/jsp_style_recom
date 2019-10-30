@@ -18,12 +18,19 @@
 <style type="text/css">
 footer{
 	padding: 4%;
+}
+
+#footer_root{
+	margin-left: 10%;
+	margin-right: 10%;
+	padding: 6%;
 	background-color: #d5d5d5;
 }
+
 #footer_right{
 	float: right;
 	margin-top: -60px;
-	margin-right: -75px;
+	margin-right: -60px;
 }
 #footer_left{
 	float: left;
@@ -49,24 +56,26 @@ footer{
 </style>
 </head>
 <footer>
-	<div id="footer_right">
-		<div>
-			<button id="go_to_top_button">To top</button>
+	<div id="footer_root">
+		<div id="footer_right">
+			<div>
+				<button id="go_to_top_button">To top</button>
+			</div>
+			<br>
+			<div id="member_space">
+				<button id="bottom_login_button" class="left_button">로그인</button>
+				<button id="bottom_signup_button" class="right_button">회원가입</button>
+				<button id="bottom_logout_button" class="left_button">로그아웃</button>
+				<button id="bottom_my_page_button" class="right_button">마이코기</button>
+			</div>
 		</div>
-		<br>
-		<div id="member_space">
-			<button id="bottom_login_button" class="left_button">로그인</button>
-			<button id="bottom_signup_button" class="right_button">회원가입</button>
-			<button id="bottom_logout_button" class="left_button">로그아웃</button>
-			<button id="bottom_my_page_button" class="right_button">마이코기</button>
+		<div id="footer_left">
+			<div>이용약관</div>
+			<br>
+			<div id="project_desc">이 부분은 프로젝트 소개 글입니다.</div>
 		</div>
-	</div>
-	<div id="footer_left">
-		<div>이용약관</div>
-		<br>
-		<div id="project_desc">이 부분은 프로젝트 소개 글입니다.</div>
-	</div>
-	<div id="footer_center">
+		<div id="footer_center">
+		</div>
 	</div>
 </footer>
 </html>

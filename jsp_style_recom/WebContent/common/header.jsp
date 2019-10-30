@@ -13,9 +13,11 @@
 		document.getElementById("gender_selector_male").style.color="white";
 		document.getElementById("gender_selector_female").style.backgroundColor="#FFD8D8";
 		document.getElementById("gender_selector_female").style.color="black";
+		document.getElementById("search_tag").style.backgroundColor="#D9E5FF";
 		$("#search_tag").empty();
+		$("#search_tag").append("<br>");
 		for(var i = 1 ; i <= 10 ; i++){
-			$("#search_tag").append(i+".<span class='tag'>셔츠 </span>");
+			$("#search_tag").append(i+".<span class='tag'>티셔츠 </span>");
 			if(i == 5){
 				$("#search_tag").append("<br>");
 			}
@@ -30,7 +32,9 @@
 		document.getElementById("gender_selector_male").style.color="black";
 		document.getElementById("gender_selector_female").style.backgroundColor="#CC3D3D";
 		document.getElementById("gender_selector_female").style.color="white";
+		document.getElementById("search_tag").style.backgroundColor="#FFD8D8";
 		$("#search_tag").empty();
+		$("#search_tag").append("<br>");
 		for(var i = 1 ; i <= 10 ; i++){
 			$("#search_tag").append(i+".<span class='tag'>바지 </span>");
 			if(i == 5){
@@ -42,7 +46,7 @@
 		tagClickEvent();//tag에 다시 이벤트를 적용
 	}
 	
-	function tagClickEvent(){//tag에 클릭 이벤트를 입힌다.
+	function tagClickEvent(){//tag에 클릭 이벤트를 준다.
 		$(".tag").click(function(){
 			$("#search_word").val(this.innerHTML);
 		});
@@ -51,7 +55,8 @@
 	//문서 시작시 적용
 	$(function(){
 		
-		genderSelectorMale();//시작시 남성 태그를 불러온다
+		/* genderSelectorMale();//시작시 남성 태그를 불러온다.
+		//로그인 상태에서 사용자의 성별을 받아오는 기능 필요
 		
 		tagClickEvent();
 		
@@ -61,7 +66,7 @@
 		
 		$("#gender_selector_female").click(function(){
 			genderSelectorFemale();
-		});
+		}); */
 		
 		//member 버튼 액션
 		
@@ -115,25 +120,41 @@
 </script>
 
 <style type="text/css">
+/* theme color 
+	#FFEEE4
+	#F17F42
+	#CE6D39
+	black
+ */
+
 /* header style start */
 header{
 	border: 1px solid;
-	background-color: #ce6d39;
-	height: 130px;
-	/* border-bottom-left-radius: 30px;
-	//border-bottom-right-radius: 30px; */
+	background-color: #CE6D39;
 	border: none;
-	/* linear-gradient( direction, ) */
+	border-top: 30px solid;
+	border-bottom: 20px solid;
+	border-top-color: #F17F42;
+	border-bottom-color: black;
+	height: 100px;
 }
- 
-header a:link{color: white; text-decoration: none;}
-header a:visited{color: white; text-decoration: none;}
-header a:hover{color: black; text-decoration: none;}
+  
+header a:link{color: #FFEEE4; text-decoration: none;}
+header a:visited{color: #FFEEE4; text-decoration: none;}
+header a:hover{text-decoration: none;}
 header a:active{color: black; text-decoration: none;}
+
+#header_root{
+	margin-left: 10%;
+	margin-right: 10%;
+	height: 100%;
+}
 
 #logo_title{
 	font-size: 50px;
-	color: navy;
+	color: #FFEEE4; 
+	padding-right: 15px;
+	 
 }
 
 /* icon */
@@ -146,16 +167,23 @@ header a:active{color: black; text-decoration: none;}
 }
 #sun_icon{
 	border-radius: 5px;
+	display: inline-block;
 }
 
 /* header section */
+#header_top{
+	padding : 0 15px 25px 15px;
+	margin-bottom: 3px;
+	margin-top: -35px;
+
+}
 #header_left{
 	float: left;
 }
 #header_center{
-	margin-left: 140px;
-	margin-right: 140px;
-	text-align: center;
+	margin-top: -13px; 
+	float: left;
+	text-align: center; 	
 }
 #header_right{
 	float: right;
@@ -191,31 +219,38 @@ header a:active{color: black; text-decoration: none;}
 	border-top-right-radius: 5px;
 }
 
+#top_login_button{
+	background-color: white;
+	border: none;
+}
+
+.top_label{
+	color: white; 
+}
+
 /* menu_bar */
 #menu_bar{
-	padding: 10px;
+	padding-top : 18px; 
+	padding-right : 10px;
 	display: inline-block;
-	margin-bottom: -20px;
 }
-#menu_bar_table{
-	margin: auto;
+.menu_bar_table{
+	/* margin: auto; */
 	text-align: center;
 }
-#menu_bar_table td{
+.menu_bar_table td{
 	padding: 5px 25px 5px 25px;
 	font-size: 20px;
-	border-radius: 15px;
+	background-color: #F17F42;
+	box-shadow: 2px 3px #5d5d5d;
 	
-}
-#menu_bar_table td:hover {
-	background-color: #EAEAEA;
-	color: black;
 }
 
 /* search_bar */
 #search_bar{
 	padding: 10px;
-	display: inline-block;
+	display: inline-block; 
+	
 }
 
 #search_target{
@@ -225,86 +260,29 @@ header a:active{color: black; text-decoration: none;}
 
 #search_word{
 	width: 300px;
+	border: none;
+	border-bottom: 5px solid black;
+	background-color: #CE6D39;
 }
 
 #search_button{
-	border-radius: 5px;
-	background-color: #EAEAEA;
-	border: none;
+	height: 30px;
+	widows: 30px;
+	
 }
 
 #search_button:hover{
 	border-radius: 5px;
-	background-color: #FFE08C;
+	background-color: #F17F42;
 	border: none;
-}
-
-#search_tag{
-	background-color: #EAEAEA;
-	border-radius: 10px;
-	color: black;
-	margin-top: 5px; 
-}
-
-.tag:hover{
-	background-color: #8C8C8C;
-	border-radius: 15px;
-	color: white;
-	padding: 5px;
 }
 
 /* gender_selector */
 #gender_selector{
-	float: left;
+	padding-top: 3px;
+	margin-top: 2px;
+	display: inline-block;
 }
-
-#gender_selector button{
-	background-color: #EAEAEA;
-	border: none;
-}
-
-#gender_selector_male{
-	margin-right: -3px;
-	border-radius: 15px;
-}
-
-/* #gender_selector_male:hover{
-	background-color: #4374D9;
-	color: white;
-	margin-right: -4px;
-	border-top-left-radius: 15px;
-	border-bottom-left-radius: 15px;
-}
-
-#gender_selector_male:active{
-	background-color: #4374D9;
-	color: white;
-	margin-right: -4px;
-	border-top-left-radius: 15px;
-	border-bottom-left-radius: 15px;
-} */
-
-#gender_selector_female{
-	margin-left: -3px;
-	border-radius: 15px;
-}
-
-/* #gender_selector_female:hover{
-	background-color: #CC3D3D;
-	color: white;
-	margin-left: -3px;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-}
-#gender_selector_female:active{
-	background-color: #CC3D3D;
-	color: white;
-	margin-left: -3px;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-}*/
-
-
 
 /* header style end */
 </style>
@@ -313,68 +291,80 @@ header a:active{color: black; text-decoration: none;}
 
 <header>
 
-<div id="header_left">
-	<div id="header_logo">
-		<a href="main.do">
-			<img alt="dog_icon" src="images/dog_icon.png" id="dog_icon">
-			<span id="logo_title">웰시코디</span>
-		</a>
+<div id="header_root">
+	<div id="header_top">
+		<div id="member_space">
+			<button id="top_login_button" class="left_button">로그인</button>
+			<button id="top_signup_button" class="right_button">회원가입</button>
+			<button id="top_logout_button" class="left_button">로그아웃</button>
+			<button id="top_my_page_button" class="right_button">마이코기</button>
+		</div>
 	</div>
-</div>
-
-<div id="header_right">
-	<div id="weather_today">
-		<img alt="sun_icon" src="images/sun_icon.png" id="sun_icon" height="50px" width="50px"> 
+	<div id="header_left">
+		<div id="header_logo">
+			<a href="main.do">
+				<img alt="dog_icon" src="images/dog_icon.png" id="dog_icon">
+				<span id="logo_title">웰시코디</span>
+			</a>
+		</div>
 	</div>
-	<br>
-	<div id="member_space">
-		<button id="top_login_button" class="left_button">로그인</button>
-		<button id="top_signup_button" class="right_button">회원가입</button>
-		<button id="top_logout_button" class="left_button">로그아웃</button>
-		<button id="top_my_page_button" class="right_button">마이코기</button>
-	</div>
-</div>
-
-<div id="header_center">
-	<div id="menu_bar">
-		<table id="menu_bar_table">
-			<tr>
-				<td><a href="main.do">메인메뉴</a></td>
-				<td><a href="style.do">스타일 추천</a></td>
-				<td><a href="board.do">게시판</a></td>
-				<td><a href="member.do">회원관리</a></td>
-				<td><a href="member.do">메뉴바미확정</a></td>
-			</tr>
-		</table>
-	</div>
-	<br>
-	<div id="search_bar">
-		<form action="search.do" method="get">
-			<input type="submit" value="검색" id="search_button">
-			<select id="search_target" name="search_target">
-				<option value="0" selected="selected">스타일</option>
-				<option value="1">게시판</option>
-			</select>
-			<input type="text" id="search_word" name="search_word" class= "search_word" value="">
-		</form>
+	
+	<div id="header_right">
 		<div id="gender_selector">
-			<button id="gender_selector_male">남</button>
-			<button id="gender_selector_female">여</button>
+			<table class="menu_bar_table">
+				<tr>
+					<td><a href="">남</a></td>
+					<td><a href="">여</a></td>
+				</tr>
+			</table>
 		</div>
-		<div id="search_tag">
-			#<span class="tag">티셔츠</span>
-			#<span class="tag">와이셔츠</span>
-			#<span class="tag">청바지</span>
-			#<span class="tag">면바지</span>
-			#<span class="tag">면바지</span>
-			<br>
-			#<span class="tag">티셔츠</span>
-			#<span class="tag">와이셔츠</span>
-			#<span class="tag">청바지</span>
-			#<span class="tag">면바지</span>
-			#<span class="tag">면바지</span>
+		<div id="weather_today">
+			<img alt="sun_icon" src="images/sun_icon.png" id="sun_icon" height="50px" width="50px"> 
+		</div>
+		<br>
+	</div>
+	
+	<div id="header_center">
+		<div id="menu_bar">
+			<table class="menu_bar_table">
+				<tr>
+					<td><a href="style.do">스타일 추천</a></td>
+					<td><a href="board.do">게시판</a></td>
+					<td><a href="member.do">마이코기</a></td>
+				</tr>
+			</table>
+		</div>
+		<div id="search_bar">
+			<form action="search.do" method="get">
+				<select id="search_target" name="search_target">
+					<option value="0" selected="selected">스타일</option>
+					<option value="1">게시판</option>
+				</select>
+				<input type="text" id="search_word" name="search_word" class= "search_word" value="" autocomplete="off">
+				<input type="image" alt="검색" id="search_button" src="images/search_button.png">
+			</form>
+			<!-- <div id="gender_selector">
+				<button id="gender_selector_male">남</button>
+				<button id="gender_selector_female">여</button>
+				<span>인기검색어</span>
+			</div>
+			<div id="search_tag">
+				#<span class="tag">티셔츠</span>
+				#<span class="tag">와이셔츠</span>
+				#<span class="tag">청바지</span>
+				#<span class="tag">면바지</span>
+				#<span class="tag">면바지</span>
+				<br>
+				#<span class="tag">티셔츠</span>
+				#<span class="tag">와이셔츠</span>
+				#<span class="tag">청바지</span>
+				#<span class="tag">면바지</span>
+				#<span class="tag">면바지</span>
+			</div> -->
 		</div>
 	</div>
 </div>
+
+
 </header>
 </html>

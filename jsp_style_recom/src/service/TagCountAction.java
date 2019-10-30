@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.HotTag;
-import dao.HotTagDao;
+import dao.JM_HotTagDao;
 
 public class TagCountAction implements CommandProcess{
 
@@ -31,15 +31,15 @@ public class TagCountAction implements CommandProcess{
 		
 		try {
 			
-			HotTagDao ht = HotTagDao.getInstance();
+			JM_HotTagDao ht = JM_HotTagDao.getInstance();
 			int result = ht.count(search_word);
 			if(result > 0 ) {
-				System.out.println("HotTagDao.count success");
+				System.out.println("JM_HotTagDao.count success");
 			}else {
-				System.out.println("HotTagDao.count failed");
+				System.out.println("JM_HotTagDao.count failed");
 			}
 		} catch (Exception e) {
-			System.out.println("HotTagDao.count error : "+e.getMessage());
+			System.out.println("JM_HotTagDao.count error : "+e.getMessage());
 		}
 		
 		//검색 결과 페이지로 검색 단어를 get방식으로 전송한다.
