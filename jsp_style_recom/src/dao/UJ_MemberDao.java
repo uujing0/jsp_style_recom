@@ -1,6 +1,9 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -29,5 +32,32 @@ public class UJ_MemberDao {
 		}
 		
 		return conn;
+	}
+	
+	public int confirmUser(String id, String pw) throws SQLException {
+		System.out.println("---------- UJ_MemberDao - confirmUser ----------");
+		int result = 0;
+		Connection conn = null;
+		String sql = "SELECT mem_id FROM member WHERE mem_id = ? and mem_pw = ? and mem_status = 1";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			rs = pstmt.executeQuery();
+			
+			result = rs.next() ? 1 : 0;
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		
+		return result;
 	}
 }
