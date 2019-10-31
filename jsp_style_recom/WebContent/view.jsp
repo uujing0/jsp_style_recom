@@ -58,6 +58,83 @@
 
 <title>게시판!!</title>
 </head>
+<style>
+.star-rating {
+  font-size: 0;
+  white-space: nowrap;
+  display: inline-block;
+  width: 500px;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  background:     url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=');
+  background-size: contain;
+}
+.star-rating i {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 10%;
+  z-index: 1;
+  background:     url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=');
+  background-size: contain;
+}
+.star-rating input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  opacity: 0;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  position: relative;
+}
+.star-rating input:hover + i,
+.star-rating input:checked + i {
+  opacity: 1;
+}
+.star-rating i ~ i {
+  width: 20%;
+}
+.star-rating i ~ i ~ i {
+  width: 30%;
+}
+.star-rating i ~ i ~ i ~ i {
+  width: 40%;
+}
+.star-rating i ~ i ~ i ~ i ~ i {
+  width: 50%;
+}
+.star-rating i ~ i ~ i ~ i ~ i ~ i {
+  width: 60%;
+}
+.star-rating i ~ i ~ i ~ i ~ i ~ i ~ i {
+  width: 70%;
+}
+.star-rating i ~ i ~ i ~ i ~ i ~ i ~ i ~ i {
+  width: 80%;
+}
+.star-rating i ~ i ~ i ~ i ~ i ~ i ~ i ~ i ~ i {
+  width: 90%;
+}
+.star-rating i ~ i ~ i ~ i ~ i ~ i ~ i ~ i ~ i ~ i {
+  width: 100%;
+}
+::after,
+::before {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: middle;
+}
+
+</style>
 <body>
 	<nav class="navbar navbar-inverse"> <!-- navbar-색상(inverse = 검은색, default 22222= 색x) -->
 		<div class="navbar-header">
@@ -167,19 +244,32 @@
 				<tr>
 					<td>댓글</td>
 					<c:if test="${mem_id != null}">
-						<td>점수 : 
-								<input type="radio" value="1" name="star" >★&nbsp;&nbsp;&nbsp;
+						<td>별점 주기 : 
+						
+ <span class="star-rating">
+  <input type="radio" name="star" value="1"><i></i>
+  <input type="radio" name="star" value="2"><i></i>
+  <input type="radio" name="star" value="3"><i></i>
+  <input type="radio" name="star" value="4"><i></i>
+  <input type="radio" name="star" value="5"><i></i>
+  <input type="radio" name="star" value="6"><i></i>
+  <input type="radio" name="star" value="7"><i></i>
+  <input type="radio" name="star" value="8"><i></i>
+  <input type="radio" name="star" value="9"><i></i>
+  <input type="radio" name="star" value="10"><i></i>
+</span>
+								<!-- <input type="radio" value="1" name="star" >★&nbsp;&nbsp;&nbsp;
 								<input type="radio" value="2" name="star" >★★&nbsp;&nbsp;&nbsp;
 								<input type="radio" value="3" name="star" >★★★&nbsp;&nbsp;&nbsp;
 								<input type="radio" value="4" name="star" >★★★★&nbsp;&nbsp;&nbsp;
-								<input type="radio" value="5" name="star" checked="checked">★★★★★
+								<input type="radio" value="5" name="star" checked="checked">★★★★★ -->
 							<br><br><input type="text" id="content" name="content"/>
 							<button id="write_comment" class="btn btn-warning btn-sm">댓글작성</button>
 						</td>
 						<td></td>
 					</c:if>
 					<c:if test="${mem_id == null}">
-						<td></td>
+						<td></td><td></td><td></td>
 					</c:if>
 				</tr>
 				<c:forEach var="comment" items="${comments}">
