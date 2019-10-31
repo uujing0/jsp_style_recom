@@ -136,7 +136,7 @@ header{
 	border-bottom: 20px solid;
 	border-top-color: #F17F42;
 	border-bottom-color: black;
-	height: 100px;
+	height: 80px; 
 }
   
 header a:link{color: #FFEEE4; text-decoration: none;}
@@ -268,7 +268,6 @@ header a:active{color: black; text-decoration: none;}
 #search_button{
 	height: 30px;
 	widows: 30px;
-	
 }
 
 #search_button:hover{
@@ -343,24 +342,6 @@ header a:active{color: black; text-decoration: none;}
 				<input type="text" id="search_word" name="search_word" class= "search_word" value="" autocomplete="off">
 				<input type="image" alt="검색" id="search_button" src="images/search_button.png">
 			</form>
-			<!-- <div id="gender_selector">
-				<button id="gender_selector_male">남</button>
-				<button id="gender_selector_female">여</button>
-				<span>인기검색어</span>
-			</div>
-			<div id="search_tag">
-				#<span class="tag">티셔츠</span>
-				#<span class="tag">와이셔츠</span>
-				#<span class="tag">청바지</span>
-				#<span class="tag">면바지</span>
-				#<span class="tag">면바지</span>
-				<br>
-				#<span class="tag">티셔츠</span>
-				#<span class="tag">와이셔츠</span>
-				#<span class="tag">청바지</span>
-				#<span class="tag">면바지</span>
-				#<span class="tag">면바지</span>
-			</div> -->
 		</div>
 	</div>
 </div>
