@@ -1,13 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>추천 리스트</title>
+
+<script type="text/javascript" src="../js/jquery.js"></script>  
 <script type="text/javascript">
 
+
 </script>
+
 <style type="text/css">
 #category_list{
 margin-top: 40px;
@@ -134,31 +139,29 @@ select{
 </form></td>
 </tr>
 <tr><th>상황별</th>
-<td>오피스룩</td>
-<td>웨딩하객/셀럽룩</td>
-<td>캠퍼스개강룩</td>
-<td>집근처마실룩</td>
-<td>피크닉룩</td>
+<td><input type="button" value="오피스룩" id="sit1"></td>
+<td><input type="button" value="웨딩하객/셀럽룩" id="sit2"></td>
+<td><input type="button" value="캠퍼스개강룩" id="sit3"></td>
+<td><input type="button" value="집근처마실룩" id="sit4"></td>
+<td><input type="button" value="피크닉룩" id="sit5"></td>
 </tr>
 <tr><th>체형별</th>
-<td>통통</td>
-<td>슬림</td>
-<td>키작은</td>
-<td>키큰</td>
+<td><input type="button" value="통통" id="body1"></td>
+<td><input type="button" value="슬림" id="body2"></td>
+<td><input type="button" value="키작은" id="body3"></td>
+<td><input type="button" value="키큰" id="body4"></td>
 </tr>
 <tr><th>분위기별</th>
-<td>모던시크</td>
-<td>상큼발랄</td>
-<td>심플베이직</td>
-<td>럭셔리</td>
-<td>러블리</td>
-</tr>
-<tr><th>태그별</th>
+<td><input type="button" value="모던시크" id="mood1"></td>
+<td><input type="button" value="상큼발랄" id="mood2"></td>
+<td><input type="button" value="심플베이직" id="mood3"></td>
+<td><input type="button" value="럭셔리" id="mood4"></td>
+<td><input type="button" value="러블리" id="mood5"></td>
 </tr>
 </table>
 
 <div id = "total_style">
-<span id = "style1">스타일1</span>
+<span id = "style1"><img id="img1" src="../images/body_hh_1_2.jpg" width="100px" height="100px"></span>
 <span id = "style2">스타일2</span>
 <span id = "style3">스타일3</span>
 
