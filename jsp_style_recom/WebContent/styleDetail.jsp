@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -77,7 +80,8 @@ background-color:gray;
 <body>
 <h1>오늘의 추천 스타일</h1>
 <hr>
-<h2><img src="../images/hanger.png" height="40px" width="60px"> 오늘은 날씨가 춥고 바람이 많이 부는 날씨로 후드티와 검정기모바지를 합께 코디하시길 추천드립니다.</h2>
+<h2>
+<img src="./images/hanger.png" height="40px" width="60px"> description</h2>
 
 <div id="buttons">
 
@@ -89,17 +93,19 @@ background-color:gray;
 
 <div id = "style_info">
 <span id="main_image">
-<img src="../images/sit_home_5_1.jpg" id="sit_home_5_1" height="740px" width="580px"> 
+
+<img src="./images/category_images/${al[0] }" id="${al[0] }" height="740px" width="580px"> 
+
 </span>
 
 <div id ="cc_icon">
 
 <table>
 <tr><th>스타일 코디 아이템</th></tr>
-<tr><td>겉옷          </td><td><img src="../images/cc_6.jpg" id="cc_6" height="150px" width="150px"></td></tr>
-<tr><td>상의          </td><td><img src="../images/cc_31.jpg" id="cc_31" height="150px" width="150px"></td></tr>
-<tr><td>하의          </td><td><img src="../images/cc_49.jpg" id="cc_49" height="150px" width="150px"></td></tr>
-<tr><td>오늘의 "IT"템          </td><td><img src="../images/cc_68.jpg" id="cc_68" height="150px" width="150px"></td></tr>
+<tr><td>겉옷          </td><td><img src="./images/clothes_category_icon/${al[1] }" id="${al[1] }" height="150px" width="150px"></td></tr>
+<tr><td>상의          </td><td><img src="./images/clothes_category_icon/${al[2] }" id="${al[2] }" height="150px" width="150px"></td></tr>
+<tr><td>하의          </td><td><img src="./images/clothes_category_icon/${al[3] }" id="${al[3] }" height="150px" width="150px"></td></tr>
+<tr><td>오늘의 "IT"템          </td><td><img src="./images/clothes_category_icon/${al[4] }" id="${al[4] }" height="150px" width="150px"></td></tr>
 </table>
 </div>
 

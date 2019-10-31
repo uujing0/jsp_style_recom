@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,17 +11,6 @@
 <script type="text/javascript">
 
 
-/* $('#sit1').click(function(){
-
-		var id = $('#id').val();
-		var sendData = 'id='+id;
-		$.post('style_list_action.jsp', sendData,
-				function(sit1){
-					$('#sit1').html(sit1);
-			
-				});	
-	
-}); */
 </script>
 
 <style type="text/css">
@@ -171,7 +161,7 @@ select{
 </table>
 
 <div id = "total_style">
-<span id = "style1">스타일1</span>
+<span id = "style1"><img id="img1" src="../images/body_hh_1_2.jpg" width="100px" height="100px"></span>
 <span id = "style2">스타일2</span>
 <span id = "style3">스타일3</span>
 
