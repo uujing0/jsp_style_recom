@@ -16,28 +16,39 @@ public class ScheduleFormAction implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		try { 
-			request.setCharacterEncoding("utf-8"); 
-			String dd=request.getParameter("dd");
-			String yy=request.getParameter("yy");
+		try {
+			request.setCharacterEncoding("utf-8");
+			String dd = request.getParameter("dd");
+			String yy = request.getParameter("yy");
 			String mm = request.getParameter("mm");
-		
+			int cal_id = Integer.parseInt(yy + mm + dd);
+			System.out.println("yy->" + yy + "mm->" + mm + "dd->" + dd);
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-			Date cal_date=df.parse(yy+"-"+mm+"-"+dd);
-			String cal_id = request.getParameter("cal_id");
-	       
-	        TH_CalendarDao cd = TH_CalendarDao.getInstance();
-	        Calendar cal = cd.select(cal_id);
-			
-			request.setAttribute("cal_id",cal.getCal_id());
-			request.setAttribute("mem_id",cal.getMem_id());
-			request.setAttribute("tc_id",cal.getTc_id());
-			request.setAttribute("cal_date",cal_date);
-			request.setAttribute("cal_contents",cal.getCal_contents());
-		} catch(Exception e) { 
-			System.out.println(e.getMessage()); 
+			String day = yy + "-" + mm + "-" + dd;
+			Date cal_date = df.parse(yy + "-" + mm + "-" + dd);
+			String mem_id = request.getParameter("mem_id");
+
+			System.out.println("mem_id->" + mem_id);
+
+			TH_CalendarDao cd = TH_CalendarDao.getInstance();
+
+			System.out.println("start1");
+			Calendar cal = cd.select(mem_id,cal_id);
+			System.out.println("start2");
+			request.setAttribute("dd", dd);
+			request.setAttribute("yy", yy);
+			request.setAttribute("mm", mm);
+			request.setAttribute("day", day);
+			request.setAttribute("cal_id", day);
+			request.setAttribute("mem_id", cal.getMem_id());
+			request.setAttribute("tc_id", cal.getTc_id());
+			request.setAttribute("cal_date", cal_date);
+			request.setAttribute("cal_contents", cal.getCal_contents());
+			request.setAttribute("cal_title",cal.getCal_title());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
-		return "calendar.jsp";
+		return "scheduleForm.jsp";
 	}
 
 }

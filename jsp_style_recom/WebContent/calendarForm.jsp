@@ -43,13 +43,13 @@
 			<c:forEach var="i" begin="1" end="${lastday }" step="1">
 				<c:choose>
 					<c:when test="${(w-2+i)%7 eq 0 }">
-						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.jsp','dd=${i }&yy=${ yy}&mm=${mm}','width=280,height=340,location=no,status=no,scrollbars=no')">
+						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
 							${i }
 						</td>
 					</c:when>
 					<c:when test="${(w-2+i)%7 eq 6 }">
-						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.jsp','dd=${i }&yy=${ yy}&mm=${mm}','width=280,height=340,location=no,status=no,scrollbars=no')">
-							${i }<br>${cal_contents }
+						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
+							${i }<br>
 						</td>	
 							</tr>
 						<c:if test="${lastday > i }">
@@ -57,7 +57,7 @@
 						</c:if>
 						</c:when>
 					<c:otherwise>
-						<td style="cursor:pointer;" OnClick="window.open('scheduleForm.jsp','dd=${i }&yy=${ yy}&mm=${mm}','width=280,height=340,location=no,status=no,scrollbars=no')">
+						<td style="cursor:pointer;" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
 							${i }
 						</td>	
 					</c:otherwise>

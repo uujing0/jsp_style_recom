@@ -8,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.TH_CalendarDao;
+
 public class CalendarAction implements CommandProcess {
 
 	@Override
@@ -15,9 +17,9 @@ public class CalendarAction implements CommandProcess {
 			throws ServletException, IOException {
 		Calendar cal = Calendar.getInstance();
 		try {
-			System.out.println("---------->" + request.getParameter("yy"));
-			if (request.getParameter("yy")==null) {
-				System.out.println("??????????????????????->"+ request.getParameter("yy"));
+			
+			if (request.getParameter("yy") == null) {
+				
 				int yy = cal.get(Calendar.YEAR);
 				int mm = cal.get(Calendar.MONTH) + 1;
 				try {
@@ -42,18 +44,17 @@ public class CalendarAction implements CommandProcess {
 					yy = cal.get(Calendar.YEAR);
 					mm = cal.get(Calendar.MONTH) + 1;
 				}
-				
+
 				cal.set(yy, mm - 1, 1);// 날짜를 1로 바꿈
 				int w = cal.get(Calendar.DAY_OF_WEEK);// 요일을 1~7로 설정 1:일요일 7:토요일
 				int lastday = cal.getActualMaximum(Calendar.DATE);// 그달의 마지막날 알아내기
-				System.out.println("yy----->" + yy);
-				System.out.println("w--->"+w);
+			
 				request.setAttribute("yy", yy);
 				request.setAttribute("mm", mm);
 				request.setAttribute("w", w);
 				request.setAttribute("lastday", lastday);
 			} else {
-				
+
 				int yy = Integer.parseInt(request.getParameter("yy"));
 				int mm = Integer.parseInt(request.getParameter("mm"));
 				if (mm == 13) {
@@ -76,7 +77,8 @@ public class CalendarAction implements CommandProcess {
 				request.setAttribute("yy", yy);
 				request.setAttribute("mm", mm);
 				request.setAttribute("lastday", lastday);
-				} 
+			}
+			
 		} catch (Exception e) {
 			System.out.println("err->" + e.getMessage());
 		}

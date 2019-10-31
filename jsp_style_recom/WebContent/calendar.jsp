@@ -23,7 +23,7 @@
 
 <div id="center">	
 
-<%@include file="TH_calendar.jsp"%>
+<%@include file="calendarForm.jsp"%>
 
 </div>
 	<div id="recent_style">
