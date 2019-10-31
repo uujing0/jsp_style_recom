@@ -55,7 +55,10 @@ public class Controller extends HttpServlet{
 			
 			try {
 				// 클래스가 바뀐다고 계속 변경하지 않고, 문자를 읽어서 확장성을 높힘.
-				Class commandClass = Class.forName(className);	// 해당 문자열을 클래스로 만든다.
+				System.out.println("classname" + className);
+				Class<?> commandClass = Class.forName(className);
+				System.out.println("commandClass"+commandClass);
+				// 해당 문자열을 클래스로 만든다.
 				Object commandIsntance = commandClass.newInstance();	// 해당 클래스의 객체 생성
 				commandMap.put(command, commandIsntance);	// Map 객체인 commandMap에 객체 저장
 			}catch (Exception e) {
@@ -79,14 +82,15 @@ public class Controller extends HttpServlet{
 		
 		try {
 			String command = request.getRequestURI();
-			System.out.println(command);					// /ch16/list.do
+			System.out.println("command1->"+command);	
+			// /ch16/list.do
 			// System.out.println(request.getContextPath());	//	/ch16
 			// System.out.println(command.indexOf(request.getContextPath())); // 0
 			
 			// if (command.indexOf(request.getContextPath().length()) == 0) {
 				command = command.substring(request.getContextPath().length());
 			// }
-				
+				System.out.println("command2->"+command);
 				com = (CommandProcess)commandMap.get(command);
 				System.out.println("command => " + command);	// /ch16/com
 				System.out.println("com => " + com);			// /ch16/com
