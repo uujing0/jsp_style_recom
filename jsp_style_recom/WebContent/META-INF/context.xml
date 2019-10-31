@@ -11,4 +11,12 @@
 		url="jdbc:oracle:thin:@211.183.2.63:1521:xe"
 		maxActive="50"
 		maxIdle="10"/>
+		
+		
+		<Resources>
+			<PreResources className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/img" base="C:"/>
+
+		</Resources>
+		
 </Context>
+
