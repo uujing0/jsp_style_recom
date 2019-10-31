@@ -179,7 +179,7 @@
 							   <th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
 							   font-size: 15px; ">HIT</th>
 							    <th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
-							   font-size: 15px; ">별점 평균</th>
+							   font-size: 15px; ">POSTER STAR</th>
 					
 				</tr>
 			</thead>
@@ -222,5 +222,5 @@
 	</div>
 	<script src="js/bootstrap.js"></script>
 </body>
-<%@include file="common/footer.jsp" %> 
+<%@include file="common/footer.jsp" %>
 </html>
