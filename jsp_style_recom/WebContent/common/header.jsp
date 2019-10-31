@@ -21,6 +21,8 @@
 			}
 		}
 		//남성복 태그를 불러오는 코드
+		
+		tagClickEvent();//tag에 다시 이벤트를 적용
 	}
 	
 	function genderSelectorFemale(){
@@ -36,29 +38,74 @@
 			}
 		}
 		//여성복 태그를 불러오는코드
+		
+		tagClickEvent();//tag에 다시 이벤트를 적용
 	}
-
-	$(function(){
-		
-		genderSelectorMale()//시작시 남성 태그를 불러온다
-		
+	
+	function tagClickEvent(){//tag에 클릭 이벤트를 입힌다.
 		$(".tag").click(function(){
 			$("#search_word").val(this.innerHTML);
 		});
+	}
+
+	//문서 시작시 적용
+	$(function(){
+		
+		genderSelectorMale();//시작시 남성 태그를 불러온다
+		
+		tagClickEvent();
 		
 		$("#gender_selector_male").click(function(){
-			genderSelectorMale()
-		})
+			genderSelectorMale();
+		});
 		
 		$("#gender_selector_female").click(function(){
-			genderSelectorFemale()
+			genderSelectorFemale();
+		});
+		
+		//member 버튼 액션
+		
+		$("#top_login_button").click(function(){
+			location.href = "loginForm.do";
+			//window.open('login/loginForm.jsp','dd=${i }&yy=${ yy}&mm=${mm}','width=400,height=340,location=no,status=no,scrollbars=no')
+		});
+		
+		$("#bottom_login_button").click(function(){
+			location.href = "login.do";
+		});
+		
+		$("#top_signup_button").click(function(){
+			location.href = "signup.do";
+		});
+		
+		$("#bottom_signup_button").click(function(){
+			location.href = "signup.do";
+		});
+		
+		$("#top_my_page_button").click(function(){
+			location.href = "mypage.do";
+		});
+		
+		$("#bottom_my_page_button").click(function(){
+			location.href = "mypage.do";
+		});
+		
+		$("#top_logout_button").click(function(){
+			//세션 제거 필요
+			location.href = "main.do";
 		})
 		
+		$("#bottom_logout_button").click(function(){
+			//세션 제거 필요
+			location.href = "main.do";
+		})
+		
+		//로그인 상태에 따라 표기되는 버튼을 관리
 		//로그인 상태일시 가리는 버튼
 		//$("#top_login_button").hide();
-		//$("#top_id/pw_button").hide();
+		//$("#top_signup_button").hide();
 		//$("#bottom_login_button").hide();
-		//$("#bottom_my_page_button").hide();
+		//$("#bottom_signup_button").hide();
 		
 		//로그아웃 상태일시 가리는 버튼
 		$("#top_logout_button").hide();
@@ -72,22 +119,31 @@
 /* header style start */
 header{
 	border: 1px solid;
-	background-color: #5D5D5D;
+	background-color: #ce6d39;
 	height: 130px;
-	border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
+	/* border-bottom-left-radius: 30px;
+	//border-bottom-right-radius: 30px; */
+	border: none;
+	/* linear-gradient( direction, ) */
 }
-
+ 
 header a:link{color: white; text-decoration: none;}
 header a:visited{color: white; text-decoration: none;}
 header a:hover{color: black; text-decoration: none;}
 header a:active{color: black; text-decoration: none;}
+
+#logo_title{
+	font-size: 50px;
+	color: navy;
+}
 
 /* icon */
 #dog_icon{
 	border-radius: 15px;
 	margin-top: 10px;
 	margin-left: 10px;
+	height: 50px;
+	width: 50px;
 }
 #sun_icon{
 	border-radius: 5px;
@@ -261,21 +317,22 @@ header a:active{color: black; text-decoration: none;}
 <div id="header_left">
 	<div id="header_logo">
 		<a href="main.do">
-			<img alt="dog_icon" src="images/dog_icon.png" id="dog_icon">
+			<img alt="dog_icon" src="../images/dog_icon.png" id="dog_icon">
+			<span id="logo_title">웰시코디</span>
 		</a>
 	</div>
 </div>
 
 <div id="header_right">
 	<div id="weather_today">
-		<img alt="sun_icon" src="images/sun_icon.png" id="sun_icon" height="50px" width="50px"> 
+		<img alt="sun_icon" src="../images/sun_icon.png" id="sun_icon" height="50px" width="50px"> 
 	</div>
 	<br>
 	<div id="member_space">
 		<button id="top_login_button" class="left_button">로그인</button>
-		<button id="top_id/pw_button" class="right_button">회원가입</button>
+		<button id="top_signup_button" class="right_button">회원가입</button>
 		<button id="top_logout_button" class="left_button">로그아웃</button>
-		<button id="top_my_page_button" class="right_button">마이페이지</button>
+		<button id="top_my_page_button" class="right_button">마이코기</button>
 	</div>
 </div>
 
@@ -293,13 +350,13 @@ header a:active{color: black; text-decoration: none;}
 	</div>
 	<br>
 	<div id="search_bar">
-		<form action="">
+		<form action="search.do" method="get">
 			<input type="submit" value="검색" id="search_button">
-			<select id="search_target">
-				<option value="0">스타일</option>
+			<select id="search_target" name="search_target">
+				<option value="0" selected="selected">스타일</option>
 				<option value="1">게시판</option>
 			</select>
-			<input type="text" id="search_word" class= "search_word" value="">
+			<input type="text" id="search_word" name="search_word" class= "search_word" value="">
 		</form>
 		<div id="gender_selector">
 			<button id="gender_selector_male">남</button>

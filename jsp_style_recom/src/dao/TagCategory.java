@@ -32,4 +32,5 @@ public class TagCategory {
 	public void setTc_order(int tc_order) {
 		this.tc_order = tc_order;
 	}
+	// TODO: type에 따른 string return
 }
