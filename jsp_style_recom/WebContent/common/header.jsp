@@ -67,6 +67,7 @@
 		
 		$("#top_login_button").click(function(){
 			location.href = "loginForm.do";
+			//window.open('login/loginForm.jsp','dd=${i }&yy=${ yy}&mm=${mm}','width=400,height=340,location=no,status=no,scrollbars=no')
 		});
 		
 		$("#bottom_login_button").click(function(){
