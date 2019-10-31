@@ -224,7 +224,7 @@ public class YJ_BbsDAO {
 		return list;
 	}
 
-	public boolean nextPage(int pageNumber) {
+	/*public boolean nextPage(int pageNumber) {
 		try {
 			
 			int page_count = 10;
@@ -250,7 +250,7 @@ public class YJ_BbsDAO {
 		}
 		return false;
 	}
-
+*/
 	public Board getBbs(int bd_id) {
 		String SQL = "SELECT bd_id"
 				   + "     , bd_Title"
@@ -373,7 +373,7 @@ public class YJ_BbsDAO {
 	return bd_id;
 	
 }	
-	public List<Board> list(int startRow, int endRow) throws SQLException {
+	/*public List<Board> list(int startRow, int endRow) throws SQLException {
 		List<Board> list = new ArrayList<Board>();
 		Connection conn = null;
 		String sql = "select * from (select rownum rn , a.* from " + 
@@ -408,7 +408,7 @@ public class YJ_BbsDAO {
 			if (conn != null) conn.close();
 		}
 		return list;
-	}
+	}*/
 	
 	public int getTotalCnt() throws SQLException {
 		Connection conn = null;	Statement stmt= null; 
