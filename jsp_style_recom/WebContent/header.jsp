@@ -24,11 +24,11 @@
 		});
 		
 		$("#top_signup_button").click(function(){
-			location.href = "signup.do";
+			location.href = "joinForm.do";
 		});
 		
 		$("#bottom_signup_button").click(function(){
-			location.href = "signup.do";
+			location.href = "joinForm.do";
 		});
 		
 		$("#top_my_page_button").click(function(){
