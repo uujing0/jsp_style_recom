@@ -16,12 +16,10 @@ public class LoginProAction implements CommandProcess {
 		UJ_MemberDao memberDao = UJ_MemberDao.getInstance();
 		
 		try {
-			System.out.println("------------------------");
-			String id = request.getParameter("mem_id");
-			System.out.println("==> " + id);
-			String pw = request.getParameter("mem_pw");
+			String mem_id = request.getParameter("mem_id");
+			String mem_pw = request.getParameter("mem_pw");
 			
-			int result = memberDao.confirm(id, pw);
+			int result = memberDao.confirmUser(mem_id, mem_pw);
 			
 			request.setAttribute("result", result);
 			
@@ -29,7 +27,7 @@ public class LoginProAction implements CommandProcess {
 			System.out.println(e.getMessage());
 		}
 		
-		return "loginPro.jsp";
+		return "login/loginPro.jsp";
 	}
 
 }

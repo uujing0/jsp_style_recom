@@ -66,7 +66,7 @@
 		//member 버튼 액션
 		
 		$("#top_login_button").click(function(){
-			location.href = "login.do";
+			location.href = "loginForm.do";
 		});
 		
 		$("#bottom_login_button").click(function(){

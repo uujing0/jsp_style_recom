@@ -34,11 +34,11 @@ public class UJ_MemberDao {
 		return conn;
 	}
 	
-	public int confirm(String id, String pw) throws SQLException {
-		System.out.println("---------- UJ_MemberDao - confirm ----------");
+	public int confirmUser(String id, String pw) throws SQLException {
+		System.out.println("---------- UJ_MemberDao - confirmUser ----------");
 		int result = 0;
 		Connection conn = null;
-		String sql = "SELECT id FROM member WHERE mem_id = ? and mem_pw = ? and mem_status = 1";
+		String sql = "SELECT mem_id FROM member WHERE mem_id = ? and mem_pw = ? and mem_status = 1";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -50,6 +50,7 @@ public class UJ_MemberDao {
 			rs = pstmt.executeQuery();
 			
 			result = rs.next() ? 1 : 0;
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
