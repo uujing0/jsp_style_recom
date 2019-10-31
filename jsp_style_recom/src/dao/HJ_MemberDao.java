@@ -56,7 +56,7 @@ public class HJ_MemberDao {
 	public String SrhId(String mem_phone, String mem_email, String mem_name) throws SQLException {				
 		Connection conn = null;			
 		String mem_id = null;
-		String sql  = "select mem_id from style_mem where mem_phone=? and mem_name=? and mem_email=?"; 
+		String sql  = "select mem_id from member where mem_phone=? and mem_name=? and mem_email=?"; 
 		PreparedStatement pstmt = null; 	
 		ResultSet rs = null;
 		
@@ -93,7 +93,7 @@ public class HJ_MemberDao {
 	public String SrhPw(String mem_id, String mem_name, String mem_email) throws SQLException {				
 		Connection conn = null;			
 		String mem_pw = null;
-		String sql  = "select mem_pw from style_mem where mem_id=? and mem_name=? and mem_email=?"; 
+		String sql  = "select mem_pw from member where mem_id=? and mem_name=? and mem_email=?"; 
 		PreparedStatement pstmt = null; 	
 		ResultSet rs = null;
 		

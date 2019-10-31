@@ -25,6 +25,7 @@
 
 <%@include file="TH_calendar.jsp"%>
 
+
 </div>
 	<div id="recent_style">
 			<div id="head">최근본옷</div><br>
