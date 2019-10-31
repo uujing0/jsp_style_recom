@@ -19,6 +19,8 @@ public class ScheduleFormAction implements CommandProcess {
 		try {
 			request.setCharacterEncoding("utf-8");
 			String dd = request.getParameter("dd");
+			if(Integer.parseInt(dd)<10)
+				dd="0"+dd;
 			String yy = request.getParameter("yy");
 			String mm = request.getParameter("mm");
 			int cal_id = Integer.parseInt(yy + mm + dd);
@@ -40,11 +42,13 @@ public class ScheduleFormAction implements CommandProcess {
 			request.setAttribute("mm", mm);
 			request.setAttribute("day", day);
 			request.setAttribute("cal_id", day);
-			request.setAttribute("mem_id", cal.getMem_id());
+			request.setAttribute("mem_id", mem_id);
 			request.setAttribute("tc_id", cal.getTc_id());
 			request.setAttribute("cal_date", cal_date);
 			request.setAttribute("cal_contents", cal.getCal_contents());
 			request.setAttribute("cal_title",cal.getCal_title());
+			
+			System.out.println("last mem_id->"+mem_id);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

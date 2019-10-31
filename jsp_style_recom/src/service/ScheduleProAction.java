@@ -17,9 +17,10 @@ public class ScheduleProAction implements CommandProcess {
 		try {
 			request.setCharacterEncoding("utf-8");
 			String dd = request.getParameter("dd");
+
 			String yy = request.getParameter("yy");
 			String mm = request.getParameter("mm");
-			System.out.println("dd->"+dd+"yy->"+yy+"mm->"+mm);
+			System.out.println("PRO  dd->"+dd+"yy->"+yy+"mm->"+mm);
 			int cal_id = Integer.parseInt(yy + mm + dd);
 			System.out.println("mem_id->"+request.getParameter("mem_id"));
 			TH_CalendarDao cd = TH_CalendarDao.getInstance();

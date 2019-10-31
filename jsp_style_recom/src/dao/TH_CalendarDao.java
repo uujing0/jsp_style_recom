@@ -43,8 +43,8 @@ public class TH_CalendarDao {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				
-				cal.setCal_id(rs.getInt("cal_id"));
-				cal.setMem_id(rs.getString("mem_id"));
+				cal.setCal_id(cal_id);
+				cal.setMem_id(mem_id);
 				cal.setTc_id(rs.getInt("tc_id"));
 				cal.setCal_date(rs.getDate("cal_date"));
 				cal.setCal_contents(rs.getString("cal_contents"));
@@ -100,4 +100,5 @@ public class TH_CalendarDao {
 		}
 		return result;
 	}
+	
 }

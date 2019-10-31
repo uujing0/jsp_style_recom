@@ -44,12 +44,78 @@
 				<c:choose>
 					<c:when test="${(w-2+i)%7 eq 0 }">
 						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
-							${i }
+							${i }<br><span style="color:black">
+							<c:choose>
+								<c:when test="${i eq 1}">${cal_title1 }</c:when>
+								<c:when test="${i eq 2}">${cal_title2 }</c:when>
+								<c:when test="${i eq 3}">${cal_title3 }</c:when>
+								<c:when test="${i eq 4}">${cal_title4 }</c:when>
+								<c:when test="${i eq 5}">${cal_title5 }</c:when>
+								<c:when test="${i eq 6}">${cal_title6 }</c:when>
+								<c:when test="${i eq 7}">${cal_title7 }</c:when>
+								<c:when test="${i eq 8}">${cal_title8 }</c:when>
+								<c:when test="${i eq 9}">${cal_title9 }</c:when>
+								<c:when test="${i eq 10}">${cal_title10 }</c:when>
+								<c:when test="${i eq 11}">${cal_title11 }</c:when>
+								<c:when test="${i eq 12}">${cal_title12 }</c:when>
+								<c:when test="${i eq 13}">${cal_title13 }</c:when>
+								<c:when test="${i eq 14}">${cal_title14 }</c:when>
+								<c:when test="${i eq 15}">${cal_title15 }</c:when>
+								<c:when test="${i eq 16}">${cal_title16 }</c:when>
+								<c:when test="${i eq 17}">${cal_title17 }</c:when>
+								<c:when test="${i eq 18}">${cal_title18 }</c:when>
+								<c:when test="${i eq 19}">${cal_title19 }</c:when>
+								<c:when test="${i eq 20}">${cal_title20 }</c:when>
+								<c:when test="${i eq 21}">${cal_title21 }</c:when>
+								<c:when test="${i eq 22}">${cal_title22 }</c:when>
+								<c:when test="${i eq 23}">${cal_title23 }</c:when>
+								<c:when test="${i eq 24}">${cal_title24 }</c:when>
+								<c:when test="${i eq 25}">${cal_title25 }</c:when>
+								<c:when test="${i eq 26}">${cal_title26 }</c:when>
+								<c:when test="${i eq 27}">${cal_title27 }</c:when>
+								<c:when test="${i eq 28}">${cal_title28 }</c:when>
+								<c:when test="${i eq 29}">${cal_title29 }</c:when>
+								<c:when test="${i eq 30}">${cal_title30 }</c:when>
+								<c:when test="${i eq 31}">${cal_title31 }</c:when>
+							</c:choose></span>
 						</td>
 					</c:when>
 					<c:when test="${(w-2+i)%7 eq 6 }">
 						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
-							${i }<br>
+							${i }<br><span style="color:black">
+							<c:choose>
+								<c:when test="${i eq 1}">${cal_title1 }</c:when>
+								<c:when test="${i eq 2}">${cal_title2 }</c:when>
+								<c:when test="${i eq 3}">${cal_title3 }</c:when>
+								<c:when test="${i eq 4}">${cal_title4 }</c:when>
+								<c:when test="${i eq 5}">${cal_title5 }</c:when>
+								<c:when test="${i eq 6}">${cal_title6 }</c:when>
+								<c:when test="${i eq 7}">${cal_title7 }</c:when>
+								<c:when test="${i eq 8}">${cal_title8 }</c:when>
+								<c:when test="${i eq 9}">${cal_title9 }</c:when>
+								<c:when test="${i eq 10}">${cal_title10 }</c:when>
+								<c:when test="${i eq 11}">${cal_title11 }</c:when>
+								<c:when test="${i eq 12}">${cal_title12 }</c:when>
+								<c:when test="${i eq 13}">${cal_title13 }</c:when>
+								<c:when test="${i eq 14}">${cal_title14 }</c:when>
+								<c:when test="${i eq 15}">${cal_title15 }</c:when>
+								<c:when test="${i eq 16}">${cal_title16 }</c:when>
+								<c:when test="${i eq 17}">${cal_title17 }</c:when>
+								<c:when test="${i eq 18}">${cal_title18 }</c:when>
+								<c:when test="${i eq 19}">${cal_title19 }</c:when>
+								<c:when test="${i eq 20}">${cal_title20 }</c:when>
+								<c:when test="${i eq 21}">${cal_title21 }</c:when>
+								<c:when test="${i eq 22}">${cal_title22 }</c:when>
+								<c:when test="${i eq 23}">${cal_title23 }</c:when>
+								<c:when test="${i eq 24}">${cal_title24 }</c:when>
+								<c:when test="${i eq 25}">${cal_title25 }</c:when>
+								<c:when test="${i eq 26}">${cal_title26 }</c:when>
+								<c:when test="${i eq 27}">${cal_title27 }</c:when>
+								<c:when test="${i eq 28}">${cal_title28 }</c:when>
+								<c:when test="${i eq 29}">${cal_title29 }</c:when>
+								<c:when test="${i eq 30}">${cal_title30 }</c:when>
+								<c:when test="${i eq 31}">${cal_title31 }</c:when>
+							</c:choose></span>
 						</td>	
 							</tr>
 						<c:if test="${lastday > i }">
@@ -58,7 +124,41 @@
 						</c:when>
 					<c:otherwise>
 						<td style="cursor:pointer;" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
-							${i }
+							${i }<br>
+							<c:choose>
+								<c:when test="${i eq 1}">${cal_title1 }</c:when>
+								<c:when test="${i eq 2}">${cal_title2 }</c:when>
+								<c:when test="${i eq 3}">${cal_title3 }</c:when>
+								<c:when test="${i eq 4}">${cal_title4 }</c:when>
+								<c:when test="${i eq 5}">${cal_title5 }</c:when>
+								<c:when test="${i eq 6}">${cal_title6 }</c:when>
+								<c:when test="${i eq 7}">${cal_title7 }</c:when>
+								<c:when test="${i eq 8}">${cal_title8 }</c:when>
+								<c:when test="${i eq 9}">${cal_title9 }</c:when>
+								<c:when test="${i eq 10}">${cal_title10 }</c:when>
+								<c:when test="${i eq 11}">${cal_title11 }</c:when>
+								<c:when test="${i eq 12}">${cal_title12 }</c:when>
+								<c:when test="${i eq 13}">${cal_title13 }</c:when>
+								<c:when test="${i eq 14}">${cal_title14 }</c:when>
+								<c:when test="${i eq 15}">${cal_title15 }</c:when>
+								<c:when test="${i eq 16}">${cal_title16 }</c:when>
+								<c:when test="${i eq 17}">${cal_title17 }</c:when>
+								<c:when test="${i eq 18}">${cal_title18 }</c:when>
+								<c:when test="${i eq 19}">${cal_title19 }</c:when>
+								<c:when test="${i eq 20}">${cal_title20 }</c:when>
+								<c:when test="${i eq 21}">${cal_title21 }</c:when>
+								<c:when test="${i eq 22}">${cal_title22 }</c:when>
+								<c:when test="${i eq 23}">${cal_title23 }</c:when>
+								<c:when test="${i eq 24}">${cal_title24 }</c:when>
+								<c:when test="${i eq 25}">${cal_title25 }</c:when>
+								<c:when test="${i eq 26}">${cal_title26 }</c:when>
+								<c:when test="${i eq 27}">${cal_title27 }</c:when>
+								<c:when test="${i eq 28}">${cal_title28 }</c:when>
+								<c:when test="${i eq 29}">${cal_title29 }</c:when>
+								<c:when test="${i eq 30}">${cal_title30 }</c:when>
+								<c:when test="${i eq 31}">${cal_title31 }</c:when>
+							</c:choose>
+							
 						</td>	
 					</c:otherwise>
 				</c:choose>

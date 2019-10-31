@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-${dd }
+
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("입력성공");
