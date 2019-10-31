@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import = "bbs.BbsDAO" %>
-<%@ page import = "bbs.Board" %>
+<%@ page import = "dao.YJ_BbsDAO" %>
+<%@ page import = "dao.Board" %>
 
 <!DOCTYPE html>
 <html>
@@ -107,7 +107,7 @@
 							<ul class="dropdown-menu">
 								<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
 						
-								<li><a href="/borad/logout.do">로그아웃</a></li>
+								<li><a href="logout.do">로그아웃</a></li>
 							</ul>
 						</li>	
 				</ul>

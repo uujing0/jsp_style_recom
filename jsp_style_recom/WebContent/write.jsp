@@ -93,7 +93,7 @@
 				
 			</button>
 			
-			<a class="navbar-brand" href="/borad/bbs.do">JSP 게시판</a>
+			<a class="navbar-brand" href="bbs.do">JSP 게시판</a>
 				<!-- Bootstrap navbar 기본 메뉴바 -->
 		</div>
 		
@@ -116,8 +116,8 @@
 							<ul class="dropdown-menu">
 								<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
 						
-								<li><a href="/borad/login.do">로그인</a></li>
-								<li><a href="/borad/join.do">회원가입</a></li>
+								<li><a href="login.do">로그인</a></li>
+								<li><a href="join.do">회원가입</a></li>
 							</ul>
 						</li>	
 				</ul>
@@ -135,7 +135,7 @@
 							<ul class="dropdown-menu">
 								<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
 						
-								<li><a href="/borad/logout.do">로그아웃</a></li>
+								<li><a href="logout.do">로그아웃</a></li>
 							</ul>
 						</li>	
 				</ul>
