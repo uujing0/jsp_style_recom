@@ -15,6 +15,15 @@ public class Board {
 	private int bbsNO;
 	private String mem_id;
 	private int commentCount;
+	private String staravg;
+
+	public String getStaravg() {
+		return staravg;
+	}
+
+	public void setStaravg(String staravg) {
+		this.staravg = staravg;
+	}
 
 	public String getMem_id() {
 		return mem_id;

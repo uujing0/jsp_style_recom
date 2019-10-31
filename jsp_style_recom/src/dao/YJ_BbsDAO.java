@@ -260,6 +260,7 @@ public class YJ_BbsDAO {
 				   + "     , bd_notice"
 				   + "     , bd_file_url"
 				   + "     , bd_readcount"
+				   + "     ,(select round(avg(star),0) as staravg from board_comment where bd_id = ?) as staravg"
 				   + " FROM board "
 				   + "WHERE 1=1"
 				   + "  AND bd_id = ? "
@@ -267,6 +268,7 @@ public class YJ_BbsDAO {
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, bd_id);
+			pstmt.setInt(2, bd_id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				Board board = new Board();
@@ -278,6 +280,7 @@ public class YJ_BbsDAO {
 				board.setBd_notice(rs.getString(6));
 				board.setBd_file_url(rs.getString(7));
 				board.setBd_readcount(rs.getInt(8));
+				board.setStaravg(rs.getString(9));
 				return board;
 			}
 		} catch (Exception e) {

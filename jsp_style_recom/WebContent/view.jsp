@@ -234,7 +234,20 @@
 					<tr>
 						<td>작성자</td>
 						<td colspan="1">${board.mem_id}</td>
-						<td></td>
+						
+						<td>별점평균:<c:if test="${board.staravg==1}">★</c:if>
+									<c:if test="${board.staravg==2}">★★</c:if>
+									<c:if test="${board.staravg==3}">★★★</c:if>
+									<c:if test="${board.staravg==4}">★★★★</c:if>
+									<c:if test="${board.staravg==5}">★★★★★</c:if>
+									<c:if test="${board.staravg==6}">★★★★★★</c:if>
+									<c:if test="${board.staravg==7}">★★★★★★★</c:if>
+									<c:if test="${board.staravg==8}">★★★★★★★★</c:if>
+									<c:if test="${board.staravg==9}">★★★★★★★★★</c:if>
+									<c:if test="${board.staravg==10}">★★★★★★★★★</c:if>
+									
+									
+									</td>
 					</tr>
 
 					<tr>
