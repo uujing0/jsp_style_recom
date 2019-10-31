@@ -13,13 +13,13 @@
 		
 		$("#top_login_button").click(function(){
 			sessionStorage.setItem('id',"asd");
-			location.href = "main.do";
+			location.href = "loginForm.do";
 			//location.href = "login.do";
 		});
 		
 		$("#bottom_login_button").click(function(){
 			sessionStorage.setItem('id',"asd");
-			location.href = "main.do";
+			location.href = "loginForm.do";
 			//location.href = "login.do";
 		});
 		
