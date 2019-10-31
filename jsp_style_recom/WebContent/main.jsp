@@ -18,7 +18,7 @@
 
 </style>
 </head>
-<%@include file="common/header.jsp" %>
+<%@include file="header.jsp" %>
 <body>
 	<h2>Main Page</h2>
 	<div id="hot_tag_list">
@@ -30,5 +30,5 @@
 		</ol>
 	</div>
 </body>
-<%@include file="common/footer.jsp" %>
+<%@include file="footer.jsp" %>
 </html>

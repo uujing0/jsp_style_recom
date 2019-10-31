@@ -7,75 +7,20 @@
 <title>Insert title here</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-	function genderSelectorMale(){
-		document.getElementById("gender_selector_male").style.backgroundColor="#4374D9";
-		document.getElementById("gender_selector_male").style.color="white";
-		document.getElementById("gender_selector_female").style.backgroundColor="#FFD8D8";
-		document.getElementById("gender_selector_female").style.color="black";
-		document.getElementById("search_tag").style.backgroundColor="#D9E5FF";
-		$("#search_tag").empty();
-		$("#search_tag").append("<br>");
-		for(var i = 1 ; i <= 10 ; i++){
-			$("#search_tag").append(i+".<span class='tag'>티셔츠 </span>");
-			if(i == 5){
-				$("#search_tag").append("<br>");
-			}
-		}
-		//남성복 태그를 불러오는 코드
-		
-		tagClickEvent();//tag에 다시 이벤트를 적용
-	}
-	
-	function genderSelectorFemale(){
-		document.getElementById("gender_selector_male").style.backgroundColor="#B2CCFF";
-		document.getElementById("gender_selector_male").style.color="black";
-		document.getElementById("gender_selector_female").style.backgroundColor="#CC3D3D";
-		document.getElementById("gender_selector_female").style.color="white";
-		document.getElementById("search_tag").style.backgroundColor="#FFD8D8";
-		$("#search_tag").empty();
-		$("#search_tag").append("<br>");
-		for(var i = 1 ; i <= 10 ; i++){
-			$("#search_tag").append(i+".<span class='tag'>바지 </span>");
-			if(i == 5){
-				$("#search_tag").append("<br>");
-			}
-		}
-		//여성복 태그를 불러오는코드
-		
-		tagClickEvent();//tag에 다시 이벤트를 적용
-	}
-	
-	function tagClickEvent(){//tag에 클릭 이벤트를 준다.
-		$(".tag").click(function(){
-			$("#search_word").val(this.innerHTML);
-		});
-	}
-
+<script type="text/javascript">	
 	//문서 시작시 적용
 	$(function(){
 		
-		/* genderSelectorMale();//시작시 남성 태그를 불러온다.
-		//로그인 상태에서 사용자의 성별을 받아오는 기능 필요
-		
-		tagClickEvent();
-		
-		$("#gender_selector_male").click(function(){
-			genderSelectorMale();
-		});
-		
-		$("#gender_selector_female").click(function(){
-			genderSelectorFemale();
-		}); */
-		
-		//member 버튼 액션
-		
 		$("#top_login_button").click(function(){
-			location.href = "login.do";
+			sessionStorage.setItem('id',"asd");
+			location.href = "main.do";
+			//location.href = "login.do";
 		});
 		
 		$("#bottom_login_button").click(function(){
-			location.href = "login.do";
+			sessionStorage.setItem('id',"asd");
+			location.href = "main.do";
+			//location.href = "login.do";
 		});
 		
 		$("#top_signup_button").click(function(){
@@ -96,26 +41,33 @@
 		
 		$("#top_logout_button").click(function(){
 			//세션 제거 필요
+			sessionStorage.removeItem('id');
 			location.href = "main.do";
 		})
 		
 		$("#bottom_logout_button").click(function(){
 			//세션 제거 필요
+			sessionStorage.removeItem('id');
 			location.href = "main.do";
 		})
 		
-		//로그인 상태에 따라 표기되는 버튼을 관리
-		//로그인 상태일시 가리는 버튼
-		//$("#top_login_button").hide();
-		//$("#top_signup_button").hide();
-		//$("#bottom_login_button").hide();
-		//$("#bottom_signup_button").hide();
+		//sessionStorage.setItem('id',"asd");
 		
-		//로그아웃 상태일시 가리는 버튼
-		$("#top_logout_button").hide();
-		$("#top_my_page_button").hide();
-		$("#bottom_logout_button").hide();
-		$("#bottom_my_page_button").hide();
+		//로그인 상태에 따라 표기되는 버튼을 관리
+		if(!sessionStorage.getItem('id')){
+			//로그아웃 상태일시 가리는 버튼
+			$("#top_logout_button").hide();
+			$("#top_my_page_button").hide();
+			$("#bottom_logout_button").hide();
+			$("#bottom_my_page_button").hide();
+		}else{
+			//로그인 상태일시 가리는 버튼
+			$("#top_login_button").hide();
+			$("#top_signup_button").hide();
+			$("#bottom_login_button").hide();
+			$("#bottom_signup_button").hide();
+		}
+		
 	})
 </script>
 
@@ -132,11 +84,10 @@ header{
 	border: 1px solid;
 	background-color: #CE6D39;
 	border: none;
-	border-top: 30px solid;
-	border-bottom: 20px solid;
-	border-top-color: #F17F42;
+	border-top: 35px solid #F17F42;
+	border-bottom: 10px solid;
 	border-bottom-color: black;
-	height: 80px; 
+	height: 60px; 
 }
   
 header a:link{color: #FFEEE4; text-decoration: none;}
@@ -191,13 +142,13 @@ header a:active{color: black; text-decoration: none;}
 
 /* weather_today */
 #weather_today{
-	padding: 10px;
+	padding-top: 8px;
 	float:right;
 }
 
 /* member_space */
 #member_space{
-	padding: 10px;
+	padding-top: 5px;
 	float:right;
 }
 

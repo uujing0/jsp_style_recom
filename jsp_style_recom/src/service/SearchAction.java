@@ -13,7 +13,7 @@ import dao.JM_HotTagDao;
 import dao.JM_SearchStyleDao;
 import dao.StyleInfo;
 
-public class JM_SearchAction implements CommandProcess{
+public class SearchAction implements CommandProcess{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
