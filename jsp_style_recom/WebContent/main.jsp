@@ -8,12 +8,6 @@
 </head>
 <%@include file="common/header.jsp" %>
 <body>
-<<<<<<< HEAD
-	<h2>Main Page1</h2>
-=======
-	<h2>Main Page</h2>
-	test
->>>>>>> refs/remotes/origin/TH
 </body>
 <%@include file="common/footer.jsp" %>
 </html>
