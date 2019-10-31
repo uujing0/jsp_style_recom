@@ -125,6 +125,7 @@ public class YJ_BbsDAO {
 				   + "     , to_char(b.bd_date,'yyyy-mm-dd') as bd_date "
 				   + "     , b.bd_readcount"
 				   + "     , (select count(*) from board_comment bc where b.bd_id = bc.bd_id) as commentCount"
+				   + "     ,(select round(avg(star),0) as staravg from board_comment bc where b.bd_id = bc.bd_id) as staravg"
 				   + "     from board b"
 				   + "     where b.BD_NOTICE = 0"
 				   + "     ORDER BY bd_id DESC";
@@ -143,6 +144,7 @@ public class YJ_BbsDAO {
 				board.setBd_date(rs.getString(5));
 				board.setBd_readcount(rs.getInt(6));
 				board.setCommentCount(rs.getInt(7));
+				board.setStaravg(rs.getString(8));
 
 				list.add(board);
 			}

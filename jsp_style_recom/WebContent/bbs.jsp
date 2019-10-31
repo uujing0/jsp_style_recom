@@ -178,6 +178,8 @@
 							   font-size: 15px; ">DATE</th>
 							   <th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
 							   font-size: 15px; ">HIT</th>
+							    <th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">별점 평균</th>
 					
 				</tr>
 			</thead>
@@ -192,6 +194,18 @@
 						<td>${board.mem_id}
 						<td>${board.bd_date}
 						<td>${board.bd_readcount}
+						<td> <c:if test="${board.staravg>0}"> <!-- bbslist에서 쿼리문으로 생성한 commentcount가 0보다 크면 제목 옆에 댓글 갯수 출력 -->
+							<c:if test="${board.staravg==1}">★</c:if>
+									<c:if test="${board.staravg==2}">★★</c:if>
+									<c:if test="${board.staravg==3}">★★★</c:if>
+									<c:if test="${board.staravg==4}">★★★★</c:if>
+									<c:if test="${board.staravg==5}">★★★★★</c:if>
+									<c:if test="${board.staravg==6}">★★★★★★</c:if>
+									<c:if test="${board.staravg==7}">★★★★★★★</c:if>
+									<c:if test="${board.staravg==8}">★★★★★★★★</c:if>
+									<c:if test="${board.staravg==9}">★★★★★★★★★</c:if>
+									<c:if test="${board.staravg==10}">★★★★★★★★★</c:if>
+						</c:if></td>
 					</tr>
 				</c:forEach>
 				
