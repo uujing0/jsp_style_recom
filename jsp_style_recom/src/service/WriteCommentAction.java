@@ -19,7 +19,7 @@ import dao.YJ_BbsDAO;
 			YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
 			bbsDAO.write_comment(bd_id, mem_id, content,star);
 			System.out.println("bd_id->"+bd_id);
-			return "";
+			return "/view.jsp";
 		}
 
 	}

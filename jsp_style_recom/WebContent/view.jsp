@@ -216,7 +216,7 @@
 	<div clas="container">
 		<div class="container-fluid">
 			<table class="table"
-				style="text-align: center; border: 1px solid #dddddd">
+				style="text-align: left; border: 1px solid #dddddd">
 				<thead>
 					<tr>
 						<th colspan="3"
@@ -283,17 +283,17 @@
 					</tr>
 					<c:forEach var="comment" items="${comments}">
 						<tr>
-							<td><c:forEach begin="1" end="${comment.star}">
+							<td style="text-align: left";>　　　　　<c:forEach begin="1" end="${comment.star}">
 								★
 								</c:forEach></td>
-							<td>${comment.cm_contents} <c:if
-									test="${mem_id == comment.mem_id}">
+							<td style="text-align: left";>${comment.cm_contents}<br><P><b>${comment.mem_id}</b> <br>
+								${comment.cm_date }
+							</td>
+							<td>
+								<c:if test="${mem_id == comment.mem_id}">
 									<button name="comment_delete" id="${comment.cm_id}"
 										class="btn btn-warning btn-sm">댓글삭제</button>
 								</c:if>
-							</td>
-							<td>작성자 : ${comment.mem_id} <br> 작성일 :
-								${comment.cm_date }
 							</td>
 
 						</tr>
