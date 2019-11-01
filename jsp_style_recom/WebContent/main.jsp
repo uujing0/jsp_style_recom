@@ -11,7 +11,7 @@
 		float: right;
 		border: 2px solid;
 	}
-	#hot_tag_list a:link{text-decoration: none; color: black;}
+	#hot_tag_list a:link{text-decoration: none; color: black;} 
 	#hot_tag_list a:active{text-decoration: none; color: black;}
 	#hot_tag_list a:visited{text-decoration: none; color: black;}
 	#hot_tag_list a:hover{text-decoration: none; color: black;}
