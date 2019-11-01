@@ -34,7 +34,7 @@
 			<div id="style">스타일1</div><br><br><br>
 			<div id="style">스타일2</div><br><br><br>
 			<div id="style">스타일3</div><br><br><br>
-div id="style">스타일4</div><br><br><br>
+			<div id="style">스타일4</div><br><br><br>
 			<div id="style">스타일5</div><br><br><br>
 			<div id="style">스타일6</div><br><br><br>
 	
