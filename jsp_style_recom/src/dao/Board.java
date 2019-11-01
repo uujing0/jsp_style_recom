@@ -15,13 +15,13 @@ public class Board {
 	private int bbsNO;
 	private String mem_id;
 	private int commentCount;
-	private String staravg;
+	private int staravg;
 
-	public String getStaravg() {
+	public int getStaravg() {
 		return staravg;
 	}
 
-	public void setStaravg(String staravg) {
+	public void setStaravg(int staravg) {
 		this.staravg = staravg;
 	}
 

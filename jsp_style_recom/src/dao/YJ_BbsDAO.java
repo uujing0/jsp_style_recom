@@ -98,7 +98,7 @@ public class YJ_BbsDAO {
 		return -1;
 	}
 	
-	public int write_comment(String bd_id, String mem_id, String content,String star) {
+	public int write_comment(String bd_id, String mem_id, String content,int star) {
 		String SQL = "INSERT INTO BOARD_COMMENT(mem_id, bd_id, cm_contents, cm_id,star,cm_date)"
 				+ "VALUES (?, ?, ?, ?,?,SYSDATE)";
 		try {
@@ -107,7 +107,7 @@ public class YJ_BbsDAO {
 			pstmt.setString(2, bd_id);
 			pstmt.setString(3, content);
 			pstmt.setInt(4, getCommentNext());
-			pstmt.setString(5, star);
+			pstmt.setInt(5, star);
 			return pstmt.executeUpdate();			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -144,7 +144,7 @@ public class YJ_BbsDAO {
 				board.setBd_date(rs.getString(5));
 				board.setBd_readcount(rs.getInt(6));
 				board.setCommentCount(rs.getInt(7));
-				board.setStaravg(rs.getString(8));
+				board.setStaravg(rs.getInt(8));
 
 				list.add(board);
 			}
@@ -214,7 +214,7 @@ public class YJ_BbsDAO {
 				boardcomment.setMem_id(rs.getString(2));
 				boardcomment.setCm_id(rs.getInt(3));
 				boardcomment.setCm_date(rs.getString(4));
-				boardcomment.setStar(rs.getString(5));
+				boardcomment.setStar(rs.getInt(5));
 				list.add(boardcomment);
 			}
 			rs.close();
@@ -282,7 +282,7 @@ public class YJ_BbsDAO {
 				board.setBd_notice(rs.getString(6));
 				board.setBd_file_url(rs.getString(7));
 				board.setBd_readcount(rs.getInt(8));
-				board.setStaravg(rs.getString(9));
+				board.setStaravg(rs.getInt(9));
 				return board;
 			}
 		} catch (Exception e) {
