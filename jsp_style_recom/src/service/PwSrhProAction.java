@@ -32,6 +32,6 @@ public class PwSrhProAction implements CommandProcess {
 	        //request.setAttribute("result", mem_id);
 	        System.out.println("PwSrhProAction : "+ mem_pw);
 		} catch(Exception e) { System.out.println(e.getMessage()); }
-        return "HJ_pwSrhPro.jsp";
+        return "pwSrhPro.jsp";
 	}
 }

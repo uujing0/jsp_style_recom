@@ -24,39 +24,10 @@ public class HJ_MemberDao {
 		return conn;
 	}
 
-	public Member select(int num) throws SQLException {
-		Connection conn = null;	Statement stmt= null; ResultSet rs = null;
-		String sql = "select * from board where num="+num;
-		Member member = new Member();
-		try {
-			conn = getConnection();
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			if (rs.next()) {				
-				member.setMem_id(rs.getString("mem_id"));
-				member.setMem_pw(rs.getString("mem_pw"));
-				member.setMem_name(rs.getString("mem_name"));
-				member.setMem_phone(rs.getString("mem_phone"));
-				member.setMem_email(rs.getString("mem_email"));
-				member.setMem_body_type(rs.getInt("mem_body_type"));
-				member.setMem_addr(rs.getString("mem_addr"));
-				member.setMem_gender(rs.getInt("mem_gender"));
-				member.setMem_join_date(rs.getDate("mem_join_date"));
-				member.setMem_status(rs.getInt("mem_status"));
-				member.setMem_fav_loc(rs.getString("mem_fav_loc"));
-			}
-		} catch(Exception e) {	System.out.println(e.getMessage()); 
-		} finally {
-			if (rs !=null) rs.close();
-			if (stmt != null) stmt.close();
-			if (conn !=null) conn.close();
-		}
-		return member;
-	}
 	public String SrhId(String mem_phone, String mem_email, String mem_name) throws SQLException {				
 		Connection conn = null;			
 		String mem_id = null;
-		String sql  = "select mem_id from style_mem where mem_phone=? and mem_name=? and mem_email=?"; 
+		String sql  = "select mem_id from member where mem_phone=? and mem_name=? and mem_email=?"; 
 		PreparedStatement pstmt = null; 	
 		ResultSet rs = null;
 		
@@ -93,7 +64,7 @@ public class HJ_MemberDao {
 	public String SrhPw(String mem_id, String mem_name, String mem_email) throws SQLException {				
 		Connection conn = null;			
 		String mem_pw = null;
-		String sql  = "select mem_pw from style_mem where mem_id=? and mem_name=? and mem_email=?"; 
+		String sql  = "select mem_pw from member where mem_id=? and mem_name=? and mem_email=?"; 
 		PreparedStatement pstmt = null; 	
 		ResultSet rs = null;
 		
