@@ -9,15 +9,11 @@
 	$(function(){
 		
 		$("#top_login_button").click(function(){
-			sessionStorage.setItem('id',"asd");
 			location.href = "loginForm.do";
-			//location.href = "login.do";
 		});
 		
 		$("#bottom_login_button").click(function(){
-			sessionStorage.setItem('id',"asd");
 			location.href = "loginForm.do";
-			//location.href = "login.do";
 		});
 		
 		$("#top_signup_button").click(function(){
@@ -37,21 +33,19 @@
 		});
 		
 		$("#top_logout_button").click(function(){
-			//세션 제거 필요
-			sessionStorage.removeItem('id');
+			sessionStorage.removeItem('mem_id');
 			location.href = "main.do";
 		})
 		
 		$("#bottom_logout_button").click(function(){
-			//세션 제거 필요
-			sessionStorage.removeItem('id');
+			sessionStorage.removeItem('mem_id');
 			location.href = "main.do";
 		})
 		
 		//sessionStorage.setItem('id',"asd");
 		
 		//로그인 상태에 따라 표기되는 버튼을 관리
-		if(!sessionStorage.getItem('id')){
+		if(!sessionStorage.getItem('mem_id')){
 			//로그아웃 상태일시 가리는 버튼
 			$("#top_logout_button").hide();
 			$("#top_my_page_button").hide();

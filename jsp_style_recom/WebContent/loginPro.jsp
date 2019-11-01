@@ -6,11 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+</script>
 </head>
 <body>
 	<c:if test="${result == 1}">
 		<script type="text/javascript">
 			alert("로그인을 성공하였습니다.")
+			sessionStorage.setItem('mem_id', getParameterByName('mem_id'));
 			location.href = "main.do"
 			//window.close();
 		</script>
