@@ -72,6 +72,47 @@ public class JW_StyleInfoDao {
 		return al;
 	}
 	
-
+	// TAG에 따른 styleInfo list 받아오는 메소드
+	public ArrayList<StyleInfo> getStyleInfosFromTag(int tagId, int gender) throws SQLException {
+		System.out.println("---------- JW_StyleInfoDao - getStyleInfosFromTag ----------");
+		Connection conn = null;
+		String sql = 	" SELECT * FROM style_info " +
+						" WHERE stl_id in ( SELECT stl_id FROM style_tag_mapping " +  
+						"                   WHERE tc_id = ?) " +
+						" AND stl_gender = ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<StyleInfo> styleInfos = new ArrayList<>();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, tagId);
+			pstmt.setInt(2, gender);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				StyleInfo styleInfo = new StyleInfo();
+				styleInfo.setStl_id(rs.getInt(1));
+				styleInfo.setCc_id_outer(rs.getInt(2));
+				styleInfo.setCc_id_top(rs.getInt(3));
+				styleInfo.setCc_id_bottom(rs.getInt(4));
+				styleInfo.setCc_id_acc(rs.getInt(5));
+				styleInfo.setStl_pic_url(rs.getString(6));
+				styleInfo.setStl_desc(rs.getString(7));
+				styleInfo.setStl_gender(rs.getInt(8));
+				
+				styleInfos.add(styleInfo);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}  finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		
+		return styleInfos;
+	}
 
 }

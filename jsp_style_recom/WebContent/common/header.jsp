@@ -341,7 +341,7 @@ header a:active{color: black; text-decoration: none;}
 		<table id="menu_bar_table">
 			<tr>
 				<td><a href="main.do">메인메뉴</a></td>
-				<td><a href="styleList.do">스타일 추천</a></td>
+				<td><a href="styleList.do?tagId=${1}">스타일 추천</a></td>
 				<td><a href="board.do">게시판</a></td>
 				<td><a href="member.do">회원관리</a></td>
 				<td><a href="member.do">메뉴바미확정</a></td>
