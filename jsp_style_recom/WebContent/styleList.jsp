@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>추천 리스트</title>
+<title>추천 리스트</title> 
 
 <script type="text/javascript" src="../js/jquery.js"></script>  
 <script type="text/javascript">

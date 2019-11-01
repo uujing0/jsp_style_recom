@@ -36,7 +36,7 @@
 		
 		$("#searchdate").parent().hide();
 		
-		var searchBar = '<label> Search:<input type="search" class="form-control form-control-sm" id="search" placeholder="" aria-controls="table"> </label>';
+		var searchBar = '<label> Search:<input type="search" class="form-control form-control-sm" id="search" placeholder="" aria-controls="table" value="'+"bbb"+'"> </label>';
 		
 		$('#table').parent().append(searchBar);
 		

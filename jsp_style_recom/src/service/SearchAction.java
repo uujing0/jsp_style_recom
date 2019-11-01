@@ -38,7 +38,7 @@ public class SearchAction implements CommandProcess{
 		
 		//검색시 선택한 항목에따라 리턴하는 페이지와 액션이 달라진다. 0:스타일 검색 1:게시글 검색
 		if(search_target.equals("0")) {
-			returnPage = "styleSearch.jsp";
+			returnPage = "styleList.do";
 			System.out.println("스타일 검색");
 			
 			try {
