@@ -2,10 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">	
 	//문서 시작시 적용
@@ -237,8 +234,6 @@ header a:active{color: black; text-decoration: none;}
 /* header style end */
 </style>
 
-</head>
-
 <header>
 
 <div id="header_root">
@@ -279,8 +274,8 @@ header a:active{color: black; text-decoration: none;}
 			<table class="menu_bar_table">
 				<tr>
 					<td><a href="style.do">스타일 추천</a></td>
-					<td><a href="board.do">게시판</a></td>
-					<td><a href="member.do">마이코기</a></td>
+					<td><a href="bbs.do">게시판</a></td>
+					<td><a href="weather.do?sido=1168066000">마이코기</a></td>
 				</tr>
 			</table>
 		</div>

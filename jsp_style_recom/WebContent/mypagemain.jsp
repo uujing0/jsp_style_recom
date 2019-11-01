@@ -11,24 +11,26 @@
 <link rel="stylesheet" type="text/css" href="TH_style.css" />
 
 </head>
+
 <%@include file="header.jsp"%>
+
 <body>
 <%@include file="weatherForm.jsp"%><pre style="font-size:18px;font-weight:bold;">                      ${city }날씨</pre>	
-<div id="content">
-<div id="side_left">
+	<div id="content">
+		<div id="side_left">
 			<div id="head">마이페이지</div>
 			<div id="page"><a href="calendar.do">달력</a></div>
 			
-			<div id="page"><a href="myInfo.do">내정보</a></div>
+			<div id="page"><a href="myInfo.do">개인정보수정</a></div>
 			
 			<div id="page"><a href="board.do">내가 쓴 게시물</a></div>
 			
 			<div id="page"><a href="bookmark.do">즐겨찾기</a></div>
 		</div>
 
-<div id="center">	
-<%@include file="mypage.jsp"%>
-</div>
+	<div id="center">	
+	<%@include file="mypage.jsp"%>
+	</div>
 	<div id="recent_style">
 			<div id="head">최근본옷</div><br>
 			<div id="style">스타일1</div><br><br><br>
@@ -45,7 +47,10 @@
 			<pre>    사           진                                                                                사              진       </pre>
 		</div>
 	</div>
+	
 </body>
+
 <%@include file="footer.jsp"%>
 
 </html>
+

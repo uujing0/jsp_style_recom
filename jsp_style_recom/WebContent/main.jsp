@@ -176,7 +176,6 @@
 			</c:forEach>
 		</ol>
 	</div>
-<body>
 </body>
 <%@include file="footer.jsp" %>
 </html>
