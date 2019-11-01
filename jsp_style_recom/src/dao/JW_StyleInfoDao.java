@@ -72,14 +72,60 @@ public class JW_StyleInfoDao {
 		return al;
 	}
 	
-	// TAG에 따른 styleInfo list 받아오는 메소드
-	public ArrayList<StyleInfo> getStyleInfosFromTag(int tagId, int gender) throws SQLException {
-		System.out.println("---------- JW_StyleInfoDao - getStyleInfosFromTag ----------");
+	public int getStyleInfoCntFromTag(int tagId, int gender) throws SQLException {
+		System.out.println("[JW_StyleInfoDao - getStyleInfoCntFromTag]");
+		
+		
+		int total = 0;
 		Connection conn = null;
-		String sql = 	" SELECT * FROM style_info " +
+		String sql = 	" SELECT count(*) FROM style_info " +
 						" WHERE stl_id in ( SELECT stl_id FROM style_tag_mapping " +  
 						"                   WHERE tc_id = ?) " +
 						" AND stl_gender = ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, tagId);
+			pstmt.setInt(2, gender);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				total = rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			
+		}  finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		
+		return total;
+	}
+	
+	// TAG에 따른 styleInfo list 받아오는 메소드
+	public ArrayList<StyleInfo> getStyleInfosFromTag(int tagId, int gender, int startRow, int endRow) throws SQLException {
+		System.out.println("[JW_StyleInfoDao - getStyleInfosFromTag]");
+		
+		
+		Connection conn = null;
+		String sql = 	
+				"SELECT * " +
+				"FROM ( " +
+				"      SELECT rownum rn, a.* "  +
+				"      FROM ( SELECT *  "  +
+				"             FROM STYLE_INFO "  +
+				"             WHERE stl_id in ( SELECT stl_id "  +
+				"                               FROM style_tag_mapping "  +
+				"                               WHERE tc_id = ?) " +
+				"             AND stl_gender = ? "  +
+				"            ) a) "  +
+				"WHERE rn BETWEEN ? and ?";
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -90,6 +136,8 @@ public class JW_StyleInfoDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, tagId);
 			pstmt.setInt(2, gender);
+			pstmt.setInt(3, startRow);
+			pstmt.setInt(4, endRow);
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
@@ -107,6 +155,7 @@ public class JW_StyleInfoDao {
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			
 		}  finally {
 			if (pstmt != null) pstmt.close();
 			if (conn != null) conn.close();

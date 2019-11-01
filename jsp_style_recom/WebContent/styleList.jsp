@@ -91,6 +91,17 @@ select {
 	border-color: #CE6D39;
 }
 
+.styleTable {
+	boder: 1px solid black;
+}
+
+.styleElement {
+	margin-top: 70px;
+	height: 460px;
+	width: 320px;
+	background-color: gray;
+}
+
 /* #body_hh_1_2{
     margin-left: 50px;
 	margin-top: 70px;
@@ -103,7 +114,7 @@ select {
 <body>
 	<h2>테마 별 스타일 추천</h2>
 	<hr>
-	<table id="category_list" border="1">
+	<table id="category_list" border="1"> 
 		<tr>
 			<th>날씨별</th>
 			<td colspan="4">
@@ -157,14 +168,34 @@ select {
 		</tr>
 	</table>
 
-	<div id="total_style">
-		<span id="style1"><img id="img1"
-			src="../images/body_hh_1_2.jpg" width="100px" height="100px"></span> <span
-			id="style2">스타일2</span> <span id="style3">스타일3</span> <span
-			id="style4">스타일4</span> <span id="style5">스타일5</span> <span
-			id="style6">스타일6</span>
+ 	<div id="total_style">
+		<table class="styleTable" border="1">
+			<c:if test="${totCnt > 0 }">
+				<c:forEach var="sInfo" items="${list}">
+					<tr>
+						<td>
+							<div class="styleElement">
+								<img id="img1" src="./images/styleInfo/sit_off_1_2.jpg" width="100px" height="100px">
+							</div>
+						</td>
+					</tr>
+					<c:set var="startNum" value="${startNum-1}"/>
+				</c:forEach>
+			</c:if>
+		</table>
 	</div>
-
+	
+	<div style="text-align:center">
+		<c:if test="${startPage > blockSize}">
+			<a href="styleList.do?tagId=${tagId}&pageNum=${startPage-blockSize}">[이전]</a>
+		</c:if>
+		<c:forEach var="i" begin="${startPage-blockSize}" end="${endPage}">
+			<a href="styleList.do?tagId=${tagId}&pageNum=${i}"> [${i}]</a>
+		</c:forEach>
+		<c:if test="${endPage < pageCnt}">
+			<a href="styleList.do?tagId=${tagId}&pageNum=${startPaga+blockSize}">[다음]</a>
+		</c:if>
+	</div>
 
 </body>
 <%@ include file="/common/footer.jsp"%>
