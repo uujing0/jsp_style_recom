@@ -6,7 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<<<<<<< HEAD
 <style type="text/css">
 	#hot_tag_list{
 		float: right;

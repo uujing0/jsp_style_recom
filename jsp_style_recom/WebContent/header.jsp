@@ -32,11 +32,11 @@
 		});
 		
 		$("#top_my_page_button").click(function(){
-			location.href = "mypage.do";
+			location.href = "weather.do?sido=1168066000";
 		});
 		
 		$("#bottom_my_page_button").click(function(){
-			location.href = "mypage.do";
+			location.href = "weather.do?sido=1168066000";
 		});
 		
 		$("#top_logout_button").click(function(){

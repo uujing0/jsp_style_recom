@@ -15,7 +15,7 @@
 	}
 </style>
 <script type="text/javascript">
-	location.href = "main.do"
+	location.href = "weather.do"
 </script>
 </head>
 <body>
