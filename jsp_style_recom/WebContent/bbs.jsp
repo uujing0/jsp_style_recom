@@ -165,7 +165,7 @@
 	<tbody>
 				<tr>
 							   <td colspan="6" style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
-							   font-size: 15px; " > BEST STYLIST </td>
+							   font-size: 15px; " > BEST 코디 </td>
 					
 					
 				</tr>
