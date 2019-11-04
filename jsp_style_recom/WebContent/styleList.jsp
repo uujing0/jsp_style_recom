@@ -31,58 +31,6 @@
 	width: 1500px;
 }
 
-#style1 {
-	float: left;
-	background-color: gray;
-	margin-right: 80px;
-	margin-top: 70px;
-	height: 460px;
-	width: 320px;
-}
-
-#style2 {
-	float: left;
-	margin-top: 70px;
-	margin-right: 80px;
-	height: 460px;
-	width: 320px;
-	background-color: gray;
-}
-
-#style3 {
-	float: left;
-	margin-top: 70px;
-	height: 460px;
-	width: 320px;
-	background-color: gray;
-}
-
-#style4 {
-	float: left;
-	background-color: gray;
-	margin-right: 80px;
-	margin-top: 70px;
-	height: 460px;
-	width: 320px;
-}
-
-#style5 {
-	float: left;
-	margin-top: 70px;
-	margin-right: 80px;
-	height: 460px;
-	width: 320px;
-	background-color: gray;
-}
-
-#style6 {
-	float: left;
-	margin-top: 70px;
-	height: 460px;
-	width: 320px;
-	background-color: gray;
-}
-
 select {
 	width: 100px;
 	height: 25px;
@@ -93,13 +41,19 @@ select {
 
 .styleTable {
 	boder: 1px solid black;
+	text-align: center;
 }
 
+/* TODO  */
 .styleElement {
 	margin-top: 70px;
 	height: 460px;
 	width: 320px;
 	background-color: gray;
+}
+
+.styleTable tr td {
+	padding: 30px;
 }
 
 /* #body_hh_1_2{
@@ -168,28 +122,42 @@ select {
 		</tr>
 	</table>
 
- 	<div id="total_style">
+    <div id="total_style">
 		<table class="styleTable" border="1">
 			<c:if test="${totCnt > 0 }">
 				<c:forEach var="r" begin="0" end="${rowSize-1}">
-					<tr>
-					<c:forEach var="c" begin="0" end="${columnSize-1}">
-					<c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
-						<c:if test="${eIndex < list.size()}">
-							<td>
-								<div class="styleElement">
-									<img id="img1" src="./images/style/${list[eIndex].stl_pic_url}" width="100px" height="100px">
-								</div>
-							</td>
-						</c:if>
-					</c:forEach>
+					<tr class="">
+						<c:forEach var="c" begin="0" end="${columnSize-1}">
+							<c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
+							<c:if test="${eIndex < list.size()}">
+								<td>
+									<div class="styleElement">
+										<img id="img1" src="./images/style/${list[eIndex].stl_pic_url}" width="100px" height="100px">
+									</div>
+								</td>
+							</c:if>
+						</c:forEach>
 					</tr>
 				</c:forEach>
-	
 			</c:if>
 		</table>
 	</div>
 	
+	<!-- 페이지 이동 영역 - 바로가기  -->
+	<div style="text-align: center;">
+		<c:if test="${startPage > blockSize}">
+			<a href='styleList.do?pageNum=${startPage-pageBlockSize}'>[이전]</a>
+		</c:if>
+		
+		<c:forEach var="i" begin="${startPage }" end="${endPage}">
+			<a href="styleList.do?pageNum=${i}">[${i}]</a>
+		</c:forEach>
+		
+		<c:if test="${endPage < pageCnt }">
+			<a href="styleList.do?pageNum=${startpage+pageBlockSize}">[다음]></a>
+		</c:if>
+	</div>
+
 </body>
 <%@ include file="/common/footer.jsp"%>
 
