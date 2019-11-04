@@ -59,6 +59,16 @@
 		$("#request").trigger("click");
 	});
 	
+	$(document).on("click", "#submit", function(){
+		var data = CKEDITOR.instances.editor1.getData();
+		console.log(data);
+		
+		$("#bd_title").val(data);
+		$(this).append("<input type='submit' id='request'/>");
+		$("#request").trigger("click");
+	});
+	
+	
 	 function noSpaceForm2(obj) 
      {                        
          if(obj.value == " ") // 공백 체크

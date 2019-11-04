@@ -17,6 +17,15 @@ public class Board {
 	private int commentCount;
 	private int staravg;
 	private int star1;
+	private String popup;
+
+	public String getPopup() {
+		return popup;
+	}
+
+	public void setPopup(String popup) {
+		this.popup = popup;
+	}
 
 	public int getStar1() {
 		return star1;
