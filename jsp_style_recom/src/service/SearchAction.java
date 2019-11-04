@@ -12,6 +12,7 @@ import dao.HotTag;
 import dao.JM_HotTagDao;
 import dao.JM_SearchStyleDao;
 import dao.StyleInfo;
+import dao.YJ_BbsDAO;
 
 public class SearchAction implements CommandProcess{
 
@@ -66,8 +67,13 @@ public class SearchAction implements CommandProcess{
 			}
 			
 		}else {
-			//returnPage = "board.jsp";
+			returnPage = "bbs.do";
 			System.out.println("게시판 검색");
+			
+			YJ_BbsDAO bd = new YJ_BbsDAO();
+			request.setAttribute("bbsList", bd.getList());
+			YJ_BbsDAO bd1 = new YJ_BbsDAO();
+			request.setAttribute("bbsList2", bd1.getList2());
 		}
 		
 		//검색 결과 페이지로 검색 단어를 get방식으로 전송한다.
