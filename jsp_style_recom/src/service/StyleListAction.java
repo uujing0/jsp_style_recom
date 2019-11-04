@@ -42,19 +42,16 @@ public class StyleListAction implements CommandProcess {
 			int tagId = Integer.parseInt(strTagId);	
 			int gender = Integer.parseInt(strGender);
 			int totCnt = styleDao.getStyleInfoCntFromTag(tagId, gender);
-			
-			System.out.println("=> " + totCnt);
-			
+	
 			int currentPage = Integer.parseInt(strPageNum);
-			int pageSize = 5, blockSize = 5;
-			int startRow = (currentPage - 1) * pageSize + 1; 	// 1
-			int endRow = startRow + pageSize - 1;				// 10
-			int startNum = totCnt - startRow + 1;				// 38 - 1 + 1
+			int boardRowSize = 5, pageBlockSize = 5;		// blockSize
+			int startRow = (currentPage - 1) * boardRowSize + 1; 	// 1
+			int endRow = startRow + boardRowSize - 1;				// 10
 			
 			ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(tagId, gender, startRow, endRow);
-			int pageCnt = (int) Math.ceil((double)totCnt / pageSize);				// ceil(38/10) = 4
-			int startPage = (int)(currentPage - 1) / blockSize * blockSize + 1;		// 1
-			int endPage = startPage + blockSize - 1;			// 10
+			int pageCnt = (int) Math.ceil((double)totCnt / boardRowSize);				// ceil(38/10) = 4
+			int startPage = (int)(currentPage - 1) / pageBlockSize * pageBlockSize + 1;		// 1
+			int endPage = startPage + pageBlockSize - 1;			// 10
 			
 			if (endPage > pageCnt) {
 				endPage = pageCnt;
@@ -63,22 +60,25 @@ public class StyleListAction implements CommandProcess {
 			request.setAttribute("styleInfos", styleInfos);
 			request.setAttribute("tagId", tagId);
 			
+			/* table 그려줄 때 필요한 변수 세팅 */
+			// totCnt == 0일 경우 emptyView 띄어줌.
 			request.setAttribute("totCnt", totCnt);
-			request.setAttribute("pageNum", strPageNum);		// ?
-			request.setAttribute("currentPage", currentPage);
-			request.setAttribute("startNum", startNum);
 			request.setAttribute("list", styleInfos);
-			request.setAttribute("blockSize", blockSize);
-			request.setAttribute("pageCnt", pageCnt);
+			
+			/* 페이지 이동 영역 관련 변수 세팅 */
+			// ex) [이전] 5,6,7,8,9 [다음] 을 계산하기 위해 view로 보냄
+ 			request.setAttribute("pageBlockSize", pageBlockSize);
+			// 현재 페이지 활성화를 위한 변수
+			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
-
+			
+			// ?
+			request.setAttribute("pageCnt", pageCnt);
+			
 			System.out.println("---------------------------------");
-			System.out.println("startNum --> " + startNum);
 			System.out.println("totCnt --> " + totCnt);
 			System.out.println("currentPage --> " + currentPage);
-			System.out.println("blockSize --> " + blockSize);
-			System.out.println("pageSize --> " + pageSize);
 			System.out.println("startPage --> " + startPage);
 			System.out.println("endPage --> " + endPage);
 			

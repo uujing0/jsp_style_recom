@@ -175,28 +175,15 @@ select {
 					<tr>
 						<td>
 							<div class="styleElement">
-								<img id="img1" src="./images/styleInfo/sit_off_1_2.jpg" width="100px" height="100px">
+								<img id="img1" src="./images/style/sit_off_1_2.jpg" width="100px" height="100px">
 							</div>
 						</td>
 					</tr>
-					<c:set var="startNum" value="${startNum-1}"/>
 				</c:forEach>
 			</c:if>
 		</table>
 	</div>
 	
-	<div style="text-align:center">
-		<c:if test="${startPage > blockSize}">
-			<a href="styleList.do?tagId=${tagId}&pageNum=${startPage-blockSize}">[이전]</a>
-		</c:if>
-		<c:forEach var="i" begin="${startPage-blockSize}" end="${endPage}">
-			<a href="styleList.do?tagId=${tagId}&pageNum=${i}"> [${i}]</a>
-		</c:forEach>
-		<c:if test="${endPage < pageCnt}">
-			<a href="styleList.do?tagId=${tagId}&pageNum=${startPaga+blockSize}">[다음]</a>
-		</c:if>
-	</div>
-
 </body>
 <%@ include file="/common/footer.jsp"%>
 
