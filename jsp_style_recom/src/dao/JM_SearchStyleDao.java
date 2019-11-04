@@ -37,7 +37,6 @@ public class JM_SearchStyleDao {
 	public ArrayList<StyleInfo> searchStyle(String search_word) {
 		
 		ArrayList<StyleInfo> style_info_list = new ArrayList<StyleInfo>();
-		ArrayList<String> cc_id_list = new ArrayList<String>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -45,49 +44,51 @@ public class JM_SearchStyleDao {
 		
 		String replaced_word = search_word.replace(" ", "");
 
-		String cc_id_search_sql = "SELECT cc_id FROM CLOTHES_CATEGORY WHERE cc_name LIKE ? ";//받은 검색어를 통해 그에 맞는 cc_id를 모두 찾아오는 sql문 
-		String style_search_sql = "SELECT * FROM style_info WHERE cc_id_outer = ? OR cc_id_top = ? OR cc_id_bottom = ? OR cc_id_acc = ?";//찾은 cc_id를 통해 cc_id를 포함하는 style_list를 받아온다.
+		//cc_id를 통한 style_info 검색 sql
+		String cc_search_sql = "SELECT * FROM style_info\r\n" + 
+								  "WHERE cc_id_outer IN (SELECT cc_id FROM CLOTHES_CATEGORY WHERE cc_name LIKE ?)\r\n" + 
+								  "OR cc_id_top IN (SELECT cc_id FROM CLOTHES_CATEGORY WHERE cc_name LIKE ?)\r\n" + 
+								  "OR cc_id_bottom IN (SELECT cc_id FROM CLOTHES_CATEGORY WHERE cc_name LIKE ?)\r\n" + 
+								  "OR cc_id_acc IN (SELECT cc_id FROM CLOTHES_CATEGORY WHERE cc_name LIKE ?)";
+		//tc_id를 통한 style_info 검색 sql
+		String tc_search_sql = "SELECT * FROM style_info\r\n" + 
+							   "WHERE stl_id IN(SELECT stl_id\r\n" + 
+							   "                FROM style_tag_mapping\r\n" + 
+							   "                WHERE TC_ID IN(\r\n" + 
+							   "                    SELECT tc_id\r\n" + 
+							   "                    FROM tag_category\r\n" + 
+							   "                    WHERE tc_name like ?\r\n" + 
+							   "))";
 		
 		try {
+			//옷 종류로 검색
 			conn = getConnection();
-			pstmt = conn.prepareStatement(cc_id_search_sql);//기존 검색어의 카운트 값을 받아온다.
-			System.out.println("after setString");
+			pstmt = conn.prepareStatement(cc_search_sql);
 			pstmt.setString(1, "%"+replaced_word+"%");
-			System.out.println("execute 전");
+			pstmt.setString(2, "%"+replaced_word+"%");
+			pstmt.setString(3, "%"+replaced_word+"%");
+			pstmt.setString(4, "%"+replaced_word+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				StyleInfo si = new StyleInfo();
+				si.setStl_id(rs.getInt("stl_id"));
+				si.setStl_pic_url(rs.getString("stl_pic_url"));
+				style_info_list.add(si);
+			}
+			
+			//옷을 태그로 검색
+			pstmt.close();
+			rs.close();
+			pstmt = conn.prepareStatement(tc_search_sql);
+			pstmt.setString(1, "%"+replaced_word+"%");
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) { 
-				cc_id_list.add(rs.getString(1));//여기가 문제
+			while (rs.next()) {
+				StyleInfo si = new StyleInfo();
+				si.setStl_id(rs.getInt("stl_id"));
+				si.setStl_pic_url(rs.getString("stl_pic_url"));
+				style_info_list.add(si);
 			}
-			
-			try {
-				for( int i = 0 ; i < cc_id_list.size() ; i++) {//받은 cc_id에 해당하는 스타일이 있을 경우 전부 가져온다.
-					pstmt.close();
-					rs.close();
-					pstmt = conn.prepareStatement(style_search_sql);
-					pstmt.setString(1, cc_id_list.get(i));
-					pstmt.setString(2, cc_id_list.get(i));
-					pstmt.setString(3, cc_id_list.get(i));
-					pstmt.setString(4, cc_id_list.get(i));
-					rs = pstmt.executeQuery();
-					
-					while(rs.next()) {//받은 style_info를 전부 style_list에 넣는다.
-						StyleInfo si = new StyleInfo();
-						si.setStl_id(rs.getInt("stl_id"));
-						si.setStl_pic_url(rs.getString("stl_pic_url"));
-						style_info_list.add(si);
-					}
-					
-				}
-				
-			}catch (Exception e) {
-				if(e.getMessage() == null) {
-					System.out.println("style_info select error");
-				}else {
-					System.out.println("error : " + e.getMessage());
-				}
-			}
-			
 			
 		}catch (Exception e) {
 			if(e.getMessage() == null) {
@@ -96,7 +97,6 @@ public class JM_SearchStyleDao {
 				System.out.println("error : " + e.getMessage());
 			}
 		}
-		
 		
 		return style_info_list;
 	}
