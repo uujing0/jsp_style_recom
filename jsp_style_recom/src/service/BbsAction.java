@@ -20,7 +20,11 @@ public class BbsAction implements CommandProcess{
 		YJ_BbsDAO bd = new YJ_BbsDAO();
 		request.setAttribute("bbsList", bd.getList());
 		YJ_BbsDAO bd1 = new YJ_BbsDAO(); //�ȳ��ϼ��� �ϴ�
+		
 		request.setAttribute("bbsList2", bd1.getList2()); 
+
+		YJ_BbsDAO bd2 = new YJ_BbsDAO(); //�ȳ��ϼ��� �ϴ�
+		request.setAttribute("bbsList3", bd2.getList3()); 
 		return "bbs.jsp"; 
 	}
 }

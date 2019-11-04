@@ -114,7 +114,7 @@ public class YJ_BbsDAO {
 			System.out.println(e);
 		}
 		
-		return -1;//占싸깍옙占쏙옙占쏙옙占쏙옙占쏙옙?? 占쌤로깍옙占쏙옙占쏙옙 占실울옙
+		return -1;//�뜝�떥源띿삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕?? �뜝�뙟濡쒓퉵�삕�뜝�룞�삕�뜝�룞�삕 �뜝�떎�슱�삕
 	}
 
 	public ArrayList<Board> getList() {
@@ -184,6 +184,36 @@ public class YJ_BbsDAO {
 				board.setBd_date(rs.getString(5));
 				board.setBd_readcount(rs.getInt(6));
 				board.setCommentCount(rs.getInt(7));
+				list.add(board);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public ArrayList<Board> getList3() {
+		String SQL = "SELECT ROWNUM AS bbsNO,d.bd_id,d.bd_Title, d.mem_id , to_char(d.bd_date,'yyyy-mm-dd') as bd_date,d.bd_readcount,(select count(*) from board_comment bc where d.bd_id = bc.bd_id) as commentCount,(select round(avg(star),0) as staravg from board_comment bc where d.bd_id = bc.bd_id) as staravg,star as star1 FROM (select c.bd_id , avg(star) as star from board_comment c  group by c.bd_id order by star desc) c, board d  where c.bd_id = d.bd_id and  d.bd_notice=0 and ROWNUM <= 1 order by star desc ,d.bd_readcount desc";
+				   
+		ArrayList<Board> list = new ArrayList<Board>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			Board board;
+
+			while (rs.next()) {
+				board = new Board();
+				board.setBbsNO(rs.getInt(1));
+				board.setBd_id(rs.getInt(2));
+				board.setBd_title(rs.getString(3));
+				board.setMem_id(rs.getString(4));
+				board.setBd_date(rs.getString(5));
+				board.setBd_readcount(rs.getInt(6));
+				board.setCommentCount(rs.getInt(7));
+				board.setStaravg(rs.getInt(8));
+				board.setStar1(rs.getInt(9));
 				list.add(board);
 			}
 			rs.close();
@@ -291,7 +321,7 @@ public class YJ_BbsDAO {
 		return null;
 	}
 
-	//占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占�
+	//�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝占�
 	public int update(int bd_id, String bd_title, String bd_notice,String bd_content) {
 		String SQL = "UPDATE Board "
 				    + "  SET bd_Title = ?"
@@ -314,7 +344,7 @@ public class YJ_BbsDAO {
 		return -1;
 	}
 	
-	//占쏙옙占쏙옙占쏙옙 占쌍댐옙 占쏙옙占�
+	//�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�뙇�뙋�삕 �뜝�룞�삕�뜝占�
 	public int update2(int bd_id, String bd_title, String bd_content, String bd_file_url) {		
 		String SQL = "UPDATE board "
 				    + "  SET bd_Title = ?"
@@ -336,7 +366,7 @@ public class YJ_BbsDAO {
 	}
 
 	public int delete(int bd_id) {
-		// 占쌓뤄옙 占쏙옙占� 占쏙옙占쏙옙
+		// �뜝�뙎琉꾩삕 �뜝�룞�삕�뜝占� �뜝�룞�삕�뜝�룞�삕
 		String SQL = "delete from board "
 				   + " WHERE 1=1"
 				   + "   AND bd_id = ?";
