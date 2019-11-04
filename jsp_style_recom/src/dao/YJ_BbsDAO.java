@@ -127,9 +127,9 @@ public class YJ_BbsDAO {
 	+ "		 b.bd_id   , "
 				 + "b.bd_Title    ,"
 				 +"b.mem_id     , to_char(b.bd_date,'yyyy-mm-dd') as bd_date      , b.bd_readcount  , b.bd_content    , (select count(*) from board_comment bc where b.bd_id = bc.bd_id) as commentCount"
-						+"		 ,(select round(avg(star),0) as staravg from board_comment bc where b.bd_id = bc.bd_id) as staravg,"
-				         + "(select  '<img' || regexp_replace(bd_content, '(.*)<img(.*)/>(.*)', '\2') || '/>' as bd_content from board d where d.bd_id=b.bd_id) as popup     from board b  "  
-				         + "where b.BD_NOTICE = 0     ORDER BY bd_id DESC";
+						+"		 ,(select round(avg(star),0) as staravg from board_comment bc where b.bd_id = bc.bd_id) as staravg,    "
+				         + "      (select  '<img' || regexp_replace(bd_content, '(.*)<img(.*)>(.*)', '\\2') || '>' from board d where d.bd_id=b.bd_id) as popup     from board b  "  
+				         + "       where b.BD_NOTICE = 0     ORDER BY bd_id DESC";
 		ArrayList<Board> list = new ArrayList<Board>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -149,6 +149,7 @@ public class YJ_BbsDAO {
 				board.setStaravg(rs.getInt(9));
 				board.setPopup(rs.getString(10));
 				list.add(board);
+				System.out.println("board->" +	rs.getString(10));
 			}
 			rs.close();
 			pstmt.close();
