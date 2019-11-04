@@ -6,24 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	.item {
-		width: 400px;
-		float: left;
-		margin: 0.13px;
-		text-align: center;
-	}
-</style>
 <script type="text/javascript">
-	location.href = "weather.do"
+	location.href = "main.do"
 </script>
 </head>
 <body>
-<<<<<<< HEAD
-	
-=======
-	<h2>New Item</h2>
-		<c:forEach items="${newProductList }" var="productVO"></c:forEach>
->>>>>>> branch 'WY' of https://github.com/uujing0/jsp_style_recom.git
 </body>
 </html>
