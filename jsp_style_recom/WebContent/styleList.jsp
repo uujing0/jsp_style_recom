@@ -172,24 +172,20 @@ select {
 		<table class="styleTable" border="1">
 			<c:if test="${totCnt > 0 }">
 				<c:forEach var="r" begin="0" end="${rowSize-1}">
-					<c:forEach var="c" begin="0" end="${columnSize-1}">
-						<div class="styleElement">
-							<c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
-							${list[eIndex].stl_pic_url} <br>
-						</div>
-					</c:forEach>
-				</c:forEach>
-				
-			
-				<%-- <c:forEach var="sInfo" items="${list}">
 					<tr>
-						<td>
-							<div class="styleElement">
-								<img id="img1" src="./images/style/sit_off_1_2.jpg" width="100px" height="100px">
-							</div>
-						</td>
+					<c:forEach var="c" begin="0" end="${columnSize-1}">
+					<c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
+						<c:if test="${eIndex < list.size()}">
+							<td>
+								<div class="styleElement">
+									<img id="img1" src="./images/style/${list[eIndex].stl_pic_url}" width="100px" height="100px">
+								</div>
+							</td>
+						</c:if>
+					</c:forEach>
 					</tr>
-				</c:forEach> --%>
+				</c:forEach>
+	
 			</c:if>
 		</table>
 	</div>
