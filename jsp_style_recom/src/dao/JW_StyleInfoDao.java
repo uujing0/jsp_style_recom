@@ -142,14 +142,14 @@ public class JW_StyleInfoDao {
 			
 			while (rs.next()) {
 				StyleInfo styleInfo = new StyleInfo();
-				styleInfo.setStl_id(rs.getInt(1));
-				styleInfo.setCc_id_outer(rs.getInt(2));
-				styleInfo.setCc_id_top(rs.getInt(3));
-				styleInfo.setCc_id_bottom(rs.getInt(4));
-				styleInfo.setCc_id_acc(rs.getInt(5));
-				styleInfo.setStl_pic_url(rs.getString(6));
-				styleInfo.setStl_desc(rs.getString(7));
-				styleInfo.setStl_gender(rs.getInt(8));
+				styleInfo.setStl_id(rs.getInt("stl_id"));
+				styleInfo.setCc_id_outer(rs.getInt("cc_id_outer"));
+				styleInfo.setCc_id_top(rs.getInt("cc_id_top"));
+				styleInfo.setCc_id_bottom(rs.getInt("cc_id_bottom"));
+				styleInfo.setCc_id_acc(rs.getInt("cc_id_acc"));
+				styleInfo.setStl_pic_url(rs.getString("stl_pic_url"));
+				styleInfo.setStl_desc(rs.getString("stl_desc"));
+				styleInfo.setStl_gender(rs.getInt("stl_gender"));
 				
 				styleInfos.add(styleInfo);
 			}

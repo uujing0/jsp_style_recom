@@ -57,6 +57,8 @@ public class StyleListAction implements CommandProcess {
 				endPage = pageCnt;
 			}
 			
+			int columnSize = 3, rowSize = (int) Math.ceil((double)totCnt / columnSize);
+			
 			request.setAttribute("styleInfos", styleInfos);
 			request.setAttribute("tagId", tagId);
 			
@@ -64,6 +66,9 @@ public class StyleListAction implements CommandProcess {
 			// totCnt == 0일 경우 emptyView 띄어줌.
 			request.setAttribute("totCnt", totCnt);
 			request.setAttribute("list", styleInfos);
+			
+			request.setAttribute("rowSize", rowSize);
+			request.setAttribute("columnSize", columnSize);
 			
 			/* 페이지 이동 영역 관련 변수 세팅 */
 			// ex) [이전] 5,6,7,8,9 [다음] 을 계산하기 위해 view로 보냄
@@ -74,13 +79,15 @@ public class StyleListAction implements CommandProcess {
 			request.setAttribute("endPage", endPage);
 			
 			// ?
-			request.setAttribute("pageCnt", pageCnt);
+			request.setAttribute("pageCnt", pageCnt); 
 			
 			System.out.println("---------------------------------");
 			System.out.println("totCnt --> " + totCnt);
 			System.out.println("currentPage --> " + currentPage);
 			System.out.println("startPage --> " + startPage);
 			System.out.println("endPage --> " + endPage);
+			System.out.println("rowSize --> " + rowSize);
+			System.out.println("columnSize --> " + columnSize);
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
