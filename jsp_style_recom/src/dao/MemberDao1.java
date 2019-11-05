@@ -14,11 +14,11 @@ import javax.sql.DataSource;
 
 
 
-public class MemberDao {
-	private static MemberDao instance;
-	private MemberDao() {	}
-	public static MemberDao getInstance() {
-		if (instance == null) {	instance = new MemberDao();	}
+public class MemberDao1 {
+	private static MemberDao1 instance;
+	private MemberDao1() {	}
+	public static MemberDao1 getInstance() {
+		if (instance == null) {	instance = new MemberDao1();	}
 		return instance;
 	}
 	
@@ -35,7 +35,7 @@ public class MemberDao {
 	
 	public int confirm(String mem_id) throws SQLException {
 		int result  = 0;  				Connection conn = null;
-		String sql  = "select mem_id from member where  mem_id=? "; 
+		String sql  = "select mem_id from member where mem_id=?"; 
 		PreparedStatement pstmt = null; ResultSet rs = null;
 		try { 
 			conn  = getConnection();
@@ -78,7 +78,7 @@ public class MemberDao {
 		}
 		return result;
 	}
-	/*
+	
 	public int delete(String mem_id, String mem_pw) throws SQLException {
 		int result  = 0;  				Connection conn = null;
 		result = check(mem_id, mem_pw);
@@ -96,7 +96,7 @@ public class MemberDao {
 			if (conn != null) conn.close();
 		}
 		return result;
-	}*/
+	}
 	
 	public int check(String mem_id, String mem_pw) throws SQLException {
 		int result  = 0;  				Connection conn = null;
@@ -121,7 +121,7 @@ public class MemberDao {
 		return result;
 	}
 	
-	/*public int updateMemberOpionalInfo(Member member) throws SQLException {
+	public int updateMemberOpionalInfo(Member member) throws SQLException {
 		int result = 0;  				Connection conn = null;
 		String sql = "insert into favmem values(?,?)"; 	// TODP: update
 		PreparedStatement pstmt = null; 
@@ -139,9 +139,9 @@ public class MemberDao {
 			if (conn != null) conn.close();
 		}
 		return result;
-	}*/
+	}
 	
-	public int delete(String mem_id , String mem_pw) throws SQLException {
+	public int update(String mem_id , String mem_pw) throws SQLException {
 		int result = 0;  				Connection conn = null;
 		result = check(mem_id, mem_pw);
 		if (result != 1)  return result;

@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>Main Page1</h2>
+<h1>아이디와 암호를 입력하세요</h1>
+<form action="loginPro.do" name="frm" onsubmit="return chk()" >
+	아이디 : <input type="text" name="mem_id"><p>
+	암호 : <input type="password" name="mem_pw"><p>
+	<input type="submit" value="입력완료">
+</form>
+
+
 </body>
 </html>

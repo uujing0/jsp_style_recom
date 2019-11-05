@@ -22,7 +22,6 @@
 			        </legend>
 					<!-- <label for="mem_pw">암호 : </label>  -->
 					 <input type="hidden" name="mem_id" value="${mem_id}">
-					 <h3>아이디:  ${mem_id}</h3>
 			 		 <input type="password" name="mem_pw" required="required"  class="a" placeholder="암호 입력하세요" id="mem_pw"><p>		 	
 			 		<input type="submit" value="확인">
 				</fieldset>	

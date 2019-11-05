@@ -6,12 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.IK_MemberDao;
+
+
 import dao.Member;
 import dao.MemberDao;
 import dao.Member_fav_loc;
 
-public class JoinProAction implements CommandProcess {
+public class JoinProAction1 implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
@@ -33,11 +34,11 @@ public class JoinProAction implements CommandProcess {
 			// ex) 전라북도,경상남도,경상북도
 			String mem_fav_loc = arr_mem_fav == null ? "" : String.join(",", arr_mem_fav);
 			
-			IK_MemberDao md = IK_MemberDao.getInstance();
+			MemberDao md = MemberDao.getInstance();
 			member.setMem_fav_loc(mem_fav_loc);
 
 			int result = md.insert(member);
-		   System.out.println("result---->"+result);
+		
 			request.setAttribute("mem_id", member.getMem_id());
        		request.setAttribute("result", result);
 			

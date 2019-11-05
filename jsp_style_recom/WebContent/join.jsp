@@ -5,8 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+location.href = "joinForm.do";
+</script>
 </head>
 <body>
-	<h2>Main Page1</h2>
+
 </body>
 </html>
