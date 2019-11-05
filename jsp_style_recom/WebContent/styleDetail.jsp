@@ -113,17 +113,18 @@ background-color:gray;
 
 <br><br><hr>
 
-<div id="product_image">
-
-<span id = "pro1">상품1</span>
-<span id = "pro2">상품2</span>
-<span id = "pro3">상품3</span>
-
-<span id = "pro4">상품4</span>
-<span id = "pro5">상품5</span>
+<c:forEach items ="${p_cc1 }" var="i" >
+<div class="item">
+<img src="./images/product_images/${i}" width = "400px" height="300px">
 
 </div>
+</c:forEach> 
 
+<!-- <div id="product_image">
+
+<span id = "pro1"><img src="./images/product_images/p_cc1[0]}" width = "400px" height="300px"></span>
+</div>
+ -->
 </body>
 <%@ include file="footer.jsp" %>
 
