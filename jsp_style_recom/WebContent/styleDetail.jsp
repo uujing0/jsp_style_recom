@@ -124,7 +124,7 @@ window.onload = function() {
 }
 </script>
 </head>
-<%@ include file="/common/header.jsp" %>
+<%@ include file="header.jsp" %>
 
 
 <body>
@@ -195,6 +195,6 @@ window.onload = function() {
 </span>
 </c:forEach> 
 </body>
-<%@ include file="/common/footer.jsp" %>
+<%@ include file="footer.jsp" %>
 
 </html>

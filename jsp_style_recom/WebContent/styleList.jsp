@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>추천 리스트</title>
+<title>추천 리스트</title> 
 
 <script type="text/javascript" src="../js/jquery.js"></script>  
 <script type="text/javascript">
@@ -107,7 +107,7 @@ select{
 } */
 </style>
 </head>
-<%@ include file="/common/header.jsp" %>
+<%@ include file="header.jsp" %>
 <body>
 <h2>테마 별 스타일 추천</h2>
 <hr>
@@ -172,6 +172,6 @@ select{
 
 
 </body>
-<%@ include file="/common/footer.jsp" %>
+<%@ include file="footer.jsp" %>
 
 </html>
