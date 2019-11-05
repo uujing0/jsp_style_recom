@@ -11,8 +11,8 @@
 
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("입력성공");
-		close();
+		opener.document.location.reload();//팝업창닫으면서 원래창 새로고침
+		self.close();
 	</script>
 </c:if>	
 <c:if test="${result == 0 }">

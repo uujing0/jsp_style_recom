@@ -13,8 +13,8 @@
 		border:3px solid black;
 		border-radius: 8px;
 	}
-	th{border: 1px solid black; background-color: silver; padding: 1%; width: 130px;}
-	td{border: 2px solid black; height: 60px; font-size:12pt; vertical-align:top;text-align: right;padding: 10px;}
+	#calendar th{border: 1px solid black; background-color: #ccc; padding: 1%; width: 150px;}
+	#calendar td{border: 2px solid black; height: 80px; font-size:15pt; vertical-align:top;text-align: right;padding: 10px;}
 </style>
 </head>
 
@@ -25,7 +25,7 @@
 				<a href="?yy=${yy-1 }&mm=${mm}">◀</a>
 				<a href="?yy=${yy }&mm=${mm-1}">◁</a>
 			</td>
-			<td colspan="3" align="center" style="border:none;text-align: center;height: 40px;font-size:18pt;">
+			<td colspan="3" align="center" style="border:none;text-align: center;height: 40px;font-size:18pt;font-weight:bold;">
 				${yy }년 ${mm }월
 			</td>
 			<td colspan="2" align="center" style="border:none;text-align: left;height: 40px;">
@@ -43,8 +43,8 @@
 			<c:forEach var="i" begin="1" end="${lastday }" step="1">
 				<c:choose>
 					<c:when test="${(w-2+i)%7 eq 0 }">
-						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
-							${i }<br><span style="color:black">
+						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=100,top=120,status=no,scrollbars=no')">
+							${i }<br><span style="color:black;font-weight:bold;">
 							<c:choose>
 								<c:when test="${i eq 1}">${cal_title1 }</c:when>
 								<c:when test="${i eq 2}">${cal_title2 }</c:when>
@@ -82,7 +82,7 @@
 					</c:when>
 					<c:when test="${(w-2+i)%7 eq 6 }">
 						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
-							${i }<br><span style="color:black">
+							${i }<br><span style="color:black;font-weight:bold;">
 							<c:choose>
 								<c:when test="${i eq 1}">${cal_title1 }</c:when>
 								<c:when test="${i eq 2}">${cal_title2 }</c:when>
@@ -124,7 +124,7 @@
 						</c:when>
 					<c:otherwise>
 						<td style="cursor:pointer;" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
-							${i }<br>
+							${i }<br><span style="color:black;font-weight:bold;">
 							<c:choose>
 								<c:when test="${i eq 1}">${cal_title1 }</c:when>
 								<c:when test="${i eq 2}">${cal_title2 }</c:when>
@@ -157,7 +157,7 @@
 								<c:when test="${i eq 29}">${cal_title29 }</c:when>
 								<c:when test="${i eq 30}">${cal_title30 }</c:when>
 								<c:when test="${i eq 31}">${cal_title31 }</c:when>
-							</c:choose>
+							</c:choose></span>
 							
 						</td>	
 					</c:otherwise>

@@ -32,6 +32,6 @@ public class IdSrhProAction implements CommandProcess {
 	        //request.setAttribute("result", mem_id);
 	        System.out.println("IdSrhProAction : "+ mem_id);
 		} catch(Exception e) { System.out.println(e.getMessage()); }
-        return "HJ_idSrhPro.jsp";
+        return "idSrhPro.jsp";
 	}
 }

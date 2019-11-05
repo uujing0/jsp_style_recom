@@ -12,7 +12,7 @@ public class IdSrhFormAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		return "HJ_idSrhForm.jsp";
+		return "idSrhForm.jsp";
 	}
 
 }
