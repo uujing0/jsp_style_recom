@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import dao.IK_MemberDao;
 import dao.Member;
 import dao.MemberDao;
-import dao.Member_fav_loc;
 
 public class JoinProAction implements CommandProcess {
 
@@ -30,7 +29,7 @@ public class JoinProAction implements CommandProcess {
 
 			String [] arr_mem_fav = request.getParameterValues("mem_fav_loc");
 			
-			// ex) 전라북도,경상남도,경상북도
+			// 예) 전라북도,경상남도,경상북도
 			String mem_fav_loc = arr_mem_fav == null ? "" : String.join(",", arr_mem_fav);
 			
 			IK_MemberDao md = IK_MemberDao.getInstance();

@@ -4,11 +4,19 @@
 		name="jdbc/OracleDB"
 		auth="Container"
 		type="javax.sql.DataSource"
-		username="scott"
+		username="J20191001"
 		password="tiger"
 		driverClassName="oracle.jdbc.driver.OracleDriver"
 		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-		url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+		url="jdbc:oracle:thin:@211.183.2.63:1521:xe"
 		maxActive="50"
 		maxIdle="10"/>
+		
+		
+		<Resources>
+			<PreResources className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/img" base="C:"/>
+
+		</Resources>
+		
 </Context>
+
