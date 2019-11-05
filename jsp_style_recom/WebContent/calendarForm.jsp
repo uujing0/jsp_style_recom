@@ -16,6 +16,9 @@
 	#calendar th{border: 1px solid black; background-color: #ccc; padding: 1%; width: 150px;}
 	#calendar td{border: 2px solid black; height: 80px; font-size:15pt; vertical-align:top;text-align: right;padding: 10px;}
 </style>
+<script type="text/javascript">
+
+</script>
 </head>
 
 <body>
@@ -43,7 +46,7 @@
 			<c:forEach var="i" begin="1" end="${lastday }" step="1">
 				<c:choose>
 					<c:when test="${(w-2+i)%7 eq 0 }">
-						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=100,top=120,status=no,scrollbars=no')">
+						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=100,top=120,status=no,scrollbars=no')">
 							${i }<br><span style="color:black;font-weight:bold;">
 							<c:choose>
 								<c:when test="${i eq 1}">${cal_title1 }</c:when>
@@ -81,7 +84,7 @@
 						</td>
 					</c:when>
 					<c:when test="${(w-2+i)%7 eq 6 }">
-						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
+						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
 							${i }<br><span style="color:black;font-weight:bold;">
 							<c:choose>
 								<c:when test="${i eq 1}">${cal_title1 }</c:when>
@@ -123,7 +126,7 @@
 						</c:if>
 						</c:when>
 					<c:otherwise>
-						<td style="cursor:pointer;" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
+						<td style="cursor:pointer;" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
 							${i }<br><span style="color:black;font-weight:bold;">
 							<c:choose>
 								<c:when test="${i eq 1}">${cal_title1 }</c:when>

@@ -31,7 +31,7 @@
 		</div>
 
 	<div id="center">	
-	<%@include file="weather.jsp"%>
+	<%@include file="myboardForm.jsp"%>
 	</div>
 	<div id="recent_style">
 			<div id="head">최근본옷</div><br>
