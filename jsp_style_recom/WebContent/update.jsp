@@ -111,7 +111,7 @@
 						<ul class="dropdown-menu">
 							<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
 					
-							<li><a href="/borad/logout.do">로그아웃</a></li>
+							<li><a href="logout.do">로그아웃</a></li>
 						</ul>
 					</li>	
 			</ul>	
@@ -139,8 +139,14 @@
 								value = "${board.bd_title}" onkeyup="noSpaceForm2(this);" onchange="noSpaceForm2(this);"required="required"></td>
 				</tr>	
 				<tr>
+							<c:if test="${mem_id == 'admin'}"> 
 						<td style="text-align:left;"">　공지사항<input type="checkbox" class="btn btn-primary pull-left" name="bd_notice" value="1">
 						</td>
+						</c:if>
+						
+					<c:if test="${mem_id != admin}"> 
+					<td></td>
+					</c:if>
 						</tr>
 				<!-- <tr>
 					<td><input type="file" class="form-control" placeholder="파일 첨부" id="bbsfile" name="bbsfile" maxlength="50"></td>

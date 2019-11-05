@@ -59,6 +59,16 @@
 		$("#request").trigger("click");
 	});
 	
+	$(document).on("click", "#submit", function(){
+		var data = CKEDITOR.instances.editor1.getData();
+		console.log(data);
+		
+		$("#bd_title").val(data);
+		$(this).append("<input type='submit' id='request'/>");
+		$("#request").trigger("click");
+	});
+	
+	
 	 function noSpaceForm2(obj) 
      {                        
          if(obj.value == " ") // 공백 체크
@@ -93,7 +103,7 @@
 				
 			</button>
 			
-			<a class="navbar-brand" href="/borad/bbs.do">JSP 게시판</a>
+			<a class="navbar-brand" href="bbs.do">JSP 게시판</a>
 				<!-- Bootstrap navbar 기본 메뉴바 -->
 		</div>
 		
@@ -116,8 +126,8 @@
 							<ul class="dropdown-menu">
 								<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
 						
-								<li><a href="/borad/login.do">로그인</a></li>
-								<li><a href="/borad/join.do">회원가입</a></li>
+								<li><a href="login.do">로그인</a></li>
+								<li><a href="join.do">회원가입</a></li>
 							</ul>
 						</li>	
 				</ul>
@@ -135,7 +145,7 @@
 							<ul class="dropdown-menu">
 								<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
 						
-								<li><a href="/borad/logout.do">로그아웃</a></li>
+								<li><a href="logout.do">로그아웃</a></li>
 							</ul>
 						</li>	
 				</ul>
@@ -163,8 +173,14 @@
 							<input type="hidden" value="${mem_id}" name="mem_id"/></td>
 					</tr>
 					<tr>
+					<c:if test="${mem_id == 'admin'}"> 
 						<td style="text-align:left;"">　공지사항<input type="checkbox" class="btn btn-primary pull-left" name="bd_notice" value="1">
 						</td>
+						</c:if>
+						
+					<c:if test="${mem_id != admin}"> 
+					<td></td>
+					</c:if>
 						</tr>
 					<!-- <tr>
 						<td><input type="file"  class="form-control" placeholder="파일첨부" name="bbsupload" maxlength="50"></td>
