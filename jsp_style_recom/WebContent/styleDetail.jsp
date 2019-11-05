@@ -10,7 +10,7 @@
 <title>추천 스타일 상세</title>
 <style type="text/css">
 #buttons{
-margin-left: 720px;
+margin-left: 420px;
 margin-top: 60px;
 }
 h2{
@@ -73,9 +73,53 @@ width: 400px;
 height: 300px;
 background-color:gray;
 }
+
+#item1{
+margin-left: 40px;
+padding: 20px;
+display: inline-block;
+justify-content: center;
+}
+#item2{
+margin-left: 40px;
+padding: 20px;
+display: inline-block;
+justify-content: center;
+}
+#item3{
+margin-left: 10px;
+padding: 20px;
+display: inline-block;
+justify-content: center;
+}
 </style>
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+//bookmark
+function bookmark(){
+	var member_id = sessionStorage.getItem();
+	document.getElementById(bm_mem).val(member_id);
+	
+	
+	alert("즐겨찾기 삽입 되니?");
+}
+//url copy
+var obj;
+function urlClipCopy() {
+    obj.select() ;
+    document.execCommand("copy");
+    alert("클립보드로 URL이 복사되었습니다.");
+}
+window.onload = function() {
+    obj = document.getElementById('url');
+    obj.value = location.href;
+}
+
+
+</script>
 </head>
 <%@ include file="/common/header.jsp" %>
+
 
 <body>
 <h1>오늘의 추천 스타일</h1>
@@ -84,9 +128,13 @@ background-color:gray;
 <img src="./images/hanger.png" height="40px" width="60px"> description</h2>
 
 <div id="buttons">
+<input type="text" id="url" class="input" size="35" /><button class="button" onclick="urlClipCopy()">URL복사</button>
+<form action="">
+<input type="hidden" value="" name="bm_mem" id="bm_mem"> 
+<input type="hidden" value="" name="bm_style" id="bm_style"> 
+<input type="submit" value="즐겨찾기" id="bm" onclick="bookmark()">
 
-<input type="button" value="즐겨찾기" id="mostsee_save">
-<input type="button" value="URL복사" id="url_save">
+</form>
 
 </div>
 
@@ -112,19 +160,33 @@ background-color:gray;
 </div>
 
 <br><br><hr>
+<h3>관련 상품</h3>
 
+<p>겉옷</p>
 <c:forEach items ="${p_cc1 }" var="i" >
-<div class="item">
-<img src="./images/product_images/${i}" width = "400px" height="300px">
+<span class="item1">
+<img alt = "${i }" src="./images/product_images/${i}" width = "350px" height="380px">
 
-</div>
+</span>
 </c:forEach> 
 
-<!-- <div id="product_image">
 
-<span id = "pro1"><img src="./images/product_images/p_cc1[0]}" width = "400px" height="300px"></span>
-</div>
- -->
+<p>상의</p>
+<c:forEach items ="${p_cc2 }" var="i" >
+<span class="item2">
+<img alt = "${i }" src="./images/product_images/${i}" width = "350px" height="380px">
+
+</span>
+</c:forEach>
+
+ 
+<p>하의</p>
+<c:forEach items ="${p_cc3 }" var="i" >
+<span class="item3">
+<img alt = "${i }" src="./images/product_images/${i}" width = "350px" height="380px">
+
+</span>
+</c:forEach> 
 </body>
 <%@ include file="/common/footer.jsp" %>
 

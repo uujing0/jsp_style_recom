@@ -12,7 +12,9 @@ import com.sun.accessibility.internal.resources.accessibility_ko;
 
 import dao.JW_StyleInfoDao;
 import dao.StyleInfo;
+import dao.BookMark;
 import dao.ClothesCategory;
+import dao.JW_BookMarkDao;
 import dao.JW_ClothesCategoryDao;
 import dao.JW_ClothesProductMappingDao;
 import dao.JW_ProductDao;
@@ -34,6 +36,7 @@ public class StyleDetailAction implements CommandProcess {
 			ArrayList<String> p_cc2 = new ArrayList<String>();
 			ArrayList<String> p_cc3 = new ArrayList<String>();
 			
+			//style
 			int stl_id = Integer.parseInt(request.getParameter("stl_id"));
 			al = siDao.styleFind(stl_id);
 
@@ -95,6 +98,8 @@ public class StyleDetailAction implements CommandProcess {
 
 			String img_path = request.getSession().getServletContext().getRealPath("/");
 			System.out.println(img_path);
+			request.setAttribute("stl_id", stl_id);
+
 			request.setAttribute("img_path", img_path);
 			request.setAttribute("al", al);
 			request.setAttribute("p_cc1", p_cc1);
@@ -102,6 +107,8 @@ public class StyleDetailAction implements CommandProcess {
 			request.setAttribute("p_cc3", p_cc3);
 
 			request.setAttribute("p_cc1.size", p_cc1.size());
+			
+			
 			
 		} catch(Exception e){
 			System.out.println("Style_Detail Error : "+e.getMessage());
