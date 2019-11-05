@@ -25,7 +25,7 @@ public class BbsAction implements CommandProcess{
 
 		YJ_BbsDAO bd2 = new YJ_BbsDAO(); //�ȳ��ϼ��� �ϴ�
 		request.setAttribute("bbsList3", bd2.getList3()); 
-		return "bbs.jsp"; 
+		return "bbs.jsp";
 	}
 }
 
