@@ -246,7 +246,7 @@
 				<c:forEach var="board" items="${bbsList}"> <!-- DAO에 bbslist()함수를 호출하여 bbsList 생성 -->
 					<tr>
 						<td>${board.bbsNO}
-						<td><a href="view.do?bd_id=${board.bd_id}">${board.bd_title}</a><p>${board.popup}
+						<td><a href="view.do?bd_id=${board.bd_id}">${board.bd_title}<p>${board.popup}</a>
 						<c:if test="${board.commentCount>0}"> <!-- bbslist에서 쿼리문으로 생성한 commentcount가 0보다 크면 제목 옆에 댓글 갯수 출력 -->
 							[${board.commentCount}]
 						</c:if>
