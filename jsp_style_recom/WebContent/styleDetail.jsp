@@ -22,14 +22,11 @@ margin-left: 300px;
 #cc_icon{
 margin-left: 100px;
 display: inline-block;
-
 }
-
 #product_image{
 margin-left: 280px;
 width: 1500px;
 height: 800px;
-
 }
  
 #pro1{
@@ -39,7 +36,6 @@ width: 400px;
 height: 300px;
 background-color:gray;
 }
-
 #pro2{
 margin-right: 10px;
 float: left;
@@ -47,7 +43,6 @@ width: 400px;
 height: 300px;
 background-color:gray;
 }
-
 #pro3{
 margin-right: 10px;
 float: left;
@@ -55,7 +50,6 @@ width: 400px;
 height: 300px;
 background-color:gray;
 }
-
 #pro4{
 margin-top: 30px;
 margin-right: 10px;
@@ -64,7 +58,6 @@ width: 400px;
 height: 300px;
 background-color:gray;
 }
-
 #pro5{
 margin-top: 30px;
 margin-right: 10px;
@@ -73,7 +66,6 @@ width: 400px;
 height: 300px;
 background-color:gray;
 }
-
 #item1{
 margin-left: 40px;
 padding: 20px;
@@ -96,14 +88,30 @@ justify-content: center;
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 //bookmark
-function bookmark(){
-	var member_id = sessionStorage.getItem();
-	document.getElementById(bm_mem).val(member_id);
+/* $(function(){
+	$('#submit').click(function(){
+		alert("즐겨찾기 삽입 되니?");
+
+		var member_id = sessionStorage.getItem();
+		document.getElementById(bm_mem).val(member_id);
+		$.post('bookmark_action.jsp', member_id, function(msg){
+			$('#msg').html(msg);
+		});
+		return false;
+	});
+});
+ */
+ 
+
+/* function bm_in(){
+	var mem_id = sessionStorage.getItem();
+	var sty_id = $('#sty_id', frm_read).val();
 	
 	
-	alert("즐겨찾기 삽입 되니?");
-}
-//url copy
+} 
+ */
+
+ //url copy
 var obj;
 function urlClipCopy() {
     obj.select() ;
@@ -114,8 +122,6 @@ window.onload = function() {
     obj = document.getElementById('url');
     obj.value = location.href;
 }
-
-
 </script>
 </head>
 <%@ include file="/common/header.jsp" %>
@@ -130,10 +136,11 @@ window.onload = function() {
 <div id="buttons">
 <input type="text" id="url" class="input" size="35" /><button class="button" onclick="urlClipCopy()">URL복사</button>
 <form action="">
-<input type="hidden" value="" name="bm_mem" id="bm_mem"> 
+<!-- <input type="hidden" value="" name="bm_mem" id="bm_mem"> 
 <input type="hidden" value="" name="bm_style" id="bm_style"> 
-<input type="submit" value="즐겨찾기" id="bm" onclick="bookmark()">
-
+<input type="submit" value="즐겨찾기" id="bm" onclick="bookmark()"> --><!-- 
+<input type="button" value="즐겨찾기추가" id="bookmark_in" onclick="bm_in()">
+<input type="button" value="즐겨찾기삭제" id="bookmark_out" onclick="bm_out()"> -->
 </form>
 
 </div>
