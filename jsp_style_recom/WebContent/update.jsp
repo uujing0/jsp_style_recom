@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width", initial-scale="1">
 	<!-- viewport=화면상의 표시영역, content=모바일 장치들에 맞게 크기조정, initial=초기화면 배율 설정 -->
 	
-<%@include file="fixed/header.jsp" %> 
+<%@include file="header.jsp" %> 
 <script src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
 

@@ -8,16 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("입력 완료 ! ");
-		location.href="schedule.do";
+		alert("입력성공");
+		close();
 	</script>
 </c:if>	
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
 		alert("입력오류");
-		location.href="scheduleForm.do";
+		location.href="scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}";
 	</script>
 </c:if>
 </body>

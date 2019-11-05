@@ -123,8 +123,8 @@ div#side_left {
 
 #content {
 	width: 100%;
-
 	float: left;
+	height: 50%;
 }
 img{
 	width: 103.922px;

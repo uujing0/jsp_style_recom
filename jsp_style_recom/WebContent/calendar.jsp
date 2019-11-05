@@ -7,7 +7,7 @@
 <title>마이페이지_달력</title>
 <link rel="stylesheet" type="text/css" href="TH_style.css" />
 </head>
-<%@include file="/common/header.jsp"%>
+<%@include file="header.jsp"%>
 <body>
 <div id="content">
 <div id="side_left">
@@ -23,7 +23,7 @@
 
 <div id="center">	
 
-<%@include file="TH_calendar.jsp"%>
+<%@include file="calendarForm.jsp"%>
 
 
 </div>
@@ -44,5 +44,5 @@
 		</div>
 		</div>
 </body>
-<%@include file="/common/footer.jsp"%>
+<%@include file="footer.jsp"%>
 </html>

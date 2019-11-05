@@ -4,9 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
 <style type="text/css">
 	select{
 		width: 100px;
@@ -24,8 +23,7 @@
 		padding-left:15%;
 	}
 </style>
-</head>
-<body>
+
 <div id="selector">
 <form action="weather.do">
 <span style="border-radius: 5px;border:solid;border-color: #CE6D39;background-color: white;font-size:17px;">지역선택</span> 
@@ -52,5 +50,5 @@
 	<input type="submit" value="확인" style="border-radius: 5px;border:solid;border-color: #CE6D39;background-color: white;height: 25px;">
 </form>
 </div>
-</body>
+
 </html>
