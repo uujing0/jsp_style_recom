@@ -192,13 +192,13 @@
     </div>
 	<p>
     <div id="board">
-        <table id="bList" width="800" border="3" bordercolor="lightgray">
+        <table style="font:bold;" id="bList" width="800" border="3" bordercolor="lightgray" >
             <tr heigh="30">
-                <td>글번호</td>
-                <td>제목</td>
-                <td>작성자</td>
-                <td>작성일</td>
-                <td>조회수</td>
+                <td width="50">글번호</td>
+                <td width="550">제목</td>
+                <td width="50">작성자</td>
+                <td width="100">작성일</td>
+                <td width="50">조회수</td>
             </tr>
         <c:forEach var="board" items="${bbsList}">
             <tr>
@@ -208,11 +208,7 @@
                     ${board.bd_title}
                     </a>
                 </td>
-                <td>
-                    
-                    ${board.bd_id}
-                    
-                </td>
+                <td>${board.bd_id}</td>
                 <td>${board.bd_date}</td>
                 <td>${board.bd_readcount}</td>
             </tr>
