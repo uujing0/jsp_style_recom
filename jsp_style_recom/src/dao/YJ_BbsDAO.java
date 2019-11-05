@@ -123,19 +123,14 @@ public class YJ_BbsDAO {
 	}
 
 	public ArrayList<Board> getList() {
-		String SQL = "select ROWNUM AS bbsNO     ,"	
-				 + "b.bd_id   ,"
-				  + "b.bd_Title    ,"
-				  + "b.mem_id     , "
-				  +" to_char(b.bd_date,'yyyy-mm-dd') as bd_date      ," 
-				  +" b.bd_readcount  , "
-				  + "b.bd_content    ," 
-				  + "(select count(*) from board_comment bc where b.bd_id = bc.bd_id) as commentCount,"
-				  + "(select round(avg(star),0) as staravg from board_comment bc where b.bd_id = bc.bd_id) as staravg,"        
-				  + "(select '<img' || regexp_replace(bd_content, '(.*)<img(.*)style=(.*)', '\\2')\r\n" + 
-				  "||'style=' || replace( replace( translate( regexp_replace(bd_content, '(.*)style=(.*)>(.*)', '\\2') , '#0123456789', '#') || '/>' , 'height:', 'height:200'), 'width:', 'width:200')"
-				  + "from board d where d.bd_id=b.bd_id) as popup from board b"
-				  +" where b.BD_NOTICE = 0     ORDER BY bd_id DESC";
+		String SQL = "select ROWNUM AS bbsNO     ," + "b.bd_id   ," + "b.bd_Title    ," + "b.mem_id     , "
+				+ " to_char(b.bd_date,'yyyy-mm-dd') as bd_date      ," + " b.bd_readcount  , " + "b.bd_content    ,"
+				+ "(select count(*) from board_comment bc where b.bd_id = bc.bd_id) as commentCount,"
+				+ "(select round(avg(star),0) as staravg from board_comment bc where b.bd_id = bc.bd_id) as staravg,"
+				+ "(select '<img' || regexp_replace(bd_content, '(.*)<img(.*)style=(.*)', '\\2')\r\n"
+				+ "||'style=' || replace( replace( translate( regexp_replace(bd_content, '(.*)style=(.*)>(.*)', '\\2') , '#0123456789', '#') || '/>' , 'height:', 'height:200'), 'width:', 'width:200')"
+				+ "from board d where d.bd_id=b.bd_id) as popup from board b"
+				+ " where b.BD_NOTICE = 0     ORDER BY bd_id DESC";
 		ArrayList<Board> list = new ArrayList<Board>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -155,7 +150,7 @@ public class YJ_BbsDAO {
 				board.setStaravg(rs.getInt(9));
 				board.setPopup(rs.getString(10));
 				list.add(board);
-				System.out.println("board->" +	rs.getString(10));
+				System.out.println("board->" + rs.getString(10));
 			}
 			rs.close();
 			pstmt.close();
@@ -199,11 +194,12 @@ public class YJ_BbsDAO {
 	}
 
 	public ArrayList<Board> getList3() {
-		String SQL = "SELECT ROWNUM AS bbsNO,d.bd_id,d.bd_Title, d.mem_id , to_char(d.bd_date,'yyyy-mm-dd') as bd_date,d.bd_readcount,(select count(*) "
-				+ "from board_comment bc where d.bd_id = bc.bd_id) as commentCount,"
-				+ "(select round(avg(star),0) as staravg from board_comment bc where d.bd_id = bc.bd_id) as staravg,star as star1 "
-				+ "FROM (select c.bd_id , avg(star) as star from board_comment c  group by c.bd_id order by star desc) c, board d  "
-				+ "where c.bd_id = d.bd_id and  d.bd_notice=0 and ROWNUM <= 1 order by star desc ,d.bd_readcount desc";
+		String SQL =  "SELECT ROWNUM AS bbsNO,d.bd_id,d.bd_Title, d.mem_id , to_char(d.bd_date,'yyyy-mm-dd') as bd_date,d.bd_readcount,(select count(*)from board_comment bc where d.bd_id = bc.bd_id) as commentCount,"
+				+"   (select round(avg(star),0) as staravg from board_comment bc where d.bd_id = bc.bd_id) as staravg,"
+				 +"  star as star1"
+				  +" ,(select '<img' || regexp_replace(bd_content, '(.*)<img(.*)style=(.*)', '\\2')"
+				+"||'style=' || replace( replace( translate( regexp_replace(bd_content, '(.*)style=(.*)>(.*)', '\\2') , '#0123456789', '#') || '/>' , 'height:', 'height:200'), 'width:', 'width:200')  from board b where d.bd_id=b.bd_id) as popup FROM (select c.bd_id , round(avg(star),0) as star from board_comment c  group by c.bd_id order by star desc) c, board d" 
+				   +" where c.bd_id = d.bd_id and  d.bd_notice=0 and ROWNUM <= 1 order by star desc ,d.bd_readcount desc";
 
 		ArrayList<Board> list = new ArrayList<Board>();
 		try {
@@ -222,7 +218,10 @@ public class YJ_BbsDAO {
 				board.setCommentCount(rs.getInt(7));
 				board.setStaravg(rs.getInt(8));
 				board.setStar1(rs.getInt(9));
+				board.setPopup(rs.getString(10));
 				list.add(board);
+
+				System.out.println("board->" + rs.getString(10));
 			}
 			rs.close();
 			pstmt.close();
@@ -277,9 +276,9 @@ public class YJ_BbsDAO {
 	 * e.printStackTrace(); } return false; }
 	 */
 	public Board getBbs(int bd_id) {
-		String SQL = "SELECT bd_id , bd_Title  , mem_id     , to_char(bd_date,'yyyy-mm-dd hh:MM:ss') as bd_Date    , bd_Content," 
-	+ "	bd_notice     , bd_file_url     , bd_readcount," 
-	+ "(select round(avg(star),0) as staravg from board_comment where bd_id = ?) as staravg FROM board WHERE 1=1 AND bd_id = ? ORDER BY bd_ID ASC";
+		String SQL = "SELECT bd_id , bd_Title  , mem_id     , to_char(bd_date,'yyyy-mm-dd hh:MM:ss') as bd_Date    , bd_Content,"
+				+ "	bd_notice     , bd_file_url     , bd_readcount,"
+				+ "(select round(avg(star),0) as staravg from board_comment where bd_id = ?) as staravg FROM board WHERE 1=1 AND bd_id = ? ORDER BY bd_ID ASC";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, bd_id);
