@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -30,19 +31,21 @@ public class JW_BookMarkDao {
 		}
 		return conn;
 	}
-	public int insert(BookMark bookmark) throws SQLException {
+	
+	
+	public int insert(String mem_id, int stl_id) throws SQLException {
 		Connection conn = null;
 		int result = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "insert into bookmark values(?,?);";
+		String sql = "insert into bookmark values(?,?)";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1,  bookmark.getStl_id());
-			pstmt.setString(2,  bookmark.getMem_id());
+			pstmt.setString(1, mem_id);
+			pstmt.setInt(2, stl_id);
 			result = pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -55,5 +58,54 @@ public class JW_BookMarkDao {
 		
 		return result;
 	}
-
+	
+	
+	public int delete(String mem_id, int stl_id) throws SQLException {
+		Connection conn = null;
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "delete from bookmark where mem_id=? and stl_id=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, mem_id);
+			pstmt.setInt(2, stl_id);
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
+		return result;
+	}
+	public int check(String mem_id, int stl_id) throws SQLException{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from bookmark where mem_id = ? and stl_id =?";
+		int status = 0;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mem_id);
+			pstmt.setInt(2, stl_id);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				status = 1;
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		return status;
+	}
 }

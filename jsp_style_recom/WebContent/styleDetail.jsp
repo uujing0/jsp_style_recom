@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -85,44 +86,11 @@ display: inline-block;
 justify-content: center;
 }
 </style>
+<script type="text/javascript" src="../js/jquery.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <script type="text/javascript">
-/* $('#item1').click(function(){
-	<a href="http://localhost:8282/jsp_style_recom/prd_detail.do?prd_id="${prd_id}>
-	
-}) */
-//bookmark
-/* $(function(){
-	$('#submit').click(function(){
-		alert("즐겨찾기 삽입 되니?");
 
-		var member_id = sessionStorage.getItem();
-		document.getElementById(bm_mem).val(member_id);
-		$.post('bookmark_action.jsp', member_id, function(msg){
-			$('#msg').html(msg);
-		});
-		return false;
-	});
-});
- */
- 
-
-/* function bm_in(){
-	var mem_id = sessionStorage.getItem();
-	var sty_id = $('#sty_id', frm_read).val();
-	
-	
-} 
- */
- 
- //product_id
- $(function(){
-	 $('.item1').click(function(){
-		 var id = 
-	 })
- })
-
- //url copy
+//url복사
 var obj;
 function urlClipCopy() {
     obj.select() ;
@@ -132,7 +100,15 @@ function urlClipCopy() {
 window.onload = function() {
     obj = document.getElementById('url');
     obj.value = location.href;
+    
 }
+
+
+//bookmark
+function bookmark_func(){
+	alert("즐찾가나여");
+}
+
 </script>
 </head>
 <%@ include file="header.jsp" %>
@@ -147,13 +123,18 @@ window.onload = function() {
 
 <div id="buttons">
 <input type="text" id="url" class="input" size="35" /><button class="button" onclick="urlClipCopy()">URL복사</button>
-<form action="">
-<!-- <input type="hidden" value="" name="bm_mem" id="bm_mem"> 
-<input type="hidden" value="" name="bm_style" id="bm_style"> 
-<input type="submit" value="즐겨찾기" id="bm" onclick="bookmark()"> --><!-- 
-<input type="button" value="즐겨찾기추가" id="bookmark_in" onclick="bm_in()">
-<input type="button" value="즐겨찾기삭제" id="bookmark_out" onclick="bm_out()"> -->
+
+
+<c:if test= "${status ==0 }">
+<form action="styleDetail.do?stl_id=${stl_id }&mem_id=${mem_id}&onoff=1" method ="post">
+<input type="submit"  value="즐겨찾기 등록" >
 </form>
+</c:if>
+<c:if test= "${status ==1 }">
+<form action="styleDetail.do?stl_id=${stl_id }&mem_id=${mem_id}&onoff=2" method ="post">
+<input type="submit" value="즐겨찾기 해제" >
+</form>
+</c:if>
 
 </div>
 
@@ -182,31 +163,43 @@ window.onload = function() {
 <h3>관련 상품</h3>
 
 <p>겉옷</p>
-<c:forEach items ="${p_cc1 }" var="i" >
+<c:forEach var="i" begin="0" end="${fn:length(p_cc1)}" >
 <span class="item1">
-<a href="prd_detail.do?prd_id=">
-<img alt = "${i }" src="./images/product_images/${i}" width = "350px" height="380px">
-</a>
+<c:if test="${p_cc1[i] ==null }">
+</c:if>
+<c:if test="${p_cc1[i] !=null }">
+<a href="prd_detail.do?prd_id=${p_cc1_id[i] }">
+<img alt = "{p_cc1[i] }" src="./images/product_images/${p_cc1[i]}" width = "350px" height="380px">
+</a></c:if>	
 </span>
 </c:forEach> 
 
 
 <p>상의</p>
-<c:forEach items ="${p_cc2 }" var="i" >
+<c:forEach var="i" begin="0" end="${fn:length(p_cc2)}" >
 <span class="item2">
-<img alt = "${i }" src="./images/product_images/${i}" width = "350px" height="380px">
-
+<c:if test="${p_cc2[i] ==null }">
+</c:if>
+<c:if test="${p_cc2[i] !=null }">
+<a href="prd_detail.do?prd_id=${p_cc2_id[i] }">
+<img alt = "{p_cc2[i] }" src="./images/product_images/${p_cc2[i]}" width = "350px" height="380px">
+</a></c:if>	
 </span>
-</c:forEach>
+</c:forEach> 
 
  
 <p>하의</p>
-<c:forEach items ="${p_cc3 }" var="i" >
+<c:forEach var="i" begin="0" end="${fn:length(p_cc3)}" >
 <span class="item3">
-<img alt = "${i }" src="./images/product_images/${i}" width = "350px" height="380px">
-
+<c:if test="${p_cc3[i] ==null }">
+</c:if>
+<c:if test="${p_cc3[i] !=null }">
+<a href="prd_detail.do?prd_id=${p_cc3_id[i] }">
+<img alt = "{p_cc3[i] }" src="./images/product_images/${p_cc3[i]}" width = "350px" height="380px">
+</a></c:if>	
 </span>
 </c:forEach> 
+
 </body>
 <%@ include file="footer.jsp" %>
 

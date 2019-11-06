@@ -68,4 +68,6 @@ public class JW_ProductDao{
 		return product_image;
 	
 	}
+	
+
 }
