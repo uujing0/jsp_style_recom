@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>추천 스타일 상세</title>
 <style type="text/css">
@@ -87,6 +87,10 @@ justify-content: center;
 </style>
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <script type="text/javascript">
+/* $('#item1').click(function(){
+	<a href="http://localhost:8282/jsp_style_recom/prd_detail.do?prd_id="${prd_id}>
+	
+}) */
 //bookmark
 /* $(function(){
 	$('#submit').click(function(){
@@ -110,6 +114,13 @@ justify-content: center;
 	
 } 
  */
+ 
+ //product_id
+ $(function(){
+	 $('.item1').click(function(){
+		 var id = 
+	 })
+ })
 
  //url copy
 var obj;
@@ -130,8 +141,9 @@ window.onload = function() {
 <body>
 <h1>오늘의 추천 스타일</h1>
 <hr>
-<h2>
-<img src="./images/hanger.png" height="40px" width="60px"> description</h2>
+<div>
+<img src="./images/hanger.png" height="40px" width="60px"><h3>${std_desc}</h3>
+</div>
 
 <div id="buttons">
 <input type="text" id="url" class="input" size="35" /><button class="button" onclick="urlClipCopy()">URL복사</button>
@@ -172,8 +184,9 @@ window.onload = function() {
 <p>겉옷</p>
 <c:forEach items ="${p_cc1 }" var="i" >
 <span class="item1">
+<a href="prd_detail.do?prd_id=">
 <img alt = "${i }" src="./images/product_images/${i}" width = "350px" height="380px">
-
+</a>
 </span>
 </c:forEach> 
 
