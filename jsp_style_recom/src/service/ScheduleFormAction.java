@@ -23,13 +23,13 @@ public class ScheduleFormAction implements CommandProcess {
 				dd="0"+dd;
 			String yy = request.getParameter("yy");
 			String mm = request.getParameter("mm");
-			int cal_id = Integer.parseInt(yy + mm + dd);
+			
 			System.out.println("yy->" + yy + "mm->" + mm + "dd->" + dd);
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 			String day = yy + "-" + mm + "-" + dd;
 			Date cal_date = df.parse(yy + "-" + mm + "-" + dd);
 			String mem_id = request.getParameter("mem_id");
-
+			String cal_id = yy + mm + dd+mem_id;
 			System.out.println("mem_id->" + mem_id);
 
 			TH_CalendarDao cd = TH_CalendarDao.getInstance();
@@ -47,6 +47,7 @@ public class ScheduleFormAction implements CommandProcess {
 			request.setAttribute("cal_date", cal_date);
 			request.setAttribute("cal_contents", cal.getCal_contents());
 			request.setAttribute("cal_title",cal.getCal_title());
+			request.setAttribute("num", cal.getNum());
 			
 			System.out.println("last mem_id->"+mem_id);
 		} catch (Exception e) {

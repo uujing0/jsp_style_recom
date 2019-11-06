@@ -15,10 +15,12 @@
 
 <style type="text/css">
 footer{
-	padding: 4%;
+	position:relative;
 	display: flow-root;
-	margin-top: 2%;
-}
+ 	margin-top: 120px;
+ 	padding: 4%;
+ 	
+ 	}
 
 #footer_root{
 	margin-left: 10%;

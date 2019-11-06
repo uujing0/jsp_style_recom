@@ -13,6 +13,7 @@ div{
 ${day }일정<br>
 <input type="hidden" name="dd" value="${dd}" ><input type="hidden" name="yy" value="${yy }" ><input type="hidden" name="mm" value="${mm }">
 <input type="hidden" name="mem_id" value="${mem_id }">
+<input type="hidden" name="num" value="${num }">
 <table border="1">
 	<tr id="title">
 		<td>제목</td>
