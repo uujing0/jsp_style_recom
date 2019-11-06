@@ -17,7 +17,7 @@
 </c:if>	
 <c:if test="${result==0 }">
 	<script type="text/javascript">
-		alert("수정 오류"); 
+		alert("회원정보 수정 실패"); 
 		location.href="main.do?num=${num}&pageNum=${pageNum}";
 	</script>
 </c:if>

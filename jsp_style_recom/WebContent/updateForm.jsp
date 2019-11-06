@@ -20,7 +20,7 @@ li {
 }
 
 .a{ 
-     border-color:#FFBB00;
+     border-color:/* #FFBB00; */#CE6D39; 
      border-width:5px; 
      box-shadow:2px 2px 5px 2px gray;
 }
@@ -54,11 +54,12 @@ ul{ margin:20px; }
 
 <form action="updatePro.do" name="frm" onsubmit="return chk()">
 	       
-<fieldset>
+<fieldset >
 <legend><h1>회원 정보 수정</h1></legend>
 
 	
 		<ul>
+		    <li><h3>아이디:${mem_id}</h3></li>
 			<input type="hidden" name="mem_id" value="${mem_id}">
 			<li><label><input type="password" class="a" name="mem_pw"
 					required="required" placeholder="비밀번호 재설정"></label></li>
