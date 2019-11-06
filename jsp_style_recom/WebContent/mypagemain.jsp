@@ -21,7 +21,7 @@
 			<div id="head">마이페이지</div>
 			<div id="page"><a href="calendar.do">달력</a></div>
 			
-			<div id="page"><a href="myInfo.do">개인정보수정</a></div>
+			<div id="page"><a href="memUpForm.do">개인정보수정</a></div>
 			
 			<div id="page"><a href="board.do">내가 쓴 게시물</a></div>
 			
