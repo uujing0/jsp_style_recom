@@ -168,7 +168,7 @@ function bookmark_func(){
 <c:if test="${p_cc1[i] ==null }">
 </c:if>
 <c:if test="${p_cc1[i] !=null }">
-<a href="prd_detail.do?prd_id=${p_cc1_id[i] }">
+<a href="prddetail.do?prd_id=${p_cc1_id[i] }">
 <img alt = "{p_cc1[i] }" src="./images/product_images/${p_cc1[i]}" width = "350px" height="380px">
 </a></c:if>	
 </span>
@@ -181,7 +181,7 @@ function bookmark_func(){
 <c:if test="${p_cc2[i] ==null }">
 </c:if>
 <c:if test="${p_cc2[i] !=null }">
-<a href="prd_detail.do?prd_id=${p_cc2_id[i] }">
+<a href="prddetail.do?prd_id=${p_cc2_id[i] }">
 <img alt = "{p_cc2[i] }" src="./images/product_images/${p_cc2[i]}" width = "350px" height="380px">
 </a></c:if>	
 </span>
@@ -194,7 +194,7 @@ function bookmark_func(){
 <c:if test="${p_cc3[i] ==null }">
 </c:if>
 <c:if test="${p_cc3[i] !=null }">
-<a href="prd_detail.do?prd_id=${p_cc3_id[i] }">
+<a href="prddetail.do?prd_id=${p_cc3_id[i] }">
 <img alt = "{p_cc3[i] }" src="./images/product_images/${p_cc3[i]}" width = "350px" height="380px">
 </a></c:if>	
 </span>
