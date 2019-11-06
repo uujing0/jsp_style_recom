@@ -12,7 +12,9 @@ import com.sun.accessibility.internal.resources.accessibility_ko;
 
 import dao.JW_StyleInfoDao;
 import dao.StyleInfo;
+import dao.BookMark;
 import dao.ClothesCategory;
+import dao.JW_BookMarkDao;
 import dao.JW_ClothesCategoryDao;
 import dao.JW_ClothesProductMappingDao;
 import dao.JW_ProductDao;
@@ -26,55 +28,93 @@ public class StyleDetailAction implements CommandProcess {
 			JW_StyleInfoDao siDao = JW_StyleInfoDao.getInstance();
 			JW_ClothesCategoryDao ccDao = JW_ClothesCategoryDao.getInstance();
 			ArrayList<String> al = new ArrayList<String>();
-			
 			JW_ClothesProductMappingDao cpmDao = JW_ClothesProductMappingDao.getInstance();
 			JW_ProductDao pDao = JW_ProductDao.getInstance();
 			
+			//product_image
 			ArrayList<String> p_cc1 = new ArrayList<String>();
 			ArrayList<String> p_cc2 = new ArrayList<String>();
 			ArrayList<String> p_cc3 = new ArrayList<String>();
 			
+			ArrayList<String> p_cc1_id = new ArrayList<String>();
+			ArrayList<String> p_cc2_id = new ArrayList<String>();
+			ArrayList<String> p_cc3_id = new ArrayList<String>();
+
+			
+		  //style
 			int stl_id = Integer.parseInt(request.getParameter("stl_id"));
+			System.out.println("stl_id->"+stl_id);
+			String mem_id = request.getParameter("mem_id");
+			
+			//bookmark
+			JW_BookMarkDao bmDao = JW_BookMarkDao.getInstance();
+			
+			
+			
+			int onoff = Integer.parseInt(request.getParameter("onoff"));
+
+			System.out.println("onoff->"  + onoff);
+			if(onoff == 1) {
+				bmDao.insert(mem_id, stl_id);
+			}
+			if(onoff == 2) {
+				bmDao.delete(mem_id, stl_id);
+			}
+			int status = bmDao.check(mem_id, stl_id);
 			al = siDao.styleFind(stl_id);
+			String std_desc = siDao.styleDesc(stl_id);
+			System.out.println("std_desc->"+std_desc);
+			System.out.println("al.size()->"+al.size());
 
 			
 			//product id
 			//outer
+            if(al.get(1)  != null) {
+
 			p_cc1 = cpmDao.styleIdFind(al.get(1));
+			
 			System.out.println("p_cc1->"+p_cc1.get(0));
 			System.out.println(p_cc1.get(1));
 			System.out.println(p_cc1.get(2));
 			System.out.println(p_cc1.get(3));
 			for(int i=0; i<p_cc1.size(); i++) {
 
+				p_cc1_id.add(p_cc1.get(i));
 				p_cc1.set(i, pDao.productFind(p_cc1.get(i)));	
+
 			}
+            }
 			
 			System.out.println("al : "+al.get(2));
+            if(al.get(2)  != null) {
+
 			p_cc2 = cpmDao.styleIdFind(al.get(2));
 			System.out.println("p_cc2->"+p_cc2.get(0));
 			System.out.println(p_cc2.get(1));
 			System.out.println(p_cc2.get(2));
 			System.out.println(p_cc2.get(3));
-			
-			for(int i=0; i<p_cc2.size(); i++) {
+		
+				for(int i=0; i<p_cc2.size(); i++) {
 
-				p_cc2.set(i, pDao.productFind(p_cc2.get(i)));	
-			}
+					p_cc2_id.add(p_cc2.get(i));
+					p_cc2.set(i, pDao.productFind(p_cc2.get(i)));	
+				}
+            }
 			
-			
-			p_cc3 = cpmDao.styleIdFind(al.get(3));
-			System.out.println("p_cc3->"+p_cc3.get(0));
-			System.out.println(p_cc3.get(1));
-			System.out.println(p_cc3.get(2));
-			System.out.println(p_cc3.get(3));
-			for(int i=0; i<p_cc3.size(); i++) {
+			System.out.println("al.get(3)->"+al.get(3));
+            if(al.get(3)  != null) {
+    			p_cc3 = cpmDao.styleIdFind(al.get(3));
+    			System.out.println("p_cc3->"+p_cc3.get(0));
+    			System.out.println(p_cc3.get(1));
+    			System.out.println(p_cc3.get(2));
+    			System.out.println(p_cc3.get(3));
+    			for(int i=0; i<p_cc3.size(); i++) {
+					p_cc3_id.add(p_cc3.get(i));
+    				p_cc3.set(i, pDao.productFind(p_cc3.get(i)));	
+    			}
 
-				p_cc3.set(i, pDao.productFind(p_cc3.get(i)));	
-			}
-
-			
-			
+            }
+		
 			al.set(1, ccDao.clothesCategoryFind(al.get(1)));   //outer
 			al.set(2, ccDao.clothesCategoryFind(al.get(2)));   //top
 			al.set(3, ccDao.clothesCategoryFind(al.get(3)));    //bottom
@@ -88,21 +128,38 @@ public class StyleDetailAction implements CommandProcess {
 			System.out.println(al.get(2));
 			System.out.println(al.get(3));
 			
-			
-			
-		
+			/*
+			System.out.println("p_id_cc1.get(3)->"+p_cc1_id.get(3));
+			System.out.println("p_id_cc2.get(3)->"+p_cc2_id.get(3));
+			System.out.println("p_id_cc3.get(3)->"+p_cc3_id.get(3));
+*/
 
 
 			String img_path = request.getSession().getServletContext().getRealPath("/");
 			System.out.println(img_path);
+			System.out.println("이건되니?");
+
+			request.setAttribute("stl_id", stl_id);
+
 			request.setAttribute("img_path", img_path);
 			request.setAttribute("al", al);
+			request.setAttribute("std_desc", std_desc);
 			request.setAttribute("p_cc1", p_cc1);
 			request.setAttribute("p_cc2", p_cc2);
 			request.setAttribute("p_cc3", p_cc3);
+			
+			request.setAttribute("p_cc1_id", p_cc1_id);
+			request.setAttribute("p_cc2_id", p_cc2_id);
+			request.setAttribute("p_cc3_id", p_cc3_id);
+
 
 			request.setAttribute("p_cc1.size", p_cc1.size());
 			
+			request.setAttribute("mem_id", mem_id);
+			request.setAttribute("status", status);
+			
+			System.out.println("StyleDetailAction end...");
+		
 		} catch(Exception e){
 			System.out.println("Style_Detail Error : "+e.getMessage());
 		}

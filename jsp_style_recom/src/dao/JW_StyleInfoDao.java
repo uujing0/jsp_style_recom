@@ -71,6 +71,32 @@ public class JW_StyleInfoDao {
 		
 		return al;
 	}
+	public String styleDesc(int stl_id) throws SQLException{
+		Connection conn = null;
+		String sql = "select stl_desc from STYLE_INFO where stl_id = ?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String std_desc = null;
+		StyleInfo styleinfo = new StyleInfo();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,  stl_id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				std_desc = rs.getString(1);
+				System.out.println(rs.getString(1));
+			}
+		} catch(Exception e) {
+			System.out.println(e.getMessage()+"헐에러야?");
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		
+		return std_desc;
+	}
 	
 
 
