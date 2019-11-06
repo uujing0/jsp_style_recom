@@ -1,13 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./js/jquery.js"></script>
+<c:catch var="exception">
+	<!-- 세션에 따라 다른 locCode로 다른 지역의 날씨 정보를 로드한다. -->
+	<c:choose>
+		<c:when test="${sessionScope.loc }=='서울특별시'"><c:set var="locCode" value="1159068000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='강원도'"><c:set var="locCode" value="4281025000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='경기북부'"><c:set var="locCode" value="4125053500"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='경기남부'"><c:set var="locCode" value="4111759600"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='경상남도'"><c:set var="locCode" value="4817074000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='경상북도'"><c:set var="locCode" value="4717069000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='광주광역시'"><c:set var="locCode" value="2920054000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='대구광역시'"><c:set var="locCode" value="2720065000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='대전광역시'"><c:set var="locCode" value="3023052000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='부산광역시'"><c:set var="locCode" value="2644058000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='세종특별자치시'"><c:set var="locCode" value="3611055000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='울산광역시'"><c:set var="locCode" value="3114056000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='인천광역시'"><c:set var="locCode" value="2871025000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='전라남도'"><c:set var="locCode" value="4681025000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='전라북도'"><c:set var="locCode" value="4579031000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='제주특별자치도'"><c:set var="locCode" value="5013025300"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='충청남도'"><c:set var="locCode" value="4480038000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='충청북도'"><c:set var="locCode" value="4376031000"></c:set></c:when>
+		<c:otherwise><c:set var="locCode" value="1159068000"></c:set></c:otherwise>
+	</c:choose>
+	<c:import var="xmldata" url="http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=${locCode }" charEncoding="utf-8"></c:import>
+	<x:parse var="doc" xml="${xmldata }"></x:parse>
+	<%-- <x:out select="$doc//*/data/wfKor"/>
+	<x:out select="$doc//*/data/temp"/>
+	<x:out select="$doc//*/data/r12"/> --%>
+</c:catch>
+
 <script type="text/javascript">	
 	//문서 시작시 적용
 	$(function(){
+		//로그인 상태가 아닐시 디폴트 loc 세션을 생성
+		if(!sessionStorage.getItem('loc')){
+			sessionStorage.setItem('loc',"서울특별시");	
+		}
+		var loc = sessionStorage.getItem('loc');
+		//날씨 데이터를 세션에 저장한다.
+		sessionStorage.setItem('wf','<x:out select="$doc//*/data/wfKor"/>');
+		sessionStorage.setItem('temp','<x:out select="$doc//*/data/temp"/>');
+		sessionStorage.setItem('r12','<x:out select="$doc//*/data/r12"/>');
 		
+		$("#weather_loc").html(loc);
+  
 		$("#top_login_button").click(function(){
 			location.href = "loginForm.do";
 		});
@@ -63,7 +105,7 @@
 </script>
 
 <style type="text/css">
-/* theme color 
+/* theme color list
 	#FFEEE4
 	#F17F42
 	#CE6D39
@@ -133,8 +175,9 @@ header a:active{color: black; text-decoration: none;}
 
 /* weather_today */
 #weather_today{
-	padding-top: 8px;
+	padding-top: 5px;
 	float:right;
+	color: white
 }
 
 /* member_space */
@@ -258,7 +301,11 @@ header a:active{color: black; text-decoration: none;}
 			</table>
 		</div>
 		<div id="weather_today">
-			<img alt="sun_icon" src="images/sun_icon.png" id="sun_icon" height="50px" width="50px"> 
+			<span id="weather_loc">어디</span>
+			<span id="weather_cloud"><x:out select="$doc//*/data/wfKor"/></span><br>
+			<span id="weather_tem">온도:<x:out select="$doc//*/data/temp"/></span>
+			<span id="weather_rain">강수량:<x:out select="$doc//*/data/r12"/></span> 
+			<!-- <img alt="sun_icon" src="images/sun_icon.png" id="sun_icon" height="50px" width="50px"> --> 
 		</div>
 		<br>
 	</div>
@@ -269,7 +316,7 @@ header a:active{color: black; text-decoration: none;}
 				<tr>
 					<td><a href="styleList.do">스타일 추천</a></td>
 					<td><a href="bbs.do">게시판</a></td>
-					<td><a href="weather.do?sido=1168066000">마이코기</a></td>
+					<td><a href="weather.do?sido=${locCode }">마이코기</a></td>
 				</tr>
 			</table>
 		</div>
