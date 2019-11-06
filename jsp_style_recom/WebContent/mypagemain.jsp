@@ -19,7 +19,7 @@
 	<div id="content">
 		<div id="side_left">
 			<div id="head">마이페이지</div>
-			<ul>
+			<ul id="side_left">
 			<li><a href="calendar.do">달력</a></li>
 			
 			<li><a href="myInfo.do">개인정보수정</a></li>
@@ -33,7 +33,8 @@
 	<div id="center">	
 	<%@include file="weather.jsp"%>
 	</div>
-	<div id="recent_style">
+
+<div id="recent_style">
 			<div id="head">최근본옷</div><br>
 			
 			<div id="style">스타일1</div><br><br><br>

@@ -208,7 +208,7 @@
                     ${board.bd_title}
                     </a>
                 </td>
-                <td>${board.bd_id}</td>
+                <td>${board.mem_id}</td>
                 <td>${board.bd_date}</td>
                 <td>${board.bd_readcount}</td>
             </tr>
