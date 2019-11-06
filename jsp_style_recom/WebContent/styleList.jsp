@@ -19,14 +19,20 @@
 	padding: 30px;
 }
 
-/* TODO */
-.tag {
+#tagButton {
 	background-color: white;
 	color: black;
 	border: none;
 }
 
+#actTagButton {
+	background-color: yellow;
+	color: black;
+	border: none;
+}
+
 table.categoryTable {
+	border-right:none;
 }
 
 table.categoryTable th {
@@ -74,31 +80,53 @@ table.categoryTable th {
 			</tr>
 			<tr>
 				<th>상황</th>
-				<td>
-					<button class="tag" value="1">오피스룩</button>
-					<button class="tag" value="2">웨딩하객/셀럽룩</button>
-					<button class="tag" value="3">캠퍼스개강룩</button>
-					<button class="tag" value="4">집근처마실룩</button>
-					<button class="tag" value="5">피크닉룩</button>
+				<td id="situationGroup">
+					<c:forEach var="tag" items="${sitTags}">
+						<c:choose>
+						    <c:when test="${tagId == tag.tc_id}">
+						        <c:set var="tagIdName" value="actTagButton"/>
+						    </c:when>
+						    <c:otherwise>
+						       <c:set var="tagIdName" value="tagButton"/>
+						    </c:otherwise>
+						</c:choose>
+					
+						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}'">${tag.tc_name}</button>
+					</c:forEach>
 				</td>
 			</tr>
 			<tr>
 				<th>체형</th>
-				<td>
-					<button class="tag" value="6">통통</button>
-					<button class="tag" value="7">슬림</button>
-					<button class="tag" value="8">키작은</button>
-					<button class="tag" value="9">키큰</button>
+				<td id="bodyGroup">
+					<c:forEach var="tag" items="${bodyTags}">
+						<c:choose>
+						    <c:when test="${tagId == tag.tc_id}">
+						        <c:set var="tagIdName" value="actTagButton"/>
+						    </c:when>
+						    <c:otherwise>
+						       <c:set var="tagIdName" value="tagButton"/>
+						    </c:otherwise>
+						</c:choose>
+					
+						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}'">${tag.tc_name}</button>
+					</c:forEach>
 				</td>
 			</tr>
 			<tr>
 				<th>분위기</th>
-				<td>
-					<button class="tag" value="10">모던시크</button>
-					<button class="tag" value="11">상큼발랄</button>
-					<button class="tag" value="12">심플베이직</button>
-					<button class="tag" value="13">럭셔리</button>
-					<button class="tag" value="14">러블리</button>
+				<td id="moodGroup">
+					<c:forEach var="tag" items="${moodTags}">
+						<c:choose>
+						    <c:when test="${tagId == tag.tc_id}">
+						        <c:set var="tagIdName" value="actTagButton"/>
+						    </c:when>
+						    <c:otherwise>
+						       <c:set var="tagIdName" value="tagButton"/>
+						    </c:otherwise>
+						</c:choose>
+					
+						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}'">${tag.tc_name}</button>
+					</c:forEach>
 				</td>
 			</tr>
 		</table>
@@ -131,7 +159,6 @@ table.categoryTable th {
 
 // 문서 시작시 적용
 $(function() {
-	// 현재 tag 활성화
 	$(".weatherLocation").change(function() {
 		var locCode = $(this).val()
 		
@@ -140,14 +167,9 @@ $(function() {
 		}
 	})
 	
+	//createTag()
 	tagClickEvent()
 })
-
-function tagClickEvent() {
-	$(".tag").click(function() {
-		location.href="styleList.do?tagId=" + $(this).val()
-	})
-}
 
 </script>
 
