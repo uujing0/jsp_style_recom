@@ -83,6 +83,7 @@ public class Controller extends HttpServlet{
 		try {
 			String command = request.getRequestURI();
 			System.out.println("command1->"+command);	
+			if(command==null) command="";
 			// /ch16/list.do
 			// System.out.println(request.getContextPath());	//	/ch16
 			// System.out.println(command.indexOf(request.getContextPath())); // 0
