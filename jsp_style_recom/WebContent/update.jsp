@@ -45,9 +45,23 @@
 	//그리고 그 내용을 숨겨진 input태그에 저장하고 요청을 보낸다.
 	$(document).on("click", "#update", function(){
 		var data = CKEDITOR.instances.editor1.getData();
-		console.log(data);
-		
-		$("#bd_content").val(data);
+/* 		alert("data->" + data); */
+		var findStr1 = "<img"; // <img이 있는지 찾아보기
+		var findStr2 = " />"; // <img이 있는지 찾아보기
+		var n=0;
+		n1 = data.indexOf(findStr1)
+		n2 = data.indexOf(findStr2)
+		/*  if (n1  != -1) {
+		  alert("n1->" + n1);
+		}	
+		if (n2  != -1) {
+			  alert("n2->" + n2);
+			}	  */
+		var data2 = data.substring( n1, n2+3 );
+
+			$("#bd_content").val(data);
+			$("#bd_content2").val(data2);/* 
+			alert("data2->"+data2); */
 		$(this).append("<input type='submit' id='request'/>");
 		$("#request").trigger("click");
 	});
@@ -165,6 +179,7 @@
 			</div>
 			<!-- 글쓰기 버튼 => 실제로 데이터를 액션페이지로 보냄 -->
 			<input type="hidden" name="bd_content" id="bd_content"/>
+			<input type="hidden" name="bd_content2" id="bd_content2"/>
 			<input type="button" id="update" class="btn btn-primary pull-right" value="글수정">
 		</form>
 			
