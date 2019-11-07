@@ -37,7 +37,7 @@ table.categoryTable th {
 }
 
 .styleTable tr td {
-	padding: 30px 30px 30px 0px;
+	padding: 0px 30px 60px 0px;
 }
 
 .thumb { 
@@ -53,7 +53,6 @@ table.categoryTable th {
 	min-height: 100%; /* Scale up to fill container height */ 
 	-ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */  */
 }
-
 
 </style>
 </head>
@@ -146,7 +145,7 @@ table.categoryTable th {
 			</tr>
 		</table>
 
-		<c:if test="${totCnt > 0 }">
+		<%-- <c:if test="${totCnt > 0 }">
 			<p>${totCnt}개의 결과</p>
 			<table class="styleTable">
 				<c:forEach var="r" begin="0" end="${rowSize-1}">
@@ -156,7 +155,7 @@ table.categoryTable th {
 							<c:if test="${eIndex < list.size()}">
 								<td>
 									<div class="thumb">
-										<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}">
+										<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
 											<img src="./images/category_images/${list[eIndex].stl_pic_url}">
 										</a>
 									</div>
@@ -166,7 +165,12 @@ table.categoryTable th {
 					</tr>
 				</c:forEach>
 			</table>	
-		</c:if>
+		</c:if> --%>
+
+	</div>
+	
+	<div class="test1">
+		<%@ include file="styleDetailWeather.jsp" %>
 	</div>
 
 <script type="text/javascript">
