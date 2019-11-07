@@ -176,6 +176,6 @@ $(function() {
 
 
 </body>
-<%@ include file="/common/footer.jsp"%>
+<%@ include file="footer.jsp"%>
 
 </html>

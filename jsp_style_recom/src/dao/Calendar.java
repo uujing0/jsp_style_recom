@@ -10,7 +10,14 @@ public class Calendar {
 	private int tc_id; 				/* 태그ID */
 	private Date cal_date; 			/* 날짜 */
 	private String cal_contents;	/* 내용 */
+	private String cal_title;
 	
+	public String getCal_title() {
+		return cal_title;
+	}
+	public void setCal_title(String cal_title) {
+		this.cal_title = cal_title;
+	}
 	public int getCal_id() {
 		return cal_id;
 	}

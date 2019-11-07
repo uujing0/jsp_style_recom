@@ -34,10 +34,10 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="button" value="아이디 찾기" onclick="location.href='idSearchForm.jsp'">
+					<input type="button" value="아이디 찾기" onclick="location.href='idSrhForm.do'">
 				</td>
 				<td>
-					<input type="button" value="비밀번호 찾기" onclick="location.href='pwSearchForm.jsp'">
+					<input type="button" value="비밀번호 찾기" onclick="location.href='pwSrhForm.do'">
 				</td>
 			</tr>
 		</table>

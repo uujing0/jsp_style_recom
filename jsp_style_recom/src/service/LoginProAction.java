@@ -30,7 +30,8 @@ public class LoginProAction implements CommandProcess {
 			request.setAttribute("result", result);
 			request.setAttribute("mem_id", mem_id);
 			
-		} catch (Exception e) {
+			
+		} catch (Exception e) { 
 			System.out.println(e.getMessage());
 		}
 		

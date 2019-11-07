@@ -75,7 +75,7 @@ background-color:gray;
 }
 </style>
 </head>
-<%@ include file="/common/header.jsp" %>
+<%@ include file="header.jsp" %>
 
 <body>
 <h1>오늘의 추천 스타일</h1>
@@ -125,6 +125,6 @@ background-color:gray;
 </div>
 
 </body>
-<%@ include file="/common/footer.jsp" %>
+<%@ include file="footer.jsp" %>
 
 </html>
