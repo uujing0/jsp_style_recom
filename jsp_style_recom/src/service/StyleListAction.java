@@ -84,5 +84,10 @@ public class StyleListAction implements CommandProcess {
 		
 		return "styleList.jsp";
 	}
+	
+	public void getWeatherData() {
+		// TODO: Reference StyleDetailAction 
+		
+	}
 
 }
