@@ -95,7 +95,7 @@ public class YJ_BbsDAO {
 		
 		return -1;}
 
-	public ArrayList<Board> getList() {
+	public ArrayList<Board> boardgetList() {
 		String SQL = "SELECT ROWNUM AS bbsNO     , b.bd_id , b.bd_Title     , b.mem_id    , to_char(b.bd_date,'yyyy-mm-dd') as bd_date     , b.bd_readcount, (select count(*) from board_comment bc where b.bd_id = bc.bd_id) as commentCount    ,(select round(avg(star),0) as staravg from board_comment bc where b.bd_id = bc.bd_id) as staravg,(select '<img' || regexp_replace(bd_content2, '(.*)<img(.*)style=(.*)', '\\2')||'style=' || replace( replace( translate( regexp_replace(bd_content2, '(.*)style=(.*)/>(.*)', '\\2') , '#0123456789', '#') || '/>' , 'height:', 'height:300'), 'width:', 'width:400')from board d where d.bd_id = b.bd_id) as bd_content2 from board b    where b.BD_NOTICE = 0     ORDER BY bd_id DESC";
 		ArrayList<Board> list = new ArrayList<Board>();
 		try {
@@ -127,7 +127,7 @@ public class YJ_BbsDAO {
 		return list;
 	}
 	
-	public ArrayList<Board> getList2() {
+	public ArrayList<Board> noticelist() {
 		String SQL = "SELECT ROWNUM AS bbsNO"
 				   + "     , b.bd_id"
 				   + "     , b.bd_Title"
@@ -164,7 +164,7 @@ public class YJ_BbsDAO {
 		}
 		return list;
 	}
-	public ArrayList<Board> getList3() {
+	public ArrayList<Board> beststylelist() {
 		String SQL = "SELECT ROWNUM AS bbsNO,d.bd_id,d.bd_Title, d.mem_id , to_char(d.bd_date,'yyyy-mm-dd') as bd_date,d.bd_readcount,(select count(*) from board_comment bc where d.bd_id = bc.bd_id) as commentCount,(select round(avg(star),0) as staravg from board_comment bc where d.bd_id = bc.bd_id) as staravg,star as star1 ,(select '<img' || regexp_replace(bd_content2, '(.*)<img(.*)style=(.*)', '\\2')||'style=' || replace( replace( translate( regexp_replace(bd_content2, '(.*)style=(.*)/>(.*)', '\\2') , '#0123456789', '#') || '/>' , 'height:', 'height:300'), 'width:', 'width:400')from board b where d.bd_id = b.bd_id) as popup FROM (select c.bd_id , avg(star) as star from board_comment c  group by c.bd_id order by star desc) c, board d  where c.bd_id = d.bd_id and  d.bd_notice=0 and ROWNUM <= 1 order by star desc ,d.bd_readcount desc";
 				   
 		ArrayList<Board> list = new ArrayList<Board>();
@@ -286,25 +286,7 @@ public class YJ_BbsDAO {
 		return -1;
 	}
 	
-	public int update2(int bd_id, String bd_title, String bd_content, String bd_file_url) {		
-		String SQL = "UPDATE board "
-				    + "  SET bd_Title = ?"
-				    + "    , bd_Content = ?"
-				    + "    , bd_File_url = ?"
-				    + "WHERE 1=1"
-				    + "  AND Bd_ID = ?";
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, bd_title);
-			pstmt.setString(2, bd_content);
-			pstmt.setInt(4, bd_id);
-			pstmt.setString(3,bd_file_url);
-			return pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return -1;
-	}
+
 
 	public int delete(int bd_id) {
 		String SQL = "delete from board "
