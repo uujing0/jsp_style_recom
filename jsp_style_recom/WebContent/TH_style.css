@@ -20,11 +20,11 @@ a:active{
 }
 
 div#side_left {
+
 	font-weight:bold;
 	width: 12%;
 	font-size:20px;
 	text-align: center;
-	float: left;
 	margin-top: 1%;
 	margin-bottom: 5%;
 	height: 80%;
@@ -166,4 +166,7 @@ img{
 	width: 75%;
 	margin-top: 0;
 	margin-left:1%;
+}
+#recent ul li{
+	
 }

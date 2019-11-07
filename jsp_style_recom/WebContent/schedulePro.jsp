@@ -17,8 +17,9 @@
 </c:if>	
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
+
 		alert("입력오류");
-		location.href="scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}";
+		history.go(-1);
 	</script>
 </c:if>
 </body>

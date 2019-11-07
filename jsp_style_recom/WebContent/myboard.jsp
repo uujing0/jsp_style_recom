@@ -16,11 +16,11 @@
 
 <body>
 
-	<div id="content">
+<div id="content">
 		<div id="side_left">
 			<div id="head">마이페이지</div>
 			<ul>
-			<li><a href="calendar.do">달력</a></li>
+			<li><a href="calendar.do?">달력</a></li>
 			
 			<li><a href="myInfo.do">개인정보수정</a></li>
 			
@@ -30,30 +30,20 @@
 			</ul>
 		</div>
 
-	<div id="center">	
-	<%@include file="myboardForm.jsp"%>
-	</div>
-	<div id="recent_style">
-			<div id="head">최근본옷</div><br>
-			
-			<div id="style">스타일1</div><br><br><br>
-			<div id="style">스타일2</div><br><br><br>
-			<div id="style">스타일3</div><br><br><br>
-			<div id="style">스타일4</div><br><br><br>
-			<div id="style">스타일4</div><br><br><br>
-			<div id="style">스타일5</div><br><br><br>
-			<div id="style">스타일6</div><br><br><br>
-			
-	</div>
-		<div id="bookmark"><p style="font-weight:bold;font-size:21px;">즐겨찾기</p>
+<div id="center">	
+
+<%@include file="myboardForm.jsp"%>
+</div>
+<%@include file="recentStyle.jsp" %>
+	<div id="bookmark"><p style="font-weight:bold;font-size:21px;">즐겨찾기</p>
 			<pre>스         타          일                                                                         코              디            </pre><br><br>
 			<pre>    사           진                                                                                사              진       </pre>
-		</div>
-	</div>
-	
+		
+		</div>	
+</div>
+
 </body>
 
 <%@include file="footer.jsp"%>
 
 </html>
-
