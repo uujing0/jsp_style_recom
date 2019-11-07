@@ -1,10 +1,17 @@
 
-<%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+=======
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+
 <!-- 
 <meta name="viewport" content="width=device-width", initial-scale="1"> -->
 <!-- viewport=화면상의 표시영역, content=모바일 장치들에 맞게 크기조정, initial=초기화면 배율 설정 -->
@@ -13,7 +20,8 @@
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
 <link rel="stylesheet" href="css/custom.css">
 
-<%@include file="fixed/header.jsp"%>
+=======
+<%@include file="header.jsp" %> 
 <script src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
 <script>
@@ -102,8 +110,10 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-inverse">
 		<!-- navbar-색상(inverse = 검은색, default 22222= 색x) -->
+=======
+	<%-- <nav class="navbar navbar-inverse"> <!-- navbar-색상(inverse = 검은색, default 22222= 색x) -->
+>>>>>>> refs/remotes/origin/merge
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -161,7 +171,7 @@
 				</ul>
 			</c:if>
 		</div>
-	</nav>
+	</nav> --%>
 	<!--  <img alt="그림 없음" src="Circle.png">
 	<img src="JJWORLD.png"> 
 	-->
