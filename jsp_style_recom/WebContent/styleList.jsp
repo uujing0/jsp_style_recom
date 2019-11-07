@@ -42,7 +42,7 @@ table.categoryTable th {
 
 </style>
 </head>
-<%@ include file="/common/header.jsp"%>
+<%@ include file="header.jsp"%>
 <body>
 	<h2>테마 별 스타일 추천</h2>
 	<hr>
