@@ -85,7 +85,9 @@ public class WriteAction implements CommandProcess{
 			return "main.jsp";
 		}
 		YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
-		int result = bbsDAO.write(request.getParameter("bd_title"), mem_id, request.getParameter("bd_content"), "", 0, request.getParameter("bd_notice"));
+		int result = bbsDAO.write(request.getParameter("bd_title"), mem_id, 
+				                  request.getParameter("bd_content"),request.getParameter("bd_content2"), "", 0,
+				                  request.getParameter("bd_notice"));
 		
 		return "bbs.do";
 	}
