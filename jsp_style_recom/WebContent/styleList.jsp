@@ -142,7 +142,7 @@ table.categoryTable th {
 								<td>
 									<div class="styleElement">
 										<img id="img1"
-											src="./images/style/${list[eIndex].stl_pic_url}"
+											src="./images/category_images/${list[eIndex].stl_pic_url}"
 											width="100px" height="100px">
 										${list[eIndex].stl_pic_url} <br>
 									</div>
