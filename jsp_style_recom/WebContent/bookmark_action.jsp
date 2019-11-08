@@ -6,4 +6,4 @@ String mem_id = request.getParameter("mem_id");
 String sty_id = request.getParameter("style_id");
 %>
 
-<%= mem_id%>
+<%= mem_id%> 

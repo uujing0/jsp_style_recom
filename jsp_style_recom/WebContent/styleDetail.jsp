@@ -151,10 +151,45 @@ function bookmark_func(){
 
 <table>
 <tr><th>스타일 코디 아이템</th></tr>
-<tr><td>겉옷          </td><td><img src="./images/clothes_category_icon/${al[1] }" id="${al[1] }" height="150px" width="150px"></td></tr>
-<tr><td>상의          </td><td><img src="./images/clothes_category_icon/${al[2] }" id="${al[2] }" height="150px" width="150px"></td></tr>
-<tr><td>하의          </td><td><img src="./images/clothes_category_icon/${al[3] }" id="${al[3] }" height="150px" width="150px"></td></tr>
-<tr><td>오늘의 "IT"템          </td><td><img src="./images/clothes_category_icon/${al[4] }" id="${al[4] }" height="150px" width="150px"></td></tr>
+<tr>
+	<td>겉옷          </td>
+	<c:if test="${al[1]!=null }">
+	<td><img src="./images/clothes_category_icon/${al[1] }" id="${al[1] }" height="150px" width="150px"></td>
+	</c:if>
+	<c:if test="${al[1]==null }">
+	<td><img alt="no_data" src="./images/null_cc_id.png" height="150px" width="150px"></td>
+	</c:if>
+</tr>
+<tr>
+	<td>상의          </td>
+	<c:if test="${al[2]!=null }">
+	<td><img src="./images/clothes_category_icon/${al[2] }" id="${al[2] }" height="150px" width="150px"></td>
+	</c:if>
+	<c:if test="${al[2]==null }">
+	<td><img alt="no_data" src="./images/null_cc_id.png" height="150px" width="150px"></td>
+	</c:if>
+</tr>
+
+<tr>
+	<td>하의          </td>
+	<c:if test="${al[3]!=null }">
+	<td><img src="./images/clothes_category_icon/${al[3] }" id="${al[3] }" height="150px" width="150px"></td>
+	</c:if>
+	<c:if test="${al[3]==null }">
+	<td><img alt="no_data" src="./images/null_cc_id.png" height="150px" width="150px"></td>
+	</c:if>
+</tr>
+
+<tr>
+	<td>오늘의 "IT"템          </td>
+	<c:if test="${al[4]!=null }">
+	<td><img src="./images/clothes_category_icon/${al[4] }" id="${al[4] }" height="150px" width="150px"></td>
+	</c:if>
+	<c:if test="${al[4]==null }">
+	<td><img alt="no_data" src="./images/null_cc_id.png" height="150px" width="150px"></td>
+	</c:if>
+</tr>
+
 </table>
 </div>
 
