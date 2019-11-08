@@ -15,8 +15,13 @@
 	width: 700px;
 }
 
-.styleTable tr td {
-	padding: 30px;
+table.categoryTable {
+	border-right:none;
+}
+
+table.categoryTable th {
+	width: 100px;
+	padding: 10px;
 }
 
 #tagButton {
@@ -31,14 +36,24 @@
 	border: none;
 }
 
-table.categoryTable {
-	border-right:none;
+.styleTable tr td {
+	padding: 30px 30px 30px 0px;
 }
 
-table.categoryTable th {
-	width: 100px;
-	padding: 10px;
+.thumb { 
+	display: block; 
+	overflow: hidden; 
+	height: 500px; 
+	width: 400px; 
+} 
+
+.thumb img { 
+	display: block; /* Otherwise it keeps some space around baseline */ 
+	min-width: 100%; /* Scale up to fill container width */ 
+	min-height: 100%; /* Scale up to fill container height */ 
+	-ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */  */
 }
+
 
 </style>
 </head>
@@ -133,18 +148,17 @@ table.categoryTable th {
 
 		<c:if test="${totCnt > 0 }">
 			<p>${totCnt}개의 결과</p>
-			<table class="styleTable" border="1">
+			<table class="styleTable">
 				<c:forEach var="r" begin="0" end="${rowSize-1}">
 					<tr>
 						<c:forEach var="c" begin="0" end="${columnSize-1}">
 							<c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
 							<c:if test="${eIndex < list.size()}">
 								<td>
-									<div class="styleElement">
-										<img id="img1"
-											src="./images/category_images/${list[eIndex].stl_pic_url}"
-											width="100px" height="100px">
-										${list[eIndex].stl_pic_url} <br>
+									<div class="thumb">
+										<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
+											<img src="./images/category_images/${list[eIndex].stl_pic_url}">
+										</a>
 									</div>
 								</td>
 							</c:if>
