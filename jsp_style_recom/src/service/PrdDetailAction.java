@@ -55,6 +55,7 @@ public class PrdDetailAction implements CommandProcess{
 			}
 			
 			
+			
 			request.setAttribute("Product", product);
 			request.setAttribute("dp", dp);  //id  //이후에또상품상세로연결
 			request.setAttribute("dp2", dp2);  //image
