@@ -146,6 +146,7 @@ function bookmark_func(){
 
 </span>
 
+
 <div id ="cc_icon">
 
 <table>
