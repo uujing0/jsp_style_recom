@@ -44,6 +44,7 @@ public class PrdDetailAction implements CommandProcess{
 			
 			dp = dpDao.Detail_prd(prd_id);
 			
+			
 			System.out.println("dp.size()->" + dp.size());
 
 			for(int i=0; i<dp.size(); i++) {
