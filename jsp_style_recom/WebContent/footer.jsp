@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- -->
 <script type="text/javascript">
 	$(function(){
 		$('#go_to_top_button').click(function(){
@@ -50,10 +48,11 @@ footer{
 	float: right;
 }
 #project_desc{
-	float: left;
+	color: #5d5d5d;
+	font-size: 0.7em; 
 }
-
 </style>
+
 <footer>
 	<div id="footer_root">
 		<div id="footer_right">
@@ -63,19 +62,28 @@ footer{
 			<br>
 			<div id="member_space">
 				<c:if test="${empty sessionScope.mem_id }">
-				<button id="bottom_login_button" class="left_button" onclick="location.href='loginForm.do'">로그인</button>
-				<button id="bottom_signup_button" class="right_button" onclick="location.href='joinForm.do'">회원가입</button>
-			</c:if>
-			<c:if test="${not empty sessionScope.mem_id }">
-				<button id="bottom_logout_button" class="left_button" onclick="location.href='logout.do'">로그아웃</button>
-				<button id="bottom_my_page_button" class="right_button" onclick="location.href='weather.do?sido=${locCode }'" >마이코기</button>
-			</c:if>
+					<button id="bottom_login_button" class="left_button" onclick="location.href='loginForm.do'">로그인</button>
+					<button id="bottom_signup_button" class="right_button" onclick="location.href='joinForm.do'">회원가입</button>
+				</c:if>
+				<c:if test="${not empty sessionScope.mem_id }">
+					<button id="bottom_logout_button" class="left_button" onclick="location.href='logout.do'">로그아웃</button>
+					<button id="bottom_my_page_button" class="right_button" onclick="location.href='weather.do?sido=${locCode }'" >마이코기</button>
+				</c:if>
 			</div>
 		</div>
 		<div id="footer_left">
-			<div>이용약관</div>
-			<br>
-			<div id="project_desc">이 부분은 프로젝트 소개 글입니다.</div>
+			<div id="project_desc">
+				<div><h4>프로젝트 소개</h4>
+					<span>프로젝트 웰시코디는 사용자의 다양한 상황을 분석하여</span><br>
+					<span>상황에 적절한 스타일 코디를 추천해주는 웹 사이트 구축을 목표로 만들어진 프로젝트입니다.</span> 
+				</div>
+				<br>
+				<div>
+					<h4>이용약관</h4>
+					<span>본 프로젝트는 상업용으로 개발되지 않은 오픈소스 프로젝트입니다.</span><br>
+					<span>프로젝트 소스 운용상의 모든 책임은 사용자 본인에게 있습니다.</span>
+				</div>
+			</div>
 		</div>
 		<div id="footer_center">
 		</div>
