@@ -44,23 +44,12 @@ public class SearchAction implements CommandProcess{
 			
 			try {
 				System.out.println("styleSearch.search_word->"+search_word);
-				JM_SearchStyleDao ss = JM_SearchStyleDao.getInstance();
-				//ArrayList<StyleInfo> style_info = new ArrayList<StyleInfo>();
+				JM_SearchStyleDao ss = JM_SearchStyleDao.getInstance();				
 				
-				ArrayList<Integer> id_list = new ArrayList<Integer>();
-				ArrayList<String> pic_list = new ArrayList<String>();
 				//검색어에 맞는 스타일들을 모두 가져오는 메소드
-				
 				ArrayList<StyleInfo> style_info = ss.searchStyle(search_word);
 				
-				//각 배열리스트에 id와 사진주소를 저장한다.
-				for(int i = 0 ; i < style_info.size() ; i++) {
-					id_list.add(i, style_info.get(i).getStl_id());
-					pic_list.add(i, style_info.get(i).getStl_pic_url());
-				}
-				//id와 사진주소 리스트를 넘긴다.
-				request.setAttribute("id_list", id_list);
-				request.setAttribute("pic_list", pic_list);
+				request.setAttribute("list", style_info);
 				
 			}catch (Exception e) {
 				System.out.println("StyleSearch error : " + e.getMessage());
