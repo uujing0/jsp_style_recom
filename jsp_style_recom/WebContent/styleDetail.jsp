@@ -199,7 +199,7 @@ function bookmark_func(){
 <h3>관련 상품</h3>
 
 <p>겉옷</p>
-<c:forEach var="i" begin="0" end="${fn:length(p_cc1)}" >
+<c:forEach var="i" begin="0" end="${fn:length(p_cc1)-1}" >
 <span class="item1">
 <c:if test="${p_cc1[i] ==null }">
 </c:if>
@@ -212,7 +212,7 @@ function bookmark_func(){
 
 
 <p>상의</p>
-<c:forEach var="i" begin="0" end="${fn:length(p_cc2)}" >
+<c:forEach var="i" begin="0" end="${fn:length(p_cc2)-1}" >
 <span class="item2">
 <c:if test="${p_cc2[i] ==null }">
 </c:if>
@@ -225,7 +225,7 @@ function bookmark_func(){
 
  
 <p>하의</p>
-<c:forEach var="i" begin="0" end="${fn:length(p_cc3)}" >
+<c:forEach var="i" begin="0" end="${fn:length(p_cc3)-1}" >
 <span class="item3">
 <c:if test="${p_cc3[i] ==null }">
 </c:if>

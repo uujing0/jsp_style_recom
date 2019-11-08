@@ -67,4 +67,5 @@ public class WY_ProductDao{
 		}
 		return product;
 	}
+	
 }

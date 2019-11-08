@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body>   
 <div id="wrap" style="position:absolute; top:-1050px; left:-130px;">
   <iframe src=${param.url } width="1200" height="12500" scrolling="no" frameborder="0"></iframe>
  </div>

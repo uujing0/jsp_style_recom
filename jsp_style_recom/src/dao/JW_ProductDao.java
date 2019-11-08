@@ -69,5 +69,31 @@ public class JW_ProductDao{
 	
 	}
 	
+	public ArrayList<String> Detail_prd(int prd_id) throws SQLException{
+		Connection conn = null;
+		String sql = "select prd_id from clothes_product_mapping "
+				+ "where cc_id in (select cc_id from clothes_product_mapping where prd_id=?)";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<String> dp = new ArrayList<String>();
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, prd_id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				dp.add(rs.getString(1));
+				System.out.println("dp.getString(1)->"+rs.getString(1));
+			}
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
+		return dp;
+	}
+	
 
 }
