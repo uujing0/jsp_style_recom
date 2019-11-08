@@ -62,10 +62,14 @@ footer{
 			</div>
 			<br>
 			<div id="member_space">
-				<button id="bottom_login_button" class="left_button">로그인</button>
-				<button id="bottom_signup_button" class="right_button">회원가입</button>
-				<button id="bottom_logout_button" class="left_button">로그아웃</button>
-				<button id="bottom_my_page_button" class="right_button">마이코기</button>
+				<c:if test="${empty sessionScope.mem_id }">
+				<button id="bottom_login_button" class="left_button" onclick="location.href='loginForm.do'">로그인</button>
+				<button id="bottom_signup_button" class="right_button" onclick="location.href='joinForm.do'">회원가입</button>
+			</c:if>
+			<c:if test="${not empty sessionScope.mem_id }">
+				<button id="bottom_logout_button" class="left_button" onclick="location.href='logout.do'">로그아웃</button>
+				<button id="bottom_my_page_button" class="right_button" onclick="location.href='weather.do?sido=${locCode }'" >마이코기</button>
+			</c:if>
 			</div>
 		</div>
 		<div id="footer_left">
