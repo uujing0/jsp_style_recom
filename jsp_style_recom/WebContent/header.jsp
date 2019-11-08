@@ -259,8 +259,8 @@ header a:active{color: black; text-decoration: none;}
 		<div id="gender_selector">
 			<table class="menu_bar_table">
 				<tr>
-					<td id="male_selector" onclick="location.href='genderSelector.do?select=1&thisPage='+window.location.href.split('jsp_style_recom/')[1]">남</td>
-					<td id="female_selector" onclick="location.href='genderSelector.do?select=2&thisPage='+window.location.href.split('jsp_style_recom/')[1]">여</td>
+					<td id="male_selector" onclick="location.href='genderSelector.do?select=1'">남</td>
+					<td id="female_selector" onclick="location.href='genderSelector.do?select=2'">여</td>
 				</tr>
 			</table>
 		</div>
