@@ -137,12 +137,11 @@
 						<!-- DAO에 bbslist()함수를 호출하여 bbsList 생성 -->
 						<tr>
 							<td>${board1.bbsNO}
-							<td><a href="view.do?bd_id=${board1.bd_id}">${board1.bd_title}<p>
-										<br>${board1.popup }</a> <c:if
+							<td><a href="view.do?bd_id=${board1.bd_id}">${board1.bd_title}<c:if
 									test="${board1.commentCount>0}">
 									<!-- bbslist에서 쿼리문으로 생성한 commentcount가 0보다 크면 제목 옆에 댓글 갯수 출력 -->
 							　[${board1.commentCount}]
-						</c:if>
+						</c:if><p>${board1.popup }</a> 
 							<td>${board1.mem_id}
 							<td>${board1.bd_date}
 							<td>${board1.bd_readcount}
@@ -197,11 +196,10 @@
 						<!-- DAO에 bbslist()함수를 호출하여 bbsList 생성 -->
 						<tr>
 							<td>${board.bbsNO}
-							<td><a href="view.do?bd_id=${board.bd_id}">${board.bd_title}<p>
-										<br>${board.popup }</a> <c:if test="${board.commentCount>0}">
+							<td><a href="view.do?bd_id=${board.bd_id}">${board.bd_title} <c:if test="${board.commentCount>0}">
 									<!-- bbslist에서 쿼리문으로 생성한 commentcount가 0보다 크면 제목 옆에 댓글 갯수 출력 -->
 							　[${board.commentCount}]
-						</c:if>
+						</c:if><p>${board.popup }</a>
 							<td>${board.mem_id}
 							<td>${board.bd_date}
 							<td>${board.bd_readcount}

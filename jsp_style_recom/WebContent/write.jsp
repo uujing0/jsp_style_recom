@@ -9,7 +9,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-=======
+
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 
 <!-- 
@@ -20,7 +20,6 @@
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
 <link rel="stylesheet" href="css/custom.css">
 
-=======
 <%@include file="header.jsp" %> 
 <script src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
