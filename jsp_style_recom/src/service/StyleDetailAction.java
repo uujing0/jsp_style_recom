@@ -72,6 +72,9 @@ public class StyleDetailAction implements CommandProcess {
 			System.out.println("std_desc->" + std_desc);
 			System.out.println("al.size()->" + al.size());
 
+			for(int i=0; i<al.size(); i++) {
+				System.out.println("-------- al->"+al.get(i));
+			}
 			// product id
 			// outer
 			
@@ -79,31 +82,30 @@ public class StyleDetailAction implements CommandProcess {
 
 				p_cc1 = cpmDao.styleIdFind(Integer.parseInt(al.get(1)), gender);
 
-				System.out.println("p_cc1->" + p_cc1.get(0));
-				System.out.println(p_cc1.get(1));
-				System.out.println(p_cc1.get(2));
-				System.out.println(p_cc1.get(3));
 				for (int i = 0; i < p_cc1.size(); i++) {
 
 					p_cc1_id.add(p_cc1.get(i));
 					p_cc1.set(i, pDao.productFind(p_cc1.get(i)));
+					System.out.println("p_cc1_id -> "+p_cc1_id.get(i));
 
 				}
 			}
 			System.out.println("너되냐?1");
 			System.out.println("al : " + al.get(2));
+
+			
+			
 			if (al.get(2) != null) {
 
 				p_cc2 = cpmDao.styleIdFind(Integer.parseInt(al.get(2)), gender);
+				
 				System.out.println("p_cc2->" + p_cc2.get(0));
-				System.out.println(p_cc2.get(1));
-				System.out.println(p_cc2.get(2));
-				System.out.println(p_cc2.get(3));
 
 				for (int i = 0; i < p_cc2.size(); i++) {
 
 					p_cc2_id.add(p_cc2.get(i));
 					p_cc2.set(i, pDao.productFind(p_cc2.get(i)));
+					System.out.println("p_cc2_id -> "+p_cc2_id.get(i));
 				}
 			}
 
@@ -113,9 +115,7 @@ public class StyleDetailAction implements CommandProcess {
 			if (al.get(3) != null) {
 				p_cc3 = cpmDao.styleIdFind(Integer.parseInt(al.get(3)), gender);
 				System.out.println("p_cc3->" + p_cc3.get(0));
-				System.out.println(p_cc3.get(1));
-				System.out.println(p_cc3.get(2));
-				System.out.println(p_cc3.get(3));
+			
 				for (int i = 0; i < p_cc3.size(); i++) {
 					p_cc3_id.add(p_cc3.get(i));
 					p_cc3.set(i, pDao.productFind(p_cc3.get(i)));
