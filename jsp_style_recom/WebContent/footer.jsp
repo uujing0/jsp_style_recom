@@ -42,14 +42,36 @@ footer{
 }
 
 #go_to_top_button{
-	color: white;
+	color: #5d5d5d; 
 	background-color: #d5d5d5;
-	border: none;
+	border : none;
+	border-bottom: solid 2px #5d5d5d;
 	float: right;
+	cursor: pointer;
+	padding: 1px;
 }
 #project_desc{
 	color: #5d5d5d;
 	font-size: 0.7em; 
+}
+
+#bottom_member_space{
+	border: none;
+	border-bottom: solid 2px #5d5d5d;
+}
+.bottom_left_button{
+	background-color: #d5d5d5;
+	border: none;
+	padding: 2px;
+	cursor: pointer;
+	color: #5d5d5d;
+}
+.bottom_right_button{
+	background-color: #d5d5d5;
+	border: none;
+	padding: 2px;
+	cursor: pointer;
+	color: #5d5d5d; 
 }
 </style>
 
@@ -60,14 +82,14 @@ footer{
 				<button id="go_to_top_button">To top</button>
 			</div>
 			<br>
-			<div id="member_space">
+			<div id="bottom_member_space">
 				<c:if test="${empty sessionScope.mem_id }">
-					<button id="bottom_login_button" class="left_button" onclick="location.href='loginForm.do'">로그인</button>
-					<button id="bottom_signup_button" class="right_button" onclick="location.href='joinForm.do'">회원가입</button>
+					<button id="bottom_login_button" class="bottom_left_button" onclick="location.href='loginForm.do'">Login</button>
+					<button id="bottom_signup_button" class="bottom_right_button" onclick="location.href='joinForm.do'">Sign_up</button>
 				</c:if>
 				<c:if test="${not empty sessionScope.mem_id }">
-					<button id="bottom_logout_button" class="left_button" onclick="location.href='logout.do'">로그아웃</button>
-					<button id="bottom_my_page_button" class="right_button" onclick="location.href='weather.do?sido=${locCode }'" >마이코기</button>
+					<button id="bottom_logout_button" class="bottom_left_button" onclick="location.href='logout.do'">Logout</button>
+					<button id="bottom_my_page_button" class="bottom_right_button" onclick="location.href='weather.do?sido=${locCode }'" >MY Corgi</button>
 				</c:if>
 			</div>
 		</div>

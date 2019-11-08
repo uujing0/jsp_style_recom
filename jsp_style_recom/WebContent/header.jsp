@@ -148,13 +148,13 @@ header a:active{color: black; text-decoration: none;}
 	border: none;
 }
 
-.left_button{
+.top_left_button{
 	margin-right: -3px;
 	border-bottom-left-radius: 5px;
 	border-top-left-radius: 5px;
 }
 
-.right_button{
+.top_right_button{
 	margin-left: -3px;
 	border-bottom-right-radius: 5px;
 	border-top-right-radius: 5px;
@@ -185,8 +185,7 @@ header a:active{color: black; text-decoration: none;}
 	padding: 5px 25px 5px 25px;
 	font-size: 20px;
 	background-color: #F17F42;
-	box-shadow: 2px 3px #5d5d5d;
-	
+	box-shadow: 2px 3px #5d5d5d;	
 }
 
 /* search_bar */
@@ -199,6 +198,8 @@ header a:active{color: black; text-decoration: none;}
 #search_target{
 	margin-right: -4px;
 	border: none;
+	background-color: #F17F42;
+	font-size: 15px;
 }
 
 #search_word{
@@ -206,11 +207,12 @@ header a:active{color: black; text-decoration: none;}
 	border: none;
 	border-bottom: 5px solid black;
 	background-color: #CE6D39;
+	font-size: 15px;
 }
 
 #search_button{
 	height: 30px;
-	widows: 30px;
+	width: 40px;
 }
 
 #search_button:hover{
@@ -237,12 +239,12 @@ header a:active{color: black; text-decoration: none;}
 	<div id="header_top">
 		<div id="member_space">
 			<c:if test="${empty sessionScope.mem_id }">
-				<button id="top_login_button" class="left_button" onclick="location.href='loginForm.do'">로그인</button>
-				<button id="top_signup_button" class="right_button" onclick="location.href='joinForm.do'">회원가입</button>
+				<button id="top_login_button" class="top_left_button" onclick="location.href='loginForm.do'">Login</button>
+				<button id="top_signup_button" class="top_right_button" onclick="location.href='joinForm.do'">Sign_up</button>
 			</c:if>
 			<c:if test="${not empty sessionScope.mem_id }">
-				<button id="top_logout_button" class="left_button" onclick="location.href='logout.do'">로그아웃</button>
-				<button id="top_my_page_button" class="right_button" onclick="location.href='weather.do?sido=${locCode }'" >마이코기</button>
+				<button id="top_logout_button" class="top_left_button" onclick="location.href='logout.do'">Logout</button>
+				<button id="top_my_page_button" class="top_right_button" onclick="location.href='weather.do?sido=${locCode }'" >MY Corgi</button>
 			</c:if>
 		</div>
 	</div>
