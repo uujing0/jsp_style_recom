@@ -149,9 +149,6 @@
 </style>
 <body>
 	
-	<!--  <img alt="그림 없음" src="Circle.png">
-	<img src="JJWORLD.png"> 
-	-->
 
 
 	<div clas="container">
@@ -217,11 +214,7 @@
 									type="radio" name="star" value="8"><i></i> <input
 									type="radio" name="star" value="9"><i></i> <input
 									type="radio" name="star" value="10"><i></i>
-							</span> <!-- <input type="radio" value="1" name="star" >★&nbsp;&nbsp;&nbsp;
-								<input type="radio" value="2" name="star" >★★&nbsp;&nbsp;&nbsp;
-								<input type="radio" value="3" name="star" >★★★&nbsp;&nbsp;&nbsp;
-								<input type="radio" value="4" name="star" >★★★★&nbsp;&nbsp;&nbsp;
-								<input type="radio" value="5" name="star" checked="checked">★★★★★ -->
+							</span> 
 								<br> <br> <input type="text" id="content"
 								name="content" />
 								<button id="write_comment" class="btn btn-warning btn-sm">댓글작성</button>

@@ -90,9 +90,7 @@
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
 				aria-expanded="false">
-				<!-- class="navbar-toggle collapsed"=>네비게이션의 화면 출력유무 
-				data-toggle="collapse" : 모바일 상태에서 클릭하면서 메뉴가 나오게 설정 -->
-
+			
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 				<!-- 아이콘 이미지 -->
@@ -127,8 +125,6 @@
 
 		</div>
 	</nav>
-	<!--  <img alt="그림 없음" src="Circle.png">
-	<img src="JJWORLD.png"> 
 	-->
 
 
@@ -164,12 +160,9 @@
 								<td></td>
 							</c:if>
 						</tr>
-						<!-- <tr>
-					<td><input type="file" class="form-control" placeholder="파일 첨부" id="bbsfile" name="bbsfile" maxlength="50"></td>
-					<td><input type="hidden" name="oldFile" value = "${bbs.BBSFILE}"></td>
-				</tr>  -->
+					
 
-						<!-- input = 특정한 정보를 action페이지로 보내도록, textarea = 장문의 글 작성할때, -->
+					
 					</tbody>
 
 					<!-- 글쓰기 버튼 => 실제로 데이터를 액션페이지로 보냄 -->
