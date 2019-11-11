@@ -7,6 +7,7 @@
 <html>
 <head>
 
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>추천 스타일 상세</title>
 <style type="text/css">
