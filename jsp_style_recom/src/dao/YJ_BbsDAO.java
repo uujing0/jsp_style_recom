@@ -327,5 +327,21 @@ public class YJ_BbsDAO {
 	}
 	return bd_id;
 	
-}	
+}
+	public int update_comment( String cm_contents ,int cm_id) {
+		String SQL = "UPDATE Board_comment "
+			    + "  SET "
+				+ " cm_contents = ?"
+			    + "WHERE 1=1 and cm_id = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, cm_contents);
+			pstmt.setInt(2, cm_id);
+			return pstmt.executeUpdate();			
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		
+		return -1;}
 }

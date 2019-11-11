@@ -41,8 +41,32 @@
 	 				location.reload();
 				}
 			});
+
+			
 		});
 		
+		
+		
+	$('button[name="comment_update"]').click(function(){
+			var cm_id = $(this).attr("id");
+			var content2 = $("#content2").val();
+			//이건 별점 라디오 체크박스 입력받는 부분
+
+			
+			 $.ajax({
+			url: "commentupdate.do?content2="+content2+"&&cm_id="+cm_id,
+			type: "POST",
+			success : function(data){
+					location.reload();
+			}
+		}); 
+		
+		});
+			
+	
+		 
+	
+	
 		$('button[name="comment_delete"]').click(function(){
 			var cm_id = $(this).attr("id");
 			$.ajax({
@@ -54,6 +78,7 @@
 			});
 		});
 	});
+	
 </script>
 
 <title>게시판!!</title>
@@ -237,8 +262,12 @@
 							<P>
 									<b>${comment.mem_id}</b> <br> ${comment.cm_date }</td>
 							<td><c:if test="${mem_id == comment.mem_id}">
+									<input type="text" id="content2"
+								name="content2" />
+									<button name="comment_update" id="${comment.cm_id }" class="btn btn-warning btn-sm">댓글수정</button>
 									<button name="comment_delete" id="${comment.cm_id}"
 										class="btn btn-warning btn-sm">댓글삭제</button>
+										
 								</c:if></td>
 
 						</tr>
