@@ -71,24 +71,9 @@ table.categoryTable th {
 						지역설정 : 
 						<select class="weatherLocation">
 							<option value="0">선택해주세요</option>
-							<option value="1168066000">서울특별시</option>
-							<option value="4281025000">강원도</option>
-							<option value="4125053500">경기북부</option>
-							<option value="4111759600">경기남부</option>
-							<option value="4817074000">경상남도</option>
-							<option value="4717069000">경상북도</option>
-							<option value="2920054000">광주광역시</option>
-							<option value="2720065000">대구광역시</option>
-							<option value="3023052000">대전광역시</option>
-							<option value="2644058000">부산광역시</option>
-							<option value="3611055000">세종특별자치시</option>
-							<option value="3114056000">울산광역시</option>
-							<option value="2871025000">인천광역시</option>
-							<option value="4681025000">전라남도</option>
-							<option value="4579031000">전라북도</option>
-							<option value="5013025300">제주특별자치도</option>
-							<option value="4480038000">충청남도</option>
-							<option value="4376031000">충청북도</option>
+							<c:forEach var="i" items="${locMap}">
+								<option value="${i.value}">${i.key}</option>
+							</c:forEach>
 						</select>
 					</form>
 				</td>

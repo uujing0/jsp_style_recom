@@ -111,7 +111,7 @@ function bookmark_func(){
 </script>
 </head>
 <body>
-	<h1>오늘의 추천 스타일</h1>
+	<h1>오늘의 추천 스타일${testTagType}</h1>
 	<hr>
 	<div>
 	<img src="./images/hanger.png" height="40px" width="60px"><h3>${std_desc}</h3>

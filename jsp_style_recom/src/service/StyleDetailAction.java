@@ -144,10 +144,10 @@ public class StyleDetailAction implements CommandProcess {
 			System.out.println(img_path);
 			System.out.println("이건되니?");
 
-			request.setAttribute("stl_id", stl_id);
-
-			request.setAttribute("img_path", img_path);
-			request.setAttribute("al", al);
+			request.setAttribute("stl_id", stl_id); // x
+			request.setAttribute("img_path", img_path); //x
+			
+			request.setAttribute("al", al); 
 			request.setAttribute("std_desc", std_desc);
 			request.setAttribute("p_cc1", p_cc1);
 			request.setAttribute("p_cc2", p_cc2);
