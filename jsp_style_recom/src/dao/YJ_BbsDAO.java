@@ -52,21 +52,20 @@ public class YJ_BbsDAO {
 		return 1;
 	}
 
-	public int write(String bd_title, String mem_id, String bd_content, String bd_content2,String bd_file_url, int bd_readcount, String bd_notice) {
+	public int write(String bd_title, String mem_id, String bd_content, String bd_content2, int bd_readcount, String bd_notice) {
 		String SQL = "INSERT INTO BOARD(bd_id, bd_date, bd_title, "
-				+ "bd_notice, bd_file_url, mem_id, bd_content,bd_content2, bd_readcount)"
-				+ " VALUES (?, SYSDATE, ?, ?, ?, ? , ?,?,?)";
+				+ "bd_notice, mem_id, bd_content,bd_content2, bd_readcount)"
+				+ " VALUES (?, SYSDATE, ?, ?, ? , ?,?,?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, getNext());
 			pstmt.setString(2, bd_title);
 			if (bd_notice==null) { pstmt.setString(3, "0");}
 			else {pstmt.setString(3, bd_notice);};
-			pstmt.setString(4, bd_file_url);
-			pstmt.setString(5, mem_id);
-			pstmt.setString(6, bd_content);
-			pstmt.setString(7, bd_content2);
-			pstmt.setInt(8, bd_readcount);
+			pstmt.setString(4, mem_id);
+			pstmt.setString(5, bd_content);
+			pstmt.setString(6, bd_content2);
+			pstmt.setInt(7, bd_readcount);
 			
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -233,7 +232,6 @@ public class YJ_BbsDAO {
 				   + "     , to_char(bd_date,'yyyy-mm-dd hh:MM:ss') as bd_Date "
 				   + "     , bd_Content"
 				   + "     , bd_notice"
-				   + "     , bd_file_url"
 				   + "     , bd_readcount"
 				   + "     ,(select round(avg(star),0) as staravg from board_comment where bd_id = ?) as staravg"
 				   + " FROM board "
@@ -253,9 +251,8 @@ public class YJ_BbsDAO {
 				board.setBd_date(rs.getString(4));
 				board.setBd_content(rs.getString(5));
 				board.setBd_notice(rs.getString(6));
-				board.setBd_file_url(rs.getString(7));
-				board.setBd_readcount(rs.getInt(8));
-				board.setStaravg(rs.getInt(9));
+				board.setBd_readcount(rs.getInt(7));
+				board.setStaravg(rs.getInt(8));
 				return board;
 			}
 		} catch (Exception e) {
@@ -264,11 +261,11 @@ public class YJ_BbsDAO {
 		return null;
 	}
 
-	public int update(int bd_id, String bd_title, String bd_notice,String bd_content) {
+	public int update(int bd_id, String bd_title, String bd_notice,String bd_content,String bd_content2) {
 		String SQL = "UPDATE Board "
 				    + "  SET bd_Title = ?"
 				    + "    , bd_Content = ?"
-				    + "    , bd_File_url = ''"
+				    + "    , bd_Content2 = ?"
 				    + "    , bd_notice = ?"
 				    + "WHERE 1=1"
 				    + "  AND bd_id = ?";
@@ -276,9 +273,10 @@ public class YJ_BbsDAO {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, bd_title);
 			pstmt.setString(2, bd_content);
-			if (bd_notice==null) { pstmt.setString(3, "0");}
-			else {pstmt.setString(3, "1");};
-			pstmt.setInt(4, bd_id);
+			pstmt.setString(3, bd_content2);
+			if (bd_notice==null) { pstmt.setString(4, "0");}
+			else {pstmt.setString(4, "1");};
+			pstmt.setInt(5, bd_id);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

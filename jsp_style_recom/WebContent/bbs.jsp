@@ -223,7 +223,7 @@
 
 			</table>
 			<c:if test="${mem_id != null}">
-				<a href="writeView.do" class="btn btn-primary pull-right">글쓰기</a>
+				<a href="writeView.do" class="btn btn-warning pull-right">글쓰기</a>
 			</c:if>
 			<br>
 
