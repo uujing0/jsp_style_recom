@@ -49,7 +49,6 @@
 	<c:forEach items="${product}" var="rprd">
 		<div class="item">
 			<img src="./images/product_images/${rprd.prd_thumbnail}" width="350px" height="350px">
-			<h3>${product.prd_name }</h3>
 		</div>
 	</c:forEach>
 </div>
