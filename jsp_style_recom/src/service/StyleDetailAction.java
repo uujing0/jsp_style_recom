@@ -73,54 +73,35 @@ public class StyleDetailAction implements CommandProcess {
 			System.out.println("al.size()->" + al.size());
 
 			for(int i=0; i<al.size(); i++) {
-				System.out.println("-------- al->"+al.get(i));
+				System.out.println("al->"+al.get(i));
 			}
 			// product id
 			// outer
 			
 			if (al.get(1) != null) {
-
 				p_cc1 = cpmDao.styleIdFind(Integer.parseInt(al.get(1)), gender);
-
 				for (int i = 0; i < p_cc1.size(); i++) {
-
 					p_cc1_id.add(p_cc1.get(i));
 					p_cc1.set(i, pDao.productFind(p_cc1.get(i)));
 					System.out.println("p_cc1_id -> "+p_cc1_id.get(i));
-
 				}
 			}
-			System.out.println("너되냐?1");
-			//System.out.println("al : " + al.get(2));
 
-			
 			
 			if (al.get(2) != null) {
-
 				p_cc2 = cpmDao.styleIdFind(Integer.parseInt(al.get(2)), gender);
-				
-				System.out.println("p_cc2->" + p_cc2.get(0));
-
 				for (int i = 0; i < p_cc2.size(); i++) {
-
 					p_cc2_id.add(p_cc2.get(i));
 					p_cc2.set(i, pDao.productFind(p_cc2.get(i)));
-					System.out.println("p_cc2_id -> "+p_cc2_id.get(i));
 				}
 			}
 
-			System.out.println("너되냐?2");
-
-			System.out.println("al.get(3)->" + al.get(3));
 			if (al.get(3) != null) {
 				p_cc3 = cpmDao.styleIdFind(Integer.parseInt(al.get(3)), gender);
-				System.out.println("p_cc3->" + p_cc3.get(0));
-			
 				for (int i = 0; i < p_cc3.size(); i++) {
 					p_cc3_id.add(p_cc3.get(i));
 					p_cc3.set(i, pDao.productFind(p_cc3.get(i)));
 				}
-
 			}
 
 			al.set(1, ccDao.clothesCategoryFind(al.get(1))); // outer
@@ -128,25 +109,12 @@ public class StyleDetailAction implements CommandProcess {
 			al.set(3, ccDao.clothesCategoryFind(al.get(3))); // bottom
 			al.set(4, ccDao.clothesCategoryFind(al.get(4))); // acc
 
-			System.out.println("styleDetailAction.java");
 			System.out.println(al.get(0));
 			System.out.println(al.get(1));
 			System.out.println(al.get(2));
 			System.out.println(al.get(3));
 
-			/*
-			 * System.out.println("p_id_cc1.get(3)->"+p_cc1_id.get(3));
-			 * System.out.println("p_id_cc2.get(3)->"+p_cc2_id.get(3));
-			 * System.out.println("p_id_cc3.get(3)->"+p_cc3_id.get(3));
-			 */
-
-			String img_path = request.getSession().getServletContext().getRealPath("/");
-			System.out.println(img_path);
-			System.out.println("이건되니?");
-
 			request.setAttribute("stl_id", stl_id);
-
-			request.setAttribute("img_path", img_path);
 			request.setAttribute("al", al);
 			request.setAttribute("std_desc", std_desc);
 			request.setAttribute("p_cc1", p_cc1);
@@ -160,9 +128,7 @@ public class StyleDetailAction implements CommandProcess {
 
 			request.setAttribute("gender", gender);
 			request.setAttribute("mem_id", mem_id);
-
 			request.setAttribute("status", status);
-
 			System.out.println("StyleDetailAction end...");
 
 		} catch (Exception e) {
