@@ -46,7 +46,7 @@
 		});
 		
 		
-		
+	
 	$('button[name="comment_update"]').click(function(){
 			var cm_id = $(this).attr("id");
 			var content2 = $("#content2").val();
@@ -62,7 +62,7 @@
 		}); 
 		
 		});
-			
+			 
 	
 		 
 	
