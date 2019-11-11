@@ -39,10 +39,68 @@ public class Common {
 		return map;
 	}
 	
-	// TODO:
-	public int weatherLevelRelatedTmp(int tmp) {
-		return 1;
+	public int weatherLevelByTmp(double tmp) {
+		int level = 0;
 		
+		if (tmp >= 27) {
+			level = 1;
+		} else if (tmp <= 23 && tmp > 27) {
+			level = 2;
+		} else if (tmp <= 20 && tmp > 23) {
+			level = 3;
+		} else if (tmp <= 17 && tmp > 20) {
+			level = 4;
+		} else if (tmp <= 12 && tmp > 17) {
+			level = 5;
+		} else if (tmp <= 8 && tmp > 12) {
+			level = 6;
+		} else if (tmp <= 3 && tmp > 8) {
+			level = 7;	
+		} else if (tmp <= -2 && tmp > 3) {
+			level = 8;
+		} else {
+			level = 9;
+		}
+		
+		return level;
+	}
+	
+	public int tagIdByWeatherLevel(int level) {
+		int tagId = 0;
+		
+		switch (level) {
+		case 1:
+			tagId = 15;
+			break;
+		case 2:
+			tagId = 16;
+			break;
+		case 3:
+			tagId = 17;
+			break;
+		case 4:
+			tagId = 18;
+			break;
+		case 5:
+			tagId = 19;
+			break;
+		case 6:
+			tagId = 20;
+			break;
+		case 7:
+			tagId = 21;
+			break;
+		case 8:
+			tagId = 22;
+			break;
+		case 9:
+			tagId = 23;
+			break;
+		default:
+			break;
+		}
+		
+		return tagId;
 	}
 	
 	

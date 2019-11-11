@@ -23,7 +23,7 @@ import dao.UJ_MemberDao;
 import dao.UJ_TagCategoryDao;
 
 public class StyleListAction implements CommandProcess {
-
+	
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -109,11 +109,18 @@ public class StyleListAction implements CommandProcess {
 	}
 	
 	public void setWeatherData(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
+
 		HttpSession session = request.getSession();
 		
 		String loc = (String) session.getAttribute("loc");
 		if (loc == null || loc.equals("")) {
 			loc = "서울특별시";
+		}
+		
+		String strGender = (String) session.getAttribute("strGender");
+		if (strGender == null || strGender.equals("")) {
+			strGender = "1";
 		}
 		
 		Map<String, String> locationMap = Common.getInstance().locationMap();
@@ -132,6 +139,19 @@ public class StyleListAction implements CommandProcess {
 		 *  	- 나머지 level별 엑셀 참고
 		 * 		- 강수확률 별 
 		 * */
+		double tmp = 0;
+		int level = Common.getInstance().weatherLevelByTmp(tmp);
+		int tagId = Common.getInstance().tagIdByWeatherLevel(level);
+		int gender = Integer.parseInt(strGender);
+		
+		// TODO:
+		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(tagId, gender, 1, 10);
+	
+		int n = (int)(Math.random()*styleInfos.size());
+		
+		
+		
+		
 	}
 	
 	/* Ref: StyleDetailAction */
