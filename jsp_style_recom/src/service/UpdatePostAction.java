@@ -25,7 +25,7 @@ public class UpdatePostAction implements CommandProcess{
 		int bd_id = Integer.parseInt(request.getParameter("bd_id"));
 		System.out.println("bd_id->"+bd_id);
 		YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
-		int result = bbsDAO.update(bd_id, request.getParameter("bd_title"), request.getParameter("bd_notice"),request.getParameter("bd_content"),request.getParameter("bd_content2"));
+		int result = bbsDAO.update(bd_id, request.getParameter("bd_title"), request.getParameter("bd_notice"),request.getParameter("bd_content"),request.getParameter("bd_file_url"));
 		return "bbs.do";
 
 	}
