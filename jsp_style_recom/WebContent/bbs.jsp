@@ -52,7 +52,7 @@
 </script>
 <body>
 
-	<div clas="container">
+	<div class="container">
 		<div class="container-fluid">
 			<table class="table"
 				style="text-align: center; border: 4px; border-style: double; border-width: thick;">
@@ -100,7 +100,7 @@
 			</table>
 		</div>
 	</div>
-	<div clas="container">
+	<div class="container">
 		<div class="container-fluid">
 			<table class="table"
 				style="text-align: center; border: 4px; border-style: double; border-width: thick;">
@@ -165,7 +165,7 @@
 			</table>
 		</div>
 	</div>
-	<div clas="container">
+	<div class="container">
 		<div class="container-fluid">
 			<table class="table" id="table"
 				style="text-align: center; border: 4px; border-style: double; border-width: thick;">
