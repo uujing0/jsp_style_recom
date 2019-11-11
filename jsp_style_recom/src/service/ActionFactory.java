@@ -18,8 +18,8 @@ public class ActionFactory {
 		System.out.println("ActionFactory:" + command);
 		
 		if(command.equals("prd_detail")) {
-/*			action = new prd_detailAction();
-*/		}
+			action = (Action) new PrdDetailAction();
+		}
 		return action;
 	}
 }
