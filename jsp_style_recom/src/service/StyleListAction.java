@@ -23,6 +23,11 @@ import dao.UJ_MemberDao;
 import dao.UJ_TagCategoryDao;
 
 public class StyleListAction implements CommandProcess {
+	// TODO: default value
+	private int tagId;
+	private int gender;
+	private int tagType;
+	private int stl_id;
 	
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
@@ -33,11 +38,7 @@ public class StyleListAction implements CommandProcess {
 		UJ_TagCategoryDao tagDao = UJ_TagCategoryDao.getInstance();
 		
 		try {
-			String strPageNum = request.getParameter("pageNum");
-			if (strPageNum == null || strPageNum.equals("")) {
-				strPageNum = "1";
-			}
-			
+
 			// TODO: Set Default tagId
 			String strTagId = request.getParameter("tagId");
 			if (strTagId == null || strTagId.equals("")) {
@@ -56,18 +57,12 @@ public class StyleListAction implements CommandProcess {
 				strGender = "1";
 			}
 			
-			int tagId = Integer.parseInt(strTagId);	
-			int gender = Integer.parseInt(strGender);
-			int tagType = Integer.parseInt(strTagType);
-			int totCnt = styleDao.getStyleInfoCntFromTag(tagId, gender);
-	
-			int currentPage = Integer.parseInt(strPageNum);
-			int boardRowSize = 5;
-			int startRow = (currentPage - 1) * boardRowSize + 1; 	// 1
-			int endRow = startRow + boardRowSize - 1;				// 10
+			this.tagId = Integer.parseInt(strTagId);	
+			this.gender = Integer.parseInt(strGender);
+			this.tagType = Integer.parseInt(strTagType);
 			
-			ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(tagId, gender, startRow, endRow);
-			int columnSize = 3, rowSize = (int) Math.ceil((double)totCnt / columnSize);
+			ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(tagId, gender);
+			int totCnt = styleInfos.size();
 			
 			ArrayList<TagCategory> sitTags = new ArrayList<>();
 			ArrayList<TagCategory> bodyTags = new ArrayList<>();
@@ -86,9 +81,6 @@ public class StyleListAction implements CommandProcess {
 			// totCnt == 0일 경우 emptyView 띄어줌.
 			request.setAttribute("totCnt", totCnt);
 			request.setAttribute("list", styleInfos);
-			
-			request.setAttribute("rowSize", rowSize);
-			request.setAttribute("columnSize", columnSize);
 			
 			request.setAttribute("sitTags", sitTags);
 			request.setAttribute("bodyTags", bodyTags);
@@ -118,11 +110,6 @@ public class StyleListAction implements CommandProcess {
 			loc = "서울특별시";
 		}
 		
-		String strGender = (String) session.getAttribute("strGender");
-		if (strGender == null || strGender.equals("")) {
-			strGender = "1";
-		}
-		
 		Map<String, String> locationMap = Common.getInstance().locationMap();
 		String strLocCode = locationMap.get(loc);
 		int locCode = 0;
@@ -141,16 +128,13 @@ public class StyleListAction implements CommandProcess {
 		 * */
 		double tmp = 0;
 		int level = Common.getInstance().weatherLevelByTmp(tmp);
-		int tagId = Common.getInstance().tagIdByWeatherLevel(level);
-		int gender = Integer.parseInt(strGender);
-		
-		// TODO:
-		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(tagId, gender, 1, 10);
+		this.tagId = Common.getInstance().tagIdByWeatherLevel(level);
+
+		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(this.tagId, this.gender);
 	
-		int n = (int)(Math.random()*styleInfos.size());
+		int randomIndex = (int)(Math.random()*styleInfos.size());
 		
-		
-		
+		this.stl_id = styleInfos.get(randomIndex).getStl_id();
 		
 	}
 	
@@ -175,17 +159,8 @@ public class StyleListAction implements CommandProcess {
 		HttpSession session = request.getSession();
 		String mem_id = (String) session.getAttribute("mem_id");
 		
-		String strGender = (String) session.getAttribute("strGender");
-		if (strGender == null || strGender.equals("")) {
-			strGender = "1";
-		}
-		
-		int gender = Integer.parseInt(strGender);
+	
 		System.out.println("gender->" + gender);
-		
-		
-		// TODO: 해당 style id set
-		int stl_id = Integer.parseInt(request.getParameter("stl_id"));
 		System.out.println("stl_id->" + stl_id);
 		
 		// bookmark
