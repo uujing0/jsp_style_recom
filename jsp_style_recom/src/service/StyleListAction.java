@@ -3,6 +3,7 @@ package service;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -61,8 +62,7 @@ public class StyleListAction implements CommandProcess {
 			this.gender = Integer.parseInt(strGender);
 			this.tagType = Integer.parseInt(strTagType);
 			
-			ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(tagId, gender);
-			int totCnt = styleInfos.size();
+			System.out.println("===> tagType : " + this.tagType);
 			
 			ArrayList<TagCategory> sitTags = new ArrayList<>();
 			ArrayList<TagCategory> bodyTags = new ArrayList<>();
@@ -72,7 +72,19 @@ public class StyleListAction implements CommandProcess {
 			bodyTags = tagDao.getCategoryListFromTagType(2);
 			moodTags = tagDao.getCategoryListFromTagType(3);
 			
-			request.setAttribute("styleInfos", styleInfos);
+			ArrayList<StyleInfo> styleInfos = null;
+			int totCnt = 0, columnSize = 3, rowSize = 0;
+			
+			// 날씨 상세 뷰를 위한 데이터 세팅 (tagType:4 - 날씨)
+			if (this.tagType == 4) {
+				setWeatherData(request, response);
+				setStyleDetailData(request, response);
+			} else {
+				styleInfos = styleDao.getStyleInfosFromTag(tagId, gender);
+				totCnt = styleInfos.size();
+				rowSize = (int) Math.ceil((double)totCnt / columnSize);
+			}
+			
 			request.setAttribute("tagId", tagId);
 			request.setAttribute("tagType", tagType);
 			request.setAttribute("locMap", Common.getInstance().locationMap());
@@ -86,11 +98,9 @@ public class StyleListAction implements CommandProcess {
 			request.setAttribute("bodyTags", bodyTags);
 			request.setAttribute("moodTags", moodTags);
 			
-			// 날씨 상세 뷰를 위한 데이터 세팅 (tagType:4 - 날씨)
-			if (tagType == 4) {
-				setWeatherData(request, response);
-				setStyleDetailData(request, response);
-			}
+			request.setAttribute("styleInfos", styleInfos);
+            request.setAttribute("rowSize", rowSize);
+            request.setAttribute("columnSize", columnSize);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -104,29 +114,24 @@ public class StyleListAction implements CommandProcess {
 		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
 
 		HttpSession session = request.getSession();
-		
-		String loc = (String) session.getAttribute("loc");
-		if (loc == null || loc.equals("")) {
-			loc = "서울특별시";
-		}
-		
-		Map<String, String> locationMap = Common.getInstance().locationMap();
-		String strLocCode = locationMap.get(loc);
-		int locCode = 0;
-		
-		if (strLocCode != null) {
-			locCode = Integer.parseInt(strLocCode);
-		}
 	
-		/* get weather 기온, 강수확률
-		 * style filter
-		 * 1. 기온 별 level 세팅
-		 * 2. 레벨 별로 style 나오고 - random하게 하나 추출
-		 * 3. accessory 
-		 *  	- 나머지 level별 엑셀 참고
-		 * 		- 강수확률 별 
-		 * */
-		double tmp = 0;
+		// locCode가 설정되어 있으면 우선으로 set. 아니면 session에 저장되어있는 loc으로 설정
+		String strLocCode = request.getParameter("locCode");
+		if (strLocCode == null || strLocCode.equals("")) {
+			String loc = (String) session.getAttribute("loc");
+			
+			if (loc == null || loc.equals("")) {
+				loc = "서울특별시";
+			}
+			
+			Map<String, String> locationMap = Common.getInstance().locationMap();
+			strLocCode = locationMap.get(loc);
+		}
+		
+		Map<String, String> map = Common.getInstance().getWeatherTmp(strLocCode);
+		
+		double tmp = Double.parseDouble(map.get("Temp"));
+		double rs = Double.parseDouble(map.get("Rs"));
 		int level = Common.getInstance().weatherLevelByTmp(tmp);
 		this.tagId = Common.getInstance().tagIdByWeatherLevel(level);
 
@@ -135,7 +140,14 @@ public class StyleListAction implements CommandProcess {
 		int randomIndex = (int)(Math.random()*styleInfos.size());
 		
 		this.stl_id = styleInfos.get(randomIndex).getStl_id();
+
+		System.out.println("====> " + tmp);
+		System.out.println("====> " + rs);
+		System.out.println("====> " + level);
+		System.out.println("====> " + this.tagId);
+		System.out.println("====> " + this.stl_id);
 		
+		request.setAttribute("locCode", strLocCode);
 	}
 	
 	/* Ref: StyleDetailAction */
@@ -166,7 +178,7 @@ public class StyleListAction implements CommandProcess {
 		// bookmark
 		JW_BookMarkDao bmDao = JW_BookMarkDao.getInstance();
 
-		int onoff = Integer.parseInt(request.getParameter("onoff"));
+		int onoff = 0;//Integer.parseInt(request.getParameter("onoff"));
 
 		System.out.println("onoff->" + onoff);
 		if (onoff == 1) {

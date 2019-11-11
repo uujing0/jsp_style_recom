@@ -267,7 +267,7 @@ header a:active{color: black; text-decoration: none;}
 		<div id="menu_bar">
 			<table class="menu_bar_table">
 				<tr>
-					<td><a href="styleList.do">스타일 추천</a></td>
+					<td><a href="styleList.do?tagId=1&tagType=1">스타일 추천</a></td>
 					<td><a href="bbs.do">게시판</a></td>
 					<td><a href="weather.do?sido=1168066000">마이코기</a></td>
 				</tr>

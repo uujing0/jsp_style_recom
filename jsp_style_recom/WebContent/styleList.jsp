@@ -71,8 +71,14 @@ table.categoryTable th {
 						지역설정 : 
 						<select class="weatherLocation">
 							<option value="0">선택해주세요</option>
+							
 							<c:forEach var="i" items="${locMap}">
-								<option value="${i.value}">${i.key}</option>
+								<c:if test="${locCode == i.value }">
+									<option value="${i.value}" selected="selected">${i.key}</option>
+								</c:if>
+								<c:if test="${locCode != i.value }">
+									<option value="${i.value}">${i.key}</option>
+								</c:if>
 							</c:forEach>
 						</select>
 					</form>
@@ -91,7 +97,7 @@ table.categoryTable th {
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}'">${tag.tc_name}</button>
+						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=1'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
@@ -108,7 +114,7 @@ table.categoryTable th {
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}'">${tag.tc_name}</button>
+						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=2'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
@@ -125,17 +131,42 @@ table.categoryTable th {
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}'">${tag.tc_name}</button>
+						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=3'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
 		</table>
 
+		<c:if test="${tagType != 4 }">
+	        <c:if test="${totCnt > 0 }">
+	            <p>${totCnt}개의 결과</p>
+	            <table class="styleTable">
+	                <c:forEach var="r" begin="0" end="${rowSize-1}">
+	                    <tr>
+	                        <c:forEach var="c" begin="0" end="${columnSize-1}">
+	                            <c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
+	                            <c:if test="${eIndex < list.size()}">
+	                                <td>
+	                                    <div class="thumb">
+	                                        <a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
+	                                            <img src="./images/category_images/${list[eIndex].stl_pic_url}">
+	                                        </a>
+	                                    </div>
+	                                </td>
+	                            </c:if>
+	                        </c:forEach>
+	                    </tr>
+	                </c:forEach>
+	            </table>    
+	        </c:if>
+		</c:if>
 	</div>
 	
-	<div class="test1">
-		<%@ include file="styleDetailWeather.jsp" %>
-	</div>
+	<c:if test="${tagType == 4 }">
+		<div class="test1">
+			<%@ include file="styleDetailContent.jsp" %>
+		</div>
+	</c:if>
 
 <script type="text/javascript">
 
@@ -147,6 +178,9 @@ $(function() {
 		if (locCode == 0) {
 			return false
 		}
+		
+		location.href='styleList.do?tagType=4&locCode='+locCode;
+		
 	})
 	
 	//createTag()

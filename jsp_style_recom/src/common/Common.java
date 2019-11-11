@@ -62,19 +62,19 @@ public class Common {
 		
 		if (tmp >= 27) {
 			level = 1;
-		} else if (tmp <= 23 && tmp > 27) {
+		} else if (tmp >= 23 && tmp < 27) {
 			level = 2;
-		} else if (tmp <= 20 && tmp > 23) {
+		} else if (tmp >= 20 && tmp < 23) {
 			level = 3;
-		} else if (tmp <= 17 && tmp > 20) {
+		} else if (tmp >= 17 && tmp < 20) {
 			level = 4;
-		} else if (tmp <= 12 && tmp > 17) {
+		} else if (tmp >= 12 && tmp < 17) {
 			level = 5;
-		} else if (tmp <= 8 && tmp > 12) {
+		} else if (tmp >= 8 && tmp < 12) {
 			level = 6;
-		} else if (tmp <= 3 && tmp > 8) {
+		} else if (tmp >= 3 && tmp < 8) {
 			level = 7;	
-		} else if (tmp <= -2 && tmp > 3) {
+		} else if (tmp >= -2 && tmp < 3) {
 			level = 8;
 		} else {
 			level = 9;
