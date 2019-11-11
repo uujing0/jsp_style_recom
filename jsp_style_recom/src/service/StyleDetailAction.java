@@ -91,7 +91,7 @@ public class StyleDetailAction implements CommandProcess {
 				}
 			}
 			System.out.println("너되냐?1");
-			System.out.println("al : " + al.get(2));
+			//System.out.println("al : " + al.get(2));
 
 			
 			
