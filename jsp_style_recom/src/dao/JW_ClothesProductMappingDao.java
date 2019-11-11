@@ -35,9 +35,9 @@ public class JW_ClothesProductMappingDao {
 		return conn;
 	}
 	
-	public ArrayList<String> styleIdFind(String cc_id) throws SQLException{
+	public ArrayList<String> styleIdFind(int cc_id, int stl_gender) throws SQLException{
 		Connection conn = null;
-		String sql = "select prd_id from clothes_product_mapping where cc_id=?	";
+		String sql = "select prd_id from clothes_product_mapping where cc_id = ? and prd_id in (select prd_id from product where prd_gender= ?)";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		//String product_id = null;
@@ -47,7 +47,8 @@ public class JW_ClothesProductMappingDao {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1,  cc_id);
+			pstmt.setInt(1, cc_id);
+			pstmt.setInt(2, stl_gender);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				p_cc1.add(rs.getString(1));

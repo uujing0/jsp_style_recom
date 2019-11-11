@@ -10,7 +10,7 @@ public class StyleInfo {
 	private int cc_id_acc;  		/* 장식품ID */
 	private String  stl_pic_url;  	/* 사진주소 */
 	private String stl_desc;  		/* 설명 */
-	private int stl_gender;  		/* 스타일 성별 */
+	private int stl_gender;  		/* 스타일 성별 1:남자, 2:여자, 0:공용 */
 	
 	public int getStl_id() {
 		return stl_id;
