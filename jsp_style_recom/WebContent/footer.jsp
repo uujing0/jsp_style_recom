@@ -89,7 +89,7 @@ footer{
 					<button id="bottom_signup_button" class="bottom_right_button" onclick="location.href='joinForm.do'">Sign_up</button>
 				</c:if>
 				<c:if test="${not empty sessionScope.mem_id }">
-					<button id="bottom_logout_button" class="bottom_left_button" onclick="location.href='logout.do'">Logout</button>
+					<button id="bottom_logout_button" class="bottom_left_button" onclick="logoutConfirm()">Logout</button>
 					<button id="bottom_my_page_button" class="bottom_right_button" onclick="location.href='weather.do?sido=${locCode }'" >MY Corgi</button>
 				</c:if>
 			</div>

@@ -53,9 +53,19 @@
 
 <script type="text/javascript">
 	//문서 시작시 적용
-	$(function(){
-		var thisPage = window.location.href.split('jsp_style_recom/')[1]
-	})
+	//$(function(){
+		//var thisPage = window.location.href.split('jsp_style_recom/')[1]
+	//})
+	
+	function logoutConfirm(){
+		if(confirm("정말 로그아웃 하시겠습니까?") == true){
+	        location.href='logout.do'
+	    }
+	    else{
+	        return ;
+	    }
+	}
+
 </script>
 
 <style type="text/css">
@@ -231,7 +241,7 @@ header a:active{color: black; text-decoration: none;}
 				<button id="top_signup_button" class="top_right_button" onclick="location.href='joinForm.do'">Sign_up</button>
 			</c:if>
 			<c:if test="${not empty sessionScope.mem_id }">
-				<button id="top_logout_button" class="top_left_button" onclick="location.href='logout.do'">Logout</button>
+				<button id="top_logout_button" class="top_left_button" onclick="logoutConfirm()">Logout</button>
 				<button id="top_my_page_button" class="top_right_button" onclick="location.href='weather.do?sido=${locCode }'" >MY Corgi</button>
 			</c:if>
 		</div>
