@@ -44,44 +44,46 @@ public class JM_HotTagDao {
 		String insert_sql = "INSERT INTO hot_tag VALUES(?,1,0)";
 		ResultSet rs = null;
 		
-		search_word = search_word.replace(" ", "");//검색어의 공백을 없앤다.
-		
-		System.out.println("search_word->"+search_word);
+		String[] search_word_list = search_word.split(" ");		
 		
 		try {//검색결과 검색한 단어가 있을 경우 있는 태그의 카운트를 증가시킨다.
-			conn = getConnection();
-			pstmt = conn.prepareStatement(select_sql);//기존 검색어의 카운트 값을 받아온다.
-			pstmt.setString(1, search_word);
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {//결과값이 있으면 실행한다.
-				int new_count = Integer.parseInt(rs.getString(1)) + 1;//기존 검색어의 카운트 값에 +1한다.
-				pstmt.close();//기존의 pstmt를 닫아 새로운 pstmt를 만들 준비를 한다.
-				rs.close();//기존의 rs를 닫아 새로운 ResultSet을 받아올 준비를 한다.
-				pstmt = conn.prepareStatement(update_sql);//새로운 카운트 값으로 업데이트한다.
-				pstmt.setInt(1, new_count);
-				pstmt.setString(2, search_word);
-				//pstmt.setInt(1, 2);
-				result = pstmt.executeUpdate();
+			for(String str : search_word_list) {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(select_sql);//기존 검색어의 카운트 값을 받아온다.
+				pstmt.setString(1, str);
+				rs = pstmt.executeQuery();
 				
-				if(result > 0) {
-					System.out.println("검색어 카운트업 성공");
-				}else {
-					System.out.println("검색어 카운트 실패");
+				if(rs.next()) {//결과값이 있으면 실행한다.
+					int new_count = Integer.parseInt(rs.getString(1)) + 1;//기존 검색어의 카운트 값에 +1한다.
+					pstmt.close();//기존의 pstmt를 닫아 새로운 pstmt를 만들 준비를 한다.
+					rs.close();//기존의 rs를 닫아 새로운 ResultSet을 받아올 준비를 한다.
+					pstmt = conn.prepareStatement(update_sql);//새로운 카운트 값으로 업데이트한다.
+					pstmt.setInt(1, new_count);
+					pstmt.setString(2, str);
+					//pstmt.setInt(1, 2);
+					result = pstmt.executeUpdate();
+					
+					if(result > 0) {
+						System.out.println("검색어 카운트업 성공");
+					}else {
+						System.out.println("검색어 카운트 실패");
+					}
+				}else {//결과값이 없을 경우 실행한다.
+					System.out.println("검색한 단어가 없습니다.");
+					System.out.println("새로운 검색 태그를 만듭니다.");
+					pstmt.close();
+					rs.close();
+					pstmt = conn.prepareStatement(insert_sql);
+					pstmt.setString(1, str);
+					result = pstmt.executeUpdate();
+					if(result > 0) {
+						System.out.println("새로운 검색 태그 생성 성공");
+					}else {
+						System.out.println("새로운 검색 태그 생성에 실패했습니다.");
+					}
 				}
-			}else {//결과값이 없을 경우 실행한다.
-				System.out.println("검색한 단어가 없습니다.");
-				System.out.println("새로운 검색 태그를 만듭니다.");
 				pstmt.close();
 				rs.close();
-				pstmt = conn.prepareStatement(insert_sql);
-				pstmt.setString(1, search_word);
-				result = pstmt.executeUpdate();
-				if(result > 0) {
-					System.out.println("새로운 검색 태그 생성 성공");
-				}else {
-					System.out.println("새로운 검색 태그 생성에 실패했습니다.");
-				}
 			}
 			
 		}catch (Exception e) {	System.out.println("JM_HotTagDao.count error\nerror : " + e.getMessage());	
