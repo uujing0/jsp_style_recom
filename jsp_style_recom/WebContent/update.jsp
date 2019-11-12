@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,23 +46,23 @@
 	//그리고 그 내용을 숨겨진 input태그에 저장하고 요청을 보낸다.
 	$(document).on("click", "#update", function() {
 		var data = CKEDITOR.instances.editor1.getData();
-	/* 	 		alert("data->" + data);  */
+		/* 		alert("data->" + data); */
 		var findStr1 = "<img"; // <img이 있는지 찾아보기
 		var findStr2 = " />"; // <img이 있는지 찾아보기
 		var n = 0;
 		n1 = data.indexOf(findStr1)
 		n2 = data.indexOf(findStr2)
-	/* 	 if (n1  != -1) {
+		/*  if (n1  != -1) {
 		  alert("n1->" + n1);
 		}	
 		if (n2  != -1) {
 			  alert("n2->" + n2);
-			}	 */  
+			}	  */
 		var data2 = data.substring(n1, n2 + 3);
 
 		$("#bd_content").val(data);
-		$("#bd_file_url").val(data2); 
-				/* 	alert("data2->"+data2);  */
+		$("#bd_file_url").val(data2);/* 
+					alert("data2->"+data2); */
 		$(this).append("<input type='submit' id='request'/>");
 		$("#request").trigger("click");
 	});
@@ -82,50 +84,6 @@
 <title>게시판!!</title>
 </head>
 <body>
-
-
-	<nav class="navbar navbar-inverse">
-		<!-- navbar-색상(inverse = 검은색, default 22222= 색x) -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-				aria-expanded="false">
-			
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-				<!-- 아이콘 이미지 -->
-
-			</button>
-
-			<a class="navbar-brand" href="bbs.do">JSP 게시판</a>
-			<!-- Bootstrap navbar 기본 메뉴바 -->
-		</div>
-
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<!-- navbar-nav => 네비게이션 바의 메뉴 -->
-				<li><a href="main.do">메인</a></li>
-				<li class="active"><a href="bbs.do">게시판</a></li>
-				<!-- 메뉴, 게시판의 main.jsp와 bbs.jsp의 파일로 각각 이동 -->
-			</ul>
-
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">회원관리<span class="caret"></span></a> <!-- 임시의 주소링크 "#"을 기재한다. -->
-					<!-- caret = creates a caret arrow icon (▼) -->
-
-					<ul class="dropdown-menu">
-						<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
-
-						<li><a href="logout.do">로그아웃</a></li>
-					</ul></li>
-			</ul>
-
-		</div>
-	</nav>
-	-->
 
 
 	<div clas="container">
@@ -160,9 +118,12 @@
 								<td></td>
 							</c:if>
 						</tr>
-					
+						<!-- <tr>
+					<td><input type="file" class="form-control" placeholder="파일 첨부" id="bbsfile" name="bbsfile" maxlength="50"></td>
+					<td><input type="hidden" name="oldFile" value = "${bbs.BBSFILE}"></td>
+				</tr>  -->
 
-					
+						<!-- input = 특정한 정보를 action페이지로 보내도록, textarea = 장문의 글 작성할때, -->
 					</tbody>
 
 					<!-- 글쓰기 버튼 => 실제로 데이터를 액션페이지로 보냄 -->
@@ -175,7 +136,7 @@
 				<!-- 글쓰기 버튼 => 실제로 데이터를 액션페이지로 보냄 -->
 				<input type="hidden" name="bd_content" id="bd_content" /> <input
 					type="hidden" name="bd_file_url" id="bd_file_url" /> <input
-					type="button" id="update" class="btn btn-warning pull-right"
+					type="button" id="update" class="btn btn-primary pull-right"
 					value="글수정">
 			</form>
 

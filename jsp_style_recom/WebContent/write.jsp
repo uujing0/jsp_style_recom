@@ -1,20 +1,19 @@
 
-=======
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- 
+<meta name="viewport" content="width=device-width", initial-scale="1"> -->
+<!-- viewport=화면상의 표시영역, content=모바일 장치들에 맞게 크기조정, initial=초기화면 배율 설정 -->
 
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
 <link rel="stylesheet" href="css/custom.css">
 
-<%@include file="header.jsp" %> 
+<%@include file="header.jsp"%>
 <script src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
 <script>
@@ -73,6 +72,16 @@
 		$("#request").trigger("click");
 	});
 	
+/* 	$(document).on("click", "#submit", function(){
+		var data = CKEDITOR.instances.editor1.getData();
+		alert("data->"+data)
+		console.log(data);
+		
+		$("#bd_title").val(data);
+		$(this).append("<input type='submit' id='request'/>");
+		$("#request").trigger("click");
+	});
+	 */
 	
 	 function noSpaceForm2(obj) 
      {                        
@@ -93,7 +102,7 @@
 </head>
 
 <body>
-
+	
 
 	<div clas="container">
 		<div class="container-fluid">
@@ -127,7 +136,13 @@
 								<td></td>
 							</c:if>
 						</tr>
-					
+						<!-- <tr>
+						<td><input type="file"  class="form-control" placeholder="파일첨부" name="bbsupload" maxlength="50"></td>
+					</tr> -->
+
+						<!-- input = 특정한 정보를 action페이지로 보내도록, textarea = 장문의 글 작성할때, -->
+					</tbody>
+				</table>
 				<!-- CK에디터 div 영역 -->
 				<div>
 					<textarea name="editor1" id="editor1" rows="10" cols="80"
