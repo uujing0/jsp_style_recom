@@ -40,6 +40,7 @@ public class JM_SearchStyleDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		String result = null;
 		
 		String tc_search_sql = "SELECT tc_id FROM tag_category WHERE tc_name like ?";
 		
@@ -53,6 +54,7 @@ public class JM_SearchStyleDao {
 			if(rs.next()) {
 				System.out.println("Tag 검색 결과 : "+rs.getString(1));
 				
+				result = rs.getString(1);
 			}
 			
 		} catch (Exception e) {
@@ -63,7 +65,7 @@ public class JM_SearchStyleDao {
 			if(pstmt != null) pstmt.close();
 		}
 		
-		return rs.getString(1);
+		return result;
 	}
 
 	public ArrayList<StyleInfo> searchStyle(String search_word) throws SQLException {
