@@ -65,6 +65,10 @@
 	        return ;
 	    }
 	}
+	
+	function login() {
+        window.open('loginForm.jsp','로그인','width=500,height=400,left=700,top=200,status=no,scrollbars=no')
+	}
 
 </script>
 
@@ -237,7 +241,7 @@ header a:active{color: black; text-decoration: none;}
 	<div id="header_top">
 		<div id="member_space">
 			<c:if test="${empty sessionScope.mem_id }">
-				<button id="top_login_button" class="top_left_button" onclick="location.href='loginForm.do'">Login</button>
+				<button id="top_login_button" class="top_left_button" onclick="login()">Login</button>
 				<button id="top_signup_button" class="top_right_button" onclick="location.href='joinForm.do'">Sign_up</button>
 			</c:if>
 			<c:if test="${not empty sessionScope.mem_id }">
