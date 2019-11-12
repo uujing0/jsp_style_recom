@@ -36,16 +36,27 @@
 		
 		$("#searchdate").parent().hide();
 		
-		var searchBar = '<label> Search:<input type="search" class="form-control form-control-sm" id="search" placeholder="" aria-controls="table" value="'+"bbb"+'"> </label>';
+		var searchBar = '<label> Search:<input type="search" class="form-control form-control-sm" id="search" placeholder="" aria-controls="table" value=""> </label>';
 		
 		$('#table').parent().append(searchBar);
 		
 		$("#search").parent().css("float", "right");
+		
+		$("#search").val(getParameterByName('search_word'))
+		table.search($("#search").val()).draw() ;
 	} );
 	
 	$(document).on("keyup", "#search", function(){
 		table.search($(this).val()).draw() ;
 	});
+	
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
 </script> 
 <body>
 	
