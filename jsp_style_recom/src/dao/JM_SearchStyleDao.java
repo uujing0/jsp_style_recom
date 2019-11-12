@@ -59,6 +59,7 @@ public class JM_SearchStyleDao {
 							   "                    FROM tag_category\r\n" + 
 							   "                    WHERE tc_name like ?\r\n" + 
 							   "))";
+		//String tc_search_sql = "SELECT tc_id FROM tag_category WHERE tc_name like ?";
 		
 		try {
 			//옷 종류로 검색
@@ -72,7 +73,14 @@ public class JM_SearchStyleDao {
 			while(rs.next()) {
 				StyleInfo si = new StyleInfo();
 				si.setStl_id(rs.getInt("stl_id"));
+				si.setCc_id_outer(rs.getInt("cc_id_outer"));
+				si.setCc_id_top(rs.getInt("cc_id_top"));
+				si.setCc_id_bottom(rs.getInt("cc_id_bottom"));
+				si.setCc_id_acc(rs.getInt("cc_id_acc"));
 				si.setStl_pic_url(rs.getString("stl_pic_url"));
+				si.setStl_desc(rs.getString("stl_desc"));
+				si.setStl_gender(rs.getInt("stl_gender"));
+				System.out.println("검색된 stl_id :"+si.getStl_id());
 				style_info_list.add(si);
 			}
 			
@@ -86,7 +94,14 @@ public class JM_SearchStyleDao {
 			while (rs.next()) {
 				StyleInfo si = new StyleInfo();
 				si.setStl_id(rs.getInt("stl_id"));
+				si.setCc_id_outer(rs.getInt("cc_id_outer"));
+				si.setCc_id_top(rs.getInt("cc_id_top"));
+				si.setCc_id_bottom(rs.getInt("cc_id_bottom"));
+				si.setCc_id_acc(rs.getInt("cc_id_acc"));
 				si.setStl_pic_url(rs.getString("stl_pic_url"));
+				si.setStl_desc(rs.getString("stl_desc"));
+				si.setStl_gender(rs.getInt("stl_gender"));
+				System.out.println("검색된 stl_id :"+si.getStl_id());
 				style_info_list.add(si);
 			}
 			

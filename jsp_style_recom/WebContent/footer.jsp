@@ -5,7 +5,7 @@
 <script type="text/javascript">
 	$(function(){
 		$('#go_to_top_button').click(function(){
-			var offset = $("#header_logo").offset(); //선택한 태그의 위치를 반환
+			var offset = $("#header_root").offset(); //선택한 태그의 위치를 반환
 	        $('html').animate({scrollTop : offset.top}, 400);//animate()메서드를 이용해서 선택한 태그의 스크롤 위치를 지정해서 0.4초 동안 부드럽게 해당 위치로 이동함 
 		});
 	})
@@ -57,7 +57,6 @@ footer{
 
 #bottom_member_space{
 	border: none;
-	border-bottom: solid 2px #5d5d5d;
 }
 .bottom_left_button{
 	background-color: #d5d5d5;
@@ -65,6 +64,7 @@ footer{
 	padding: 2px;
 	cursor: pointer;
 	color: #5d5d5d;
+	border-bottom: solid 2px #5d5d5d;
 }
 .bottom_right_button{
 	background-color: #d5d5d5;
@@ -72,6 +72,7 @@ footer{
 	padding: 2px;
 	cursor: pointer;
 	color: #5d5d5d; 
+	border-bottom: solid 2px #5d5d5d;
 }
 </style>
 
@@ -99,7 +100,6 @@ footer{
 					<span>프로젝트 웰시코디는 사용자의 다양한 상황을 분석하여</span><br>
 					<span>상황에 적절한 스타일 코디를 추천해주는 웹 사이트 구축을 목표로 만들어진 프로젝트입니다.</span> 
 				</div>
-				<br>
 				<div>
 					<h4>이용약관</h4>
 					<span>본 프로젝트는 상업용으로 개발되지 않은 오픈소스 프로젝트입니다.</span><br>

@@ -55,8 +55,6 @@
 	//문서 시작시 적용
 	$(function(){
 		var thisPage = window.location.href.split('jsp_style_recom/')[1]
-		//alert(thisPage)
-		//alert('genderSelector.do?select=1&thisPage='+thisPage) 
 	})
 </script>
 
@@ -142,31 +140,22 @@ header a:active{color: black; text-decoration: none;}
 	float:right;
 }
 
-#member_space button{
-	background-color: white;
-	color: black;
-	border: none;
-}
-
 .top_left_button{
-	margin-right: -3px;
-	border-bottom-left-radius: 5px;
-	border-top-left-radius: 5px;
+	background-color: #F17F42;
+	color: black;
+	border : none;
+	font-size: 15px;
+	border-bottom: solid 2px black;
+	cursor: pointer;
 }
-
+ 
 .top_right_button{
-	margin-left: -3px;
-	border-bottom-right-radius: 5px;
-	border-top-right-radius: 5px;
-}
-
-#top_login_button{
-	background-color: white;
-	border: none;
-}
-
-.top_label{
-	color: white; 
+	background-color: #F17F42;
+	color: black;
+	border : none;
+	font-size: 15px;
+	border-bottom: solid 2px black;
+	cursor: pointer;
 }
 
 /* menu_bar */
@@ -178,7 +167,6 @@ header a:active{color: black; text-decoration: none;}
 	color: white;
 }
 .menu_bar_table{
-	/* margin: auto; */
 	text-align: center;
 }
 .menu_bar_table td{
