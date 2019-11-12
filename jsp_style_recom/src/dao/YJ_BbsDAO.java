@@ -114,6 +114,7 @@ public class YJ_BbsDAO {
 				board.setStaravg(rs.getInt(8));
 				board.setPopup(rs.getString(9));
 				list.add(board);
+				
 
 			}
 			rs.close();

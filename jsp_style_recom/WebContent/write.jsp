@@ -155,7 +155,7 @@
 				<input type="hidden" name="bd_content" id="bd_content"
 					required="required" /> <input type="hidden" name="bd_file_url"
 					id="bd_file_url" required="required" /> <input type="button"
-					class="btn btn-primary pull-right" value="글쓰기" id="submit">
+					class="btn btn-warning pull-right" value="글쓰기" id="submit">
 			</form>
 
 		</div>
