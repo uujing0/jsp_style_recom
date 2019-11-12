@@ -50,6 +50,7 @@ public class SearchAction implements CommandProcess{
 				ArrayList<StyleInfo> style_info = ss.searchStyle(search_word);
 				
 				request.setAttribute("list", style_info);
+				request.setAttribute("tc_id", ss.searchStyleTag(search_word));
 				
 			}catch (Exception e) {
 				System.out.println("StyleSearch error : " + e.getMessage());

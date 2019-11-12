@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -33,8 +34,39 @@ public class JM_SearchStyleDao {
 		
 		return conn;
 	}
+	
+	public String searchStyleTag(String search_word) throws SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String tc_search_sql = "SELECT tc_id FROM tag_category WHERE tc_name like ?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(tc_search_sql);
+			pstmt.setString(1, "%"+search_word+"%");
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				System.out.println("Tag 검색 결과 : "+rs.getString(1));
+				
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally{
+			if(rs != null) rs.close();
+			if(conn != null) conn.close();
+			if(pstmt != null) pstmt.close();
+		}
+		
+		return rs.getString(1);
+	}
 
-	public ArrayList<StyleInfo> searchStyle(String search_word) {
+	public ArrayList<StyleInfo> searchStyle(String search_word) throws SQLException {
 		
 		ArrayList<StyleInfo> style_info_list = new ArrayList<StyleInfo>();
 		
@@ -111,6 +143,10 @@ public class JM_SearchStyleDao {
 			}else {
 				System.out.println("error : " + e.getMessage());
 			}
+		}finally{
+			if(rs != null) rs.close();
+			if(conn != null) conn.close();
+			if(pstmt != null) pstmt.close();
 		}
 		
 		return style_info_list;
