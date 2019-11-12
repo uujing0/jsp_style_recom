@@ -8,7 +8,7 @@
 
 <title>추천 리스트</title>
 
-<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.js"></script>
 
 <style type="text/css">
 .content {
@@ -57,6 +57,49 @@ table.categoryTable th {
 
 
 </style>
+
+<script type="text/javascript">
+function setCookie(cookieName, value) {
+	
+	pushCookie = cookieName +":"+ value
+	cookieData = document.cookie.split('stl_id=')
+	
+	for(var list in cookieData){//중복 데이터 금지
+		if(cookieData[list]==pushCookie){
+			return;
+		}
+	}
+	
+	document.cookie += "stl_id=" + cookieName +":"+ value
+
+	//alert(document.cookie.spilt[1])
+	/* getCookie(cookieName);
+	var stl_id=document.cookie;
+	document.cookie="stl_id="+cookieName+":"+value;
+	if(stl_id!=document.cookie){
+		document.cookie=cookieName+":"+value+"&"+stl_id;
+	}
+	alert(document.cookie); */
+}
+	
+function getCookie(cookieName) {
+    cookieName = cookieName + '=';
+    var cookieData = document.cookie;
+    var start = cookieData.indexOf(cookieName);
+    var cookieValue = '';
+    if(start != -1){
+        start += cookieName.length;
+        var end = cookieData.indexOf(';', start);
+        if(end == -1)end = cookieData.length;
+        cookieValue = cookieData.substring(start, end);
+    }
+    return unescape(cookieValue);
+}
+function checkCookie() {
+
+}
+
+</script>	
 </head>
 <%@ include file="header.jsp"%>
 <body>
@@ -155,7 +198,7 @@ table.categoryTable th {
 						<c:forEach var="c" begin="0" end="${columnSize-1}">
 							<c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
 							<c:if test="${eIndex < list.size()}">
-								<td>
+								<td onclick="setCookie(${list[eIndex].stl_id},'${list[eIndex].stl_pic_url}')">
 									<div class="thumb">
 										<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
 											<img src="./images/category_images/${list[eIndex].stl_pic_url}">
@@ -187,7 +230,7 @@ $(function() {
 })
 
 </script>
-
+<%-- <%@include file="recentStyle.jsp" %> --%>
 
 
 </body>
