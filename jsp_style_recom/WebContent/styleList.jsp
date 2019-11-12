@@ -60,26 +60,23 @@ table.categoryTable th {
 
 <script type="text/javascript">
 function setCookie(cookieName, value) {
-	
+	var i = 0;
 	pushCookie = cookieName +":"+ value
 	cookieData = document.cookie.split('stl_id=')
-	
+
 	for(var list in cookieData){//중복 데이터 금지
 		if(cookieData[list]==pushCookie){
 			return;
 		}
+		i++;
+	}
+	if(i==6){
+		document.cookie=document.cookie.replace(cookieData[1]+"stl_id=","")
+		i--
 	}
 	
 	document.cookie += "stl_id=" + cookieName +":"+ value
 
-	//alert(document.cookie.spilt[1])
-	/* getCookie(cookieName);
-	var stl_id=document.cookie;
-	document.cookie="stl_id="+cookieName+":"+value;
-	if(stl_id!=document.cookie){
-		document.cookie=cookieName+":"+value+"&"+stl_id;
-	}
-	alert(document.cookie); */
 }
 	
 function getCookie(cookieName) {
