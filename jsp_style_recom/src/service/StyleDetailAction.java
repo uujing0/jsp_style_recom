@@ -83,7 +83,6 @@ public class StyleDetailAction implements CommandProcess {
 				for (int i = 0; i < p_cc1.size(); i++) {
 					p_cc1_id.add(p_cc1.get(i));
 					p_cc1.set(i, pDao.productFind(p_cc1.get(i)));
-					System.out.println("p_cc1_id -> "+p_cc1_id.get(i));
 				}
 			}
 
@@ -136,6 +135,7 @@ public class StyleDetailAction implements CommandProcess {
 		}
 
 		return "styleDetail.jsp";
+		
 	}
 
 }

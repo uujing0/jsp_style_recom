@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -42,7 +43,7 @@ public class JW_ClothesCategoryDao{
 	public String clothesCategoryFind(String clothes_id) throws SQLException{
 		
 		Connection conn = null;
-		String sql = "select cc_pic_url from clothes_category where cc_id= ?";
+		String sql = "select cc_pic_url, cc_desc from clothes_category where cc_id= ?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ClothesCategory clothescategory = new ClothesCategory();
@@ -54,8 +55,6 @@ public class JW_ClothesCategoryDao{
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				pic_url = rs.getString(1);
-				
-				System.out.println("ClothesCategoryDao");
 				System.out.println(rs.getString(1));
 			}
 		} catch(Exception e) {
@@ -67,5 +66,32 @@ public class JW_ClothesCategoryDao{
 		
 		return pic_url;
 	}
+	public String clothesCategoryDescFind(String clothes_id) throws SQLException{
+		
+		Connection conn = null;
+		String sql = "select cc_desc from clothes_category where cc_id= ?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ClothesCategory clothescategory = new ClothesCategory();
+		String acc_desc = null;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,  clothes_id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				acc_desc = rs.getString(1);
+				System.out.println(rs.getString(1));
+			}
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		
+		return acc_desc;
+	}
+	
 
 }
