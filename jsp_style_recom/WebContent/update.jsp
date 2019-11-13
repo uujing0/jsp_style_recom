@@ -93,10 +93,10 @@
 				<table class="table table-striped"
 					style="text-align: center; border: 1px solid #dddddd">
 					<thead>
-						<tr>
+						<tr><!-- 
 							<th colspan="2"
 								style="background-color: #aaaaaa; text-align: center;">게시판
-								글 수정 양식</th>
+								글 수정 양식</th> -->
 
 						</tr>
 					</thead>

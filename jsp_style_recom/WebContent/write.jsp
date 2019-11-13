@@ -110,10 +110,10 @@
 				<table class="table table-striped"
 					style="text-align: center; border: 1px solid #dddddd">
 					<thead>
-						<tr>
+						<tr><!-- 
 							<th colspan="2"
 								style="background-color: #aaaaaa; text-align: center;">게시판
-								글쓰기 양식</th>
+								글쓰기 양식</th> -->
 
 						</tr>
 					</thead>
