@@ -430,13 +430,13 @@ public class WeatherAction implements CommandProcess {
 			request.setAttribute("mem_id", mem_id);
 			JW_StyleInfoDao sl = JW_StyleInfoDao.getInstance();
 			
-			int i = 1;
+			Map<String, String> Bmap = new HashMap<String, String>();
 			for(int a : stl_id) {
-				String stl_pic_url=sl.pic_url(a);	
-				 request.setAttribute("stl_id"+i, a);
-				 request.setAttribute("stl_pic_url"+i, stl_pic_url);
-				 i++;
+				String stl_pic_url=sl.pic_url(a);
+				Bmap.put(""+a, stl_pic_url);
+				System.out.println("--------------------------------------------------------map실험->"+Bmap);
 			}
+			request.setAttribute("BookMap", Bmap);
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd E요일");
 			day1 = sdf.format(c1.getTime());
 			day2 = sdf.format(c2.getTime());

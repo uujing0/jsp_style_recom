@@ -3,6 +3,8 @@ package service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +25,8 @@ public class CalendarAction implements CommandProcess {
 		Calendar cal = Calendar.getInstance();
 		try {
 			HttpSession session = request.getSession();
-
+			Map<String, String> Cmap = new HashMap<String, String>();
+			Map<String, String> Bmap = new HashMap<String, String>();
 			String mem_id = (String)session.getAttribute("mem_id");
 			System.out.println("mem_id->"+mem_id);
 			if (request.getParameter("yy") == null) {
@@ -69,7 +72,7 @@ public class CalendarAction implements CommandProcess {
 					
 					TH_CalendarDao cd = TH_CalendarDao.getInstance();
 					dao.Calendar cal1 = cd.select(mem_id, cal_id);
-					request.setAttribute("cal_title" + i, cal1.getCal_title());
+					Cmap.put(""+i, cal1.getCal_title());
 				//	System.out.println("제목인데->"+cal1.getCal_title());
 				}
 				request.setAttribute("yy", yy);
@@ -108,7 +111,7 @@ public class CalendarAction implements CommandProcess {
 					
 					TH_CalendarDao cd = TH_CalendarDao.getInstance();
 					dao.Calendar cal1 = cd.select(mem_id, cal_id);
-					request.setAttribute("cal_title" + i, cal1.getCal_title());
+					Cmap.put(""+i, cal1.getCal_title());
 				}
 				
 				request.setAttribute("w", w);
@@ -120,13 +123,11 @@ public class CalendarAction implements CommandProcess {
 			ArrayList<Integer> stl_id=bd.select(mem_id);
 			request.setAttribute("mem_id", mem_id);
 			JW_StyleInfoDao sl = JW_StyleInfoDao.getInstance();
-			
-			int i = 1;
+			request.setAttribute("CalMap", Cmap);
+			request.setAttribute("BookMap", Bmap);
 			for(int a : stl_id) {
-				String stl_pic_url=sl.pic_url(a);	
-				 request.setAttribute("stl_id"+i, a);
-				 request.setAttribute("stl_pic_url"+i, stl_pic_url);
-				 i++;
+				String stl_pic_url=sl.pic_url(a);
+				Bmap.put(""+a, stl_pic_url);
 			}
 		} catch (Exception e) {
 			System.out.println("err->" + e.getMessage());

@@ -2,6 +2,8 @@ package service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,7 @@ public class MyBoardAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			Map<String, String> Bmap = new HashMap<String, String>();
 			HttpSession session = request.getSession();
 			String mem_id = (String)session.getAttribute("mem_id");
 			YJ_BbsDAO bd = new YJ_BbsDAO(); 
@@ -29,13 +32,11 @@ public class MyBoardAction implements CommandProcess {
 			request.setAttribute("mem_id", mem_id);
 			JW_StyleInfoDao sl = JW_StyleInfoDao.getInstance();
 			
-			int i = 1;
 			for(int a : stl_id) {
-				String stl_pic_url=sl.pic_url(a);	
-				 request.setAttribute("stl_id"+i, a);
-				 request.setAttribute("stl_pic_url"+i, stl_pic_url);
-				 i++;
+				String stl_pic_url=sl.pic_url(a);
+				Bmap.put(""+a, stl_pic_url);
 			}
+			request.setAttribute("BookMap", Bmap);
 		}catch (Exception e) {
 			System.out.println("MainAction error : " + e.getMessage());
 		}
