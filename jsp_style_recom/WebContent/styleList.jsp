@@ -73,10 +73,10 @@ table.categoryTable th {
 							<option value="0">선택해주세요</option>
 							
 							<c:forEach var="i" items="${locMap}">
-								<c:if test="${locCode == i.value }">
+								<c:if test="${lc == i.value }">
 									<option value="${i.value}" selected="selected">${i.key}</option>
 								</c:if>
-								<c:if test="${locCode != i.value }">
+								<c:if test="${lc != i.value }">
 									<option value="${i.value}">${i.key}</option>
 								</c:if>
 							</c:forEach>

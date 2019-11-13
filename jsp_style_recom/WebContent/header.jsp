@@ -10,8 +10,9 @@
 <c:if test="${sessionScope.loc == null}">
 	<c:set var="loc" value="서울특별시" scope="session"></c:set>
 </c:if>
+<!-- gender 1:남자, 2:여자 -->
 <c:if test="${sessionScope.gender == null }">
-	<c:set var="gender" value="female" scope="session"></c:set>
+	<c:set var="gender" value="2" scope="session"></c:set>
 </c:if>
 
 <c:catch var="exception">

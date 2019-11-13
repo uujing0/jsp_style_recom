@@ -122,18 +122,10 @@ public class StyleListAction implements CommandProcess {
 		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
 
 		HttpSession session = request.getSession();
-	
-		// locCode가 설정되어 있으면 우선으로 set. 아니면 session에 저장되어있는 loc으로 설정
 		String strLocCode = request.getParameter("locCode");
-		if (strLocCode == null || strLocCode.equals("")) {
-			String loc = (String) session.getAttribute("loc");
-			
-			if (loc == null || loc.equals("")) {
-				loc = "서울특별시";
-			}
-			
-			Map<String, String> locationMap = Common.getInstance().locationMap();
-			strLocCode = locationMap.get(loc);
+		
+		if (strLocCode == null) {
+			return;
 		}
 		
 		Map<String, String> map = Common.getInstance().getWeatherTmp(strLocCode);
@@ -159,8 +151,7 @@ public class StyleListAction implements CommandProcess {
 		System.out.println("====> " + this.tagId);
 		System.out.println("====> " + this.stl_id);
 		
-		request.setAttribute("locCode", strLocCode);
-		
+		request.setAttribute("lc", strLocCode);
 		
 		JW_StyleInfoDao siDao = JW_StyleInfoDao.getInstance();
 		JW_ClothesCategoryDao ccDao = JW_ClothesCategoryDao.getInstance();
