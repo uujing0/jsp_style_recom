@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.js"></script>
 
 <title>추천 스타일 상세</title>
 

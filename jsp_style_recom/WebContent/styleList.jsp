@@ -8,7 +8,7 @@
 
 <title>추천 리스트</title>
 
-<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.js"></script>
 
 <style type="text/css">
 .content {
@@ -149,7 +149,7 @@ table.categoryTable th {
 	                                <td>
 	                                    <div class="thumb">
 	                                        <a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
-	                                            <img src="./images/category_images/${list[eIndex].stl_pic_url}">
+	                                            <img src="./images/category_images/${list[eIndex].stl_pic_url}" width="400px" height="500px">
 	                                        </a>
 	                                    </div>
 	                                </td>

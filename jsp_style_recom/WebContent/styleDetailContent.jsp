@@ -98,27 +98,24 @@ h2 {
 }
 
  .urlDisp {
-	 z-index:-999;
 }  
 
 
 </style>
 
-<script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript">
 	//url복사
-	var obj;
-	function urlClipCopy() {
-		obj.select();
-		document.execCommand("copy");
-		alert("클립보드로 URL이 복사되었습니다.");
-	}
-	window.onload = function() {
-		obj = document.getElementById('url');
-		obj.value = location.href;
-		document.frm.url.value = location.href;
-       
-	}
+	
+	function urlCopy(){
+        var tempElem = document.createElement('textarea');
+        tempElem.value = location.href; 
+        document.body.appendChild(tempElem);
+
+        tempElem.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempElem);
+   };
+   
 
 </script>
 </head>
@@ -129,14 +126,16 @@ h2 {
 		<img src="./images/hanger.png" height="40px" width="60px">
 		<h3>${std_desc}</h3>
 	</div>
-
+<!-- 	<input type="text" id="url" class="urlDisp"  name="url" size="14" value="11"  />
+ -->
 	<div id="buttons" class="buttons">
-	            <input type="text" id="url" class="urlDisp"  name="url" size="14" value="11"  />
 	
 			<table>
 			<tr>
-				<td>
-				<button class="button" id ="urlCopy" onclick="urlClipCopy()">URL복사</button></td>
+				<td onclick="urlCopy()">
+				<form><input type="button" id="urlCopy"  value="url복사"></form>
+				</td>
+				
 				<td><c:if test="${status == 0 }">
 					<form
 						action="styleDetail.do?stl_id=${stl_id }&mem_id=${mem_id}&onoff=1"
@@ -152,7 +151,7 @@ h2 {
 					</form>
 				</c:if>
 				</td>
-				</tr>
+			</tr>
 		</table>
 	</div>
 
@@ -220,9 +219,9 @@ h2 {
 				</tr>
 
 			</table>
-							<c:if test="${acc_desc!=null }">
-								${acc_desc }
-							</c:if>
+			    <c:if test="${acc_desc!=null }">
+				   ${acc_desc }
+				</c:if>
 		</div>
 
 	</div>
