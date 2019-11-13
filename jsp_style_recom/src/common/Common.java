@@ -124,7 +124,7 @@ public class Common {
 	public Map<String,String > getWeatherTmp(String addr) {
 		String urlStr = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=" + addr;
 		ArrayList<HashMap<String, String>> pubList = new ArrayList<HashMap<String, String>>();
-		String[] fieldNames = { "temp", "hour", "day", "r12" };
+		String[] fieldNames = { "temp", "hour", "day", "pop" };
 		Map<String, String> map = new HashMap<String, String>();
 		int result = 0;
 		double Temp1 = -100.0;
@@ -175,7 +175,7 @@ public class Common {
 
 			String tmpWfDay = pub.get("day");
 			String tmpWfHour = pub.get("hour");
-			String rsWfRS = pub.get("r12");
+			String rsWfRS = pub.get("pop");
 			// System.out.println("rsWfRS->" + rsWfRS);
 			if (rsWfRS == null)
 				break;
