@@ -42,7 +42,7 @@
 	<x:parse var="doc" xml="${xmldata }"></x:parse>
 	<x:set var="wf" select="$doc//*/data/wfKor"/>
 	<x:set var="temp" select="$doc//*/data/temp"/>
-	<x:set var="rp" select="$doc//*/data/r12"/>
+	<x:set var="rp" select="$doc//*/data/pop"/>
 </c:catch>
 
 <%-- <c:out value="${sessionScope.loc }"></c:out>
@@ -268,7 +268,7 @@ header a:active{color: black; text-decoration: none;}
 			<span id="weather_loc"><c:out value="${sessionScope.loc }"></c:out> </span>
 			<span id="weather_cloud"><x:out select="$wf"/></span><br>
 			<span id="weather_tem">온도:<x:out select="$temp"/></span>
-			<span id="weather_rain">강수확률:<x:out select="$rp"/></span>
+			<span id="weather_rain">강수확률:<x:out select="$rp"/>%</span>
 			<!-- <img alt="sun_icon" src="images/sun_icon.png" id="sun_icon" height="50px" width="50px"> --> 
 		</div>
 		<br>
