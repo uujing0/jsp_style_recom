@@ -227,7 +227,7 @@ $(function() {
 })
 
 </script>
-<%-- <%@include file="recentStyle.jsp" %> --%>
+<%@include file="recentStyle.jsp" %>
 
 
 </body>

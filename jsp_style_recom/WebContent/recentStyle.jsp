@@ -12,7 +12,7 @@
 
 #rightSide #right_zzim {
 	position: fixed;
-	top: 180px;
+	top: 200px;
 	left: 50%;
 	margin-left: 700px;
 	border: 1px solid #B0B5BD;
@@ -92,7 +92,7 @@
 							.append(
 									'<li><a href="/jsp_style_recom/styleDetail.do?stl_id='
 											+ stl_id+"&onoff=0"
-											+ '" target="_top"><img src="./images/category_images/'+itemImg+'"  width="75" border=1></a></li>')
+											+ '" target="_top"><img src="./images/category_images/'+itemImg+'"  width="102.92" height="108" border=1></a></li>')
 				}
 			}
 			$("#paging").show();

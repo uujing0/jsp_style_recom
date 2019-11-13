@@ -30,9 +30,7 @@
 </div>
 <%@include file="recentStyle.jsp" %>
 		<div id="bookmark"><p style="font-weight:bold;font-size:21px;">즐겨찾기</p>
-			<pre>스         타          일                                                                         코              디            </pre><br><br>
-			<pre>    사           진                                                                                사              진       </pre>
-		
+			<%@include file="bookmarkForm.jsp" %>
 		</div>
 </div>
 </body>

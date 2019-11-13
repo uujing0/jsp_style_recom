@@ -33,11 +33,12 @@
 	<div id="center">	
 	<%@include file="weather.jsp"%>
 	</div>
-<%@include file="recentStyle.jsp" %>
-
-		<div id="bookmark"><p style="font-weight:bold;font-size:21px;">즐겨찾기</p>
-			<pre>스         타          일                                                                         코              디            </pre><br><br>
-			<pre>    사           진                                                                                사              진       </pre>
+	<%@include file="recentStyle.jsp" %>
+		<div id="bookmark">
+			<div style="float:left;margin-top:10px;margin-bottom:10px;margin-left:3%;width:100%;">
+			<span style="font-weight:bold;font-size:21px;">즐겨찾기</span>
+			</div>
+		<%@include file="bookmarkForm.jsp" %>
 		</div>
 	</div>
 	

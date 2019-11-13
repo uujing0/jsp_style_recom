@@ -189,5 +189,26 @@ public class JW_StyleInfoDao {
 		
 		return styleInfos;
 	}
-
+	public String pic_url(int stl_id) throws SQLException {
+		Connection conn = null;
+		String sql = "select stl_pic_url from STYLE_INFO where stl_id = ?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String stl_pic_url = null;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,  stl_id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				stl_pic_url=(rs.getString("stl_pic_url"));
+			}
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}		
+		return stl_pic_url;
+	}
 }

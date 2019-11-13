@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import dao.BookMark;
+import dao.JW_BookMarkDao;
+import dao.JW_StyleInfoDao;
 import dao.TH_CalendarDao;
 
 public class CalendarAction implements CommandProcess {
@@ -113,7 +116,18 @@ public class CalendarAction implements CommandProcess {
 				request.setAttribute("mm", mm);
 				request.setAttribute("lastday", lastday);
 			}
-
+			JW_BookMarkDao bd = JW_BookMarkDao.getInstance();
+			ArrayList<Integer> stl_id=bd.select(mem_id);
+			request.setAttribute("mem_id", mem_id);
+			JW_StyleInfoDao sl = JW_StyleInfoDao.getInstance();
+			
+			int i = 1;
+			for(int a : stl_id) {
+				String stl_pic_url=sl.pic_url(a);	
+				 request.setAttribute("stl_id"+i, a);
+				 request.setAttribute("stl_pic_url"+i, stl_pic_url);
+				 i++;
+			}
 		} catch (Exception e) {
 			System.out.println("err->" + e.getMessage());
 		}

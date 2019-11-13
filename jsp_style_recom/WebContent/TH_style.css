@@ -129,7 +129,17 @@ background-color: #ccc;
 	float: left;
 	height: 50%;
 }
-img{
+#today img{
+	width: 103.922px;
+	height: 104.656px;
+	align:left;
+}
+#day_top img{
+	width: 103.922px;
+	height: 104.656px;
+	align:left;
+}
+#day_bottom img{
 	width: 103.922px;
 	height: 104.656px;
 	align:left;
@@ -144,6 +154,7 @@ img{
 	margin-left:15%;
 	margin-bottom: 2%;
 	margin-top:4%;
+	text-align: center; 
 }
 #head{
 	font-size:25px;
