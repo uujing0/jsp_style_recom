@@ -280,4 +280,23 @@ public class Common {
 		map.put("Rs", Rs);
 		return map;
 	}
+	public int getWeatherAccId(int level, double rs){
+		int cc4 = 0;
+		if(rs>=60) {
+			cc4 = 73;
+		}
+		else {
+			switch(level) {
+			case 1 : cc4 = 76; break;
+			case 2 : cc4 = 67; break;
+			case 3 : cc4 = 67; break;
+			case 6 : cc4 = 74; break;
+			case 7 : cc4 = 74; break;
+			case 8 : cc4 = 70; break;
+			case 9 : cc4 = 75; break;
+			
+			}
+		}
+		return cc4 ;
+	}
 }

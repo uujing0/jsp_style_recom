@@ -37,7 +37,7 @@ public class StyleListAction implements CommandProcess {
 		
 		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
 		UJ_TagCategoryDao tagDao = UJ_TagCategoryDao.getInstance();
-		
+
 		try {
 
 			// TODO: Set Default tagId
@@ -73,11 +73,14 @@ public class StyleListAction implements CommandProcess {
 			moodTags = tagDao.getCategoryListFromTagType(3);
 			
 			ArrayList<StyleInfo> styleInfos = null;
+
 			int totCnt = 0, columnSize = 3, rowSize = 0;
 			
 			// 날씨 상세 뷰를 위한 데이터 세팅 (tagType:4 - 날씨)
+			System.out.println("tag_type-> "+this.tagType);
 			if (this.tagType == 4) {
-				setWeatherData(request, response);
+				System.out.println("request.getParameter(\"stl_id\")->"+request.getParameter("stl_id"));
+
 				setStyleDetailData(request, response);
 			} else {
 				styleInfos = styleDao.getStyleInfosFromTag(tagId, gender);
@@ -110,7 +113,12 @@ public class StyleListAction implements CommandProcess {
 		return "styleList.jsp";
 	}
 	
-	public void setWeatherData(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+
+	
+	/* Ref: StyleDetailAction */
+	public void setStyleDetailData(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		
+		System.out.println("여기안와?");
 		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
 
 		HttpSession session = request.getSession();
@@ -135,12 +143,16 @@ public class StyleListAction implements CommandProcess {
 		int level = Common.getInstance().weatherLevelByTmp(tmp);
 		this.tagId = Common.getInstance().tagIdByWeatherLevel(level);
 
+		System.out.println("--------------");
+		System.out.println("level->"+level);
+		System.out.println("rs->"+rs);
+		
 		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(this.tagId, this.gender);
 	
 		int randomIndex = (int)(Math.random()*styleInfos.size());
 		
 		this.stl_id = styleInfos.get(randomIndex).getStl_id();
-
+		
 		System.out.println("====> " + tmp);
 		System.out.println("====> " + rs);
 		System.out.println("====> " + level);
@@ -148,10 +160,7 @@ public class StyleListAction implements CommandProcess {
 		System.out.println("====> " + this.stl_id);
 		
 		request.setAttribute("locCode", strLocCode);
-	}
-	
-	/* Ref: StyleDetailAction */
-	public void setStyleDetailData(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		
 		
 		JW_StyleInfoDao siDao = JW_StyleInfoDao.getInstance();
 		JW_ClothesCategoryDao ccDao = JW_ClothesCategoryDao.getInstance();
@@ -168,18 +177,23 @@ public class StyleListAction implements CommandProcess {
 		ArrayList<String> p_cc2_id = new ArrayList<String>();
 		ArrayList<String> p_cc3_id = new ArrayList<String>();
 
-		HttpSession session = request.getSession();
 		String mem_id = (String) session.getAttribute("mem_id");
-		
-	
+		System.out.println("memid->" + mem_id);
+		String strGender = (String) session.getAttribute("strGender");
+		if (strGender == null || strGender.equals("")) {
+			strGender = "1";
+		}
+		int gender = Integer.parseInt(strGender);
 		System.out.println("gender->" + gender);
 		System.out.println("stl_id->" + stl_id);
-		
 		// bookmark
 		JW_BookMarkDao bmDao = JW_BookMarkDao.getInstance();
 
-		int onoff = 0;//Integer.parseInt(request.getParameter("onoff"));
-
+		int onoff = 0;
+		/*
+		 * Integer.parseInt(request.getParameter("onoff"));
+		 */
+		
 		System.out.println("onoff->" + onoff);
 		if (onoff == 1) {
 			bmDao.insert(mem_id, stl_id);
@@ -194,78 +208,68 @@ public class StyleListAction implements CommandProcess {
 		System.out.println("al.size()->" + al.size());
 
 		for(int i=0; i<al.size(); i++) {
-			System.out.println("-------- al->"+al.get(i));
+			System.out.println("al->"+al.get(i));
 		}
 		// product id
 		// outer
 		
 		if (al.get(1) != null) {
-
 			p_cc1 = cpmDao.styleIdFind(Integer.parseInt(al.get(1)), gender);
-
 			for (int i = 0; i < p_cc1.size(); i++) {
-
 				p_cc1_id.add(p_cc1.get(i));
 				p_cc1.set(i, pDao.productFind(p_cc1.get(i)));
 				System.out.println("p_cc1_id -> "+p_cc1_id.get(i));
-
 			}
 		}
-		System.out.println("너되냐?1");
-		System.out.println("al : " + al.get(2));
 
-		
 		
 		if (al.get(2) != null) {
-
 			p_cc2 = cpmDao.styleIdFind(Integer.parseInt(al.get(2)), gender);
-			
-			System.out.println("p_cc2->" + p_cc2.get(0));
-
 			for (int i = 0; i < p_cc2.size(); i++) {
-
 				p_cc2_id.add(p_cc2.get(i));
 				p_cc2.set(i, pDao.productFind(p_cc2.get(i)));
-				System.out.println("p_cc2_id -> "+p_cc2_id.get(i));
 			}
 		}
 
-		System.out.println("너되냐?2");
-
-		System.out.println("al.get(3)->" + al.get(3));
 		if (al.get(3) != null) {
 			p_cc3 = cpmDao.styleIdFind(Integer.parseInt(al.get(3)), gender);
-			System.out.println("p_cc3->" + p_cc3.get(0));
-		
 			for (int i = 0; i < p_cc3.size(); i++) {
 				p_cc3_id.add(p_cc3.get(i));
 				p_cc3.set(i, pDao.productFind(p_cc3.get(i)));
 			}
-
 		}
 
 		al.set(1, ccDao.clothesCategoryFind(al.get(1))); // outer
 		al.set(2, ccDao.clothesCategoryFind(al.get(2))); // top
 		al.set(3, ccDao.clothesCategoryFind(al.get(3))); // bottom
-		al.set(4, ccDao.clothesCategoryFind(al.get(4))); // acc
 
-		System.out.println("styleDetailAction.java");
-		System.out.println(al.get(0));
-		System.out.println(al.get(1));
-		System.out.println(al.get(2));
-		System.out.println(al.get(3));
+		al.set(4, ccDao.clothesCategoryFind(al.get(4))); 
 
-		/*
-		 * System.out.println("p_id_cc1.get(3)->"+p_cc1_id.get(3));
-		 * System.out.println("p_id_cc2.get(3)->"+p_cc2_id.get(3));
-		 * System.out.println("p_id_cc3.get(3)->"+p_cc3_id.get(3));
-		 */
 
-		String img_path = request.getSession().getServletContext().getRealPath("/");
-		System.out.println(img_path);
-		System.out.println("이건되니?");
+		System.out.println("al.get(0)"+al.get(0));
+		System.out.println("al.get(1)"+al.get(1));
+		System.out.println("al.get(2)"+al.get(2));
+		System.out.println("al.get(3)"+al.get(3));
+		System.out.println("al.get(4)"+al.get(4));
+
+		String acc_desc = null;
+		int weatherAcc = Common.getInstance().getWeatherAccId(level, rs);
+		String weatheAccString = Integer.toString(weatherAcc);
+		if(weatherAcc != 0) {
+			al.set(4, ccDao.clothesCategoryFind(weatheAccString)); // acc
+			acc_desc = ccDao.clothesCategoryDescFind(weatheAccString);
+		} 
 		
-		request.setAttribute("al", al); 
+
+
+		System.out.println("al.get(0)"+al.get(0));
+		System.out.println("al.get(1)"+al.get(1));
+		System.out.println("al.get(2)"+al.get(2));
+		System.out.println("al.get(3)"+al.get(3));
+		System.out.println("al.get(4)"+al.get(4));
+
+		request.setAttribute("stl_id", stl_id);
+		request.setAttribute("al", al);
 		request.setAttribute("std_desc", std_desc);
 		request.setAttribute("p_cc1", p_cc1);
 		request.setAttribute("p_cc2", p_cc2);
@@ -278,11 +282,18 @@ public class StyleListAction implements CommandProcess {
 
 		request.setAttribute("gender", gender);
 		request.setAttribute("mem_id", mem_id);
-
 		request.setAttribute("status", status);
-
-		System.out.println("StyleDetailAction end...");
+		System.out.println("acc_desc->"+acc_desc);
+		request.setAttribute("acc_desc", acc_desc);
+		System.out.println("StyleWeatherDetailAction end...");
 		
+	}
+
+
+
+	private int al(int i) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
