@@ -40,7 +40,7 @@
 			</div>
 		<%@include file="bookmarkForm.jsp" %>
 		</div>
-	</div>
+	</div> 
 	
 </body>
 

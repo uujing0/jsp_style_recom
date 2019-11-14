@@ -34,10 +34,9 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="button" value="아이디 찾기" onclick="location.href='idSrhForm.do'">
-				</td>
-				<td>
-					<input type="button" value="비밀번호 찾기" onclick="location.href='pwSrhForm.do'">
+					&nbsp;<a href="idSrhForm.do">아이디 찾기</a>
+					&nbsp;/&nbsp;
+					&nbsp;<a href="pwSrhForm.do">비밀번호 찾기</a>
 				</td>
 			</tr>
 		</table>

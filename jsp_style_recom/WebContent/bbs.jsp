@@ -229,7 +229,7 @@
 				</tbody>
 
 			</table>
-			<c:if test="${mem_id != null}">
+			<c:if test="${mem_id != null}"> 
 				<a href="writeView.do" class="btn btn-warning pull-right">글쓰기</a>
 			</c:if>
 		<br>

@@ -84,6 +84,9 @@
 					<input type="submit" class="btn btn-primary form-control" value="로그인">
 					<img src="JJWORLD.png">
 				</form>
+				&nbsp;<a href="idSrhForm.do">아이디 찾기</a>
+				&nbsp;/&nbsp;
+				&nbsp;<a href="pwSrhForm.do">비밀번호 찾기</a>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

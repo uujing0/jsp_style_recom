@@ -224,7 +224,7 @@
 			</c:forEach>
 		</ol>
 	</div>
-</div>	
+</div>
 </body>
 <%@include file="footer.jsp" %>
 </html>

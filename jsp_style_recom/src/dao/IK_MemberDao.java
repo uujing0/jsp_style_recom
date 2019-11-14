@@ -185,7 +185,7 @@ public class IK_MemberDao {
 			if (conn != null) conn.close();
 		}
 		return result;
-	}
+	} 
 	
 	
 	
