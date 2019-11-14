@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.IK_MemberDao;
 import dao.Member;
@@ -32,6 +33,9 @@ try {
 			System.out.println("result----------->"+result);
          
 			request.setAttribute("result", result);
+			
+			HttpSession session = request.getSession();
+			session.invalidate();
 				
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

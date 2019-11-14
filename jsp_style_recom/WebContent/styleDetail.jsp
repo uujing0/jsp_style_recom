@@ -17,7 +17,7 @@
 
 <body>
 <%@ include file="styleDetailContent.jsp" %>
-
+<%@ include file="recentStyle.jsp" %>
 </body>
 <%@ include file="footer.jsp"%>
 
