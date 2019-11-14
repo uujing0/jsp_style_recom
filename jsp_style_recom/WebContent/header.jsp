@@ -278,7 +278,7 @@ header a:active{color: black; text-decoration: none;}
 		<div id="menu_bar">
 			<table class="menu_bar_table">
 				<tr>
-					<td onclick="location.href='styleList.do'">스타일 추천</td>
+					<td onclick="location.href='styleList.do?tagId=1&tagType=1'">스타일 추천</td>
 					<td onclick="location.href='bbs.do'">게시판</td>
 					<td onclick="location.href='weather.do?sido=${locCode }'">마이코기</td>
 				</tr>
