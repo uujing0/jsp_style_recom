@@ -18,7 +18,9 @@ public class MemUpProAction implements CommandProcess {
 			throws ServletException, IOException {
 		try { 
 		    request.setCharacterEncoding("utf-8");
-		    			
+		    String mem_addr = request.getParameter("mem_addr");
+			String mem_add_addr =request.getParameter("mem_add_addr");
+			String modifiedAddr = mem_addr + " " + mem_add_addr;		
 			
 			Member member = new Member();
 			member.setMem_id(request.getParameter("mem_id"));
@@ -29,7 +31,9 @@ public class MemUpProAction implements CommandProcess {
 			member.setMem_addr(request.getParameter("mem_addr"));
 			member.setMem_body_type( Integer.parseInt(request.getParameter("mem_body_type")));
 			member.setMem_gender(Integer.parseInt(request.getParameter("mem_gender")));
-			
+			member.setMem_addr(modifiedAddr);
+			    
+			    System.out.println("====> " + modifiedAddr);
 			String [] arr_mem_fav = request.getParameterValues("mem_fav_loc");
 			
 			String mem_fav_loc = arr_mem_fav == null ? "" : String.join(",", arr_mem_fav);

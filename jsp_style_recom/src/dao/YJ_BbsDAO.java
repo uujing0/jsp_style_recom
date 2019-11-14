@@ -453,7 +453,6 @@ public ArrayList<Board> myList(String mem_id) {
 			board.setBd_date(rs.getString(5));
 			board.setBd_readcount(rs.getInt(6));
 			board.setCommentCount(rs.getInt(7));
-			board.setStaravg(rs.getString(8));
 
 			list.add(board);
 		}

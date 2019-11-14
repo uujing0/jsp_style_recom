@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
@@ -229,6 +230,10 @@ header a:active{color: black; text-decoration: none;}
 </style>
 
 <header>
+	<%
+	    String delResult = (String)session.getAttribute("delResult");
+	    System.out.println("delResult->"+delResult);
+	%>
 
 <div id="header_root">
 	<div id="header_top">

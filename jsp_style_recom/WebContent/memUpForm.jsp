@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>웹 폼</title>
+<title>회원정보 수정</title>
 <style>
 
     
@@ -28,6 +28,15 @@
 		window.open("confirmId.do?mem_id=" + frm.mem_id.value, "",
 				"width=600 height=300");
 	}
+	function next(){
+		 if(confirm("회원 탈퇴를 하겠습니까?"))
+		 {
+		  location.href="deleteForm.do";
+		 }
+		 else
+		 {
+		 }
+		}
 </script>
 <link rel="stylesheet" type="text/css" href="HJ_style.css">
 
@@ -51,32 +60,56 @@
 	       					</div>
 	       					<div class="info">
 <fieldset >
-<legend><h1>회원 정보 수정</h1></legend>
-
-	
+<legend>회원 정보 수정</legend>
 		<ul>
-		    <li><label><input type="text" class="a" name="mem_id"
-					value="${mem_id}" readonly/></label></li>
+			
+		    <li><p><label>아&nbsp;이&nbsp;디</label><label><input type="text" class="a" name="mem_id"
+					value="${mem_id}" readonly/></p></label></li>
+		
 			<br/>
-			<li><label><input type="password" class="a" name="mem_pw"
-					required="required" placeholder="비밀번호 재설정"></label></li>
+		
+			<li><p><label>비밀번호</label><label><input type="password" class="a" name="mem_pw"
+					required="required" placeholder="비밀번호 재설정"></p></label></li>
+
 			<br/>
-			<li><label><input type="password" class="a" name="mem_pw2"
-					required="required" placeholder="비밀번호 재설정 확인"></label></li>
+			<li><p><label>비밀번호&nbsp;확인</label><label><input type="password" class="a" name="mem_pw2"
+					required="required" placeholder="비밀번호 재설정 확인"></p></label></li>
 			<br/>
-			<li><label><input type="text" class="a" name="mem_name"
-					required="required" placeholder="이름"></label></li>
+			<li><p><label>이&nbsp;&nbsp;&nbsp;&nbsp;름</label><label><input type="text" class="a" name="mem_name"
+					required="required" value="${mem_name}" placeholder="이름"></p></label></li>
 			<br/>
-			<li><label><input type="tel" class="a" name="mem_phone"
-					required="required" placeholder="전화번호(xxx-xxxx-xxxx)"></label></li>
+			<li><p><label>전화번호</label><label><input type="tel" class="a" name="mem_phone"
+					required="required" value="${mem_phone}" placeholder="전화번호(xxx-xxxx-xxxx)"></p></label></li>
 			<br/>
-			<li><label><input type="text" class="a" name="mem_email"
-					required="required" placeholder="이메일"></label></li>
+			<li><p><label>이&nbsp;메&nbsp;일</label><label><input type="text" class="a" name="mem_email"
+					required="required" value="${mem_email}" placeholder="이메일"></p></label></li>
 			<br/>
-			<li><label><input type="text" class="a" name="mem_addr"
-					required="required" placeholder="주소"></label></li>
-			<br/>
-			<li><label class="" >체형</label> <select
+			<li><p><label>주&nbsp;소</label> <select
+				  name="mem_addr" onChange="categoryChange(this)" >
+					<option>사는 곳을 선택해주세요</option>
+					<option value="서울특별시">서울특별시</option>
+					<option value="강원도">강원도</option>
+					<option value="경기북부">경기북부</option>
+					<option value="경기남부">경기남부</option>
+					<option value="경상남도">경상남도</option>
+					<option value="경상북도">경상북도 </option>
+					<option value="광주광역시">광주광역시</option>
+					<option value="대구광역시">대구광역시</option>
+					<option value="대전광역시">대전광역시</option>
+					<option value="부산광역시">부산광역시</option>
+					<option value="세종특별자치시">세종특별자치시</option>
+					<option value="울산광역시">울산광역시</option>
+					<option value="인천광역시">인천광역시</option>
+					<option value="전라남도">전라남도</option>
+					<option value="전라북도">전라북도</option>
+					<option value="제주특별자치도">제주특별자치도</option>
+					<option value="충청남도">충청남도</option>
+					<option value="충청북도">충청북도</option>
+                 	</select>   
+                   <input type="text" name="mem_add_addr" list="mem_addr"
+						  required="required" placeholder="나머지 주소"></p> </li>
+				 <br/>
+			<li><label class="" >체&nbsp;형</label> <select
 				name="mem_body_type">
 					<option value="1">통통</option>
 					<option value="2">슬림</option>
@@ -101,13 +134,15 @@
 			<label><input type="checkbox" name="mem_fav_loc" value="제주도">제주도</label> 
          	 <br/>
           <br/>
+          <label>&nbsp;성&nbsp;별</label>
 			<li><label><input type="radio" name="mem_gender" value="1"
 					required="required">남</label> <label><input type="radio"
 					name="mem_gender" value="2" required="required">여</label></li>
 					
-<br/><br/>
-			<li><input type="submit" value="확인"> <input type="reset"
-				value="취소"></li>
+<br/>
+			<li><button type="submit">수정하기</button></li>
+				<br/><br/>
+			<li>&nbsp;<input type="button" onclick="next()" value="회원탈퇴"></a></li>
 		</ul>
 		</fieldset>
 		</div>

@@ -77,8 +77,8 @@ body {
 		vertical-align: top
 	}
 
-	input, select {
-		vertical-align: auto
+	input,select {
+	vertical-align:auto
 	}
 
 	em, address {

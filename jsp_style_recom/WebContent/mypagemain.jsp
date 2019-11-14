@@ -21,15 +21,11 @@
 			<div id="head">마이페이지</div>
 			<ul id="side_left">
 			<li><a href="calendar.do">달력</a></li>
-			
-<<<<<<< HEAD
-			<div id="page"><a href="memUpForm.do">개인정보수정</a></div>
-=======
-			<li><a href="myInfo.do">개인정보수정</a></li>
->>>>>>> refs/remotes/origin/TH
-			
+			<br>
+			<li><a href="memUpForm.do">개인정보수정</a></li>
+			<br>
 			<li><a href="myboard.do">내가 쓴 게시물</a></li>
-			
+			<br>
 			<li><a href="weather.do?sido=1168066000">일주일 코디추천</a></li>
 			</ul>
 		</div>
