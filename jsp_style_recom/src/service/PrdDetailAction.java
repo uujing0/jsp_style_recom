@@ -42,7 +42,7 @@ public class PrdDetailAction implements CommandProcess{
 			int gender = Integer.parseInt(strGender);
 			System.out.println("gender->" + gender);
 			
-			dp = dpDao.Detail_prd(prd_id);
+			dp = dpDao.Detail_prd(prd_id, gender);
 			
 			
 			System.out.println("dp.size()->" + dp.size());
@@ -53,6 +53,7 @@ public class PrdDetailAction implements CommandProcess{
 				System.out.println("dp2->"+dp2.get(i));
 
 			}
+			
 			
 			
 			request.setAttribute("Product", product);

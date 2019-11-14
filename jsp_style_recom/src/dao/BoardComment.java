@@ -11,9 +11,15 @@ public class BoardComment {
 	private String cm_contents; /* 내용 */
 	private String cm_date; 	
 	private int available;/* 게시날짜 */
-	private String star;
+	private int star;
 	private String count;
 	
+	public int getStar() {
+		return star;
+	}
+	public void setStar(int star) {
+		this.star = star;
+	}
 	public String getCount() {
 		return count;
 	}
@@ -22,12 +28,6 @@ public class BoardComment {
 	}
 	public String getCm_date() {
 		return cm_date;
-	}
-	public String getStar() {
-		return star;
-	}
-	public void setStar(String star) {
-		this.star = star;
 	}
 	public int getAvailable() {
 		return available;

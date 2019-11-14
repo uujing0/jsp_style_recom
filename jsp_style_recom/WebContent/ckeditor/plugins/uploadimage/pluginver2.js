@@ -86,8 +86,8 @@
 
 					// Set width and height to prevent blinking.
 					this.replaceWith( '<img src="' + upload.url + '" ' +
-						'width="' + width + '" ' +
-						'height="' + height + '">' );
+						'width="' + 300 + '" ' +
+						'height="' + 300 + '">' );
 				}
 			} );
 

@@ -36,8 +36,7 @@ public class UJ_TagCategoryDao {
 	}
 	
 	public ArrayList<TagCategory> getCategoryListFromTagType(int tagType) throws SQLException {
-		System.out.println("---------- UJ_TagCategoryDao - getCategoryListFromTagType ----------");
-		
+
 		Connection conn = null;
 		String sql = "SELECT * FROM tag_category WHERE tc_type = ?";
 		PreparedStatement pstmt = null;

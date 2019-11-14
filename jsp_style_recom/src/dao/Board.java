@@ -2,26 +2,53 @@ package dao;
 
 import java.util.Date;
 
-/* 寃뚯떆�뙋 */
+/* 野껊슣�뻻占쎈솇 */
 
 public class Board {
-	private int bd_id; /* 寃뚯떆湲�ID */
-	private String bd_date; /* 寃뚯떆�궇吏� */
-	private String bd_title; /* �젣紐� */
-	private String bd_file_url; /* �뙆�씪二쇱냼 */
-	private String bd_content; /* �궡�슜 */
-	private int bd_readcount; /* 議고쉶�닔 */
-	private String bd_notice; /* 怨듭��뿬遺� */
+	private int bd_id; /* 野껊슣�뻻疫뀐옙ID */
+	private String bd_date; /* 野껊슣�뻻占쎄텊筌욑옙 */
+	private String bd_title; /* 占쎌젫筌륅옙 */ /* 占쎈솁占쎌뵬雅뚯눘�꺖 */
+	private String bd_content;
+	private String bd_file_url;/* 占쎄땀占쎌뒠 */
+	private int bd_readcount; /* 鈺곌퀬�돳占쎈땾 */
+	private String bd_notice; /* �⑤벊占쏙옙肉ч겫占� */
 	private int bbsNO;
 	private String mem_id;
 	private int commentCount;
-	private String staravg;
+	private int staravg;
+	private int star1;
+	private String popup;
 
-	public String getStaravg() {
+
+	public String getPopup() {
+		return popup;
+	}
+
+	public void setPopup(String popup) {
+		this.popup = popup;
+	}
+
+	public String getBd_file_url() {
+		return bd_file_url;
+	}
+
+	public void setBd_file_url(String bd_file_url) {
+		this.bd_file_url = bd_file_url;
+	}
+
+	public int getStar1() {
+		return star1;
+	}
+
+	public void setStar1(int star1) {
+		this.star1 = star1;
+	}
+
+	public int getStaravg() {
 		return staravg;
 	}
 
-	public void setStaravg(String staravg) {
+	public void setStaravg(int staravg) {
 		this.staravg = staravg;
 	}
 
@@ -75,13 +102,6 @@ public class Board {
 		this.bd_title = bd_title;
 	}
 
-	public String getBd_file_url() {
-		return bd_file_url;
-	}
-
-	public void setBd_file_url(String bd_file_url) {
-		this.bd_file_url = bd_file_url;
-	}
 
 	public String getBd_content() {
 		return bd_content;

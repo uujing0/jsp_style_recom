@@ -38,7 +38,7 @@ table.categoryTable th {
 }
 
 .styleTable tr td {
-	padding: 30px 30px 30px 0px;
+	padding: 0px 30px 60px 0px;
 }
 
 .thumb { 
@@ -54,7 +54,6 @@ table.categoryTable th {
 	min-height: 100%; /* Scale up to fill container height */ 
 	-ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */  */
 }
-
 
 </style>
 
@@ -112,24 +111,14 @@ function checkCookie() {
 						지역설정 : 
 						<select class="weatherLocation">
 							<option value="0">선택해주세요</option>
-							<option value="1168066000">서울특별시</option>
-							<option value="4281025000">강원도</option>
-							<option value="4125053500">경기북부</option>
-							<option value="4111759600">경기남부</option>
-							<option value="4817074000">경상남도</option>
-							<option value="4717069000">경상북도</option>
-							<option value="2920054000">광주광역시</option>
-							<option value="2720065000">대구광역시</option>
-							<option value="3023052000">대전광역시</option>
-							<option value="2644058000">부산광역시</option>
-							<option value="3611055000">세종특별자치시</option>
-							<option value="3114056000">울산광역시</option>
-							<option value="2871025000">인천광역시</option>
-							<option value="4681025000">전라남도</option>
-							<option value="4579031000">전라북도</option>
-							<option value="5013025300">제주특별자치도</option>
-							<option value="4480038000">충청남도</option>
-							<option value="4376031000">충청북도</option>
+							<c:forEach var="i" items="${locMap}">
+								<c:if test="${lc == i.value }">
+									<option value="${i.value}" selected="selected">${i.key}</option>
+								</c:if>
+								<c:if test="${lc != i.value }">
+									<option value="${i.value}">${i.key}</option>
+								</c:if>
+							</c:forEach>
 						</select>
 					</form>
 				</td>
@@ -147,7 +136,7 @@ function checkCookie() {
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}'">${tag.tc_name}</button>
+						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=1'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
@@ -164,7 +153,7 @@ function checkCookie() {
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}'">${tag.tc_name}</button>
+						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=2'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
@@ -181,35 +170,43 @@ function checkCookie() {
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}'">${tag.tc_name}</button>
+						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=3'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
 		</table>
 
-		<c:if test="${totCnt > 0 }">
-			<p>${totCnt}개의 결과</p>
-			<table class="styleTable">
-				<c:forEach var="r" begin="0" end="${rowSize-1}">
-					<tr>
-						<c:forEach var="c" begin="0" end="${columnSize-1}">
-							<c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
-							<c:if test="${eIndex < list.size()}">
-								<td onclick="setCookie(${list[eIndex].stl_id},'${list[eIndex].stl_pic_url}')">
-									<div class="thumb">
-										<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
-											<img src="./images/category_images/${list[eIndex].stl_pic_url}">
-										</a>
-									</div>
-								</td>
-							</c:if>
-						</c:forEach>
-					</tr>
-				</c:forEach>
-			</table>	
+		<c:if test="${tagType != 4 }">
+	        <c:if test="${totCnt > 0 }">
+	            <p>${totCnt}개의 결과</p>
+	            <table class="styleTable">
+	                <c:forEach var="r" begin="0" end="${rowSize-1}">
+	                    <tr>
+	                        <c:forEach var="c" begin="0" end="${columnSize-1}">
+	                            <c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
+	                            <c:if test="${eIndex < list.size()}">
+	                                <td>
+	                                    <div class="thumb">
+	                                        <a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
+	                                            <img src="./images/category_images/${list[eIndex].stl_pic_url}" width="400px" height="500px">
+	                                        </a>
+	                                    </div>
+	                                </td>
+	                            </c:if>
+	                        </c:forEach>
+	                    </tr>
+	                </c:forEach>
+	            </table>    
+	        </c:if>
 		</c:if>
 	</div>
 
+	<c:if test="${tagType == 4 }">
+		<div class="test1">
+			<%@ include file="styleDetailContent.jsp" %>
+		</div>
+	</c:if>
+	
 <script type="text/javascript">
 
 // 문서 시작시 적용
@@ -220,6 +217,9 @@ $(function() {
 		if (locCode == 0) {
 			return false
 		}
+		
+		location.href='styleList.do?tagType=4&locCode='+locCode;
+		
 	})
 	
 	//createTag()
@@ -227,7 +227,6 @@ $(function() {
 })
 
 </script>
-<%@include file="recentStyle.jsp" %>
 
 
 </body>

@@ -26,7 +26,7 @@
 
 <div id="center">	
 
-<%@include file="calendarForm.jsp"%>
+<%@include file="calendarForm.jsp"%> 
 </div>
 <%@include file="recentStyle.jsp" %>
 		<div id="bookmark"><p style="font-weight:bold;font-size:21px;">즐겨찾기</p>

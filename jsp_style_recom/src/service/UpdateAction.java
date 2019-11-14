@@ -38,9 +38,7 @@ public class UpdateAction implements CommandProcess{
 		YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
 		
 		Board board = bbsDAO.getBbs(bd_id);
-		System.out.println("bd_id->"+bd_id);
 		request.setAttribute("board", board);
-		System.out.println("board - > "+ board.getBd_notice());
 		return "update.jsp";
 	}
 

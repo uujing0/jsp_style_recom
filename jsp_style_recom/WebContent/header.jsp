@@ -1,69 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">	
+<script src="./js/jquery.js"></script>
+
+<!-- session이 없으면(비로그인시) 디폴트 값을 넣어준다. -->
+<c:if test="${sessionScope.loc == null}">
+	<c:set var="loc" value="서울특별시" scope="session"></c:set>
+</c:if>
+<!-- gender 1:남자, 2:여자 -->
+<c:if test="${sessionScope.gender == null }">
+	<c:set var="gender" value="2" scope="session"></c:set>
+</c:if>
+
+<c:catch var="exception">
+	<!-- 세션에 따라 다른 locCode로 다른 지역의 날씨 정보를 로드한다. -->
+	<c:choose>
+		<c:when test="${sessionScope.loc }=='서울특별시'"><c:set var="locCode" value="1168066000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='강원도'"><c:set var="locCode" value="4281025000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='경기북부'"><c:set var="locCode" value="4125053500"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='경기남부'"><c:set var="locCode" value="4111759600"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='경상남도'"><c:set var="locCode" value="4817074000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='경상북도'"><c:set var="locCode" value="4717069000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='광주광역시'"><c:set var="locCode" value="2920054000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='대구광역시'"><c:set var="locCode" value="2720065000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='대전광역시'"><c:set var="locCode" value="3023052000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='부산광역시'"><c:set var="locCode" value="2644058000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='세종특별자치시'"><c:set var="locCode" value="3611055000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='울산광역시'"><c:set var="locCode" value="3114056000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='인천광역시'"><c:set var="locCode" value="2871025000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='전라남도'"><c:set var="locCode" value="4681025000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='전라북도'"><c:set var="locCode" value="4579031000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='제주특별자치도'"><c:set var="locCode" value="5013025300"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='충청남도'"><c:set var="locCode" value="4480038000"></c:set></c:when>
+		<c:when test="${sessionScope.loc }=='충청북도'"><c:set var="locCode" value="4376031000"></c:set></c:when>
+		<c:otherwise><c:set var="locCode" value="1168066000"></c:set></c:otherwise>
+	</c:choose>
+	<!-- 받은 지역코드에 맞는 날씨 데이터를 기상청에서 가져온다. -->
+	<c:import var="xmldata" url="http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=${locCode }" charEncoding="utf-8"></c:import>
+	<x:parse var="doc" xml="${xmldata }"></x:parse>
+	<x:set var="wf" select="$doc//*/data/wfKor"/>
+	<x:set var="temp" select="$doc//*/data/temp"/>
+	<x:set var="rp" select="$doc//*/data/pop"/>
+</c:catch>
+
+<%-- <c:out value="${sessionScope.loc }"></c:out>
+<c:out value="${sessionScope.gender }"></c:out>
+<x:out select="$wf"></x:out>
+<x:out select="$temp"></x:out>
+<x:out select="$rp"></x:out> --%>
+
+<script type="text/javascript">
 	//문서 시작시 적용
-	$(function(){
-		
-		$("#top_login_button").click(function(){
-			location.href = "loginForm.do";
-		});
-		
-		$("#bottom_login_button").click(function(){
-			location.href = "loginForm.do";
-		});
-		
-		$("#top_signup_button").click(function(){
-			location.href = "joinForm.do";
-		});
-		
-		$("#bottom_signup_button").click(function(){
-			location.href = "joinForm.do";
-		});
-		
-		$("#top_my_page_button").click(function(){
-			location.href = "weather.do?sido=1168066000";
-		});
-		
-		$("#bottom_my_page_button").click(function(){
-			location.href = "weather.do?sido=1168066000";
-		});
-		
-		$("#top_logout_button").click(function(){
-			sessionStorage.removeItem('mem_id');
-			location.href = "main.do";
-		})
-		
-		$("#bottom_logout_button").click(function(){
-			sessionStorage.removeItem('mem_id');
-			location.href = "main.do";
-		})
-		
-		//sessionStorage.setItem('id',"asd");
-		
-		//로그인 상태에 따라 표기되는 버튼을 관리
-		if(!sessionStorage.getItem('mem_id')){
-			//로그아웃 상태일시 가리는 버튼
-			$("#top_logout_button").hide();
-			$("#top_my_page_button").hide();
-			$("#bottom_logout_button").hide();
-			$("#bottom_my_page_button").hide();
-		}else{
-			//로그인 상태일시 가리는 버튼
-			$("#top_login_button").hide();
-			$("#top_signup_button").hide();
-			$("#bottom_login_button").hide();
-			$("#bottom_signup_button").hide();
-		}
-		
-	})
+	//$(function(){
+		//var thisPage = window.location.href.split('jsp_style_recom/')[1]
+	//})
+	
+	function logoutConfirm(){
+		if(confirm("정말 로그아웃 하시겠습니까?") == true){
+	        location.href='logout.do'
+	    }
+	    else{
+	        return ;
+	    }
+	}
+	
+	function login() {
+        window.open('loginForm.jsp','로그인','width=500,height=400,left=700,top=200,status=no,scrollbars=no')
+	}
+
 </script>
 
 <style type="text/css">
-/* theme color 
+/* theme color list
 	#FFEEE4
 	#F17F42
 	#CE6D39
@@ -133,8 +144,9 @@ header a:active{color: black; text-decoration: none;}
 
 /* weather_today */
 #weather_today{
-	padding-top: 8px;
+	padding-top: 5px;
 	float:right;
+	color: white
 }
 
 /* member_space */
@@ -143,31 +155,22 @@ header a:active{color: black; text-decoration: none;}
 	float:right;
 }
 
-#member_space button{
-	background-color: white;
+.top_left_button{
+	background-color: #F17F42;
 	color: black;
-	border: none;
+	border : none;
+	font-size: 15px;
+	border-bottom: solid 2px black;
+	cursor: pointer;
 }
-
-.left_button{
-	margin-right: -3px;
-	border-bottom-left-radius: 5px;
-	border-top-left-radius: 5px;
-}
-
-.right_button{
-	margin-left: -3px;
-	border-bottom-right-radius: 5px;
-	border-top-right-radius: 5px;
-}
-
-#top_login_button{
-	background-color: white;
-	border: none;
-}
-
-.top_label{
-	color: white; 
+ 
+.top_right_button{
+	background-color: #F17F42;
+	color: black;
+	border : none;
+	font-size: 15px;
+	border-bottom: solid 2px black;
+	cursor: pointer;
 }
 
 /* menu_bar */
@@ -175,17 +178,17 @@ header a:active{color: black; text-decoration: none;}
 	padding-top : 18px; 
 	padding-right : 10px;
 	display: inline-block;
+	cursor: pointer;
+	color: white;
 }
 .menu_bar_table{
-	/* margin: auto; */
 	text-align: center;
 }
 .menu_bar_table td{
 	padding: 5px 25px 5px 25px;
 	font-size: 20px;
 	background-color: #F17F42;
-	box-shadow: 2px 3px #5d5d5d;
-	
+	box-shadow: 2px 3px #5d5d5d;	
 }
 
 /* search_bar */
@@ -198,6 +201,8 @@ header a:active{color: black; text-decoration: none;}
 #search_target{
 	margin-right: -4px;
 	border: none;
+	background-color: #F17F42;
+	font-size: 15px;
 }
 
 #search_word{
@@ -205,11 +210,12 @@ header a:active{color: black; text-decoration: none;}
 	border: none;
 	border-bottom: 5px solid black;
 	background-color: #CE6D39;
+	font-size: 15px;
 }
 
 #search_button{
 	height: 30px;
-	widows: 30px;
+	width: 40px;
 }
 
 #search_button:hover{
@@ -223,6 +229,8 @@ header a:active{color: black; text-decoration: none;}
 	padding-top: 3px;
 	margin-top: 2px;
 	display: inline-block;
+	color: white;
+	cursor: pointer;
 }
 
 /* header style end */
@@ -233,10 +241,14 @@ header a:active{color: black; text-decoration: none;}
 <div id="header_root">
 	<div id="header_top">
 		<div id="member_space">
-			<button id="top_login_button" class="left_button">로그인</button>
-			<button id="top_signup_button" class="right_button">회원가입</button>
-			<button id="top_logout_button" class="left_button">로그아웃</button>
-			<button id="top_my_page_button" class="right_button">마이코기</button>
+			<c:if test="${empty sessionScope.mem_id }">
+				<button id="top_login_button" class="top_left_button" onclick="login()">Login</button>
+				<button id="top_signup_button" class="top_right_button" onclick="location.href='joinForm.do'">Sign_up</button>
+			</c:if>
+			<c:if test="${not empty sessionScope.mem_id }">
+				<button id="top_logout_button" class="top_left_button" onclick="logoutConfirm()">Logout</button>
+				<button id="top_my_page_button" class="top_right_button" onclick="location.href='weather.do?sido=${locCode }'" >MY Corgi</button>
+			</c:if>
 		</div>
 	</div>
 	<div id="header_left">
@@ -252,13 +264,17 @@ header a:active{color: black; text-decoration: none;}
 		<div id="gender_selector">
 			<table class="menu_bar_table">
 				<tr>
-					<td><a href="">남</a></td>
-					<td><a href="">여</a></td>
+					<td id="male_selector" onclick="location.href='genderSelector.do?select=1'">남</td>
+					<td id="female_selector" onclick="location.href='genderSelector.do?select=2'">여</td>
 				</tr>
 			</table>
 		</div>
 		<div id="weather_today">
-			<img alt="sun_icon" src="images/sun_icon.png" id="sun_icon" height="50px" width="50px"> 
+			<span id="weather_loc"><c:out value="${sessionScope.loc }"></c:out> </span>
+			<span id="weather_cloud"><x:out select="$wf"/></span><br>
+			<span id="weather_tem">온도:<x:out select="$temp"/></span>
+			<span id="weather_rain">강수확률:<x:out select="$rp"/>%</span>
+			<!-- <img alt="sun_icon" src="images/sun_icon.png" id="sun_icon" height="50px" width="50px"> --> 
 		</div>
 		<br>
 	</div>
@@ -267,9 +283,9 @@ header a:active{color: black; text-decoration: none;}
 		<div id="menu_bar">
 			<table class="menu_bar_table">
 				<tr>
-					<td><a href="styleList.do">스타일 추천</a></td>
-					<td><a href="bbs.do">게시판</a></td>
-					<td><a href="weather.do?sido=1168066000">마이코기</a></td>
+					<td onclick="location.href='styleList.do?tagId=1&tagType=1'">스타일 추천</td>
+					<td onclick="location.href='bbs.do'">게시판</td>
+					<td onclick="location.href='weather.do?sido=${locCode }'">마이코기</td>
 				</tr>
 			</table>
 		</div>
@@ -279,7 +295,7 @@ header a:active{color: black; text-decoration: none;}
 					<option value="0" selected="selected">스타일</option>
 					<option value="1">게시판</option>
 				</select>
-				<input type="text" id="search_word" name="search_word" class= "search_word" value="" autocomplete="off">
+				<input type="text" id="search_word" name="search_word" class= "search_word" value='' autocomplete="off">
 				<input type="image" alt="검색" id="search_button" src="images/search_button.png">
 			</form>
 		</div>

@@ -21,61 +21,6 @@ public class WriteAction implements CommandProcess{
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		String fileName = "";
-//		File file = null;
-//
-//		//���� ������ ���
-//		String realPath = "C:\\jsp\\borad\\WebContent\\upload";
-//		
-//		System.out.println(realPath);
-//		MultipartRequest multi = new MultipartRequest(request, realPath,
-//			1024 * 1024 * 5, "utf-8", new DefaultFileRenamePolicy());
-//		Enumeration efiles = multi.getFileNames();
-//		
-//		while(efiles.hasMoreElements()){
-//			String name = (String)efiles.nextElement();                 
-//			file = multi.getFile(name);
-//			
-//			//÷������ ���� ���� Ȯ��
-//			if(file != null) {
-//				String imgName = file.getName();
-//				fileName +=imgName;
-//			}
-//		}
-//		
-//		String fullpath = fileName;
-//		String mem_id = null;
-//		System.out.println("fullpath"+fullpath);
-//		if(multi.getParameter("mem_id") != null) //������ �����ϴ� ȸ��
-//		{
-//			System.out.println("mem_id: "+ mem_id);
-//			mem_id = (String) multi.getParameter("mem_id"); //�ش� ������ ���� �ִ´�.
-//		}
-//
-//		if(mem_id == null) //�α����� �Ǿ����� �������(�۾��Ⱑ �ȵǾ���)
-//		{
-//			System.out.println("mem_id: "+ mem_id);
-//			return "main.jsp";
-//		}
-//		else
-//		{
-//			if(multi.getParameter("bbsTitle") == null ||
-//				multi.getParameter("bbsContent") == null )
-//			//�����̳� ������ �Է����� �������� �����߻�
-//			{
-//				return "main.jsp";
-//			}
-//			else
-//			{
-//				System.out.println(4);
-//				BbsDAO bbsDAO = new BbsDAO();
-//				int Views= 0;
-//				int result = bbsDAO.write(multi.getParameter("bbsTitle"), mem_id, multi.getParameter("bbsContent"),fullpath, Views); 
-//				
-//				System.out.println("result: " + result);
-//			}
-//		}
-//		return "/borad/bbs.do";
 		request.setCharacterEncoding("UTF-8");
 		String mem_id = request.getParameter("mem_id");
 	
@@ -85,7 +30,9 @@ public class WriteAction implements CommandProcess{
 			return "main.jsp";
 		}
 		YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
-		int result = bbsDAO.write(request.getParameter("bd_title"), mem_id, request.getParameter("bd_content"), "", 0, request.getParameter("bd_notice"));
+		int result = bbsDAO.write(request.getParameter("bd_title"), mem_id, 
+				                  request.getParameter("bd_content"),request.getParameter("bd_file_url"), 0,
+				                  request.getParameter("bd_notice"));
 		
 		return "bbs.do";
 	}

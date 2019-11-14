@@ -97,4 +97,40 @@ public class HJ_MemberDao {
 		}
 		return mem_pw ;
 	}
+	public String Update(String mem_id, String mem_name, String mem_email) throws SQLException {				
+		Connection conn = null;			
+		String mem_pw = null;
+		String sql  = "update mem_pw from member where mem_id=? and mem_name=? and mem_email=?"; 
+		PreparedStatement pstmt = null; 	
+		ResultSet rs = null;
+		
+		try { 
+			conn  = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mem_id);
+			pstmt.setString(2, mem_name);
+			pstmt.setString(3, mem_email);
+			
+			rs = pstmt.executeQuery();
+			System.out.println("=====>");
+			System.out.println("SrhPw mem_id=====>"+mem_id);
+			System.out.println("SrhPw mem_name=====>"+mem_name);
+			System.out.println("SrhPw mem_email=====>"+mem_email);
+			if(rs.next()) {
+				System.out.println("SrhId end...");
+				//mem_id=rs.getString(mem_id);
+				mem_pw=rs.getString(1);
+			}
+			
+			System.out.println("=====2>" + mem_pw );
+			System.out.println("=====2>" + rs );
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			if (rs != null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		return mem_pw ;
+	}
 }

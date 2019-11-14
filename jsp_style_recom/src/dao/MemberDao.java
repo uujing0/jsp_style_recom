@@ -35,7 +35,7 @@ public class MemberDao {
 	
 	public int confirm(String mem_id) throws SQLException {
 		int result  = 0;  				Connection conn = null;
-		String sql  = "select mem_id from member where mem_id=?"; 
+		String sql  = "select mem_id from member where  mem_id=? "; 
 		PreparedStatement pstmt = null; ResultSet rs = null;
 		try { 
 			conn  = getConnection();

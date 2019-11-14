@@ -13,7 +13,6 @@
     margin-left: 100px;
     margin-top: 550px;
     }
-
     h2{
     text-align: left;
     }
@@ -68,7 +67,7 @@
 <c:if test="${dp[i] != Product.prd_id }">
 
 <a href="prddetail.do?prd_id=${dp[i] }">
-<img src="./images/product_images/${dp2[i] }" width="350px" height="350px"></a>
+<img src="./images/product_images/${dp2[i] }" width="250px" height="250px"></a>
 </c:if>
 </span>
 </c:forEach>

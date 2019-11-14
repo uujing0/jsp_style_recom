@@ -6,8 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
+import dao.IK_MemberDao;
 import dao.Member;
 import dao.MemberDao;
 
@@ -33,11 +32,11 @@ public class JoinProAction implements CommandProcess {
 			// 예) 전라북도,경상남도,경상북도
 			String mem_fav_loc = arr_mem_fav == null ? "" : String.join(",", arr_mem_fav);
 			
-			MemberDao md = MemberDao.getInstance();
+			IK_MemberDao md = IK_MemberDao.getInstance();
 			member.setMem_fav_loc(mem_fav_loc);
 
 			int result = md.insert(member);
-		
+		   System.out.println("result---->"+result);
 			request.setAttribute("mem_id", member.getMem_id());
        		request.setAttribute("result", result);
 			
