@@ -3,11 +3,18 @@ package service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
+import dao.BookMark;
+import dao.JW_BookMarkDao;
+import dao.JW_StyleInfoDao;
 import dao.TH_CalendarDao;
 
 public class CalendarAction implements CommandProcess {
@@ -17,7 +24,11 @@ public class CalendarAction implements CommandProcess {
 			throws ServletException, IOException {
 		Calendar cal = Calendar.getInstance();
 		try {
-
+			HttpSession session = request.getSession();
+			Map<String, String> Cmap = new HashMap<String, String>();
+			Map<String, String> Bmap = new HashMap<String, String>();
+			String mem_id = (String)session.getAttribute("mem_id");
+			System.out.println("mem_id->"+mem_id);
 			if (request.getParameter("yy") == null) {
 
 				int yy = cal.get(Calendar.YEAR);
@@ -49,21 +60,20 @@ public class CalendarAction implements CommandProcess {
 				int w = cal.get(Calendar.DAY_OF_WEEK);// 요일을 1~7로 설정 1:일요일 7:토요일
 				int lastday = cal.getActualMaximum(Calendar.DATE);// 그달의 마지막날 알아내기
 				//String mem_id = request.getParameter("mem_id");
-				String mem_id = "aaa";
-				System.out.println("mem_id->"+mem_id);
+				
 				System.out.println("lastday->" + lastday);
-				int cal_id = 0;
+				String cal_id = "";
 				for (int i = 1; i <= lastday; i++) {
 					if (i < 10) {
-						cal_id = Integer.parseInt("" + yy + "" + mm + "0" + i);
+						cal_id = "" + yy + "" + mm + "0" + i+mem_id;
 					} else {
-						cal_id = Integer.parseInt("" + yy + "" + mm + i);
+						cal_id ="" + yy + "" + mm + i+mem_id;
 					}
-					System.out.println("cal_id---->" + cal_id);
+					
 					TH_CalendarDao cd = TH_CalendarDao.getInstance();
 					dao.Calendar cal1 = cd.select(mem_id, cal_id);
-					request.setAttribute("cal_title" + i, cal1.getCal_title());
-					System.out.println("제목인데->"+cal1.getCal_title());
+					Cmap.put(""+i, cal1.getCal_title());
+				//	System.out.println("제목인데->"+cal1.getCal_title());
 				}
 				request.setAttribute("yy", yy);
 				request.setAttribute("mm", mm);
@@ -90,21 +100,18 @@ public class CalendarAction implements CommandProcess {
 				int w = cal.get(Calendar.DAY_OF_WEEK);// 요일을 1~7로 설정 1:일요일 7:토요일
 				int lastday = cal.getActualMaximum(Calendar.DATE);// 그달의 마지막날 알아내기
 				
-				String mem_id = "aaa";
-				System.out.println("mem_id->"+mem_id);
 				System.out.println("lastday->" + lastday);
-				int cal_id = 0;
+				String cal_id = "";
 				for (int i = 1; i <= lastday; i++) {
 					if (i < 10) {
-						cal_id = Integer.parseInt("" + yy + "" + mm + "0" + i);
+						cal_id = "" + yy + "" + mm + "0" + i+mem_id;
 					} else {
-						cal_id = Integer.parseInt("" + yy + "" + mm + i);
+						cal_id ="" + yy + "" + mm + i+mem_id;
 					}
-					System.out.println("cal_id---->" + cal_id);
+					
 					TH_CalendarDao cd = TH_CalendarDao.getInstance();
 					dao.Calendar cal1 = cd.select(mem_id, cal_id);
-					request.setAttribute("cal_title" + i, cal1.getCal_title());
-					System.out.println("제목인데->"+cal1.getCal_title());
+					Cmap.put(""+i, cal1.getCal_title());
 				}
 				
 				request.setAttribute("w", w);
@@ -112,7 +119,16 @@ public class CalendarAction implements CommandProcess {
 				request.setAttribute("mm", mm);
 				request.setAttribute("lastday", lastday);
 			}
-
+			JW_BookMarkDao bd = JW_BookMarkDao.getInstance();
+			ArrayList<Integer> stl_id=bd.select(mem_id);
+			request.setAttribute("mem_id", mem_id);
+			JW_StyleInfoDao sl = JW_StyleInfoDao.getInstance();
+			request.setAttribute("CalMap", Cmap);
+			request.setAttribute("BookMap", Bmap);
+			for(int a : stl_id) {
+				String stl_pic_url=sl.pic_url(a);
+				Bmap.put(""+a, stl_pic_url);
+			}
 		} catch (Exception e) {
 			System.out.println("err->" + e.getMessage());
 		}

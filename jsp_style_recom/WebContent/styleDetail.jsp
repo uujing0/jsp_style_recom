@@ -6,6 +6,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="./js/jquery.js">
+
+</script>
+
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>추천 스타일 상세</title>
@@ -151,10 +156,45 @@ function bookmark_func(){
 
 <table>
 <tr><th>스타일 코디 아이템</th></tr>
-<tr><td>겉옷          </td><td><img src="./images/clothes_category_icon/${al[1] }" id="${al[1] }" height="150px" width="150px"></td></tr>
-<tr><td>상의          </td><td><img src="./images/clothes_category_icon/${al[2] }" id="${al[2] }" height="150px" width="150px"></td></tr>
-<tr><td>하의          </td><td><img src="./images/clothes_category_icon/${al[3] }" id="${al[3] }" height="150px" width="150px"></td></tr>
-<tr><td>오늘의 "IT"템          </td><td><img src="./images/clothes_category_icon/${al[4] }" id="${al[4] }" height="150px" width="150px"></td></tr>
+<tr>
+	<td>겉옷          </td>
+	<c:if test="${al[1]!=null }">
+	<td><img src="./images/clothes_category_icon/${al[1] }" id="${al[1] }" height="150px" width="150px"></td>
+	</c:if>
+	<c:if test="${al[1]==null }">
+	<td><img alt="no_data" src="./images/null_cc_id.png" height="150px" width="150px"></td>
+	</c:if>
+</tr>
+<tr>
+	<td>상의          </td>
+	<c:if test="${al[2]!=null }">
+	<td><img src="./images/clothes_category_icon/${al[2] }" id="${al[2] }" height="150px" width="150px"></td>
+	</c:if>
+	<c:if test="${al[2]==null }">
+	<td><img alt="no_data" src="./images/null_cc_id.png" height="150px" width="150px"></td>
+	</c:if>
+</tr>
+
+<tr>
+	<td>하의          </td>
+	<c:if test="${al[3]!=null }">
+	<td><img src="./images/clothes_category_icon/${al[3] }" id="${al[3] }" height="150px" width="150px"></td>
+	</c:if>
+	<c:if test="${al[3]==null }">
+	<td><img alt="no_data" src="./images/null_cc_id.png" height="150px" width="150px"></td>
+	</c:if>
+</tr>
+
+<tr>
+	<td>오늘의 "IT"템          </td>
+	<c:if test="${al[4]!=null }">
+	<td><img src="./images/clothes_category_icon/${al[4] }" id="${al[4] }" height="150px" width="150px"></td>
+	</c:if>
+	<c:if test="${al[4]==null }">
+	<td><img alt="no_data" src="./images/null_cc_id.png" height="150px" width="150px"></td>
+	</c:if>
+</tr>
+
 </table>
 </div>
 
@@ -164,7 +204,7 @@ function bookmark_func(){
 <h3>관련 상품</h3>
 
 <p>겉옷</p>
-<c:forEach var="i" begin="0" end="${fn:length(p_cc1)}" >
+<c:forEach var="i" begin="0" end="${fn:length(p_cc1)-1}" >
 <span class="item1">
 <c:if test="${p_cc1[i] ==null }">
 </c:if>
@@ -177,7 +217,7 @@ function bookmark_func(){
 
 
 <p>상의</p>
-<c:forEach var="i" begin="0" end="${fn:length(p_cc2)}" >
+<c:forEach var="i" begin="0" end="${fn:length(p_cc2)-1}" >
 <span class="item2">
 <c:if test="${p_cc2[i] ==null }">
 </c:if>
@@ -190,7 +230,7 @@ function bookmark_func(){
 
  
 <p>하의</p>
-<c:forEach var="i" begin="0" end="${fn:length(p_cc3)}" >
+<c:forEach var="i" begin="0" end="${fn:length(p_cc3)-1}" >
 <span class="item3">
 <c:if test="${p_cc3[i] ==null }">
 </c:if>
@@ -200,7 +240,7 @@ function bookmark_func(){
 </a></c:if>	
 </span>
 </c:forEach> 
-
+<%@include file="recentStyle.jsp" %>
 </body>
 <%@ include file="footer.jsp" %>
 

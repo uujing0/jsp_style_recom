@@ -431,4 +431,45 @@ public class YJ_BbsDAO {
 		}
 		return tot;
 	}
+
+public ArrayList<Board> myList(String mem_id) {
+	String SQL = "SELECT ROWNUM AS bbsNO"
+			   + "     , b.bd_id"
+			   + "     , b.bd_Title"
+			   + "     , b.mem_id"
+			   + "     , to_char(b.bd_date,'yyyy-mm-dd') as bd_date "
+			   + "     , b.bd_readcount"
+			   + "     , (select count(*) from board_comment bc where b.bd_id = bc.bd_id) as commentCount"
+			   + "     ,(select round(avg(star),0) as staravg from board_comment bc where b.bd_id = bc.bd_id) as staravg"
+			   + "     from board b"
+			   + "     where b.BD_NOTICE = 0 and b.mem_id=?"
+			   + "     ORDER BY bd_id DESC";
+	ArrayList<Board> list = new ArrayList<Board>();
+	try {
+		PreparedStatement pstmt = conn.prepareStatement(SQL);
+		pstmt.setString(1, mem_id);
+		rs = pstmt.executeQuery();
+		Board board;
+		
+		while (rs.next()) {
+			board = new Board();
+			board.setBbsNO(rs.getInt(1));
+			board.setBd_id(rs.getInt(2));
+			board.setBd_title(rs.getString(3));
+			board.setMem_id(rs.getString(4));
+			board.setBd_date(rs.getString(5));
+			board.setBd_readcount(rs.getInt(6));
+			board.setCommentCount(rs.getInt(7));
+			board.setStaravg(rs.getString(8));
+
+			list.add(board);
+		}
+		rs.close();
+		pstmt.close();
+		conn.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	return list;
+}
 }

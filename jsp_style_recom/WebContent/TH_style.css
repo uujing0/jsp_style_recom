@@ -2,26 +2,7 @@
 <<<<<<< HEAD
 @font-face { font-family: 'NanumGothic'; src: url(fonts/NanumGothic.ttf) format('truetype'); }
 
-=======
-.cal_top{
-    text-align: center;
-    font-size: 30px;
-}
-.cal{
-    text-align: center; 
-}
-table.calendar{
-    border: 1px solid black;
-    display: inline-table;
-    text-align: left;
-}
-table.calendar td{
-    vertical-align: top;
-    border: 1px solid skyblue;
-    width: 100px;
-}
-/* 달력스타일 */
->>>>>>> refs/remotes/origin/HJ
+
 div {
 	font-family: NanumGothic;
 }
@@ -37,27 +18,51 @@ a:active{
 	text-decoration:none;
 	color:black;
 }
-a:hover{
-	text-decoration:none;
-	color:black;
-}
+
 div#side_left {
+
 	font-weight:bold;
-	border-radius:10px;
 	width: 12%;
 	font-size:20px;
-	background-color: #F17F42;
 	text-align: center;
-	float: left;
-	margin-left: 1%;
 	margin-top: 1%;
 	margin-bottom: 5%;
 	height: 80%;
 	float: left;
-	border: solid;
-	border-color: #d5d5d5;
+	background-color: white;
 }
+#side_left ul{
+	background-color:white;
+	width: 100%;
+	text-decoration: none;
+	display: block;
 
+	height: 150px;
+	margin:0;
+	padding:0;
+}
+#side_left ul li{
+	height: 150px;
+	text-align: center;
+	text-decoration: none;
+	list-style: none;
+	line-height:150px;
+	display: block;
+	padding:0;
+	margin: 0;
+}
+#side_left ul li:hover{
+	background-color: #ccc;
+}
+#side_left ul li a:hover,#side_left ul li a:focus{
+background-color: #ccc;
+}
+#side_left ul li a{
+	display: block;
+	background-color:white;
+	height: 150px;
+	
+}
 #today {
 	font-weight:bold;
 	font-size:20.5px;
@@ -76,14 +81,12 @@ div#side_left {
 }
 
 #recent_style {
-	border-radius:10px;
-	border : solid;
+
 	float: right;
-	width: 10%;
-	
+	width: 10%;	
 	margin-top: 1%;
 	margin-bottom: 2%;
-	border-color: #d5d5d5;
+
 }
 
 #day {
@@ -126,7 +129,17 @@ div#side_left {
 	float: left;
 	height: 50%;
 }
-img{
+#today img{
+	width: 103.922px;
+	height: 104.656px;
+	align:left;
+}
+#day_top img{
+	width: 103.922px;
+	height: 104.656px;
+	align:left;
+}
+#day_bottom img{
 	width: 103.922px;
 	height: 104.656px;
 	align:left;
@@ -138,13 +151,16 @@ img{
 	width: 70%;
 	float: left;
 	background-color: #FFA7A7;
-	margin-left:1%;
+	margin-left:15%;
 	margin-bottom: 2%;
+	margin-top:4%;
+	text-align: center; 
 }
 #head{
 	font-size:25px;
-	background-color: #86E57F;
+	background-color: #CCFFFF;
 	text-align:center;
+	font-weight:bold;
 }
 #page{
 	text-align:center;
@@ -154,10 +170,14 @@ img{
 }
 #style{
 	text-align:center;
+	
 }
 #center{
 	float:left;
 	width: 75%;
-	margin-top: 1%;
+	margin-top: 0;
+	margin-left:1%;
+}
+#recent ul li{
 	
 }

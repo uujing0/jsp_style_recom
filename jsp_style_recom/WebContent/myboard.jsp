@@ -15,12 +15,12 @@
 <%@include file="header.jsp"%>
 
 <body>
-<%@include file="weatherForm.jsp"%><pre style="font-size:18px;font-weight:bold;">                      ${city }날씨</pre>	
-	<div id="content">
+
+<div id="content">
 		<div id="side_left">
 			<div id="head">마이페이지</div>
-			<ul id="side_left">
-			<li><a href="calendar.do">달력</a></li>
+			<ul>
+			<li><a href="calendar.do?">달력</a></li>
 			
 			<li><a href="myInfo.do">개인정보수정</a></li>
 			
@@ -30,21 +30,18 @@
 			</ul>
 		</div>
 
-	<div id="center">	
-	<%@include file="weather.jsp"%>
-	</div>
-	<%@include file="recentStyle.jsp" %>
-		<div id="bookmark">
-			<div style="float:left;margin-top:10px;margin-bottom:10px;margin-left:3%;width:100%;">
-			<span style="font-weight:bold;font-size:21px;">즐겨찾기</span>
-			</div>
-		<%@include file="bookmarkForm.jsp" %>
+<div id="center">	
+
+<%@include file="myboardForm.jsp"%>
+</div>
+<%@include file="recentStyle.jsp" %>
+	<div id="bookmark"><p style="font-weight:bold;font-size:21px;">즐겨찾기</p>
+			<%@include file="bookmarkForm.jsp" %>
 		</div>
-	</div>
-	
+</div>
+
 </body>
 
 <%@include file="footer.jsp"%>
 
 </html>
-

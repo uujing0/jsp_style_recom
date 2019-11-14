@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -108,4 +109,28 @@ public class JW_BookMarkDao {
 		}
 		return status;
 	}
+
+	public ArrayList<Integer> select(String mem_id) throws SQLException {
+		Connection conn = null;
+		String sql = "select * from bookmark where mem_id = ?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Integer> al = new ArrayList<Integer>();		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,  mem_id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				al.add(rs.getInt("stl_id"));
+							
+			}
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}		
+		return al;
+}
 }
