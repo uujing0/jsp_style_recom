@@ -182,11 +182,11 @@ public class WeatherAction implements CommandProcess {
 				else if (tmpWfKor.equals("눈"))
 					tmpImgWfKor = "images/ico07.png";
 
-				String rsWfRS = pub.get("r12");
+				String pop = pub.get("pop");
 				// System.out.println("rsWfRS->" + rsWfRS);
-				if (rsWfRS == null)
+				if (pop == null)
 					break;
-				Double Rs = Double.parseDouble(rsWfRS);// 받아온 강수량
+				Double Rs = Double.parseDouble(pop);// 받아온 강수량
 
 				String tmpWfTemp = pub.get("temp");
 				tmpWfTemp = tmpWfTemp.replace('"', ' ');
