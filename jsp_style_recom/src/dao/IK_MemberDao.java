@@ -33,17 +33,23 @@ public class IK_MemberDao {
 		return conn;
 	}
 	
-	public int confirm(String mem_id) throws SQLException {
-		int result  = 0;  				Connection conn = null;
-		String sql  = "select mem_id from member where mem_id=?"; 
+	public int confirm(String mem_id ) throws SQLException {
+		int result  = 0;  	Connection conn = null;
+		String sql  = "select mem_id , mem_status from member where mem_id=? "; 
 		PreparedStatement pstmt = null; ResultSet rs = null;
 		try { 
 			conn  = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mem_id);
 			rs = pstmt.executeQuery();
-			if (rs.next()) result = 1;
-			else result = 0;
+		    
+			if (rs.next()) {
+				/*String dbid = rs.getString("mem_id");*/
+				int dbstatus = rs.getInt("mem_status");
+			   if(dbstatus==1 /*&& dbid.equals(mem_id)*/) result=1;
+			else  result = 0;
+			} else result = -1;
+			
 		} catch(Exception e) { System.out.println(e.getMessage());
 		} finally {
 			if (rs != null) rs.close();
@@ -100,7 +106,7 @@ public class IK_MemberDao {
 	
 	public int check(String mem_id, String mem_pw) throws SQLException {
 		int result  = 0;  				Connection conn = null;
-		String sql  = "select mem_pw from member where mem_id=?"; 
+		String sql  = "select mem_pw from member where  mem_id=?"; 
 		PreparedStatement pstmt = null; ResultSet rs = null;
 		try { 
 			conn  = getConnection();

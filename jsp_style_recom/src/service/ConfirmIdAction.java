@@ -23,7 +23,7 @@ public class ConfirmIdAction implements CommandProcess {
 			
 			IK_MemberDao md = IK_MemberDao.getInstance();
             
-			int result = md.confirm(mem_id);
+			int result = md.confirm(mem_id );
 	System.out.println("result------->"+result);		
   			request.setAttribute("result", result);
 				

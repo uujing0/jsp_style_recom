@@ -9,16 +9,19 @@
 </head>
 <%@include file="header.jsp"%>
 <body>
+
 <div id="content">
-<div id="side_left">
+		<div id="side_left">
 			<div id="head">마이페이지</div>
-			<div id="page"><a href="calendar.do">달력</a></div>
+			<ul>
+			<li><a href="calendar.do?">달력</a></li>
 			
-			<div id="page"><a href="myInfo.do">내정보</a></div>
+			<li><a href="myInfo.do">개인정보수정</a></li>
 			
-			<div id="page"><a href="board.do">내가 쓴 게시물</a></div>
+			<li><a href="myboard.do">내가 쓴 게시물</a></li>
 			
-			<div id="page"><a href="bookmark.do">즐겨찾기</a></div>
+			<li><a href="weather.do?sido=1168066000">일주일 코디추천</a></li>
+			</ul>
 		</div>
 
 <div id="center">	

@@ -8,24 +8,55 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+table#title{
+		margin:auto;
+		border:3px solid #d5d5d5;
+		border-radius: 8px;
+		border-bottom-left-radius:0px;
+		border-bottom-right-radius:0px;
+		border-bottom: none;
+
+	}
+	#title th{
+		border: 1px solid #d5d5d5; 
+		background-color: #ccc; 
+		padding: 1%; width: 150px;
+	}
+	#title td{
+		border: 2px solid #d5d5d5; height: 80px; font-size:15pt; 
+		vertical-align:top; text-align: right; padding: 10px; width:337.04px;
+	}
 	table#calendar{
 		margin:auto;
-		border:3px solid black;
+		border:3px solid #d5d5d5;
 		border-radius: 8px;
+		border-top-left-radius:0px;
+		border-top-right-radius: 0px;
 	}
-	th{border: 1px solid black; background-color: silver; padding: 1%; width: 130px;}
-	td{border: 2px solid black; height: 60px; font-size:12pt; vertical-align:top;text-align: right;padding: 10px;}
+	#calendar th{
+		border: 1px solid #d5d5d5; background-color: #ccc;
+		padding: 1%; width: 150px;
+		}
+	#calendar td{
+		border: 2px solid #d5d5d5; height: 80px; font-size:15pt; 
+		vertical-align:top; text-align: right; padding: 10px;}
+	#calendar td:hover{ background-color: #ccc;
+	}
+	
 </style>
+<script type="text/javascript">
+
+</script>
 </head>
 
 <body>
-	<table id="calendar">
+	<table id="title">
 		<tr>
 			<td colspan="2" align="center" style="border:none;text-align: right;height: 40px;">
 				<a href="?yy=${yy-1 }&mm=${mm}">◀</a>
 				<a href="?yy=${yy }&mm=${mm-1}">◁</a>
 			</td>
-			<td colspan="3" align="center" style="border:none;text-align: center;height: 40px;font-size:18pt;">
+			<td id="d" colspan="3" align="center" style="border:none;text-align: center;height: 40px;font-size:18pt;font-weight:bold;">
 				${yy }년 ${mm }월
 			</td>
 			<td colspan="2" align="center" style="border:none;text-align: left;height: 40px;">
@@ -33,6 +64,8 @@
 				<a href="?yy=${yy+1}&mm=${mm}">▶</a>
 			</td>
 		</tr>
+		</table>
+		<table id="calendar">
 		<tr>
 			<th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
 		</tr>
@@ -43,8 +76,8 @@
 			<c:forEach var="i" begin="1" end="${lastday }" step="1">
 				<c:choose>
 					<c:when test="${(w-2+i)%7 eq 0 }">
-						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
-							${i }<br><span style="color:black">
+						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=100,top=120,status=no,scrollbars=no')">
+							${i }<br><span style="color:black;font-weight:bold;">
 							<c:choose>
 								<c:when test="${i eq 1}">${cal_title1 }</c:when>
 								<c:when test="${i eq 2}">${cal_title2 }</c:when>
@@ -81,8 +114,8 @@
 						</td>
 					</c:when>
 					<c:when test="${(w-2+i)%7 eq 6 }">
-						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
-							${i }<br><span style="color:black">
+						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
+							${i }<br><span style="color:black;font-weight:bold;">
 							<c:choose>
 								<c:when test="${i eq 1}">${cal_title1 }</c:when>
 								<c:when test="${i eq 2}">${cal_title2 }</c:when>
@@ -123,8 +156,8 @@
 						</c:if>
 						</c:when>
 					<c:otherwise>
-						<td style="cursor:pointer;" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=aaa','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
-							${i }<br>
+						<td style="cursor:pointer;" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
+							${i }<br><span style="color:black;font-weight:bold;">
 							<c:choose>
 								<c:when test="${i eq 1}">${cal_title1 }</c:when>
 								<c:when test="${i eq 2}">${cal_title2 }</c:when>
@@ -157,7 +190,7 @@
 								<c:when test="${i eq 29}">${cal_title29 }</c:when>
 								<c:when test="${i eq 30}">${cal_title30 }</c:when>
 								<c:when test="${i eq 31}">${cal_title31 }</c:when>
-							</c:choose>
+							</c:choose></span>
 							
 						</td>	
 					</c:otherwise>
