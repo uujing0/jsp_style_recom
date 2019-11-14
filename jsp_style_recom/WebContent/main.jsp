@@ -137,7 +137,7 @@
 
 </head>
 
-<%@include file="header.jsp" %>
+<%@include file="header2.jsp" %>
 <body>
 	
 <div>

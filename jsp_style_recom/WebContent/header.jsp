@@ -4,6 +4,7 @@
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <script src="./js/jquery.js"></script>
 
 <!-- session이 없으면(비로그인시) 디폴트 값을 넣어준다. -->
@@ -74,8 +75,14 @@
 </script>
 
 <style type="text/css">
+@font-face { font-family: 'NanumGothic'; src: url(fonts/NanumGothic.ttf) format('truetype'); }
+
+div {
+	font-family: NanumGothic;
+}
+
 /* theme color list
-	#FFEEE4
+	#FFEEE4s
 	#F17F42
 	#CE6D39
 	black

@@ -17,7 +17,6 @@
 </head>
 <body>
 	<c:if test="${result == 1}">
-		<c:set var="mem_id" value="${mem_id}"/>
 		<script type="text/javascript">
 			alert("로그인을 성공하였습니다.")
 			opener.document.location.reload(); //팝업창닫으면서 원래창 새로고침
