@@ -246,6 +246,7 @@ header a:active{color: black; text-decoration: none;}
 				<button id="top_signup_button" class="top_right_button" onclick="location.href='joinForm.do'">Sign_up</button>
 			</c:if>
 			<c:if test="${not empty sessionScope.mem_id }">
+				<span>${sessionScope.mem_id }님 환영합니다!</span>
 				<button id="top_logout_button" class="top_left_button" onclick="logoutConfirm()">Logout</button>
 				<button id="top_my_page_button" class="top_right_button" onclick="location.href='weather.do?sido=${locCode }'" >MY Corgi</button>
 			</c:if>
