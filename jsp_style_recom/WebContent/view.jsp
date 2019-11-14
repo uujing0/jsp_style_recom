@@ -50,11 +50,17 @@
 	$('button[name="comment_update"]').click(function(){
 			var cm_id = $(this).attr("id");
 			var content2 = $("#content2").val();
+			var star = new Array();
+			$("input:radio[name='star']").each(function(){
+				if($(this).is(":checked") == true){
+					star.push($(this).val());
+				}
+			});
 			//이건 별점 라디오 체크박스 입력받는 부분
 
 			
 			 $.ajax({
-			url: "commentupdate.do?content2="+content2+"&&cm_id="+cm_id,
+			url: "commentupdate.do?content2="+content2+"&&cm_id="+cm_id+"&&star="+star,
 			type: "POST",
 			success : function(data){
 					location.reload();
@@ -243,7 +249,8 @@
 								<br> <br> <input type="text" id="content"
 								name="content" />
 								<button id="write_comment" class="btn btn-warning btn-sm">댓글작성</button>
-							</td>
+							　　<input type="text" id="content2"
+								name="content2" />[댓글수정]</td>
 							<td></td>
 						</c:if>
 						<c:if test="${mem_id == null}">
@@ -252,8 +259,7 @@
 							<td></td>
 						</c:if>
 					</tr>
-						<td></td><td></td><td>댓글수정 : <input type="text" id="content2"
-								name="content2" /></td>
+						<td></td><td></td><td></td>
 								
 					<c:forEach var="comment" items="${comments}">
 						<tr>

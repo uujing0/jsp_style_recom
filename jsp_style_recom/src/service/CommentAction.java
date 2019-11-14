@@ -14,7 +14,7 @@ import dao.YJ_BbsDAO;
 				throws ServletException, IOException {
 			String cm_contents = request.getParameter("content2");
 			int cm_id = Integer.parseInt(request.getParameter("cm_id"));
-			
+
 			YJ_BbsDAO bbsDAO = new YJ_BbsDAO();
 			bbsDAO.update_comment(cm_contents, cm_id);
 			return "/view.jsp";
