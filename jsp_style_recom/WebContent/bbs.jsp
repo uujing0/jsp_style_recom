@@ -94,6 +94,65 @@
 			</table>
 			</div>
 			</div>
+			<div clas="container">
+		<div class="container-fluid">
+			<table class="table" style="text-align:center; border: 4px; border-style:double; border-width: thick;">
+	<tbody>
+				<tr>
+							   <td colspan="6" style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; " > BEST 코디 </td>
+					
+					
+				</tr>
+				<tr>
+					<th style="background-color: #F17F42; color : white; text-align:center; font-style: italic;
+							   font-size: 15px; ">NO</th>
+							   
+					<th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">SUBJECT</th>
+							   
+					<th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">WRITER</th>
+							   
+					<th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px;">DATE</th>
+							   <th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">HIT</th>
+							    <th style="background-color: #F17F42; color : white;text-align:center; font-style: italic;
+							   font-size: 15px; ">POSTER STAR</th>
+					
+				</tr>
+			</tbody>		
+			<tbody>
+				<c:forEach var="board1" items="${bbsList3}"> <!-- DAO에 bbslist()함수를 호출하여 bbsList 생성 -->
+					<tr>
+						<td>${board1.bbsNO}
+						<td><a href="view.do?bd_id=${board1.bd_id}">${board1.bd_title}<p></a>
+						<c:if test="${board1.commentCount>0}"> <!-- bbslist에서 쿼리문으로 생성한 commentcount가 0보다 크면 제목 옆에 댓글 갯수 출력 -->
+							[${board1.commentCount}]
+						</c:if>
+						<td>${board1.mem_id}
+						<td>${board1.bd_date}
+						<td>${board1.bd_readcount}
+						<td> <c:if test="${board1.staravg>0}"> <!-- bbslist에서 쿼리문으로 생성한 commentcount가 0보다 크면 제목 옆에 댓글 갯수 출력 -->
+							<c:if test="${board1.staravg==1}">★</c:if>
+									<c:if test="${board1.staravg==2}">★★</c:if>
+									<c:if test="${board1.staravg==3}">★★★</c:if>
+									<c:if test="${board1.staravg==4}">★★★★</c:if>
+									<c:if test="${board1.staravg==5}">★★★★★</c:if>
+									<c:if test="${board1.staravg==6}">★★★★★★</c:if>
+									<c:if test="${board1.staravg==7}">★★★★★★★</c:if>
+									<c:if test="${board1.staravg==8}">★★★★★★★★</c:if>
+									<c:if test="${board1.staravg==9}">★★★★★★★★★</c:if>
+									<c:if test="${board1.staravg==10}">★★★★★★★★★</c:if>
+						</c:if></td>
+					</tr>
+				</c:forEach>
+				
+			</tbody>
+			</table>
+			</div>
+			</div>
 	<div clas="container">
 		<div class="container-fluid">
 			<table class="table" id="table" style="text-align:center; border: 4px; border-style:double; border-width: thick;">
@@ -122,7 +181,7 @@
 				<c:forEach var="board" items="${bbsList}"> <!-- DAO에 bbslist()함수를 호출하여 bbsList 생성 -->
 					<tr>
 						<td>${board.bbsNO}
-						<td><a href="view.do?bd_id=${board.bd_id}">${board.bd_title}</a>
+						<td><a href="view.do?bd_id=${board.bd_id}">${board.bd_title}<p></a>
 						<c:if test="${board.commentCount>0}"> <!-- bbslist에서 쿼리문으로 생성한 commentcount가 0보다 크면 제목 옆에 댓글 갯수 출력 -->
 							[${board.commentCount}]
 						</c:if>

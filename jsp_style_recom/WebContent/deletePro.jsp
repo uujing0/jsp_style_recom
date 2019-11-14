@@ -11,8 +11,10 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("탈퇴 되었습니다. 이용해 주셔서 감사 합니다!");  
-		location.href="main.jsp";
+		sessionStorage.removeItem('mem_id');
+		location.href="main.do";
 	</script>
+	
 </c:if>
 <c:if test="${result == 0 }">  
 	<script type="text/javascript">

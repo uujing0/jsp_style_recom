@@ -5,8 +5,11 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>웹 폼</title>
-<link rel="stylesheet" type="text/css" href="HJ_style.css">
+<title>회원정보 수정</title>
+<style>
+
+    
+</style>
 <script type="text/javascript">
 	function chk() {
 		if (frm.mem_pw.value != frm.mem_pw2.value) {
@@ -19,60 +22,64 @@
 	function winop() {
 		if (!frm.mem_id.value) {
 			alert("id를 입력하고 사용하세요");
-			frm.mem_id.focus();
+			frm.id.focus();
 			return false;
 		}
 		window.open("confirmId.do?mem_id=" + frm.mem_id.value, "",
 				"width=600 height=300");
 	}
-	
-	
-	
+	function next(){
+		 if(confirm("회원 탈퇴를 하겠습니까?"))
+		 {
+		  location.href="deleteForm.do";
+		 }
+		 else
+		 {
+		 }
+		}
 </script>
-
+<link rel="stylesheet" type="text/css" href="HJ_style.css">
 
 </head>
-<body >
-
-
-<form action="joinPro.do" name="frm" onsubmit="return chk()">
-	       <div class="content">
+<body>
+<div class="content">
 	<br>
 	<div class="agree">
+	<form action="memUpPro.do" name="frm" onsubmit="return chk()">
 	       <ul class="idpwSrh">
 	       	<li>
 	       		<div class="srhBox br">
 	       			<div class="srhTop">
-	       				<h1>회원 가입</h1>
+	       				<h1>회원정보 수정</h1>
 	       				<br/>
 	       				<br/>
-	       				"웰시코기"에 회원으로
+	       				등록된 회원 정보를
 	       				<br/>
-	       				등록합니다.
+	       				수정할 수 있습니다.
 	       				<br/>
 	       					</div>
 	       					<div class="info">
-<fieldset id="bg1">
-<legend><h1>회원 가입</h1></legend>
-
-	
+<fieldset >
+<legend>회원 정보 수정</legend>
 		<ul>
-			<li><p><label>아&nbsp;이&nbsp;디</label><label><input type="text" class="a" name="mem_id"
-					placeholder="아이디"><input type="button" value="중복확인"
-					onclick="winop()"></p></label></li>
+			
+		    <li><p><label>아&nbsp;이&nbsp;디</label><label><input type="text" class="a" name="mem_id"
+					value="${mem_id}" readonly/></p></label></li>
+		
 			<br/>
+		
 			<li><p><label>비밀번호</label><label><input type="password" class="a" name="mem_pw"
-					required="required" placeholder="비밀번호"></p></label></li>
+					required="required" placeholder="비밀번호 재설정"></p></label></li>
+
 			<br/>
 			<li><p><label>비밀번호&nbsp;확인</label><label><input type="password" class="a" name="mem_pw2"
-					required="required" placeholder="비밀번호 확인"></p></label></li>
+					required="required" placeholder="비밀번호 재설정 확인"></p></label></li>
 			<br/>
 			<li><p><label>이&nbsp;&nbsp;&nbsp;&nbsp;름</label><label><input type="text" class="a" name="mem_name"
-					required="required"  placeholder="이름"></p></label></li>
+					required="required" value="${mem_name}" placeholder="이름"></p></label></li>
 			<br/>
-			<li><p><label>연&nbsp;락&nbsp;처</label> <label><input type="text" name="mem_phone"
-											required="required" pattern="\d{2,3}-\d{3,4}-\d{4}"
-											placeholder="000-0000-0000"></label></p></li>
+			<li><p><label>전화번호</label><label><input type="tel" class="a" name="mem_phone"
+					required="required" value="${mem_phone}" placeholder="전화번호(xxx-xxxx-xxxx)"></p></label></li>
 			<br/>
 			<li><p><label>이&nbsp;메&nbsp;일</label><label><input type="text" class="a" name="mem_email"
 					required="required" value="${mem_email}" placeholder="이메일"></p></label></li>
@@ -100,7 +107,7 @@
 					<option value="충청북도">충청북도</option>
                  	</select>   
                    <input type="text" name="mem_add_addr" list="mem_addr"
-						  required="required" placeholder="나머지 주소"></p></li>
+						  required="required" placeholder="나머지 주소"></p> </li>
 				 <br/>
 			<li><label class="" >체&nbsp;형</label> <select
 				name="mem_body_type">
@@ -133,18 +140,18 @@
 					name="mem_gender" value="2" required="required">여</label></li>
 					
 <br/>
-			<li><button type="submit">가입하기</button></li>
+			<li><button type="submit">수정하기</button></li>
+				<br/><br/>
+			<li>&nbsp;<input type="button" onclick="next()" value="회원탈퇴"></a></li>
 		</ul>
-	
-
-</fieldset>
+		</fieldset>
+		</div>
+		</div>
+		</li>
+		</ul>
+		</form>
+	</div>
 </div>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</form>
-<
 </body>
 </html>
+
