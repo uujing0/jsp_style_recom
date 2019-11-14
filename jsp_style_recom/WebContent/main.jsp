@@ -33,7 +33,7 @@
         margin: 0; padding: 0;
       }
       .slide{
-        
+        top: 50px;
         width: 1000px;
         height: 600px;
         overflow: hidden;
@@ -146,28 +146,28 @@
 			<li><a href="#">날씨별</a></li>
 			<li><a href="#">상황별</a>
 				<ul class="sub">
-					<li><a href="#">오피스룩</a></li>
-					<li><a href="#">하객/셀럽룩</a></li>
-					<li><a href="#">캠퍼스/개강룩</a></li>
-					<li><a href="#">집근처마실룩</a></li>
-					<li><a href="#">피크닉룩</a></li>
+					<li><a href="styleList.do?tagId=1">오피스룩</a></li>
+					<li><a href="styleList.do?tagId=2">하객/셀럽룩</a></li>
+					<li><a href="styleList.do?tagId=3">캠퍼스/개강룩</a></li>
+					<li><a href="styleList.do?tagId=4">집근처마실룩</a></li>
+					<li><a href="styleList.do?tagId=5">피크닉룩</a></li>
 				</ul>
 			</li>
 			<li><a href="#">체형별</a>
 				<ul class="sub">
-					<li><a href="#">통통</a></li>
-					<li><a href="#">슬림</a></li>
-					<li><a href="#">키작은</a></li>
-					<li><a href="#">키큰</a></li>
+					<li><a href="styleList.do?tagId=6">통통</a></li>
+					<li><a href="styleList.do?tagId=7">슬림</a></li>
+					<li><a href="styleList.do?tagId=8">키작은</a></li>
+					<li><a href="styleList.do?tagId=9">키큰</a></li>
 				</ul>
 			</li>
 			<li><a href="#">분위기별</a>
 				<ul class="sub">
-					<li><a href="#">모던시크</a></li>
-					<li><a href="#">상큼발랄</a></li>
-					<li><a href="#">심플/베이직</a></li>
-					<li><a href="#">럭셔리</a></li>
-					<li><a href="#">러블리</a></li>					
+					<li><a href="styleList.do?tagId=10">모던시크</a></li>
+					<li><a href="styleList.do?tagId=11">상큼발랄</a></li>
+					<li><a href="styleList.do?tagId=12">심플/베이직</a></li>
+					<li><a href="styleList.do?tagId=13">럭셔리</a></li>
+					<li><a href="styleList.do?tagId=14">러블리</a></li>					
 				</ul>
 			</li>
 			<li><a href="#">태그별</a>
