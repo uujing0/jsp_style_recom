@@ -16,9 +16,9 @@ public class GenderSelectorAction implements CommandProcess{
 		try {
 			HttpSession session = request.getSession();
 			if(request.getParameter("select").equals("1")) {
-				session.setAttribute("gender", "male");
+				session.setAttribute("gender", "1");
 			}else {
-				session.setAttribute("gender", "female");
+				session.setAttribute("gender", "2");
 			}
 		}catch (Exception e) {
 			System.out.println(e.getMessage());

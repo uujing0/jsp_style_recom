@@ -87,7 +87,7 @@ footer{
 			<br>
 			<div id="bottom_member_space">
 				<c:if test="${empty sessionScope.mem_id }">
-					<button id="bottom_login_button" class="bottom_left_button" onclick="location.href='loginForm.do'">Login</button>
+					<button id="bottom_login_button" class="bottom_left_button" onclick="login()">Login</button>
 					<button id="bottom_signup_button" class="bottom_right_button" onclick="location.href='joinForm.do'">Sign_up</button>
 				</c:if>
 				<c:if test="${not empty sessionScope.mem_id }">
