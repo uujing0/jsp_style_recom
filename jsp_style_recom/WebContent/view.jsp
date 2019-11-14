@@ -252,6 +252,9 @@
 							<td></td>
 						</c:if>
 					</tr>
+						<td></td><td></td><td>댓글수정 : <input type="text" id="content2"
+								name="content2" /></td>
+								
 					<c:forEach var="comment" items="${comments}">
 						<tr>
 							<td style="text-align: left";><c:forEach begin="1"
@@ -262,8 +265,9 @@
 							<P>
 									<b>${comment.mem_id}</b> <br> ${comment.cm_date }</td>
 							<td><c:if test="${mem_id == comment.mem_id}">
-									<input type="text" id="content2"
-								name="content2" />
+									<c:if test="${comments==comments }">
+								
+								</c:if>
 									<button name="comment_update" id="${comment.cm_id }" class="btn btn-warning btn-sm">댓글수정</button>
 									<button name="comment_delete" id="${comment.cm_id}"
 										class="btn btn-warning btn-sm">댓글삭제</button>
