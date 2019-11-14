@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,51 +9,101 @@
 <title>상품 상세 페이지</title>
 
 <style type="text/css">
-	#iposition {
-		position:absolute; top:840px; left:400px;
-	}
-	#prdinfo {
-		position: absolute; top: 200px; left:600px;
-	}
-	.item {
-		
-		width: 200px;
-		float: right; 
-		margin: 0 13px;
-		text-align: center;
-	}
+#detailproduct {
+	margin-left: 100px;
+	/*     margin-top: 550px;
+ */
+}
+
+h2 {
+	text-align: left;
+}
+
+#iposition {
+	position: absolute;
+	left: 400px;
+}
+
+.item {
+	width: 200px;
+	float: right;
+	margin: 0 13px;
+	text-align: center;
+}
+
+#product {
+	position: relative;
+	overflow: hidden;
+	left: 500px;
+}
+
+prdimg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	max-width: 100%;
+	height: auto;
+}
 </style>
 </head>
-<%@include file="header.jsp" %>
-<body>   	
- 		      	<iframe id="iposition" src="prd_detail2.jsp?url=${Product.prd_url }" width="1200" height="100%" scrolling="yes" frameborder="0" ></iframe>
-			
-<table border="0" id="prdinfo">
-	<tr>
-		<td>
-			<img src="./images/product_images/${Product.prd_thumbnail }" width="500" height="500" id="prdimg"
-			>
-		</td>
-		<td>
-			<table border="1" >
-				<tr align="center">
-					<td style="font-size: 20px; height: 100px; width: 100px">상품명</td>
-					<td style="height: 100px; width: 300px">${Product.prd_name }</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
+<%@include file="header.jsp"%>
+<body>
 
-</table>
- <div>
-<div>관련 상품</div>
-	<c:forEach items="${product}" var="rprd">
-		<div class="item">
-			<img src="./images/product_images/${rprd.prd_thumbnail}" width="350px" height="350px">
-		</div>
-	</c:forEach>
-</div>
-	
+
+	<h2>상품 상세</h2>
+	<hr>
+	<div id="product">
+		<table style="margin: 0;">
+			<tr>
+				<td>
+					<table border="0" id="prdinfo">
+						<tr>
+							<td><img
+								src="./images/product_images/${Product.prd_thumbnail }"
+								width="500" height="auto" id="prdimg"></td>
+
+						</tr>
+						<tr>
+							<td>
+								<table border="1">
+									<tr align="center">
+										<td style="font-size: 20px; height: 100px; width: 100px">상품명</td>
+										<td style="height: 100px; width: 300px">${Product.prd_name }</td>
+									</tr>
+
+								</table>
+							</td>
+						</tr>
+
+
+					</table>
+				</td>
+				<td>
+					<table id="detailproduct">
+						
+						<h4>관련상품목록</h4>
+						<c:forEach var="i" begin="0" end="${fn:length(dp2)-1 }">
+							<tr>
+								<td>
+								<c:if test="${dp[i] != Product.prd_id }">
+
+									<a href="prddetail.do?prd_id=${dp[i] }"> <img
+										src="./images/product_images/${dp2[i] }" width="250px"
+										height="250px"></a>
+								</c:if>
+								</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<iframe id="iposition" src="prd_detail2.jsp?url=${Product.prd_url }"
+		width="1200" height="100%" scrolling="yes" frameborder="0"></iframe>
 
 </body>
 </html>

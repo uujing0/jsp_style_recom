@@ -143,7 +143,7 @@
 <div>
 	<div id="nav" >
 		<ul class="menu">
-			<li><a href="#">날씨별</a></li>
+			<li><a href="styleList.do?tagType=4&locCode=1168066000">날씨별</a></li>
 			<li><a href="#">상황별</a>
 				<ul class="sub">
 					<li><a href="styleList.do?tagId=1">오피스룩</a></li>
