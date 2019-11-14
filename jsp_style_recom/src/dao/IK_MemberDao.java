@@ -14,11 +14,11 @@ import javax.sql.DataSource;
 
 
 
-public class MemberDao {
-	private static MemberDao instance;
-	private MemberDao() {	}
-	public static MemberDao getInstance() {
-		if (instance == null) {	instance = new MemberDao();	}
+public class IK_MemberDao {
+	private static IK_MemberDao instance;
+	private IK_MemberDao() {	}
+	public static IK_MemberDao getInstance() {
+		if (instance == null) {	instance = new IK_MemberDao();	}
 		return instance;
 	}
 	
@@ -35,7 +35,7 @@ public class MemberDao {
 	
 	public int confirm(String mem_id) throws SQLException {
 		int result  = 0;  				Connection conn = null;
-		String sql  = "select mem_id from member where  mem_id=? "; 
+		String sql  = "select mem_id from member where mem_id=?"; 
 		PreparedStatement pstmt = null; ResultSet rs = null;
 		try { 
 			conn  = getConnection();
@@ -145,7 +145,7 @@ public class MemberDao {
 		int result = 0;  				Connection conn = null;
 		result = check(mem_id, mem_pw);
 		if (result != 1)  return result;
-		String sql = "update member set mem_status=0 where mem_id=?"; 
+		String sql = "update member set  mem_status=0 where mem_id=?"; 
 		PreparedStatement pstmt = null; 
 		try { 
 			conn  = getConnection();
@@ -160,57 +160,37 @@ public class MemberDao {
 		}
 		return result;
 	}
-	
-	public Member SrhId(String mem_phone, String mem_name) throws SQLException {
-		Member member = new Member();	Connection conn = null;
-		String sql  = "select * from style_mem where mem_phone"; 
-		PreparedStatement pstmt = null; ResultSet rs = null;
+
+	public int update(Member member) throws SQLException {
+		int result = 0;  				Connection conn = null;
+		String sql = "update member set mem_pw=?,mem_name=?,mem_phone=?,"+
+			"mem_email=? ,mem_addr=?,mem_body_type=? ,mem_fav_loc=?, mem_gender=? where mem_id=?"; 
+		PreparedStatement pstmt = null; 
 		try { 
 			conn  = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, mem_phone);
-			pstmt.setString(2, mem_name);
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				member.setMem_id(rs.getString(1));
-				member.setMem_pw(rs.getString(2));
-				member.setMem_name(rs.getString(3));
-				member.setMem_email(rs.getString(4));
-				member.setMem_phone(rs.getString(5));
-			} 
+			pstmt = conn.prepareStatement(sql);			
+			pstmt.setString(1, member.getMem_pw());
+			pstmt.setString(2, member.getMem_name());
+			pstmt.setString(3, member.getMem_phone());
+			pstmt.setString(4, member.getMem_email());
+			pstmt.setString(5, member.getMem_addr());
+			pstmt.setInt(6, member.getMem_body_type());
+			pstmt.setString(7, member.getMem_fav_loc());
+			pstmt.setInt(8, member.getMem_gender());
+			pstmt.setString(9, member.getMem_id());
+			result = pstmt.executeUpdate();
 		} catch(Exception e) { System.out.println(e.getMessage());
 		} finally {
-			if (rs != null) rs.close();
 			if (pstmt != null) pstmt.close();
 			if (conn != null) conn.close();
 		}
-		return member;
+		return result;
 	}
 	
-	public Member SrhPw(String Mem_id) throws SQLException {
-		Member member = new Member();	Connection conn = null;
-		String sql  = "select * from style_mem where mem_id=?"; 
-		PreparedStatement pstmt = null; ResultSet rs = null;
-		try { 
-			conn  = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, Mem_id);
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				member.setMem_id(rs.getString(1));
-				member.setMem_pw(rs.getString(2));
-				member.setMem_name(rs.getString(3));
-				member.setMem_email(rs.getString(4));
-				member.setMem_phone(rs.getString(5));
-			} 
-		} catch(Exception e) { System.out.println(e.getMessage());
-		} finally {
-			if (rs != null) rs.close();
-			if (pstmt != null) pstmt.close();
-			if (conn != null) conn.close();
-		}
-		return member;
-	}
+	
+	
+	
+	
 }
 
 

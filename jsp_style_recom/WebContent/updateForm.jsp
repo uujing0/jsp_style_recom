@@ -26,13 +26,6 @@ li {
 }
 
 ul{ margin:20px; }
-
-/* fieldset{
-     background-color:#CE6D39; 
-      } */
- #bg1 {
-     background-image: url('C:\Users\user\Desktop\프로젝트 내용\옷사진.jpg')
-}      
 </style>
 <script type="text/javascript">
 	function chk() {
@@ -56,23 +49,22 @@ ul{ margin:20px; }
 
 
 </head>
-<body >
+<body>
 
 
-<form action="joinPro.do" name="frm" onsubmit="return chk()">
+<form action="updatePro.do" name="frm" onsubmit="return chk()">
 	       
-<fieldset id="bg1">
-<legend><h1>회원 가입</h1></legend>
+<fieldset >
+<legend><h1>회원 정보 수정</h1></legend>
 
 	
 		<ul>
-			<li><label ><input type="text" class="a" name="mem_id"
-					placeholder="아이디"> <input type="button" value="중복확인"
-					onclick="winop()"></label></li>
+		    <li><h3>아이디:${mem_id}</h3></li>
+			<input type="hidden" name="mem_id" value="${mem_id}">
 			<li><label><input type="password" class="a" name="mem_pw"
-					required="required" placeholder="비밀번호"></label></li>
+					required="required" placeholder="비밀번호 재설정"></label></li>
 			<li><label><input type="password" class="a" name="mem_pw2"
-					required="required" placeholder="비밀번호 확인"></label></li>
+					required="required" placeholder="비밀번호 재설정 확인"></label></li>
 			<li><label><input type="text" class="a" name="mem_name"
 					required="required" placeholder="이름"></label></li>
 			<li><label><input type="tel" class="a" name="mem_phone"
@@ -91,7 +83,7 @@ ul{ margin:20px; }
 
 			</select></li>
 			
-			<li><label class="" name="mem_fav_loc">관심지역(중복 선택 가능)</label></li>
+			 <li><label class="" name="mem_fav_loc">관심지역(중복 선택 가능)</label></li>
 			 
             <label><input type="checkbox" name="mem_fav_loc" value="서울특별시">서울특별시</label>
 			<label><input type="checkbox" name="mem_fav_loc" value="경기도">경기도</label>
@@ -109,8 +101,8 @@ ul{ margin:20px; }
 					required="required">남</label> <label><input type="radio"
 					name="mem_gender" value="2" required="required">여</label></li>
 
-			<li><input type="submit" value="확인"> 
-			    <input type="reset"	value="취소"></li>
+			<li><input type="submit" value="확인"> <input type="reset"
+				value="취소"></li>
 		</ul>
 	
 

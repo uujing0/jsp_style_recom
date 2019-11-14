@@ -20,19 +20,12 @@ li {
 }
 
 .a{ 
-     border-color:/* #FFBB00; */#CE6D39; 
+     border-color:#FFBB00;
      border-width:5px; 
      box-shadow:2px 2px 5px 2px gray;
 }
 
 ul{ margin:20px; }
-
-/* fieldset{
-     background-color:#CE6D39; 
-      } */
- #bg1 {
-     background-image: url('C:\Users\user\Desktop\프로젝트 내용\옷사진.jpg')
-}      
 </style>
 <script type="text/javascript">
 	function chk() {
@@ -56,12 +49,12 @@ ul{ margin:20px; }
 
 
 </head>
-<body >
+<body>
 
 
 <form action="joinPro.do" name="frm" onsubmit="return chk()">
 	       
-<fieldset id="bg1">
+<fieldset>
 <legend><h1>회원 가입</h1></legend>
 
 	
@@ -83,15 +76,15 @@ ul{ margin:20px; }
 					required="required" placeholder="주소"></label></li>
 			<li><label class="" >체형</label> <select
 				name="mem_body_type">
-					<option value="1">통통</option>
-					<option value="2">슬림</option>
-					<option value="3">키작은</option>
-					<option value="4">키큰</option>
+					<option value="1">마름</option>
+					<option value="2">평균</option>
+					<option value="3">통통</option>
+					<option value="4">비만</option>
 
 
 			</select></li>
 			
-			<li><label class="" name="mem_fav_loc">관심지역(중복 선택 가능)</label></li>
+			 <li><label class="" name="mem_fav_loc">관심지역(중복 선택 가능)</label></li>
 			 
             <label><input type="checkbox" name="mem_fav_loc" value="서울특별시">서울특별시</label>
 			<label><input type="checkbox" name="mem_fav_loc" value="경기도">경기도</label>
@@ -109,8 +102,8 @@ ul{ margin:20px; }
 					required="required">남</label> <label><input type="radio"
 					name="mem_gender" value="2" required="required">여</label></li>
 
-			<li><input type="submit" value="확인"> 
-			    <input type="reset"	value="취소"></li>
+			<li><input type="submit" value="확인"> <input type="reset"
+				value="취소"></li>
 		</ul>
 	
 
