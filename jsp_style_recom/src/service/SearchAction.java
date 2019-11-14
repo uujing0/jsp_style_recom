@@ -61,9 +61,9 @@ public class SearchAction implements CommandProcess{
 			System.out.println("게시판 검색");
 			
 			YJ_BbsDAO bd = new YJ_BbsDAO();
-			request.setAttribute("bbsList", bd.getList());
+			request.setAttribute("bbsList", bd.boardgetList());
 			YJ_BbsDAO bd1 = new YJ_BbsDAO();
-			request.setAttribute("bbsList2", bd1.getList2());
+			request.setAttribute("bbsList2", bd1.noticelist());
 		}
 		
 		//검색 결과 페이지로 검색 단어를 get방식으로 전송한다.
