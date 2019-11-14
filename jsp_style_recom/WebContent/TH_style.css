@@ -129,20 +129,17 @@ background-color: #ccc;
 	float: left;
 	height: 50%;
 }
-#today img{
-	width: 103.922px;
+div#today img{
+	width: 103.922px; 
 	height: 104.656px;
-	align:left;
 }
-#day_top img{
+div#day_top img{
 	width: 103.922px;
 	height: 104.656px;
-	align:left;
 }
-#day_bottom img{
+div#day_bottom img{
 	width: 103.922px;
 	height: 104.656px;
-	align:left;
 }
 #bookmark {
 	border:solid;

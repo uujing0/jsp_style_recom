@@ -58,7 +58,7 @@
 		<option value="4579031000" <c:if test="${city eq '전라북도'}"> selected </c:if>>전라북도</option>
 		<option value="5013025300" <c:if test="${city eq '제주특별자치도'}"> selected </c:if>>제주특별자치도</option>
 		<option value="4480038000" <c:if test="${city eq '충청남도'}"> selected </c:if>>충청남도</option>
-		<option value="4376031000" <c:if test="${city eq '충청북도'}"> selected </c:if>>충청북도</option>
+		<option value="4311133000" <c:if test="${city eq '충청북도'}"> selected </c:if>>충청북도</option>
 	</select>
 	<input type="submit" value="확인" style="border-radius: 5px;border:solid 2px;border-color: #CE6D39;background-color: white;height: 35px;">
 </form>
