@@ -76,24 +76,40 @@ table#title{
 				<c:choose>
 					<c:when test="${(w-2+i)%7 eq 0 }">
 						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=100,top=120,status=no,scrollbars=no')">
-							${i }<br><span style="color:black;font-weight:bold;">
-							<c:forEach var="a" items="${CalMap}">
-							<c:choose>
-								<c:when test="${i eq a.key}">${a.value }</c:when>		
-							</c:choose>
-							</c:forEach>
-							</span>
-						</td>
-					</c:when>
-					<c:when test="${(w-2+i)%7 eq 6 }">
-						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
 							${i }<br>
+							<span style="color:gray;font-weight:bold;font-size:14px;float:left;">
+								<c:forEach var="b" items="${EventMap}">
+									<c:choose>
+										<c:when test="${i eq b.key}">${b.value }</c:when>	
+									</c:choose>
+								</c:forEach>
+							</span><br>
 							<span style="color:black;font-weight:bold;">
 								<c:forEach var="a" items="${CalMap}">
 									<c:choose>
 										<c:when test="${i eq a.key}">${a.value }</c:when>		
 									</c:choose>
 								</c:forEach>
+							</span>
+						</td>
+					</c:when>
+					<c:when test="${(w-2+i)%7 eq 6 }">
+						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
+							${i }<br>
+							<span style="color:gray;font-weight:bold;font-size:14px;float:left;">
+								<c:forEach var="b" items="${EventMap}">
+									<c:choose>
+										<c:when test="${i eq b.key}">${b.value }</c:when>	
+									</c:choose>
+								</c:forEach>
+							</span><br>
+							<span style="color:black;font-weight:bold;">
+								<c:forEach var="a" items="${CalMap}">
+									<c:choose>
+										<c:when test="${i eq a.key}">${a.value }</c:when>	
+									</c:choose>
+								</c:forEach>
+								
 							</span>
 						</td>	
 							</tr>
@@ -104,6 +120,13 @@ table#title{
 					<c:otherwise>
 						<td style="cursor:pointer;" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
 							${i }<br>
+							<span style="color:gray;font-weight:bold;font-size:14px;float:left;">
+								<c:forEach var="b" items="${EventMap}">
+									<c:choose>
+										<c:when test="${i eq b.key}">${b.value }</c:when>	
+									</c:choose>
+								</c:forEach>
+							</span><br>
 							<span style="color:black;font-weight:bold;">
 								<c:forEach var="a" items="${CalMap}">
 									<c:choose>

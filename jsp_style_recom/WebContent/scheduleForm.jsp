@@ -22,10 +22,11 @@ ${day }일정<br>
 	<tr id="contents">
 	<td>행사</td>
 	<td>	<select name="tc_id">
-			<option value="1" <c:if test="${tc_id eq '1'}"> selected </c:if>>행사1</option>
-			<option value="2" <c:if test="${tc_id eq '2'}"> selected </c:if>>행사2</option>
-			<option value="3" <c:if test="${tc_id eq '3'}"> selected </c:if>>행사3</option>
-			<option value="4" <c:if test="${tc_id eq '4'}"> selected </c:if>>행사4</option>
+			<option value="1" <c:if test="${tc_id eq '1'}"> selected </c:if>>오피스</option>
+			<option value="2" <c:if test="${tc_id eq '2'}"> selected </c:if>>웨딩하객/셀럽</option>
+			<option value="3" <c:if test="${tc_id eq '3'}"> selected </c:if>>캠퍼스개강</option>
+			<option value="4" <c:if test="${tc_id eq '4'}"> selected </c:if>>집근처마실</option>
+			<option value="5" <c:if test="${tc_id eq '5'}"> selected </c:if>>피크닉</option>
 		</select>
 		</td>
 		</tr>

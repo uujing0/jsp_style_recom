@@ -8,14 +8,14 @@
 <!-- 처음 접속 주소(서울을 defalut값으로 지정)weather.do?sido=1168066000 -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>mypage</title>
-<link rel="stylesheet" type="text/css" href="TH_style.css" />
+
 
 </head>
 
 <%@include file="header.jsp"%>
-
+<link rel="stylesheet" type="text/css" href="TH_style.css" />
 <body>
-<%@include file="weatherForm.jsp"%><pre style="font-size:18px;font-weight:bold;">                      ${city }날씨</pre>	
+<%@include file="weatherForm.jsp"%><pre style="font-size:18px;font-weight:bold;top:20px;">${city }날씨</pre>	
 	<div id="content">
 		<div id="side_left">
 			<div id="head">마이페이지</div>

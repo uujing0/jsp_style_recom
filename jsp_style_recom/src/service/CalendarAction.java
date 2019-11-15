@@ -26,6 +26,7 @@ public class CalendarAction implements CommandProcess {
 		try {
 			HttpSession session = request.getSession();
 			Map<String, String> Cmap = new HashMap<String, String>();
+			Map<String, String> Emap = new HashMap<String, String>();
 			Map<String, String> Bmap = new HashMap<String, String>();
 			String mem_id = (String)session.getAttribute("mem_id");
 			System.out.println("mem_id->"+mem_id);
@@ -63,6 +64,7 @@ public class CalendarAction implements CommandProcess {
 				
 				System.out.println("lastday->" + lastday);
 				String cal_id = "";
+				String event=null;
 				for (int i = 1; i <= lastday; i++) {
 					if (i < 10) {
 						cal_id = "" + yy + "" + mm + "0" + i+mem_id;
@@ -72,7 +74,15 @@ public class CalendarAction implements CommandProcess {
 					
 					TH_CalendarDao cd = TH_CalendarDao.getInstance();
 					dao.Calendar cal1 = cd.select(mem_id, cal_id);
-					Cmap.put(""+i, cal1.getCal_title());
+					switch(cal1.getTc_id()){
+					case(1): {event="오피스";break;}
+					case(2): {event="웨딩하객/셀럽";break;}
+					case(3): {event="캠퍼스개강";break;}
+					case(4): {event="집근처마실";break;}
+					case(5): {event="피크닉";break;}
+				}
+				Cmap.put(""+i, cal1.getCal_title());
+				Emap.put(""+i, event);
 				//	System.out.println("제목인데->"+cal1.getCal_title());
 				}
 				request.setAttribute("yy", yy);
@@ -102,6 +112,7 @@ public class CalendarAction implements CommandProcess {
 				
 				System.out.println("lastday->" + lastday);
 				String cal_id = "";
+				String event=null;
 				for (int i = 1; i <= lastday; i++) {
 					if (i < 10) {
 						cal_id = "" + yy + "" + mm + "0" + i+mem_id;
@@ -111,7 +122,16 @@ public class CalendarAction implements CommandProcess {
 					
 					TH_CalendarDao cd = TH_CalendarDao.getInstance();
 					dao.Calendar cal1 = cd.select(mem_id, cal_id);
+					
+					switch(cal1.getTc_id()){
+						case(1): {event="오피스";break;}
+						case(2): {event="웨딩하객/셀럽";break;}
+						case(3): {event="캠퍼스개강";break;}
+						case(4): {event="집근처마실";break;}
+						case(5): {event="피크닉";break;}
+					}
 					Cmap.put(""+i, cal1.getCal_title());
+					Emap.put(""+i, event);
 				}
 				
 				request.setAttribute("w", w);
@@ -124,6 +144,8 @@ public class CalendarAction implements CommandProcess {
 			request.setAttribute("mem_id", mem_id);
 			JW_StyleInfoDao sl = JW_StyleInfoDao.getInstance();
 			request.setAttribute("CalMap", Cmap);
+			request.setAttribute("EventMap", Emap);
+			System.out.println("-------------event->"+Emap);
 			int count = 0;
 			for(int a : stl_id) {
 				String stl_pic_url=sl.pic_url(a);
