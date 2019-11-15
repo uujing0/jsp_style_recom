@@ -134,10 +134,13 @@ public class StyleListAction implements CommandProcess {
 		double rs = Double.parseDouble(map.get("Rs"));
 		int level = Common.getInstance().weatherLevelByTmp(tmp);
 		this.tagId = Common.getInstance().tagIdByWeatherLevel(level);
-
+		String tmpImgWfKor = map.get("tmpImgWfKor");
+		String tmpWfKor = map.get("tmpWfKor");
+		
 		System.out.println("--------------");
 		System.out.println("level->"+level);
 		System.out.println("rs->"+rs);
+		System.out.println("tmpImgWfKor->"+tmpImgWfKor);
 		
 		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(this.tagId, this.gender);
 	
@@ -276,6 +279,12 @@ public class StyleListAction implements CommandProcess {
 		request.setAttribute("status", status);
 		System.out.println("acc_desc->"+acc_desc);
 		request.setAttribute("acc_desc", acc_desc);
+		
+		request.setAttribute("tmp", tmp); //temp
+		request.setAttribute("rs", rs); //rain_probability
+		request.setAttribute("tmpImgWfKor", tmpImgWfKor); //weather_image 
+		request.setAttribute("tmpWfKor", tmpWfKor);
+		
 		System.out.println("StyleWeatherDetailAction end...");
 		
 	}

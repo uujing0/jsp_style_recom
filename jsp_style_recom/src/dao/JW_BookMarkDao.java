@@ -112,7 +112,7 @@ public class JW_BookMarkDao {
 
 	public ArrayList<Integer> select(String mem_id) throws SQLException {
 		Connection conn = null;
-		String sql = "select * from bookmark where mem_id = ? order by bm_date";
+		String sql = "select stl_id from bookmark where mem_id = ? order by bm_date";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Integer> al = new ArrayList<Integer>();		

@@ -16,6 +16,10 @@
 
 
 <body>
+<h1>오늘의 추천 스타일${testTagType}</h1>
+<hr>
+
+
 <%@ include file="styleDetailContent.jsp" %>
 
 </body>
