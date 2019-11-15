@@ -21,9 +21,9 @@ public class ScheduleAction implements CommandProcess {
 		String dd = request.getParameter("dd");
 		String yy = request.getParameter("yy");
 		String mm = request.getParameter("mm");
-		int cal_id = Integer.parseInt(yy + mm + dd);
+		
 		String mem_id = request.getParameter("mem_id");
-
+		String cal_id = yy + mm + dd+mem_id;
 		System.out.println("mem_id->" + mem_id);
 
 		TH_CalendarDao cd = TH_CalendarDao.getInstance();

@@ -22,9 +22,9 @@ public class MainAction implements CommandProcess {
 			ArrayList<String> list = ht.tagList();
 			request.setAttribute("tagList", list);
 			YJ_BbsDAO bd = new YJ_BbsDAO();
-			request.setAttribute("bbsList", bd.getList());
-			YJ_BbsDAO bd1 = new YJ_BbsDAO(); //�ȳ��ϼ��� �ϴ�
-			request.setAttribute("bbsList2", bd1.getList2());
+			request.setAttribute("bbsList", bd.boardgetList());
+			YJ_BbsDAO bd1 = new YJ_BbsDAO();
+			request.setAttribute("bbsList2", bd1.noticelist());
 		}catch (Exception e) {
 			System.out.println("MainAction error : " + e.getMessage());
 		}

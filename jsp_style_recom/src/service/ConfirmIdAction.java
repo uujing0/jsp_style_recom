@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.IK_MemberDao;
 import dao.Member;
 import dao.MemberDao;
 
@@ -20,7 +21,7 @@ public class ConfirmIdAction implements CommandProcess {
 			String mem_id = request.getParameter("mem_id");
 			
 			
-			MemberDao md = MemberDao.getInstance();
+			IK_MemberDao md = IK_MemberDao.getInstance();
             
 			int result = md.confirm(mem_id);
 	System.out.println("result------->"+result);		

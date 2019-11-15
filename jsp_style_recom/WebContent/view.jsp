@@ -41,8 +41,32 @@
 	 				location.reload();
 				}
 			});
+
+			
 		});
 		
+		
+	
+	$('button[name="comment_update"]').click(function(){
+			var cm_id = $(this).attr("id");
+			var content2 = $("#content2").val();
+			//이건 별점 라디오 체크박스 입력받는 부분
+
+			
+			 $.ajax({
+			url: "commentupdate.do?content2="+content2+"&&cm_id="+cm_id,
+			type: "POST",
+			success : function(data){
+					location.reload();
+			}
+		}); 
+		
+		});
+			 
+	
+		 
+	
+	
 		$('button[name="comment_delete"]').click(function(){
 			var cm_id = $(this).attr("id");
 			$.ajax({
@@ -54,6 +78,7 @@
 			});
 		});
 	});
+	
 </script>
 
 <title>게시판!!</title>
@@ -149,9 +174,6 @@
 </style>
 <body>
 	
-	<!--  <img alt="그림 없음" src="Circle.png">
-	<img src="JJWORLD.png"> 
-	-->
 
 
 	<div clas="container">
@@ -175,20 +197,20 @@
 					<tr>
 						<td>작성자</td>
 						<td colspan="1">${board.mem_id}</td>
-						
-						<td>별점평균:<c:if test="${board.staravg==1}">★</c:if>
-									<c:if test="${board.staravg==2}">★★</c:if>
-									<c:if test="${board.staravg==3}">★★★</c:if>
-									<c:if test="${board.staravg==4}">★★★★</c:if>
-									<c:if test="${board.staravg==5}">★★★★★</c:if>
-									<c:if test="${board.staravg==6}">★★★★★★</c:if>
-									<c:if test="${board.staravg==7}">★★★★★★★</c:if>
-									<c:if test="${board.staravg==8}">★★★★★★★★</c:if>
-									<c:if test="${board.staravg==9}">★★★★★★★★★</c:if>
-									<c:if test="${board.staravg==10}">★★★★★★★★★</c:if>
-									
-									
-									</td>
+
+						<td>별점평균:<c:if test="${board.staravg==1}">★</c:if> <c:if
+								test="${board.staravg==2}">★★</c:if> <c:if
+								test="${board.staravg==3}">★★★</c:if> <c:if
+								test="${board.staravg==4}">★★★★</c:if> <c:if
+								test="${board.staravg==5}">★★★★★</c:if> <c:if
+								test="${board.staravg==6}">★★★★★★</c:if> <c:if
+								test="${board.staravg==7}">★★★★★★★</c:if> <c:if
+								test="${board.staravg==8}">★★★★★★★★</c:if> <c:if
+								test="${board.staravg==9}">★★★★★★★★★</c:if> <c:if
+								test="${board.staravg==10}">★★★★★★★★★</c:if>
+
+
+						</td>
 					</tr>
 
 					<tr>
@@ -217,14 +239,9 @@
 									type="radio" name="star" value="8"><i></i> <input
 									type="radio" name="star" value="9"><i></i> <input
 									type="radio" name="star" value="10"><i></i>
-							</span> <!-- <input type="radio" value="1" name="star" >★&nbsp;&nbsp;&nbsp;
-								<input type="radio" value="2" name="star" >★★&nbsp;&nbsp;&nbsp;
-								<input type="radio" value="3" name="star" >★★★&nbsp;&nbsp;&nbsp;
-								<input type="radio" value="4" name="star" >★★★★&nbsp;&nbsp;&nbsp;
-								<input type="radio" value="5" name="star" checked="checked">★★★★★ -->
-								<br>
-							<br>
-							<input type="text" id="content" name="content" />
+							</span> 
+								<br> <br> <input type="text" id="content"
+								name="content" />
 								<button id="write_comment" class="btn btn-warning btn-sm">댓글작성</button>
 							</td>
 							<td></td>
@@ -237,18 +254,21 @@
 					</tr>
 					<c:forEach var="comment" items="${comments}">
 						<tr>
-							<td style="text-align: left";>　　　　　<c:forEach begin="1" end="${comment.star}">
+							<td style="text-align: left";><c:forEach begin="1"
+									end="${comment.star}">
 								★
 								</c:forEach></td>
-							<td style="text-align: left";>${comment.cm_contents}<br><P><b>${comment.mem_id}</b> <br>
-								${comment.cm_date }
-							</td>
-							<td>
-								<c:if test="${mem_id == comment.mem_id}">
+							<td style="text-align: left";>${comment.cm_contents}<br>
+							<P>
+									<b>${comment.mem_id}</b> <br> ${comment.cm_date }</td>
+							<td><c:if test="${mem_id == comment.mem_id}">
+									<input type="text" id="content2"
+								name="content2" />
+									<button name="comment_update" id="${comment.cm_id }" class="btn btn-warning btn-sm">댓글수정</button>
 									<button name="comment_delete" id="${comment.cm_id}"
 										class="btn btn-warning btn-sm">댓글삭제</button>
-								</c:if>
-							</td>
+										
+								</c:if></td>
 
 						</tr>
 

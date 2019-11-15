@@ -9,39 +9,30 @@
 </head>
 <%@include file="header.jsp"%>
 <body>
+
 <div id="content">
-<div id="side_left">
+		<div id="side_left">
 			<div id="head">마이페이지</div>
-			<div id="page"><a href="calendar.do">달력</a></div>
+			<ul>
+			<li><a href="calendar.do?">달력</a></li>
 			
-			<div id="page"><a href="myInfo.do">내정보</a></div>
+			<li><a href="myInfo.do">개인정보수정</a></li>
 			
-			<div id="page"><a href="board.do">내가 쓴 게시물</a></div>
+			<li><a href="myboard.do">내가 쓴 게시물</a></li>
 			
-			<div id="page"><a href="bookmark.do">즐겨찾기</a></div>
+			<li><a href="weather.do?sido=1168066000">일주일 코디추천</a></li>
+			</ul>
 		</div>
 
 <div id="center">	
 
-<%@include file="calendarForm.jsp"%>
-
+<%@include file="calendarForm.jsp"%> 
 </div>
-	<div id="recent_style">
-			<div id="head">최근본옷</div><br>
-			<div id="style">스타일1</div><br><br><br>
-			<div id="style">스타일2</div><br><br><br>
-			<div id="style">스타일3</div><br><br><br>
-			<div id="style">스타일4</div><br><br><br>
-			<div id="style">스타일5</div><br><br><br>
-			<div id="style">스타일6</div><br><br><br>
-	
-			
-		</div>
+<%@include file="recentStyle.jsp" %>
 		<div id="bookmark"><p style="font-weight:bold;font-size:21px;">즐겨찾기</p>
-			<pre>스         타          일                                                                         코              디            </pre><br><br>
-			<pre>    사           진                                                                                사              진       </pre>
+			<%@include file="bookmarkForm.jsp" %>
 		</div>
-		</div>
+</div>
 </body>
 <%@include file="footer.jsp"%>
 </html>

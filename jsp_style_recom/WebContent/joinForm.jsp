@@ -20,12 +20,19 @@ li {
 }
 
 .a{ 
-     border-color:#FFBB00;
+     border-color:/* #FFBB00; */#CE6D39; 
      border-width:5px; 
      box-shadow:2px 2px 5px 2px gray;
 }
 
 ul{ margin:20px; }
+
+/* fieldset{
+     background-color:#CE6D39; 
+      } */
+ #bg1 {
+     background-image: url('C:\Users\user\Desktop\프로젝트 내용\옷사진.jpg')
+}      
 </style>
 <script type="text/javascript">
 	function chk() {
@@ -49,12 +56,12 @@ ul{ margin:20px; }
 
 
 </head>
-<body>
+<body >
 
 
 <form action="joinPro.do" name="frm" onsubmit="return chk()">
 	       
-<fieldset>
+<fieldset id="bg1">
 <legend><h1>회원 가입</h1></legend>
 
 	
@@ -102,8 +109,8 @@ ul{ margin:20px; }
 					required="required">남</label> <label><input type="radio"
 					name="mem_gender" value="2" required="required">여</label></li>
 
-			<li><input type="submit" value="확인"> <input type="reset"
-				value="취소"></li>
+			<li><input type="submit" value="확인"> 
+			    <input type="reset"	value="취소"></li>
 		</ul>
 	
 

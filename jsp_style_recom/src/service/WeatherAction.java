@@ -3,6 +3,9 @@ package service;
 import java.text.SimpleDateFormat;
 import org.w3c.dom.*;
 
+import dao.BookMark;
+import dao.JW_BookMarkDao;
+import dao.JW_StyleInfoDao;
 import dao.TH_TownDao;
 
 import javax.xml.parsers.*;
@@ -11,6 +14,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class WeatherAction implements CommandProcess {
 
@@ -178,11 +182,11 @@ public class WeatherAction implements CommandProcess {
 				else if (tmpWfKor.equals("눈"))
 					tmpImgWfKor = "images/ico07.png";
 
-				String rsWfRS = pub.get("r12");
+				String pop = pub.get("pop");
 				// System.out.println("rsWfRS->" + rsWfRS);
-				if (rsWfRS == null)
+				if (pop == null)
 					break;
-				Double Rs = Double.parseDouble(rsWfRS);// 받아온 강수량
+				Double Rs = Double.parseDouble(pop);// 받아온 강수량
 
 				String tmpWfTemp = pub.get("temp");
 				tmpWfTemp = tmpWfTemp.replace('"', ' ');
@@ -419,6 +423,25 @@ public class WeatherAction implements CommandProcess {
 				}
 
 			}
+			HttpSession session = request.getSession();
+			String mem_id = (String)session.getAttribute("mem_id");
+			JW_BookMarkDao bd = JW_BookMarkDao.getInstance();
+			ArrayList<Integer> stl_id=bd.select(mem_id);
+			request.setAttribute("mem_id", mem_id);
+			JW_StyleInfoDao sl = JW_StyleInfoDao.getInstance();
+			
+			Map<String, String> Bmap = new HashMap<String, String>();
+			int count = 0;
+			for(int a : stl_id) {
+				String stl_pic_url=sl.pic_url(a);
+				Bmap.put(""+a, stl_pic_url);
+				count++;
+				if(count>4)
+					break;
+				/*System.out.println("--------------------------------------------------------map실험->"+Bmap);*/
+			}
+			request.setAttribute("count", count);
+			request.setAttribute("BookMap", Bmap);
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd E요일");
 			day1 = sdf.format(c1.getTime());
 			day2 = sdf.format(c2.getTime());

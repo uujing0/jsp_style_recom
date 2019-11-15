@@ -13,7 +13,6 @@
     margin-left: 100px;
     margin-top: 550px;
     }
-
     h2{
     text-align: left;
     }

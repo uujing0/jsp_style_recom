@@ -58,6 +58,46 @@ table.categoryTable th {
 #test1{
 background-color: red;}
 </style>
+
+<script type="text/javascript">
+function setCookie(cookieName, value) {
+	var i = 0;
+	pushCookie = cookieName +":"+ value
+	cookieData = document.cookie.split('stl_id=')
+
+	for(var list in cookieData){//중복 데이터 금지
+		if(cookieData[list]==pushCookie){
+			return;
+		}
+		i++;
+	}
+	if(i==6){
+		document.cookie=document.cookie.replace(cookieData[1]+"stl_id=","")
+		i--
+	}
+	
+	document.cookie += "stl_id=" + cookieName +":"+ value
+
+}
+	
+function getCookie(cookieName) {
+    cookieName = cookieName + '=';
+    var cookieData = document.cookie;
+    var start = cookieData.indexOf(cookieName);
+    var cookieValue = '';
+    if(start != -1){
+        start += cookieName.length;
+        var end = cookieData.indexOf(';', start);
+        if(end == -1)end = cookieData.length;
+        cookieValue = cookieData.substring(start, end);
+    }
+    return unescape(cookieValue);
+}
+function checkCookie() {
+
+}
+
+</script>	
 </head>
 <%@ include file="header.jsp"%>
 <body>
@@ -73,12 +113,11 @@ background-color: red;}
 						지역설정 : 
 						<select class="weatherLocation">
 							<option value="0">선택해주세요</option>
-							
 							<c:forEach var="i" items="${locMap}">
-								<c:if test="${locCode == i.value }">
+								<c:if test="${lc == i.value }">
 									<option value="${i.value}" selected="selected">${i.key}</option>
 								</c:if>
-								<c:if test="${locCode != i.value }">
+								<c:if test="${lc != i.value }">
 									<option value="${i.value}">${i.key}</option>
 								</c:if>
 							</c:forEach>
@@ -163,7 +202,7 @@ background-color: red;}
 	        </c:if>
 		</c:if>
 	</div>
-	
+
 	<c:if test="${tagType == 4 }">
 		<div class="test1">
 		    오늘의 날씨는 '${tmpWfKor }'이고<br>
@@ -175,7 +214,7 @@ background-color: red;}
 			<%@ include file="styleDetailContent.jsp" %>
 		</div>
 	</c:if>
-
+	
 <script type="text/javascript">
 
 // 문서 시작시 적용
@@ -196,7 +235,6 @@ $(function() {
 })
 
 </script>
-
 
 
 </body>

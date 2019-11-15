@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.IK_MemberDao;
 import dao.Member;
 import dao.MemberDao;
 
@@ -25,7 +26,7 @@ try {
 			System.out.println("mem_pw--------->"+mem_pw);
 			
 
-			MemberDao md = MemberDao.getInstance();
+			IK_MemberDao md = IK_MemberDao.getInstance();
 
 			int result = md.delete(mem_id , mem_pw);
 			System.out.println("result----------->"+result);

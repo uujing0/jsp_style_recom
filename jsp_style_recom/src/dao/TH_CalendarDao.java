@@ -30,7 +30,7 @@ public class TH_CalendarDao {
 		
 		return conn;
 	}
-	public Calendar select(String mem_id,int cal_id) throws SQLException {
+	public Calendar select(String mem_id,String cal_id) throws SQLException {
 		Connection conn = null;	PreparedStatement pstmt= null; ResultSet rs = null;
 		
 		String sql = "select * from calendar where mem_id=? and cal_id=?";
@@ -39,7 +39,7 @@ public class TH_CalendarDao {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mem_id);
-			pstmt.setInt(2, cal_id);
+			pstmt.setString(2, cal_id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				
@@ -49,6 +49,7 @@ public class TH_CalendarDao {
 				cal.setCal_date(rs.getDate("cal_date"));
 				cal.setCal_contents(rs.getString("cal_contents"));
 				cal.setCal_title(rs.getString("cal_title"));
+
 			}
 		} catch(Exception e) {	System.out.println("dao error"+e.getMessage()); 
 		} finally {
@@ -61,16 +62,17 @@ public class TH_CalendarDao {
 	public int update(Calendar cal) throws SQLException {
 		Connection conn = null;	PreparedStatement pstmt= null; 
 		int result = 0;			
-		String sql="update calendar set mem_id=? , tc_id=? , cal_date=sysdate , cal_contents=? , cal_title=? where cal_id=?";
+		String sql="update calendar set tc_id=? , cal_date=sysdate , cal_contents=? , cal_title=? where cal_id=? and mem_id=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 	
-			pstmt.setString(1, cal.getMem_id());
-			pstmt.setInt(2, cal.getTc_id());
-			pstmt.setString(3, cal.getCal_contents());
-			pstmt.setString(4, cal.getCal_title());
-			pstmt.setInt(5, cal.getCal_id());
+			
+			pstmt.setInt(1, cal.getTc_id());
+			pstmt.setString(2, cal.getCal_contents());
+			pstmt.setString(3, cal.getCal_title());
+			pstmt.setString(4, cal.getCal_id());
+			pstmt.setString(5, cal.getMem_id());
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {	System.out.println("update error->"+e.getMessage()); 
 		} finally {
@@ -86,11 +88,12 @@ public class TH_CalendarDao {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, cal.getCal_id());
+			pstmt.setString(1, cal.getCal_id());
 			pstmt.setString(2, cal.getMem_id());
 			pstmt.setInt(3, cal.getTc_id());
 			pstmt.setString(4, cal.getCal_contents());
 			pstmt.setString(5, cal.getCal_title());
+
 			
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {	System.out.println("insert error->"+e.getMessage()); 
