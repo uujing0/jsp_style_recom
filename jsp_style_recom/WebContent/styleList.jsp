@@ -55,11 +55,13 @@ table.categoryTable th {
 	-ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */  */
 }
 
+#test1{
+background-color: red;}
 </style>
 </head>
 <%@ include file="header.jsp"%>
 <body>
-	<h2>테마 별 스타일 추천</h2>
+	<h1>테마 별 스타일 추천</h1>
 	<hr>
 
 	<div class="content">
@@ -164,6 +166,12 @@ table.categoryTable th {
 	
 	<c:if test="${tagType == 4 }">
 		<div class="test1">
+		    오늘의 날씨는 '${tmpWfKor }'이고<br>
+		    현재 기온은  ${tmp }도, 강수확률은 ${rs }퍼센트(%)입니다.<br>
+		  
+			<img alt="${tmpImgWfKor }" src="./${tmpImgWfKor }">
+		
+		
 			<%@ include file="styleDetailContent.jsp" %>
 		</div>
 	</c:if>

@@ -9,11 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>추천 스타일 상세</title>
 <style type="text/css">
-#buttons {
-	margin-left: 700px;
-	margin-top: 50px;
-	color:pink;
-}
+
 
 h2 {
 	text-align: center;
@@ -120,20 +116,19 @@ h2 {
 </script>
 </head>
 <body>
-	<h1>오늘의 추천 스타일${testTagType}</h1>
-	<hr>
+	
 	<div>
 		<img src="./images/hanger.png" height="40px" width="60px">
 		<h3>${std_desc}</h3>
 	</div>
-<!-- 	<input type="text" id="url" class="urlDisp"  name="url" size="14" value="11"  />
- -->
+	
 	<div id="buttons" class="buttons">
 	
 			<table>
 			<tr>
 				<td onclick="urlCopy()">
-				<form><input type="button" id="urlCopy"  value="url복사"></form>
+				<form><input type="button" id="urlCopy" value="url복사" 
+				    style="box-sizing: border-box; font-size: 20px; color: orange;"></form>
 				</td>
 				
 				<td><c:if test="${status == 0 }">

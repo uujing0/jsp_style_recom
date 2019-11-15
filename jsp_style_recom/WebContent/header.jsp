@@ -73,11 +73,11 @@
 /* header style start */
 header{
 	border: 1px solid;
-	background-color: #CE6D39;
+	background-color: #d34747;
 	border: none;
-	border-top: 35px solid #F17F42;
+	border-top: 35px solid #d34747;
 	border-bottom: 10px solid;
-	border-bottom-color: black;
+	border-bottom-color: #d34747;
 	height: 60px; 
 }
   
