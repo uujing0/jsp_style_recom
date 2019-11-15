@@ -11,30 +11,56 @@
 <script type="text/javascript" src="./js/jquery.js"></script>
 
 <style type="text/css">
+
+
 .content {
-	margin: 40px 200px 40px 200px;
+	margin: 100px 200px 100px 200px;
 	width: 700px;
 }
 
 table.categoryTable {
-	border-right:none;
+	border: 1px solid #adb5bd;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 table.categoryTable th {
-	width: 100px;
-	padding: 10px;
+	font-size: 12px;
+	color: #343A40; /*font color*/
+	width: 70px;
+	padding: 10px 0px 10px 30px;
+	text-align: left;
+	background-color: #F1F3F5;
+	border-right: none;
+}
+
+table.categoryTable td {
+	font-size: 12px;
+	padding: 0px 0px 0px 30px;
+	background-color: white;
+}
+
+select {
+	font-size: 12px;
 }
 
 #tagButton {
+	font-size: 12px;
 	background-color: white;
-	color: black;
+	color: #495057;
 	border: none;
+	background-color: white;
+	padding: 3px;
+	margin: 0px 10px 0px 0px;
 }
 
 #actTagButton {
-	background-color: yellow;
-	color: black;
+	font-size: 12px;
+	background-color: #e45151;
+	color: white;
 	border: none;
+	padding: 3px;
+	margin: 0px 10px 0px 0px;
 }
 
 .styleTable tr td {
@@ -99,18 +125,14 @@ function checkCookie() {
 </head>
 <%@ include file="header.jsp"%>
 <body>
-	<h2>테마 별 스타일 추천</h2>
-	<hr>
-
 	<div class="content">
 		<table class="categoryTable" border="1">
 			<tr>
 				<th>날씨</th>
 				<td colspan="4">
 					<form>
-						지역설정 : 
-						<select class="weatherLocation">
-							<option value="0">선택해주세요</option>
+						<select class="weatherLocation">	
+							<option value="0"> 지역을 선택해주세요</option>
 							<c:forEach var="i" items="${locMap}">
 								<c:if test="${lc == i.value }">
 									<option value="${i.value}" selected="selected">${i.key}</option>
@@ -120,6 +142,8 @@ function checkCookie() {
 								</c:if>
 							</c:forEach>
 						</select>
+						
+						<span>&nbsp;&nbsp;&nbsp;지역 날씨에 따라 스타일을 추천해드립니다^-^ </span>
 					</form>
 				</td>
 			</tr>
