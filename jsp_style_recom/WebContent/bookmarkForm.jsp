@@ -29,9 +29,9 @@ img {
 			</c:forEach>
 			<c:if test="${count > 4 }">
 			<td>
-				<a href="">
+				<a href="/jsp_style_recom/bookMarkMore.do?onoff=1">
 							<img src="./images/more.png" style="width:50px;height:50px">
-						</a>
+				</a>
 			</td>
 			</c:if>
 		</tr>

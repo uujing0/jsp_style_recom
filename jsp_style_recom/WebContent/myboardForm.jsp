@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style type="text/css">
  #board{
- 			top:90px;
+ 			top:px;
            	margin-left: 8%;
            	height: 450px;
         } 
@@ -20,7 +20,7 @@
 
 <body>
 <div id="board">
-        <table style="font:bold;" id="bList" width="1200" border="3" bordercolor="lightgray" >
+        <table style="font:bold; margin-top:20px;" id="bList" width="1200" border="3" bordercolor="lightgray" >
             <tr heigh="30">
                 <td width="50">글번호</td>
                 <td width="550">제목</td>

@@ -26,7 +26,7 @@
 			
 			<li><a href="myboard.do">내가 쓴 게시물</a></li>
 			
-			<li><a href="weather.do?sido=1168066000">일주일 코디추천</a></li>
+			<li><a href="weather.do?sido=1168066000" style="background-color: #ccc">일주일 코디추천</a></li>
 			</ul>
 		</div>
 
