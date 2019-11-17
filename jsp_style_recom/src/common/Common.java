@@ -178,7 +178,7 @@ public class Common {
 
 			String tmpWfDay = pub.get("day");
 			String tmpWfHour = pub.get("hour");
-			String rsWfRS = pub.get("r12");
+			String rsWfRS = pub.get("pop");
 			// System.out.println("rsWfRS->" + rsWfRS);
 			if (rsWfRS == null)
 				break;
@@ -300,6 +300,7 @@ public class Common {
 		map.put("Rs", Rs);
 		map.put("tmpImgWfKor",tmpImgWfKor);
 		map.put("tmpWfKor", tmpWfKor);
+		System.out.println("-----------map->"+map);
 		return map;
 	}
 	public int getWeatherAccId(int level, double rs){

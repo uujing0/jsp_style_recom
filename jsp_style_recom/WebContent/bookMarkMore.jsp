@@ -7,23 +7,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
 </head>
-<%@ include file="header.jsp"%>
+
 
 <body>
 
-<h1>즐겨찾기 전체목록</h1>
+<h1><em>${mem_id }</em>님의 즐겨찾기 목록</h1>
 <br>
-<div>
-
 <c:forEach var ="i" begin="0" end="${fn:length(stylePicture)-1 }">
 <a href="styleDetail.do?stl_id=${bookmark[i] }&onoff=1">
 <img alt="${stylePicture[i] }" src="./images/category_images/${stylePicture[i] }" width="300px" height="300px">
 </a>
 </c:forEach>
-</div>
+
 </body>
-<%@ include file="footer.jsp"%>
+
 
 </html>

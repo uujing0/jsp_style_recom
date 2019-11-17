@@ -103,6 +103,7 @@ h2 {
 	//url복사
 	
 	function urlCopy(){
+		alert("클립보드로 url이 복사되었습니다. 공유를 원하는 곳에 붙여넣어주세요.");
         var tempElem = document.createElement('textarea');
         tempElem.value = location.href; 
         document.body.appendChild(tempElem);
@@ -111,7 +112,17 @@ h2 {
         document.execCommand("copy");
         document.body.removeChild(tempElem);
    };
-   
+   function notJoin(){
+	   alert("로그인이 필요합니다.");
+       window.open('loginForm.jsp','로그인','width=500,height=400,left=700,top=200,status=no,scrollbars=no')
+
+   }
+   function bookmarkInsert(){
+	   alert("즐겨찾기에 등록되었습니다.");
+   }
+   function bookmarkDelete(){
+	   alert("즐겨찾기 해제되었습니다.");
+   }
 
 </script>
 </head>
@@ -131,20 +142,36 @@ h2 {
 				    style="box-sizing: border-box; font-size: 20px; color: orange;"></form>
 				</td>
 				
-				<td><c:if test="${status == 0 }">
-					<form
-						action="styleDetail.do?stl_id=${stl_id }&mem_id=${mem_id}&onoff=1"
-						method="post">
-						<input type="submit" id = "bm1" value="즐겨찾기 등록">
+				<td>
+				
+				
+				<c:if test="${mem_id == null }">
+					<form action="styleDetail.do?stl_id=${stl_id }&mem_id=${mem_id}&onoff=0" onclick="notJoin()">
+					    <input type="submit" id = "bm1" value="즐겨찾기 등록">
+					    <a href="/jsp_style_recom/loginForm.jsp"></a>
+					
 					</form>
+						
 				</c:if>
-				<c:if test="${status == 1 }">
-					<form
-						action="styleDetail.do?stl_id=${stl_id }&mem_id=${mem_id}&onoff=2"
-						method="post">
-						<input type="submit" id = "bm2" value="즐겨찾기 해제">
-					</form>
+				
+				<c:if test="${mem_id != null }">
+				
+					<c:if test="${status == 0 }">
+						<form
+							action="styleDetail.do?stl_id=${stl_id }&mem_id=${mem_id}&onoff=1"
+							method="post" onclick="bookmarkInsert()">
+							<input type="submit" id = "bm1" value="즐겨찾기 등록">
+						</form>
+					</c:if>
+					<c:if test="${status == 1 }">
+						<form
+							action="styleDetail.do?stl_id=${stl_id }&mem_id=${mem_id}&onoff=2"
+							method="post" onclick="bookmarkDelete()">
+							<input type="submit" id = "bm2" value="즐겨찾기 해제">
+						</form>
+					</c:if>
 				</c:if>
+				
 				</td>
 			</tr>
 		</table>

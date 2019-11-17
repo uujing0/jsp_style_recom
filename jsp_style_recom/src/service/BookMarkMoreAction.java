@@ -42,6 +42,7 @@ public class BookMarkMoreAction implements CommandProcess {
 			request.setAttribute("bookmark", bookmark);
 			request.setAttribute("stylePicture", stylePicture);
 
+			request.setAttribute("mem_id", mem_id);
 			
 			
 			System.out.println("BookMarkMoreAction End");
@@ -49,7 +50,7 @@ public class BookMarkMoreAction implements CommandProcess {
 			System.out.println("BookMarkMore Error: "+e.getMessage());
 		}
 		
-		return "bookMarkMore.jsp";
+		return "bookmark.jsp";
 	}
 
 }

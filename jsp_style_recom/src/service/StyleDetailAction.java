@@ -79,27 +79,41 @@ public class StyleDetailAction implements CommandProcess {
 			// outer
 			
 			if (al.get(1) != null) {
+				System.out.println("겉옷 들어오니?");
+
 				p_cc1 = cpmDao.styleIdFind(Integer.parseInt(al.get(1)), gender);
 				for (int i = 0; i < p_cc1.size(); i++) {
 					p_cc1_id.add(p_cc1.get(i));
 					p_cc1.set(i, pDao.productFind(p_cc1.get(i)));
+					System.out.println("p_cc1->"+p_cc1.get(i));
+
 				}
 			}
 
 			
 			if (al.get(2) != null) {
+				
+				System.out.println("상의 들어오니?");
+
 				p_cc2 = cpmDao.styleIdFind(Integer.parseInt(al.get(2)), gender);
 				for (int i = 0; i < p_cc2.size(); i++) {
 					p_cc2_id.add(p_cc2.get(i));
 					p_cc2.set(i, pDao.productFind(p_cc2.get(i)));
+					System.out.println("p_cc2->"+p_cc2.get(i));
+
 				}
 			}
 
+			System.out.println("al.get(3)->"+al.get(3));
 			if (al.get(3) != null) {
+				System.out.println("하의 들어오니?");
+
 				p_cc3 = cpmDao.styleIdFind(Integer.parseInt(al.get(3)), gender);
 				for (int i = 0; i < p_cc3.size(); i++) {
 					p_cc3_id.add(p_cc3.get(i));
+					System.out.println("p_cc3_id->"+p_cc3_id.get(i));
 					p_cc3.set(i, pDao.productFind(p_cc3.get(i)));
+					System.out.println("p_cc3->"+p_cc3.get(i));
 				}
 			}
 
