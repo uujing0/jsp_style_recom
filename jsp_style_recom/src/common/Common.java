@@ -10,11 +10,15 @@ import org.w3c.dom.NodeList;
 import java.text.SimpleDateFormat;
 import org.w3c.dom.*;
 
+import dao.JW_StyleInfoDao;
+import dao.StyleInfo;
 import dao.TH_TownDao;
 
 import javax.xml.parsers.*;
 import java.util.*;
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -280,6 +284,7 @@ public class Common {
 		map.put("Rs", Rs);
 		return map;
 	}
+	
 	public int getWeatherAccId(int level, double rs){
 		int cc4 = 0;
 		if(rs>=60) {
@@ -298,5 +303,23 @@ public class Common {
 			}
 		}
 		return cc4 ;
+	}
+	
+	public int getWeatherStyleIdByLocation(String strLocCode, int gender) throws SQLException {
+		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
+		
+		Map<String, String> map = Common.getInstance().getWeatherTmp(strLocCode);
+		
+		double tmp = Double.parseDouble(map.get("Temp"));
+		double rs = Double.parseDouble(map.get("Rs"));
+		int level = Common.getInstance().weatherLevelByTmp(tmp);
+		int tagId = Common.getInstance().tagIdByWeatherLevel(level);
+		
+		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(tagId, gender);
+	
+		int randomIndex = (int)(Math.random()*styleInfos.size());
+		int stl_id = styleInfos.get(randomIndex).getStl_id();
+		
+		return stl_id;
 	}
 }
