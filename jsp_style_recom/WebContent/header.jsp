@@ -54,9 +54,16 @@
 
 <script type="text/javascript">
 	//문서 시작시 적용
-	//$(function(){
-		//var thisPage = window.location.href.split('jsp_style_recom/')[1]
-	//})
+	$(function(){
+		var thisPage = window.location.href.split('jsp_style_recom/')[1];
+		/* if(thisPage.split('?')[0] == "genderSelector"){
+			alert(thisPage.split('?')[0]);
+		}
+			 */
+		if(thisPage == "logout.do"){
+			history.pushState(null,null,"main.do");
+		}
+	})
 	
 	function logoutConfirm(){
 		if(confirm("정말 로그아웃 하시겠습니까?") == true){
@@ -75,21 +82,16 @@
 
 <style type="text/css">
 /* theme color list
-	#FFEEE4
-	#F17F42
-	#CE6D39
-	black
+	#E45151	
+	#F9F7F6 background
+	#373B43
+	#F3F1F0
  */
 
 /* header style start */
 header{
-	border: 1px solid;
-	background-color: #d34747;
-	border: none;
-	border-top: 35px solid #d34747;
-	border-bottom: 10px solid;
-	border-bottom-color: #d34747;
-	height: 60px; 
+	background-color : #F9F7F6;
+	margin-top: 35px;
 }
   
 header a:link{color: #FFEEE4; text-decoration: none;}
@@ -98,9 +100,8 @@ header a:hover{text-decoration: none;}
 header a:active{color: black; text-decoration: none;}
 
 #header_root{
-	margin-left: 10%;
-	margin-right: 10%;
-	height: 100%;
+	margin-left: 0%;
+	margin-right: 0%;
 }
 
 #logo_title{
@@ -109,14 +110,18 @@ header a:active{color: black; text-decoration: none;}
 	padding-right: 15px;
 	 
 }
+#header_logo{
+	text-align: center;
+}
 
 /* icon */
 #dog_icon{
-	border-radius: 15px;
+	/* border-radius: 15px;
 	margin-top: 10px;
-	margin-left: 10px;
-	height: 50px;
-	width: 50px;
+	margin-left: 10px; */
+	height: 300px;
+	width: 300px;
+	text-align: center;
 }
 #sun_icon{
 	border-radius: 5px;
@@ -134,9 +139,10 @@ header a:active{color: black; text-decoration: none;}
 	float: left;
 }
 #header_center{
-	margin-top: -13px; 
-	float: left;
-	text-align: center; 	
+	margin-top: 0px; 
+	/* float: left; */
+	/* text-align: center; */
+	background-color: #E55151;
 }
 #header_right{
 	float: right;
@@ -146,91 +152,115 @@ header a:active{color: black; text-decoration: none;}
 #weather_today{
 	padding-top: 5px;
 	float:right;
-	color: white
+	color: gray;
 }
 
 /* member_space */
 #member_space{
-	padding-top: 5px;
+	/* padding-top: 5px; */
 	float:right;
 }
 
 .top_left_button{
-	background-color: #F17F42;
 	color: black;
+	background-color : #F9F7F6;
 	border : none;
 	font-size: 15px;
-	border-bottom: solid 2px black;
 	cursor: pointer;
 }
  
 .top_right_button{
-	background-color: #F17F42;
 	color: black;
+	background-color : #F9F7F6;
 	border : none;
 	font-size: 15px;
-	border-bottom: solid 2px black;
 	cursor: pointer;
 }
 
 /* menu_bar */
 #menu_bar{
-	padding-top : 18px; 
-	padding-right : 10px;
+	/* padding-top : 18px; 
+	padding-right : 10px; */
 	display: inline-block;
 	cursor: pointer;
 	color: white;
 }
 .menu_bar_table{
 	text-align: center;
+	background-color: #E55151;
 }
 .menu_bar_table td{
-	padding: 5px 25px 5px 25px;
+	padding: 25px;
 	font-size: 20px;
-	background-color: #F17F42;
-	box-shadow: 2px 3px #5d5d5d;	
+/* 	background-color: #E45151;
+ */	/* box-shadow: 2px 3px #5d5d5d; */
+}
+.menu_bar_table td:hover{
+	border-bottom: 2px solid white;
+}
+.menu_bar_table td:first-child{
+	padding: 25px 5px 25px 5px;
+	background-color: #D34747;
+	font-size: 30px;
 }
 
 /* search_bar */
 #search_bar{
-	padding: 10px;
-	display: inline-block; 
+	padding: 0px;
+	display: inline-block;
+	float: right;
+	border-bottom: 14px solid #D34747;
 	
 }
 
 #search_target{
-	margin-right: -4px;
+	/* margin-right: -4px; */
 	border: none;
-	background-color: #F17F42;
-	font-size: 15px;
+/* 	background-color: #D34747;
+ */	font-size: 15px;
 }
-
+#search_input{
+	border-bottom: 2px solid white;
+}
 #search_word{
 	width: 300px;
 	border: none;
-	border-bottom: 5px solid black;
-	background-color: #CE6D39;
+	background-color: #E45151;
+	color : white;
 	font-size: 15px;
+}
+#search_word::placeholder{
+	color: #D34747;
+	font-weight: bold;
 }
 
 #search_button{
 	height: 30px;
 	width: 40px;
 }
+#search_radio{
+	float: right;
+	color: white;
+}
+/* #search_radio  */
+input[type="radio"]{
+	background-color: black;
+}
 
 #search_button:hover{
-	border-radius: 5px;
+	/* border-radius: 5px;
 	background-color: #F17F42;
-	border: none;
+	border: none; */
 }
 
 /* gender_selector */
 #gender_selector{
-	padding-top: 3px;
-	margin-top: 2px;
 	display: inline-block;
-	color: white;
+	color: #666666;
 	cursor: pointer;
+}
+#gender_selector td{
+	padding: 10px 25px 10px 25px;
 }
 
 /* header style end */
@@ -239,50 +269,42 @@ header a:active{color: black; text-decoration: none;}
 <header>
 
 <div id="header_root">
-	<div id="header_top">
-		<div id="member_space">
-			<c:if test="${empty sessionScope.mem_id }">
-				<button id="top_login_button" class="top_left_button" onclick="login()">Login</button>
-				<button id="top_signup_button" class="top_right_button" onclick="location.href='joinForm.do'">Sign_up</button>
-			</c:if>
-			<c:if test="${not empty sessionScope.mem_id }">
-				<button id="top_logout_button" class="top_left_button" onclick="logoutConfirm()">Logout</button>
-				<button id="top_my_page_button" class="top_right_button" onclick="location.href='weather.do?sido=${locCode }'" >MY Corgi</button>
-			</c:if>
-		</div>
+	<div id="member_space">
+		<c:if test="${empty sessionScope.mem_id }">
+			<button id="top_login_button" class="top_left_button" onclick="login()">로그인</button>
+			<button id="top_signup_button" class="top_right_button" onclick="location.href='joinForm.do'">회원가입</button>
+		</c:if>
+		<c:if test="${not empty sessionScope.mem_id }">
+			<span>${sessionScope.mem_id }님 환영합니다!</span>
+			<button id="top_logout_button" class="top_left_button" onclick="logoutConfirm()">로그아웃</button>
+			<button id="top_my_page_button" class="top_right_button" onclick="location.href='weather.do?sido=${locCode }'" >마이코기</button>
+		</c:if>
 	</div>
-	<div id="header_left">
+	<div id="header_top">
 		<div id="header_logo">
 			<a href="main.do">
 				<img alt="dog_icon" src="images/dog_icon.png" id="dog_icon">
-				<span id="logo_title">웰시코디</span>
 			</a>
 		</div>
+		<div id="weather_today">
+			<%-- <span id="weather_loc"><c:out value="${sessionScope.loc }"></c:out> </span> --%>
+			<span id="weather_cloud">날씨 <x:out select="$wf"/></span>
+			<span id="weather_tem"><x:out select="$temp"/>도</span>
+			<%-- <span id="weather_rain">강수확률:<x:out select="$rp"/>%</span> --%>
+			<!-- <img alt="sun_icon" src="images/sun_icon.png" id="sun_icon" height="50px" width="50px"> --> 
+		</div>
+	</div>
+	<div id="header_left">
 	</div>
 	
 	<div id="header_right">
-		<div id="gender_selector">
-			<table class="menu_bar_table">
-				<tr>
-					<td id="male_selector" onclick="location.href='genderSelector.do?select=1'">남</td>
-					<td id="female_selector" onclick="location.href='genderSelector.do?select=2'">여</td>
-				</tr>
-			</table>
-		</div>
-		<div id="weather_today">
-			<span id="weather_loc"><c:out value="${sessionScope.loc }"></c:out> </span>
-			<span id="weather_cloud"><x:out select="$wf"/></span><br>
-			<span id="weather_tem">온도:<x:out select="$temp"/></span>
-			<span id="weather_rain">강수확률:<x:out select="$rp"/>%</span>
-			<!-- <img alt="sun_icon" src="images/sun_icon.png" id="sun_icon" height="50px" width="50px"> --> 
-		</div>
-		<br>
 	</div>
 	
 	<div id="header_center">
 		<div id="menu_bar">
 			<table class="menu_bar_table">
 				<tr>
+					<td onclick="location.href='main.do'">WELL-SEE COORDI</td>
 					<td onclick="location.href='styleList.do?tagId=1&tagType=1'">스타일 추천</td>
 					<td onclick="location.href='bbs.do'">게시판</td>
 					<td onclick="location.href='weather.do?sido=${locCode }'">마이코기</td>
@@ -291,13 +313,36 @@ header a:active{color: black; text-decoration: none;}
 		</div>
 		<div id="search_bar">
 			<form action="search.do" method="get">
-				<select id="search_target" name="search_target">
+				<div id="search_input">
+					<input type="text" id="search_word" name="search_word" class= "search_word" value='' placeholder="SEARCH" autocomplete="off">
+					<input type="image" alt="검색" id="search_button" src="images/search_button.png">
+				</div>
+				<br>
+				<div id="search_radio">
+					<input type="radio" id="search_style" name="search_target" value="0" checked><label for="search_style">스타일</label>
+					<input type="radio" id="search_board" name="search_target" value="1"><label for="search_board">게시판</label>
+				</div>
+				<!-- <select id="search_target" name="search_target">
 					<option value="0" selected="selected">스타일</option>
 					<option value="1">게시판</option>
-				</select>
-				<input type="text" id="search_word" name="search_word" class= "search_word" value='' autocomplete="off">
-				<input type="image" alt="검색" id="search_button" src="images/search_button.png">
+				</select> -->
 			</form>
+		</div>
+	</div>
+	<div id="header_bottom">
+		<div id="gender_selector">
+			<table>
+				<tr>
+					<c:if test="${sessionScope.gender == 1 }">
+						<td id="male_selector" onclick="location.href='genderSelector.do?select=1&thisPage='+window.location.href.split('jsp_style_recom/')[1]" style="background-color: #E0DCDC">남자</td>
+						<td id="female_selector" onclick="location.href='genderSelector.do?select=2&thisPage='+window.location.href.split('jsp_style_recom/')[1]">여자</td>
+					</c:if>
+					<c:if test="${sessionScope.gender == 2 }">
+						<td id="male_selector" onclick="location.href='genderSelector.do?select=1&thisPage='+window.location.href.split('jsp_style_recom/')[1]">남자</td>
+						<td id="female_selector" onclick="location.href='genderSelector.do?select=2&thisPage='+window.location.href.split('jsp_style_recom/')[1]" style="background-color: #E0DCDC">여자</td>
+					</c:if>
+				</tr>
+			</table>
 		</div>
 	</div>
 </div>
