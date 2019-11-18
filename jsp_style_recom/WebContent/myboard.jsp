@@ -24,7 +24,7 @@
 			<ul>
 			<li><a href="calendar.do?">달력</a></li>
 			
-			<li><a href="myInfo.do">개인정보수정</a></li>
+			<li><a href="memUpForm.do">개인정보수정</a></li>
 			
 			<li><a href="myboard.do" style="background-color: #ccc">내가 쓴 게시물</a></li>
 			
