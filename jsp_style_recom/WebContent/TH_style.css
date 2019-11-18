@@ -154,10 +154,16 @@ div#day_bottom img{
 	text-align: center; 
 }
 #head{
-	font-size:25px;
-	background-color: #CCFFFF;
-	text-align:center;
+	margin-left:-100px;
+	padding:10px;
+	text-decoration:none;
+	color:white;
 	font-weight:bold;
+	display:inline-block;
+	border-right:30px solid transparent;
+	border-bottom:30px solid #373b43;
+	height:0;
+	line-height: 50px;
 }
 #page{
 	text-align:center;

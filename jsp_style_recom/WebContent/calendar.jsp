@@ -12,7 +12,9 @@
 
 <div id="content">
 		<div id="side_left">
-			<div id="head">마이페이지</div>
+			<label id="head">
+				mypage
+			</label>
 			<ul>
 			<li ><a href="calendar.do?" style="background-color: #ccc">달력</a></li>
 			

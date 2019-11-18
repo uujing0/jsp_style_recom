@@ -15,10 +15,12 @@
 <%@include file="header.jsp"%>
 <link rel="stylesheet" type="text/css" href="TH_style.css" />
 <body>
-<%@include file="weatherForm.jsp"%><pre style="font-size:18px;font-weight:bold;top:20px;">${city }날씨</pre>	
+<%@include file="weatherForm.jsp"%><%-- <pre style="font-size:18px;font-weight:bold;top:20px;">${city }날씨</pre> --%>	
 	<div id="content">
 		<div id="side_left">
-			<div id="head">마이페이지</div>
+			<label id="head">
+				mypage
+			</label>
 			<ul id="side_left">
 			<li><a href="calendar.do">달력</a></li>
 			
