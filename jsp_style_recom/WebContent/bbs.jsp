@@ -34,7 +34,7 @@
 	//테이블이란 아이디를 가진 테이블에 페이징처리를 적용시키고 첫번째 열을 기준으로 정렬한다.
 	$(document).ready(function() {
 		table = $('#table').DataTable( {
-			"order": [[ 2, "desc" ]]
+			"order": [[ 3, "desc" ]]
 		} );
 		
 		$("#searchdate").parent().hide();

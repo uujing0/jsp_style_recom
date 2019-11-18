@@ -19,11 +19,7 @@
 </script>
 </head>
 <body>
-<<<<<<< HEAD
-	
-=======
 	<h2>New Item</h2>
 		<c:forEach items="${newProductList }" var="productVO"></c:forEach>
->>>>>>> branch 'WY' of https://github.com/uujing0/jsp_style_recom.git
 </body>
 </html>
