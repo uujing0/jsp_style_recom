@@ -7,7 +7,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품 상세 페이지</title>
+<script type="text/javascript">
+	function clickbtn(gubun){
 
+	var frameName =document.frames["iposition"];
+
+	if(gubun=='Y'){
+	    frameName.document.getElementById('main').style.visibility="hidden";  //div 감추기
+	}else{
+	   frameName.document.getElementById('main').style.visibility="visible";   //div 보여주기
+
+	}
+} 
+
+</script>
 <style type="text/css">
 #detailproduct {
 	margin-left: 100px;
@@ -37,7 +50,7 @@ h2 {
 	left: 500px;
 }
 
-prdimg {
+.prdimg {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -46,6 +59,19 @@ prdimg {
 	max-width: 100%;
 	height: auto;
 }
+
+#prdnametag { 
+	padding: 10px; 
+	text-decoration: none; 
+	color: white; 
+	font-weight: bold;
+	display: block; 
+	border-right: 30px solid transparent; 
+	border-bottom: 30px solid #4c4c4c; 
+	height: 0; 
+	line-height: 50px; 
+	}
+
 </style>
 </head>
 <%@include file="header.jsp"%>
@@ -60,30 +86,26 @@ prdimg {
 				<td>
 					<table border="0" id="prdinfo">
 						<tr>
-							<td><img
-								src="./images/product_images/${Product.prd_thumbnail }"
-								width="500" height="auto" id="prdimg"></td>
-
-						</tr>
-						<tr>
 							<td>
-								<table border="1">
+								<table id="prdnametag">
 									<tr align="center">
-										<td style="font-size: 20px; height: 100px; width: 100px">상품명</td>
-										<td style="height: 100px; width: 300px">${Product.prd_name }</td>
+										<td> 상품명 : </td>
+										<td> ${Product.prd_name }</td>
 									</tr>
-
 								</table>
 							</td>
 						</tr>
-
-
+						<tr>
+							<td><img
+								src="./images/product_images/${Product.prd_thumbnail }"
+								width="500" height="auto" id="prdimg"></td>
+						</tr>
 					</table>
 				</td>
 				<td>
 					<table id="detailproduct">
 						
-						<h4>관련상품목록</h4>
+						<td style="padding: 10px; text-decoration: none; color: white; font-weight: bold;display: block; border-right: 30px solid transparent; border-bottom: 30px solid #4c4c4c; height: 0; line-height: 50px;">관련상품목록</td>
 						<c:forEach var="i" begin="0" end="${fn:length(dp2)-1 }">
 							<tr>
 								<td>
@@ -103,7 +125,7 @@ prdimg {
 	</div>
 
 	<iframe id="iposition" src="prd_detail2.jsp?url=${Product.prd_url }"
-		width="1200" height="100%" scrolling="yes" frameborder="0"></iframe>
+		width="1200" height="100%" scrolling="yes" frameborder="0" ></iframe>
 
 </body>
 </html>

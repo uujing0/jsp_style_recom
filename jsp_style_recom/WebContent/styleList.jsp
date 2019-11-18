@@ -51,7 +51,7 @@ table.categoryTable th {
 .thumb img { 
 	display: block; /* Otherwise it keeps some space around baseline */ 
 	min-width: 100%; /* Scale up to fill container width */ 
-	min-height: 100%; /* Scale up to fill container height */ 
+	min-height: auto; /* Scale up to fill container height */ 
 	-ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */  */
 }
 
