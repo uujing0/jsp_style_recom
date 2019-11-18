@@ -8,94 +8,64 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>추천 스타일 상세</title>
+
 <style type="text/css">
 
+#styleDatailContent_styledesc{
+text-align: center;
+display: inlined-block;
+}
 
 h2 {
 	text-align: center;
 }
 
-#style_info {
+#styleDatailContent_styleInfo {
 	margin-left: 300px;
 }
 
-#cc_icon {
+#styleDatailContent_mainImage{
+
+}
+
+#styleDatailContent_ccicon {
 	margin-left: 100px;
 	display: inline-block;
 }
 
-#product_image {
-	margin-left: 280px;
-	width: 1500px;
-	height: 800px;
-}
-
-#pro1 {
-	margin-right: 10px;
-	float: left;
-	width: 400px;
-	height: 300px;
-	background-color: gray;
-}
-
-#pro2 {
-	margin-right: 10px;
-	float: left;
-	width: 400px;
-	height: 300px;
-	background-color: gray;
-}
-
-#pro3 {
-	margin-right: 10px;
-	float: left;
-	width: 400px;
-	height: 300px;
-	background-color: gray;
-}
-
-#pro4 {
-	margin-top: 30px;
-	margin-right: 10px;
-	float: left;
-	width: 400px;
-	height: 300px;
-	background-color: gray;
-}
-
-#pro5 {
-	margin-top: 30px;
-	margin-right: 10px;
-	float: left;
-	width: 400px;
-	height: 300px;
-	background-color: gray;
-}
-
-#item1 {
+#styleDatailContent_ccstyle{
 	margin-left: 40px;
 	padding: 20px;
 	display: inline-block;
 	justify-content: center;
 }
 
-#item2 {
-	margin-left: 40px;
-	padding: 20px;
-	display: inline-block;
-	justify-content: center;
+
+.styleDatailContent_btn {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #373b43 5%, #373b43 100%);
+	background-color:#373b43;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:8px 12px;
+	text-decoration:none;
+	border: none;
 }
-
-#item3 {
-	margin-left: 10px;
-	padding: 20px;
-	display: inline-block;
-	justify-content: center;
+.styleDatailContent_btn:hover {
+	background:linear-gradient(to bottom, #e45151 5%, #e45151 100%);
+	background-color:#e45151;
 }
-
- .urlDisp {
-}  
-
+.styleDatailContent_btn:active {
+	position:relative;
+	top:1px;
+}
+#styleDatailContent_ButtonDiv{
+margin-left: 640px;
+}
 
 </style>
 
@@ -131,18 +101,18 @@ h2 {
 </head>
 <body>
 	
-	<div>
+	<div id = "styleDatailContent_styledesc">
 		<img src="./images/hanger.png" height="40px" width="60px">
 		<h3>${std_desc}</h3>
 	</div>
 	
-	<div id="buttons" class="buttons">
+	
+	<div id = "styleDatailContent_ButtonDiv">
 	
 			<table>
 			<tr>
 				<td onclick="urlCopy()">
-				<form><input type="button" id="urlCopy" value="url복사" 
-				    style="box-sizing: border-box; font-size: 20px; color: orange;"></form>
+				<form><input class="styleDatailContent_btn" type="button" value="공유(url복사)" ></form>
 				</td>
 				
 				<td>
@@ -150,7 +120,7 @@ h2 {
 				
 				<c:if test="${mem_id == null }">
 					<form onclick="notJoin()">
-					    <input type="button" id = "bm" value="즐겨찾기 등록">
+					    <input type="button" class="styleDatailContent_btn" value="즐겨찾기 등록">
 					
 					</form>
 						
@@ -162,14 +132,14 @@ h2 {
 						<form
 							action="styleDetail.do?stl_id=${stl_id }&mem_id=${mem_id}&onoff=1"
 							method="post" onclick="bookmarkInsert()">
-							<input type="submit" id = "bm1" value="즐겨찾기 등록">
+							<input type="submit" class="styleDatailContent_btn" value="즐겨찾기 등록">
 						</form>
 					</c:if>
 					<c:if test="${status == 1 }">
 						<form
 							action="styleDetail.do?stl_id=${stl_id }&mem_id=${mem_id}&onoff=2"
 							method="post" onclick="bookmarkDelete()">
-							<input type="submit" id = "bm2" value="즐겨찾기 해제">
+							<input type="submit" class="styleDatailContent_btn" value="즐겨찾기 해제">
 						</form>
 					</c:if>
 				</c:if>
@@ -180,14 +150,14 @@ h2 {
 	</div>
 
 
-	<div id="style_info">
-		<span id="main_image"> <img
+	<div id="styleDatailContent_styleInfo">
+		<span id="styleDatailContent_mainImage"> <img
 			src="./images/category_images/${al[0] }" id="${al[0] }"
 			height="740px" width="580px">            
 		</span>
 
 
-		<div id="cc_icon">
+		<div id="styleDatailContent_ccicon">
 
 			<table>
 				<tr>
@@ -260,7 +230,7 @@ h2 {
 	<c:if test="${fn:length(p_cc1) != 0 }">
 		<p>겉옷</p>
 		<c:forEach var="i" begin="0" end="${fn:length(p_cc1)-1}">
-			<span class="item1"> <c:if test="${p_cc1[i] ==null }">
+			<span class="styleDatailContent_ccstyle"> <c:if test="${p_cc1[i] ==null }">
 				</c:if> <c:if test="${p_cc1[i] !=null }">
 					<a href="prddetail.do?prd_id=${p_cc1_id[i] }"> <img
 						alt="{p_cc1[i] }" src="./images/product_images/${p_cc1[i]}"
@@ -276,7 +246,7 @@ h2 {
 	<c:if test="${fn:length(p_cc2) != 0 }">
 		<p>상의</p>
 		<c:forEach var="i" begin="0" end="${fn:length(p_cc2)}">
-			<span class="item2"> <c:if test="${p_cc2[i] ==null }">
+			<span class="styleDatailContent_ccstyle"> <c:if test="${p_cc2[i] ==null }">
 				</c:if> <c:if test="${p_cc2[i] !=null }">
 					<a href="prddetail.do?prd_id=${p_cc2_id[i] }"> <img
 						alt="{p_cc2[i] }" src="./images/product_images/${p_cc2[i]}"
@@ -292,7 +262,7 @@ h2 {
 
 		<p>하의</p>
 		<c:forEach var="i" begin="0" end="${fn:length(p_cc3)}">
-			<span class="item3"> <c:if test="${p_cc3[i] ==null }">
+			<span class="styleDatailContent_ccstyle"> <c:if test="${p_cc3[i] ==null }">
 				</c:if> <c:if test="${p_cc3[i] !=null }">
 					<a href="prddetail.do?prd_id=${p_cc3_id[i] }"> <img
 						alt="{p_cc3[i] }" src="./images/product_images/${p_cc3[i]}"
