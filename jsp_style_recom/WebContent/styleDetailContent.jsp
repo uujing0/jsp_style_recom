@@ -11,7 +11,6 @@
 
 <style type="text/css">
 
-
 #styleDetailContent_styledesc{
 font-size: 25px;
 display: inline-block;
