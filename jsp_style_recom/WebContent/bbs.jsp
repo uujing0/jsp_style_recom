@@ -21,7 +21,7 @@
 <!-- 데이터테이블 용 자바스크립트 추가 -->
 
 
-<title>게시판!!</title>
+<title>웰시코디</title>
 
 <%@include file="header.jsp"%>
 </head>
@@ -59,25 +59,25 @@
 				<tbody>
 					<tr>
 						<td colspan="5"
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">
-							NOTICE</td>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">
+							공 지</td>
 
 
 					</tr>
 					<tr>
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
 
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
 
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
 
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
 
 					</tr>
 				</tbody>
@@ -107,28 +107,27 @@
 				<tbody>
 					<tr>
 						<td colspan="6"
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">
-							BEST 코디</td>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">
+							베스트 마이 스타일</td>
 
 
 					</tr>
 					<tr>
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
 
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
 
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
 
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">POSTER
-							STAR</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">별점</th>
 
 					</tr>
 				</tbody>
@@ -168,25 +167,24 @@
 		<div class="container-fluid">
 			<table class="table" id="table"
 				style="text-align: center; border: 4px; border-style: double; border-width: thick;">
-
+			
 				<thead>
 					<tr>
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
 
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
 
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
 
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
 						<th
-							style="background-color: #F17F42; color: white; text-align: center; font-style: italic; font-size: 15px;">POSTER
-							STAR</th>
+							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">별점</th>
 
 					</tr>
 				</thead>
@@ -222,7 +220,7 @@
 
 			</table>
 			<c:if test="${mem_id != null}">
-				<a href="writeView.do" class="btn btn-warning pull-right">글쓰기</a>
+				<a href="writeView.do" class="btn btn-danger pull-right">글쓰기</a>
 			</c:if>
 			<br>
 

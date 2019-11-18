@@ -87,7 +87,7 @@
 	
 </script>
 
-<title>게시판!!</title>
+<title>웰시코디</title>
 </head>
 <style>
 .star-rating {
@@ -189,7 +189,7 @@
 				<thead>
 					<tr>
 						<th colspan="3"
-							style="background-color: #F17F42; text-align: center;">웰시 코디</th>
+							style="background-color: #F45151; text-align: center;">웰시 코디</th>
 
 					</tr>
 				</thead>
@@ -248,7 +248,7 @@
 							</span> 
 								<br> <br> <input type="text" id="content"
 								name="content" />
-								<button id="write_comment" class="btn btn-warning btn-sm">댓글작성</button>
+								<button id="write_comment" class="btn btn-danger btn-sm">댓글작성</button>
 							　　<input type="text" id="content2"
 								name="content2" />[댓글수정]</td>
 							<td></td>
@@ -274,9 +274,9 @@
 									<c:if test="${comments==comments }">
 								
 								</c:if>
-									<button name="comment_update" id="${comment.cm_id }" class="btn btn-warning btn-sm">댓글수정</button>
+									<button name="comment_update" id="${comment.cm_id }" class="btn btn-danger btn-sm">댓글수정</button>
 									<button name="comment_delete" id="${comment.cm_id}"
-										class="btn btn-warning btn-sm">댓글삭제</button>
+										class="btn btn-danger btn-sm">댓글삭제</button>
 										
 								</c:if></td>
 
@@ -287,15 +287,15 @@
 				<!-- 글쓰기 버튼 => 실제로 데이터를 액션페이지로 보냄 -->
 			</table>
 
-			<a href="bbs.do" class="btn btn-warning"">목록</a>
+			<a href="bbs.do" class="btn btn-danger"">목록</a>
 			<c:if test="${mem_id != null && mem_id == board.mem_id}">
-				<a href="update.do?bd_id=${board.bd_id}" class="btn btn-warning">수정</a>
+				<a href="update.do?bd_id=${board.bd_id}" class="btn btn-danger">수정</a>
 				<a onclick="return confirm('정말로 삭제하시겠습니까?')"
-					href="delete.do?bd_id=${board.bd_id}" class="btn btn-warning"">삭제</a>
+					href="delete.do?bd_id=${board.bd_id}" class="btn btn-danger"">삭제</a>
 			</c:if>
 
 			<c:if test="${mem_id != null}">
-				<a href="writeView.do" class="btn btn-warning"pull-right">글쓰기</a>
+				<a href="writeView.do" class="btn btn-danger"pull-right">글쓰기</a>
 				<!-- <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a> -->
 			</c:if>
 
