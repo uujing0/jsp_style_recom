@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
-<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="css/customDetail_btn.css">
 
 <%@include file="header.jsp"%>
 <script src="http://code.jquery.com/jquery-3.4.0.min.js"></script>

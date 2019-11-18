@@ -12,8 +12,8 @@
 
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
-<link rel="stylesheet" href="css/custom.css">
-<link rel="stylesheet" href="css/star.css">
+<link rel="stylesheet" href="css/customDetail_btn.css">
+<link rel="stylesheet" href="css/starDetail_btn.css">
 
 <%@include file="header.jsp"%>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -189,7 +189,7 @@
 				<thead>
 					<tr>
 						<th colspan="3"
-							style="background-color: #F45151; text-align: center;">웰시 코디</th>
+							style="background-color: #E55151; text-align: center;">웰시 코디</th>
 
 					</tr>
 				</thead>

@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="css/customDetail_btn.css">
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
 
 
@@ -59,25 +59,25 @@
 				<tbody>
 					<tr>
 						<td colspan="5"
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">
 							공 지</td>
 
 
 					</tr>
 					<tr>
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
 
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
 
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
 
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
 
 					</tr>
 				</tbody>
@@ -107,27 +107,27 @@
 				<tbody>
 					<tr>
 						<td colspan="6"
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">
 							베스트 마이 스타일</td>
 
 
 					</tr>
 					<tr>
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
 
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
 
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
 
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">별점</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">별점</th>
 
 					</tr>
 				</tbody>
@@ -171,20 +171,20 @@
 				<thead>
 					<tr>
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
 
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
 
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
 
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
 						<th
-							style="background-color: #F45151; color: white; text-align: center; font-style: italic; font-size: 15px;">별점</th>
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">별점</th>
 
 					</tr>
 				</thead>
