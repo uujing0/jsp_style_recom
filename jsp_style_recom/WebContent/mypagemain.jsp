@@ -15,7 +15,7 @@
 <%@include file="header.jsp"%>
 <link rel="stylesheet" type="text/css" href="TH_style.css" />
 <body>
-<%@include file="weatherForm.jsp"%><%-- <pre style="font-size:18px;font-weight:bold;top:20px;">${city }날씨</pre> --%>	
+<%-- <pre style="font-size:18px;font-weight:bold;top:20px;">${city }날씨</pre> --%>	
 	<div id="content">
 		<div id="side_left">
 			<label id="head">
@@ -32,16 +32,14 @@
 			</ul>
 		</div>
 
-	<div id="center">	
+	<div id="center" style="padding:0;">
+	<%@include file="weatherForm.jsp"%>	
 	<%@include file="weather.jsp"%>
 	</div>
 	<%@include file="recentStyle.jsp" %>
-		<div id="bookmark">
-			<div style="float:left;margin-top:10px;margin-bottom:10px;margin-left:3%;width:100%;">
-			<span style="font-weight:bold;font-size:21px;">즐겨찾기</span>
-			</div>
+		
 		<%@include file="bookmarkForm.jsp" %>
-		</div>
+		
 	</div> 
 	
 </body>

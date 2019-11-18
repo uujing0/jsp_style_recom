@@ -8,6 +8,7 @@
 	top: 547px;
 	left: 50%;
 	margin: 0 0 0 510px;
+
 }
 #rightSide #aaa {
 	position: fixed;
@@ -25,6 +26,7 @@
 	border: 1px solid #B0B5BD;
 	width:200px;
 	height: 700px;
+	background-color: #f9f7f6;
 }
 
 #rightSide #right_zzim  div {

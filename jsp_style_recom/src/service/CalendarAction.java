@@ -71,10 +71,11 @@ public class CalendarAction implements CommandProcess {
 					} else {
 						cal_id ="" + yy + "" + mm + i+mem_id;
 					}
-					
+					System.out.println("cal_id------->"+cal_id);
 					TH_CalendarDao cd = TH_CalendarDao.getInstance();
 					dao.Calendar cal1 = cd.select(mem_id, cal_id);
 					switch(cal1.getTc_id()){
+					case(0): {event="";break;}
 					case(1): {event="오피스";break;}
 					case(2): {event="웨딩하객/셀럽";break;}
 					case(3): {event="캠퍼스개강";break;}
@@ -124,6 +125,7 @@ public class CalendarAction implements CommandProcess {
 					dao.Calendar cal1 = cd.select(mem_id, cal_id);
 					
 					switch(cal1.getTc_id()){
+						case(0): {event="";break;}
 						case(1): {event="오피스";break;}
 						case(2): {event="웨딩하객/셀럽";break;}
 						case(3): {event="캠퍼스개강";break;}

@@ -31,9 +31,7 @@
 <%@include file="calendarForm.jsp"%> 
 </div>
 <%@include file="recentStyle.jsp" %>
-		<div id="bookmark"><p style="font-weight:bold;font-size:21px;">즐겨찾기</p>
 			<%@include file="bookmarkForm.jsp" %>
-		</div>
 </div>
 </body>
 <%@include file="footer.jsp"%>

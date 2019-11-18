@@ -22,6 +22,7 @@ ${day }일정<br>
 	<tr id="contents">
 	<td>행사</td>
 	<td>	<select name="tc_id">
+			<option value="0" selected>선택안함</option>
 			<option value="1" <c:if test="${tc_id eq '1'}"> selected </c:if>>오피스</option>
 			<option value="2" <c:if test="${tc_id eq '2'}"> selected </c:if>>웨딩하객/셀럽</option>
 			<option value="3" <c:if test="${tc_id eq '3'}"> selected </c:if>>캠퍼스개강</option>

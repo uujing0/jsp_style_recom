@@ -2,11 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <style type="text/css">
+
 table#title{
 		margin:auto;
 		border:3px solid #d5d5d5;
@@ -14,7 +13,8 @@ table#title{
 		border-bottom-left-radius:0px;
 		border-bottom-right-radius:0px;
 		border-bottom: none;
-
+		padding:0;
+		width:1086.5px;
 	}
 	#title th{
 		border: 1px solid #d5d5d5; 
@@ -43,24 +43,19 @@ table#title{
 	}
 	
 </style>
-<script type="text/javascript">
 
-</script>
-</head>
-
-<body>
 	<table id="title">
 		<tr>
 			<td colspan="2" align="center" style="border:none;text-align: right;height: 40px;">
-				<a href="?yy=${yy-1 }&mm=${mm}">◀</a>
-				<a href="?yy=${yy }&mm=${mm-1}">◁</a>
+				<a href="?yy=${yy-1 }&mm=${mm}"><img alt="" src="./images/llarror.png" height="40px"></a> 
+				<a href="?yy=${yy }&mm=${mm-1}"><img alt="" src="./images/larror.png" height="40px"></a>
 			</td>
 			<td id="d" colspan="3" align="center" style="border:none;text-align: center;height: 40px;font-size:18pt;font-weight:bold;">
 				${yy }년 ${mm }월
 			</td>
 			<td colspan="2" align="center" style="border:none;text-align: left;height: 40px;">
-				<a href="?yy=${ yy}&mm=${mm+1}">▷</a>
-				<a href="?yy=${yy+1}&mm=${mm}">▶</a>
+				<a href="?yy=${ yy}&mm=${mm+1}"><img alt="" src="./images/rarror.png" height="40px"></a>
+				<a href="?yy=${yy+1}&mm=${mm}"><img alt="" src="./images/rrarror.png" height="40px"></a>
 			</td>
 		</tr>
 		</table>
@@ -146,5 +141,3 @@ table#title{
 					</tr>
 			</c:if>	
 	</table>
-</body>
-</html>
