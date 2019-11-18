@@ -114,7 +114,10 @@ h2 {
    };
    function notJoin(){
 	   alert("로그인이 필요합니다.");
-       window.open('loginForm.jsp','로그인','width=500,height=400,left=700,top=200,status=no,scrollbars=no')
+       window.open('loginForm.jsp','로그인','width=500,height=400,left=700,top=200,status=no,scrollbars=no');
+       
+      //opener.document.location.href='styleDetail.do?stl_id=2&onoff=0';
+
 
    }
    function bookmarkInsert(){
@@ -146,9 +149,8 @@ h2 {
 				
 				
 				<c:if test="${mem_id == null }">
-					<form action="styleDetail.do?stl_id=${stl_id }&mem_id=${mem_id}&onoff=0" onclick="notJoin()">
-					    <input type="submit" id = "bm1" value="즐겨찾기 등록">
-					    <a href="/jsp_style_recom/loginForm.jsp"></a>
+					<form onclick="notJoin()">
+					    <input type="button" id = "bm" value="즐겨찾기 등록">
 					
 					</form>
 						

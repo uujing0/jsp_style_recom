@@ -61,6 +61,7 @@
 <div id= "detailproduct">
 <hr>
 <h4>관련상품목록</h4>
+<c:if test="${fn:length(dp2) != 0 }">
 
 <c:forEach var="i" begin="0" end="${fn:length(dp2)-1 }">
 <span>
@@ -71,6 +72,8 @@
 </c:if>
 </span>
 </c:forEach>
+</c:if>
+
 </div>
 
 <iframe id="iposition" src="prd_detail2.jsp?url=${Product.prd_url }" 

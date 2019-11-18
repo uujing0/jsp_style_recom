@@ -61,7 +61,9 @@ public class StyleListAction implements CommandProcess {
 			this.tagId = Integer.parseInt(strTagId);	
 			this.gender = Integer.parseInt(strGender);
 			this.tagType = Integer.parseInt(strTagType);
-			
+			/*
+			 * gender= 2; System.out.println("gender->>>>>>>>>>>>>>"+gender);
+			 */
 			System.out.println("===> tagType : " + this.tagType);
 			
 			ArrayList<TagCategory> sitTags = new ArrayList<>();
@@ -134,13 +136,13 @@ public class StyleListAction implements CommandProcess {
 		double rs = Double.parseDouble(map.get("Rs"));
 		int level = Common.getInstance().weatherLevelByTmp(tmp);
 		this.tagId = Common.getInstance().tagIdByWeatherLevel(level);
-		String tmpImgWfKor = map.get("tmpImgWfKor");
-		String tmpWfKor = map.get("tmpWfKor");
+		String imgWfKor = map.get("imgWfKor");
+		String wfKor = map.get("wfKor");
 		
 		System.out.println("--------------");
 		System.out.println("level->"+level);
 		System.out.println("rs->"+rs);
-		System.out.println("tmpImgWfKor->"+tmpImgWfKor);
+		System.out.println("imgWfKor->"+imgWfKor);
 		
 		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(this.tagId, this.gender);
 	
@@ -288,8 +290,8 @@ public class StyleListAction implements CommandProcess {
 		
 		request.setAttribute("tmp", tmp); //temp
 		request.setAttribute("rs", rs); //rain_probability
-		request.setAttribute("tmpImgWfKor", tmpImgWfKor); //weather_image 
-		request.setAttribute("tmpWfKor", tmpWfKor);
+		request.setAttribute("imgWfKor", imgWfKor); //weather_image 
+		request.setAttribute("wfKor", wfKor);
 		
 		System.out.println("StyleWeatherDetailAction end...");
 		

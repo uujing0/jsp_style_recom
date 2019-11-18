@@ -132,6 +132,7 @@ public class Common {
 		String tmpImgWfKor = "";
 		String tmpWfKor="";
 		String imgWfKor = "";
+		String wfKor = "";
 		try {
 			// XML파싱 준비
 			DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
@@ -207,87 +208,114 @@ public class Common {
 				case ("3"): {
 					if (result == 1)
 						break;
+					wfKor = tmpWfKor;
 					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					Temp1 = Temp;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 				}
 				case ("6"): {
+					System.out.println("---------9");
 					if (result == 1)
 						break;
+					wfKor = tmpWfKor;
 					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
 				case ("9"): {
+					System.out.println("---------9");
 					if (result == 1)
 						break;
+					wfKor = tmpWfKor;
 					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
 				case ("12"): {
+					System.out.println("---------12");
 					if (result == 1)
 						break;
+					wfKor = tmpWfKor;
 					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
 				case ("15"): {
+					System.out.println("---------15");
 					if (result == 1)
 						break;
+					wfKor = tmpWfKor;
 					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
 				case ("18"): {
+					System.out.println("---------18");
 					if (result == 1)
 						break;
+					wfKor = tmpWfKor;
 					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
 				case ("21"): {
+					System.out.println("---------21");
 					if (result == 1)
 						break;
+					wfKor = tmpWfKor;
 					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
@@ -298,8 +326,8 @@ public class Common {
 		String Rs = Double.toString(rs);
 		map.put("Temp", Temp);
 		map.put("Rs", Rs);
-		map.put("tmpImgWfKor",tmpImgWfKor);
-		map.put("tmpWfKor", tmpWfKor);
+		map.put("imgWfKor",imgWfKor);
+		map.put("wfKor", wfKor);
 		System.out.println("-----------map->"+map);
 		return map;
 	}

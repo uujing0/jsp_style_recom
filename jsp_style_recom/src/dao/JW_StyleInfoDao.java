@@ -148,6 +148,9 @@ public class JW_StyleInfoDao {
 				"                   WHERE tc_id = ?) " +
 				" AND stl_gender = ?";
 		
+		System.out.println("=> " + sql);
+		System.out.println(tagId + " " + gender);
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<StyleInfo> styleInfos = new ArrayList<>();
