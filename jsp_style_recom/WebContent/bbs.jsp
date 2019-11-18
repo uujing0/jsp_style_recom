@@ -11,10 +11,6 @@
 <meta name="viewport" content="width=device-width" , initial-scale="1">
 <!-- viewport=화면상의 표시영역, content=모바일 장치들에 맞게 크기조정, initial=초기화면 배율 설정 -->
 
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/customDetail_btn.css">
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
 
 
@@ -24,6 +20,11 @@
 <title>웰시코디</title>
 
 <%@include file="header.jsp"%>
+
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/customDetail_btn.css">
 </head>
 <% request.setCharacterEncoding("UTF-8"); %>
 <script src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
@@ -52,7 +53,7 @@
 </script>
 <body>
 
-	<div class="container">
+	<div clas="container">
 		<div class="container-fluid">
 			<table class="table"
 				style="text-align: center; border: 4px; border-style: double; border-width: thick;">
@@ -100,7 +101,7 @@
 			</table>
 		</div>
 	</div>
-	<div class="container">
+	<div clas="container">
 		<div class="container-fluid">
 			<table class="table"
 				style="text-align: center; border: 4px; border-style: double; border-width: thick;">
@@ -163,7 +164,7 @@
 			</table>
 		</div>
 	</div>
-	<div class="container">
+	<div clas="container">
 		<div class="container-fluid">
 			<table class="table" id="table"
 				style="text-align: center; border: 4px; border-style: double; border-width: thick;">
