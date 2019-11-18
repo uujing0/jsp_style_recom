@@ -56,10 +56,10 @@
 	//문서 시작시 적용
 	$(function(){
 		var thisPage = window.location.href.split('jsp_style_recom/')[1];
-		/* if(thisPage.split('?')[0] == "genderSelector"){
-			alert(thisPage.split('?')[0]);
+		if(thisPage.split('?')[0] == "genderSelector.do"){
+			history.pushState(null,null,window.location.href.split('thisPage=')[1]);
 		}
-			 */
+		
 		if(thisPage == "logout.do"){
 			history.pushState(null,null,"main.do");
 		}
