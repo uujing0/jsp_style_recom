@@ -13,7 +13,7 @@
 <style type="text/css">
 
 
-.content {
+.styleList_content {
 	margin: 100px 0px 100px 200px;
 }
 
@@ -22,13 +22,13 @@
 	border: 0.5px solid #adb5bd;
 } */
 
-table.categoryTable {
+table.styleList_categoryTable {
 	border: 1px solid #adb5bd;
     width: 700px;
     border-collapse: collapse;
 }
 
-table.categoryTable th {
+table.styleList_categoryTable th {
 	font-size: 12px;
 	color: #343A40; /*font color*/
 	width: 70px;
@@ -38,17 +38,13 @@ table.categoryTable th {
 	border-right: none;
 }
 
-table.categoryTable td {
+table.styleList_categoryTable td {
 	font-size: 12px;
 	padding: 0px 0px 0px 30px;
 	background-color: white;
 }
 
-select {
-	font-size: 12px;
-}
-
-#tagButton {
+.styleList_tagButton {
 	font-size: 12px;
 	background-color: white;
 	color: #495057;
@@ -58,7 +54,7 @@ select {
 	margin: 0px 10px 0px 0px;
 }
 
-#actTagButton {
+.styleList_actTagButton {
 	font-size: 12px;
 	background-color: #e45151;
 	color: white;
@@ -67,27 +63,31 @@ select {
 	margin: 0px 10px 0px 0px;
 }
 
-.resultDesc {
+.styleList_categoryTable {
+	font-size: 12px;
+}
+
+.styleList_resultDesc {
 	color: #666666;
 	font-size: 18px;
 	padding: 80px 0px 25px 5px;
 }
 
-.styleTable tr td {
+.styleList_table tr td {
 	padding: 0px 95px 95px 0px;
 	margin: 15px 0px 0px 0px;
 	height: 315px; 
 	width: 270px; 
 }
 
-.thumb { 
+.styleList_thumb { 
 	position: relative;
 	overflow: hidden; 
 	height: 315px; 
 	width: 270px; 
 } 
 
-.thumb img { 
+.styleList_thumb img { 
 	position: absolute;
 	top: 0; 
 	left: 0; 
@@ -145,13 +145,13 @@ function loadImage(obj) {
 </head>
 <%@ include file="header.jsp"%>
 <body>
-	<div class="content">
-		<table class="categoryTable" border="1">
+	<div class="styleList_content">
+		<table class="styleList_categoryTable" border="1">
 			<tr>
 				<th>날씨</th>
 				<td colspan="4">
 					<form>
-						<select class="weatherLocation">	
+						<select class="styleList_weatherLocation">	
 							<option value="0"> 지역을 선택해주세요</option>
 							<c:forEach var="i" items="${locMap}">
 								<c:if test="${lc == i.value }">
@@ -173,14 +173,14 @@ function loadImage(obj) {
 					<c:forEach var="tag" items="${sitTags}">
 						<c:choose>
 						    <c:when test="${tagId == tag.tc_id}">
-						        <c:set var="tagIdName" value="actTagButton"/>
+						        <c:set var="tagIdName" value="styleList_actTagButton"/>
 						    </c:when>
 						    <c:otherwise>
-						       <c:set var="tagIdName" value="tagButton"/>
+						       <c:set var="tagIdName" value="styleList_tagButton"/>
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=1'">${tag.tc_name}</button>
+						<button class="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=1'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
@@ -190,14 +190,14 @@ function loadImage(obj) {
 					<c:forEach var="tag" items="${bodyTags}">
 						<c:choose>
 						    <c:when test="${tagId == tag.tc_id}">
-						        <c:set var="tagIdName" value="actTagButton"/>
+						        <c:set var="tagIdName" value="styleList_actTagButton"/>
 						    </c:when>
 						    <c:otherwise>
-						       <c:set var="tagIdName" value="tagButton"/>
+						       <c:set var="tagIdName" value="styleList_tagButton"/>
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=2'">${tag.tc_name}</button>
+						<button class="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=2'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
@@ -207,14 +207,14 @@ function loadImage(obj) {
 					<c:forEach var="tag" items="${moodTags}">
 						<c:choose>
 						    <c:when test="${tagId == tag.tc_id}">
-						        <c:set var="tagIdName" value="actTagButton"/>
+						        <c:set var="tagIdName" value="styleList_actTagButton"/>
 						    </c:when>
 						    <c:otherwise>
-						       <c:set var="tagIdName" value="tagButton"/>
+						       <c:set var="tagIdName" value="styleList_tagButton"/>
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=3'">${tag.tc_name}</button>
+						<button class="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=3'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
@@ -222,18 +222,18 @@ function loadImage(obj) {
 
 		<c:if test="${tagType != 4 }">
 	        <c:if test="${totCnt > 0 }">
-	            <div class="resultDesc"> 
+	            <div class="styleList_resultDesc"> 
 	            	<strong style="color: #e45151;">${totCnt} </strong>개의 결과
 	            </div>
 	            
-	            <table class="styleTable">
+	            <table class="styleList_table">
 	                <c:forEach var="r" begin="0" end="${rowSize-1}">
 	                    <tr>
 	                        <c:forEach var="c" begin="0" end="${columnSize-1}">
 	                            <c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
 	                            <c:if test="${eIndex < list.size()}">
 	                                <td>       
-	                                    <div class="thumb">
+	                                    <div class="styleList_thumb">
 											<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
 	                                    		<img src="./images/category_images/${list[eIndex].stl_pic_url}" >
 	                                    	</a>
@@ -258,6 +258,7 @@ function loadImage(obj) {
 
 // 문서 시작시 적용
 $(function() {
+	/* 이미지 비율에 맞게 크롭*/
 	var divs = document.querySelectorAll('td > div');
 
 	for (var i = 0; i < divs.length; ++i) {
@@ -280,6 +281,19 @@ $(function() {
 	      img.style.cssText = 'width: 100%; height: auto; margin-left: 0;';
 	    }
 	} 
+	
+	
+	/* select 박스 이벤트 추가*/
+	$(".styleList_weatherLocation").change(function() {
+        var locCode = $(this).val()
+        
+        if (locCode == 0) {
+            return false
+        }
+        
+        location.href='styleList.do?tagType=4&locCode='+locCode;
+        
+    })
 })
 
 </script>
