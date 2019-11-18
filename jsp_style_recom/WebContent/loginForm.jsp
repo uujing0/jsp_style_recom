@@ -28,7 +28,7 @@
 			<ul class="idpwSrh">
 				<li>
 					<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 60%; overflow: hidden">
+							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
 						<div class="srhTop">
 							<h1>로그인</h1>
 							<br /> 로그인 하시려면 아이디와 비밀번호를 입력하세요. <br />

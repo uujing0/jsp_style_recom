@@ -40,7 +40,7 @@
 				<ul class="idpwSrh">
 					<li>
 						<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 60%; overflow: hidden">
+							style="border-right-width: 0.990; margin-right: 50%; overflow: hidden">
 							<div class="srhTop">
 								<h1>회원 가입</h1>
 								<br> <br> "웰시코디"에 회원으로 <br> 등록합니다. <br>
