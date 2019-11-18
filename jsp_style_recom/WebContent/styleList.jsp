@@ -14,13 +14,17 @@
 
 
 .content {
-	margin: 100px 200px 100px 200px;
-	width: 700px;
+	margin: 100px 0px 100px 200px;
 }
+
+/* hr {
+	border: none;
+	border: 0.5px solid #adb5bd;
+} */
 
 table.categoryTable {
 	border: 1px solid #adb5bd;
-    width: 100%;
+    width: 700px;
     border-collapse: collapse;
 }
 
@@ -63,23 +67,35 @@ select {
 	margin: 0px 10px 0px 0px;
 }
 
+.resultDesc {
+	color: #666666;
+	font-size: 18px;
+	padding: 80px 0px 25px 5px;
+}
+
 .styleTable tr td {
-	padding: 0px 30px 60px 0px;
+	padding: 0px 95px 95px 0px;
+	margin: 15px 0px 0px 0px;
+	height: 315px; 
+	width: 270px; 
 }
 
 .thumb { 
-	display: block; 
+	position: relative;
 	overflow: hidden; 
-	height: 500px; 
-	width: 400px; 
+	height: 315px; 
+	width: 270px; 
 } 
 
 .thumb img { 
-	display: block; /* Otherwise it keeps some space around baseline */ 
-	min-width: 100%; /* Scale up to fill container width */ 
-	min-height: 100%; /* Scale up to fill container height */ 
-	-ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */  */
-}
+	position: absolute;
+	top: 0; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	width: 100%; 
+	height: auto;
+} 
 
 </style>
 
@@ -118,6 +134,10 @@ function getCookie(cookieName) {
     return unescape(cookieValue);
 }
 function checkCookie() {
+
+}
+
+function loadImage(obj) {
 
 }
 
@@ -202,18 +222,21 @@ function checkCookie() {
 
 		<c:if test="${tagType != 4 }">
 	        <c:if test="${totCnt > 0 }">
-	            <p>${totCnt}개의 결과</p>
+	            <div class="resultDesc"> 
+	            	<strong style="color: #e45151;">${totCnt} </strong>개의 결과
+	            </div>
+	            
 	            <table class="styleTable">
 	                <c:forEach var="r" begin="0" end="${rowSize-1}">
 	                    <tr>
 	                        <c:forEach var="c" begin="0" end="${columnSize-1}">
 	                            <c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
 	                            <c:if test="${eIndex < list.size()}">
-	                                <td>
+	                                <td>       
 	                                    <div class="thumb">
-	                                        <a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
-	                                            <img src="./images/category_images/${list[eIndex].stl_pic_url}" width="400px" height="500px">
-	                                        </a>
+											<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
+	                                    		<img src="./images/category_images/${list[eIndex].stl_pic_url}" >
+	                                    	</a>
 	                                    </div>
 	                                </td>
 	                            </c:if>
@@ -235,19 +258,28 @@ function checkCookie() {
 
 // 문서 시작시 적용
 $(function() {
-	$(".weatherLocation").change(function() {
-		var locCode = $(this).val()
-		
-		if (locCode == 0) {
-			return false
-		}
-		
-		location.href='styleList.do?tagType=4&locCode='+locCode;
-		
-	})
+	var divs = document.querySelectorAll('td > div');
+
+	for (var i = 0; i < divs.length; ++i) {
+	    var div = divs[i];
+	    var divAspect = div.offsetHeight / div.offsetWidth;
+	    div.style.overflow = 'hidden';
+	    
+	    var img = div.querySelector('img');
+	    var imgAspect = img.height / img.width;
 	
-	//createTag()
-	tagClickEvent()
+	    if (imgAspect <= divAspect) {
+	      // 이미지가 div보다 납작한 경우 세로를 div에 맞추고 가로는 잘라낸다
+	      var imgWidthActual = div.offsetHeight / imgAspect;
+	      var imgWidthToBe = div.offsetHeight / divAspect;
+	      var marginLeft = -Math.round((imgWidthActual - imgWidthToBe) / 2)
+	      img.style.cssText = 'width: auto; height: 100%; margin-left: '
+	                      + marginLeft + 'px;'
+	    } else {
+	      // 이미지가 div보다 길쭉한 경우 가로를 div에 맞추고 세로를 잘라낸다
+	      img.style.cssText = 'width: 100%; height: auto; margin-left: 0;';
+	    }
+	} 
 })
 
 </script>
