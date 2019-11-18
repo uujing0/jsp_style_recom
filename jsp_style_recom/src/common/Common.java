@@ -305,13 +305,9 @@ public class Common {
 		return cc4 ;
 	}
 	
-	public int getWeatherStyleIdByLocation(String strLocCode, int gender) throws SQLException {
+	public int getWeatherStyleIdByTmp(double tmp, int gender) throws SQLException {
 		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
-		
-		Map<String, String> map = Common.getInstance().getWeatherTmp(strLocCode);
-		
-		double tmp = Double.parseDouble(map.get("Temp"));
-		double rs = Double.parseDouble(map.get("Rs"));
+
 		int level = Common.getInstance().weatherLevelByTmp(tmp);
 		int tagId = Common.getInstance().tagIdByWeatherLevel(level);
 		
