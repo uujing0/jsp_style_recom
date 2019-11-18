@@ -17,11 +17,8 @@
 <c:if test="${result == 0 }">  
 	<script type="text/javascript">
 		alert("탈퇴 실패입니다.");  
-		location.href="joinForm.do";
+		history.go(-1);
 	</script>
 </c:if>
-
-
-
 </body>
 </html>
