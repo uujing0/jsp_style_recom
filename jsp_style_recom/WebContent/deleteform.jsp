@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="HJ_style.css">
+<link rel="stylesheet" type="text/css" href="HJ_SrhLoginStyle.css">
 </head>
 <body>
 	<div class="content">
@@ -14,7 +14,7 @@
 			<ul class="idpwSrh">
 				<li>
 					<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 60%; overflow: hidden">
+							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
 						<div class="srhTop">
 							<h1>회원 탈퇴</h1>
 							<br /> 회원 탈퇴를 위해서 비밀번호를 확인합니다. <br />
@@ -31,7 +31,7 @@
 										class="a" placeholder="암호 입력하세요" id="mem_pw">
 									<p>
 										<br />
-										<button type="submit">찾기</button>
+										<button type="submit">탈퇴</button>
 								</fieldset>
 							</form>
 						</div>

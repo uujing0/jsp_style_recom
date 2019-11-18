@@ -33,7 +33,7 @@
 		}
 	}
 </script>
-<link rel="stylesheet" type="text/css" href="HJ_style.css">
+<link rel="stylesheet" type="text/css" href="HJ_MemberStyle.css">
 
 </head>
 <body>
@@ -44,7 +44,7 @@
 				<ul class="idpwSrh">
 					<li>
 						<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 60%; overflow: hidden">
+							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
 							<div class="srhTop">
 								<h1>회원정보 수정</h1>
 								<br /> <br /> 등록된 회원 정보를 <br /> 수정할 수 있습니다. <br />

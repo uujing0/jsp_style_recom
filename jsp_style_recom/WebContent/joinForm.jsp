@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
 <title>회원가입</title>
-<link rel="stylesheet" type="text/css" href="HJ_style.css">
+<link rel="stylesheet" type="text/css" href="HJ_MemberStyle.css">
 <script type="text/javascript">
 	function chk() {
 		if (frm.mem_pw.value != frm.mem_pw2.value) {
@@ -40,7 +40,7 @@
 				<ul class="idpwSrh">
 					<li>
 						<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 50%; overflow: hidden">
+							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
 							<div class="srhTop">
 								<h1>회원 가입</h1>
 								<br> <br> "웰시코디"에 회원으로 <br> 등록합니다. <br>
@@ -122,9 +122,9 @@
 										</select></li>
 										<br>
 										<br>
-										<li><h1>
+										<li>
 												<label class="" name="mem_fav_loc">관심지역(중복 선택 가능)</label>
-											</h1></li>
+											</li>
 										<label><input type="checkbox" name="mem_fav_loc"
 											value="서울특별시">서울특별시</label>
 										<label><input type="checkbox" name="mem_fav_loc"

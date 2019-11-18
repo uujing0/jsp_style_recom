@@ -18,7 +18,7 @@
 		return true
 	}
 </script>
-<link rel="stylesheet" type="text/css" href="HJ_style.css">
+<link rel="stylesheet" type="text/css" href="HJ_SrhLoginStyle.css">
 </head>
 <%@include file="header.jsp"%>
 <body>

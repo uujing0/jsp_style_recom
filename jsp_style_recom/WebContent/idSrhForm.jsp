@@ -9,7 +9,7 @@
 <script type='text/javascript'>
 
 </script>
-<link rel="stylesheet" type="text/css" href="HJ_style.css">
+<link rel="stylesheet" type="text/css" href="HJ_SrhLoginStyle.css">
 </head>
 <body>
 	<div class="content">
@@ -17,7 +17,7 @@
 			<ul class="idpwSrh">
 				<li>
 					<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 60%; overflow: hidden">
+							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
 						<div class="srhTop">
 							<h1>아이디 찾기</h1>
 							<br/>

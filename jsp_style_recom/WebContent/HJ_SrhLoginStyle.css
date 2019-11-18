@@ -1,0 +1,189 @@
+@charset "UTF-8";
+/*기본 설정*/
+body {
+	font-size: 12px;
+	color: #555555;
+	word-break: keep-all
+}
+
+body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form,
+	fieldset, input, table, tr, th, td, button, textarea {
+	margin: 0;
+	padding: 0
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	text-align: center;
+}
+
+ul, ol, li {
+	list-style: none
+}
+
+hr {
+	position: absolute;
+	left: 0%;
+	top: 0;
+	width: 1px;
+	height: 1px;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden
+}
+
+legend {
+	position: absolute;
+	left: 0%;
+	top: 0;
+	width: 1px;
+	height: 1px;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden
+}
+
+caption {
+	width: 0;
+	height: 0;
+	line-height: 0;
+	font-size: 0
+}
+
+fieldset {
+	border: none
+}
+
+a {
+	text-decoration: none;
+	color: #757575
+}
+
+a:hover, a:active, a:visited {
+	text-decoration: none;
+	color: #757575
+}
+
+img {
+	border: 0;
+	vertical-align: top
+}
+
+button {
+	border: 0;
+	background-color: transparent;
+	cursor: pointer;
+	vertical-align: top
+}
+
+input, select {
+	vertical-align: auto
+}
+
+em, address {
+	font-style: normal
+}
+
+table {
+	table-layout: auto;
+	word-wrap: break-word;
+	border-collapse: collapse;
+	text-align: center;
+}
+/*바디 설정 */
+.idpwSrh {
+	width: 100%;
+	overflow: hidden
+}
+
+.idpwSrh li {
+	float: center;
+}
+
+.idpwSrh li .srhBox {
+	padding: 40px 40px 40px
+}
+
+.idpwSrh li .or {
+	border-style: solid none solid solid;
+	border-color: #d8d8d8;
+	background: #fbfbfb;
+	text-align: center;
+}
+
+.idpwSrh li .or h2 {
+	margin-bottom: 10px;
+	font-size: 22px;
+	font-weight: 900;
+	color: #816950;
+	text-align: center;
+}
+
+.idpwSrh li .br h2 {
+	margin-bottom: 10px;
+	font-size: 22px;
+	font-weight: 900;
+	color: #816950;
+	text-align: center;
+}
+
+.idpwSrh li .br {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d8d8d8;
+	background: #fbfbfb;
+	text-align: center;
+}
+
+.idpwSrh li .srhBox .srhTop {
+	text-align: center;
+	font-size: 13px
+}
+
+.idpwSrh li .srhBox .info {
+	margin-top: 24px;
+	padding-top: 20px;
+	border-top: 1px dashed #d2d2d2
+}
+
+.idpwSrh li .srhBox .info label {disp;
+	width: 83px;
+	margin-right: 12px;
+	vertical-align: middle;
+	font-weight: 900;
+	font-size: 13px;
+	color: #333333;
+	text-align: center;
+}
+
+.idpwSrh li .srhBox .info p {
+	margin-bottom: 5px
+}
+
+.idpwSrh li .srhBox .info p input {
+	width: 167px;
+	height: 21px;
+	border: 1px solid #d4d6d6
+}
+
+.idpwSrh li .or button {
+	display: block;
+	width: 145px;
+	margin: 26px auto 0;
+	padding: 7px 0;
+	border: 1px solid #6a5845;
+	background-color: #82705e;
+	
+	color: #FFFFFF
+}
+
+.idpwSrh li .br button {
+	display: block;
+	width: 145px;
+	margin: 26px auto 0;
+	padding: 7px 0;
+	border: 1px solid #6a5845;
+	background-color: #666666;
+	
+	color: #FFFFFF
+}
