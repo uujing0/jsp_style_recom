@@ -5,6 +5,7 @@
 
 table#bookmark tr {
 	padding:10px;
+
 }
 table#bookmark td {
 	padding:30px;

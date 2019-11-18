@@ -5,24 +5,22 @@
 <Style>
 #rightSide {
 	position: absolute;
-	top: 547px;
+	top: 590px;
 	left: 50%;
 	margin: 0 0 0 510px;
 
 }
 #rightSide #aaa {
-	position: fixed;
-	top: 170px; 
-	left: 50%;
-	margin-left: 700px;
-	width:200px;
-	height: 700px;
+
+	margin-left: 180px;
+
+
 }
 #rightSide #right_zzim {
-	position: fixed;
+	float:right;
 	top: 200px;
 	left: 50%;
-	margin-left: 700px;
+	margin-left: 180px;
 	border: 1px solid #B0B5BD;
 	width:200px;
 	height: 700px;

@@ -10,11 +10,15 @@ import org.w3c.dom.NodeList;
 import java.text.SimpleDateFormat;
 import org.w3c.dom.*;
 
+import dao.JW_StyleInfoDao;
+import dao.StyleInfo;
 import dao.TH_TownDao;
 
 import javax.xml.parsers.*;
 import java.util.*;
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -124,14 +128,11 @@ public class Common {
 	public Map<String,String > getWeatherTmp(String addr) {
 		String urlStr = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=" + addr;
 		ArrayList<HashMap<String, String>> pubList = new ArrayList<HashMap<String, String>>();
-		String[] fieldNames = { "temp", "hour", "day", "pop", "wfKor" };
+		String[] fieldNames = { "temp", "hour", "day", "pop" };
 		Map<String, String> map = new HashMap<String, String>();
 		int result = 0;
 		double Temp1 = -100.0;
 		double rs = 0.0;
-		String tmpImgWfKor = "";
-		String tmpWfKor="";
-		String imgWfKor = "";
 		try {
 			// XML파싱 준비
 			DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
@@ -178,26 +179,10 @@ public class Common {
 
 			String tmpWfDay = pub.get("day");
 			String tmpWfHour = pub.get("hour");
-			String rsWfRS = pub.get("r12");
+			String rsWfRS = pub.get("pop");
 			// System.out.println("rsWfRS->" + rsWfRS);
 			if (rsWfRS == null)
 				break;
-			tmpWfKor = pub.get("wfKor");
-			if (tmpWfKor == null)
-				tmpWfKor = "";
-			tmpImgWfKor = "images/ico01.png";
-			if (tmpWfKor.equals("구름 조금"))
-				tmpImgWfKor = "images/ico02.png";
-			else if (tmpWfKor.equals("구름 많음"))
-				tmpImgWfKor = "images/ico03.png";
-			else if (tmpWfKor.equals("흐림"))
-				tmpImgWfKor = "images/ico04.png";
-			else if (tmpWfKor.equals("비"))
-				tmpImgWfKor = "images/ico05.png";
-			else if (tmpWfKor.equals("눈/비"))
-				tmpImgWfKor = "images/ico06.png";
-			else if (tmpWfKor.equals("눈"))
-				tmpImgWfKor = "images/ico07.png";
 			Double Rs = Double.parseDouble(rsWfRS);// 받아온 강수량
 			String tmpWfTemp = pub.get("temp");
 			tmpWfTemp = tmpWfTemp.replace('"', ' ');
@@ -207,7 +192,6 @@ public class Common {
 				case ("3"): {
 					if (result == 1)
 						break;
-					imgWfKor = tmpImgWfKor;
 					rs = Rs;
 					Temp1 = Temp;
 					result = 1;
@@ -216,7 +200,7 @@ public class Common {
 				case ("6"): {
 					if (result == 1)
 						break;
-					imgWfKor = tmpImgWfKor;
+
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
@@ -229,7 +213,7 @@ public class Common {
 				case ("9"): {
 					if (result == 1)
 						break;
-					imgWfKor = tmpImgWfKor;
+
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
@@ -242,7 +226,7 @@ public class Common {
 				case ("12"): {
 					if (result == 1)
 						break;
-					imgWfKor = tmpImgWfKor;
+
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
@@ -255,7 +239,7 @@ public class Common {
 				case ("15"): {
 					if (result == 1)
 						break;
-					imgWfKor = tmpImgWfKor;
+
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
@@ -268,7 +252,7 @@ public class Common {
 				case ("18"): {
 					if (result == 1)
 						break;
-					imgWfKor = tmpImgWfKor;
+
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
@@ -281,7 +265,7 @@ public class Common {
 				case ("21"): {
 					if (result == 1)
 						break;
-					imgWfKor = tmpImgWfKor;
+
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
@@ -298,10 +282,9 @@ public class Common {
 		String Rs = Double.toString(rs);
 		map.put("Temp", Temp);
 		map.put("Rs", Rs);
-		map.put("tmpImgWfKor",tmpImgWfKor);
-		map.put("tmpWfKor", tmpWfKor);
 		return map;
 	}
+	
 	public int getWeatherAccId(int level, double rs){
 		int cc4 = 0;
 		if(rs>=60) {
@@ -320,5 +303,31 @@ public class Common {
 			}
 		}
 		return cc4 ;
+	}
+	
+	public int getWeatherStyleIdByTmp(double tmp, int gender) throws SQLException {
+		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
+
+		int level = Common.getInstance().weatherLevelByTmp(tmp);
+		int tagId = Common.getInstance().tagIdByWeatherLevel(level);
+		
+		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(tagId, gender);
+	
+		int randomIndex = (int)(Math.random()*styleInfos.size());
+		int stl_id = styleInfos.get(randomIndex).getStl_id();
+		
+		return stl_id;
+	}
+	public int getWeatherStyleIdBytc_id(double tmp, int gender,int tc_id) throws SQLException {
+		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
+
+		int tagId = tc_id;
+		
+		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(tagId, gender);
+	
+		int randomIndex = (int)(Math.random()*styleInfos.size());
+		int stl_id = styleInfos.get(randomIndex).getStl_id();
+		
+		return stl_id;
 	}
 }

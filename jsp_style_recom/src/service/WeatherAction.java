@@ -3,6 +3,7 @@ package service;
 import java.text.SimpleDateFormat;
 import org.w3c.dom.*;
 
+import common.Common;
 import dao.BookMark;
 import dao.JW_BookMarkDao;
 import dao.JW_StyleInfoDao;
@@ -473,8 +474,35 @@ public class WeatherAction implements CommandProcess {
 				request.setAttribute("tc_id"+i,tc_id[i] );
 				//System.out.println("tc_id------>"+i+"      "+cal1.getTc_id());
 			}
+			int[] rec_stl_id=new int[7];
 			
+			for(int i =1;i<7;i++) {
+				 rec_stl_id[i]=Common.getInstance().getWeatherStyleIdByTmp(Tmn[i-1], gender);
+				 System.out.println(" rec_stl_id"+i+"---->"+rec_stl_id[i]);
+			}
+			 rec_stl_id[0]=Common.getInstance().getWeatherStyleIdByTmp(Temp1, gender);
+			 String[] rec_stl_pic_url=new String[7];
 			
+			 for(int i =0;i<7;i++) {
+				 rec_stl_pic_url[i]=sl.pic_url(rec_stl_id[i]);
+				 System.out.println("rec_stl_pic_url"+i+"----->"+rec_stl_pic_url[i]);
+				 request.setAttribute("rec_stl_id"+i, rec_stl_id[i]);
+				 request.setAttribute("rec_stl_pic_url"+i, rec_stl_pic_url[i]);
+			}
+			 if(tc_id[0] !=0) {
+					rec_stl_id[0]=Common.getInstance().getWeatherStyleIdBytc_id(Temp1, gender,tc_id[0]);
+					rec_stl_pic_url[0]=sl.pic_url(rec_stl_id[0]);
+					 request.setAttribute("rec_stl_id0", rec_stl_id[0]);
+					 request.setAttribute("rec_stl_pic_url0", rec_stl_pic_url[0]);
+				}
+			 for(int i = 1;i<7;i++) {
+			if(tc_id[i] !=0) {
+				rec_stl_id[i]=Common.getInstance().getWeatherStyleIdBytc_id(Tmn[i-1], gender,tc_id[i]);
+				rec_stl_pic_url[i]=sl.pic_url(rec_stl_id[i]);
+				 request.setAttribute("rec_stl_id"+i, rec_stl_id[i]);
+				 request.setAttribute("rec_stl_pic_url"+i, rec_stl_pic_url[i]);
+			}
+		}
 			/*day1 = sdf.format(c1.getTime());
 			day2 = sdf.format(c2.getTime());
 			day3 = sdf.format(c3.getTime());
