@@ -170,6 +170,13 @@
 				style="text-align: center; border: 4px; border-style: double; border-width: thick;">
 			
 				<thead>
+				<tr>
+						<td colspan="6"
+							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">
+							코기 코디!</td>
+
+
+					</tr>
 					<tr>
 						<th
 							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
