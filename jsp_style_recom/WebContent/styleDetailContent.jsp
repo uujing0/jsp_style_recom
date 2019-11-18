@@ -18,6 +18,7 @@ margin-top: 40px;
 margin-left: 460px;
 }
 
+
 #styleDetailContent_mainImage{
 	margin-left: 480px;
 
