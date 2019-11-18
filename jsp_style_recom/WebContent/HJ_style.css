@@ -1,21 +1,30 @@
 @charset "UTF-8";
 /*기본 설정*/
 body {
-	font-size: 12px;
 	color: #555555;
-	font-family: 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
 	word-break: keep-all
 	}
 
-	body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form,
-	fieldset, input, table, tr, th, td, button, textarea {
+	body, div, h1, h2, h3, h4, h5, h6, ol, li, dl, dt, dd, p, form,
+	fieldset, input, table, tr, th, td,textarea {
+		margin: 0;
+			margin-right: 500px;
+		padding: 0;
+		text-align: left;
+	}
+	button{
 		margin: 0;
 		padding: 0;
+		text-align: center;
 	}
+	
+	
+	}
+
 
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: normal;
-		text-align: center;
+		text-align: left;
 	}
 
 	ul, ol, li {
@@ -28,7 +37,6 @@ body {
 		top: 0;
 		width: 1px;
 		height: 1px;
-		font-size: 0;
 		line-height: 0;
 		overflow: hidden
 	}
@@ -39,7 +47,6 @@ body {
 		top: 0;
 		width: 1px;
 		height: 1px;
-		font-size: 0;
 		line-height: 0;
 		overflow: hidden
 	}	
@@ -48,7 +55,7 @@ body {
 		width: 0;
 		height: 0;
 		line-height: 0;
-		font-size: 0
+
 	}
 
 	fieldset {
@@ -89,7 +96,7 @@ body {
 		table-layout: auto;
 		word-wrap: break-word;
 		border-collapse: collapse;
-		text-align: center;
+		text-align: left;
 	}	
 /*바디 설정 */
 	.idpwSrh {
@@ -98,7 +105,7 @@ body {
 	}
 
 		.idpwSrh li {
-		float: center;
+		float: left;
 		width: 100%;
 		}
 
@@ -111,23 +118,21 @@ body {
 				border-style: solid solid solid solid;
 				border-color: #d8d8d8;
 				background: #fbfbfb;
-				text-align: center;
+				text-align: left;
 			}
 	
 				.idpwSrh li .or h2 {
 					margin-bottom: 10px;
-					font-size: 22px;
 					font-weight: 900;
 					color: #816950;
-					text-align: center;
+					text-align: left;
 				}
 
 				.idpwSrh li .br h2 {
 					margin-bottom: 10px;
-					font-size: 22px;
 					font-weight: 900;
 					color: #816950;
-					text-align: center;
+					text-align: left;
 				}
 
 			.idpwSrh li .br {
@@ -135,11 +140,10 @@ body {
 				border-width: 1px;
 				border-color: #d8d8d8;
 				background: #fbfbfb;
-				text-align: center;
+				text-align: left;
 			}
 		.idpwSrh li .srhBox .srhTop {
-			text-align: center;
-			font-size: 13px
+			text-align: left;
 		}
 
 .idpwSrh li .srhBox .info {
@@ -151,11 +155,10 @@ body {
 .idpwSrh li .srhBox .info label {disp;
 	width: 83px;
 	margin-right: 12px;
-	vertical-align: middle;
+	vertical-align: left;
 	font-weight: 900;
-	font-size: 13px;
 	color: #333333;
-	text-align: center;
+	text-align: left;
 }
 
 .idpwSrh li .srhBox .info p {
@@ -171,21 +174,23 @@ body {
 .idpwSrh li .or button {
 	display: block;
 	width: 145px;
-	margin: 26px auto 0;
+	margin: 10px 10px 10px 10px;
 	padding: 7px 0;
-	border: 1px solid #6a5845;
-	background-color: #82705e;
-	font-family: 'Malgun Gothic', '맑은 고딕';
+	border: 4px solid #666666;
+	background-color: #888888;
 	color: #FFFFFF
 }
 
 .idpwSrh li .br button {
 	display: block;
 	width: 145px;
-	margin: 26px auto 0;
+	margin: 10px 10px 10px 10px;
 	padding: 7px 0;
-	border: 1px solid #6a5845;
-	background-color: #82705e;
-	font-family: 'Malgun Gothic', '맑은 고딕';
+	border: 1px solid #666666;
+	background-color: #888888;
 	color: #FFFFFF
 }
+.idpwSrh li .br input {
+	margin: 5px 5px 5px 5px;
+
+	}

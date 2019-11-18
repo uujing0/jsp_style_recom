@@ -20,6 +20,9 @@
 		<script type="text/javascript">
 			alert("로그인을 성공하였습니다.")
 			sessionStorage.setItem('mem_id', getParameterByName('mem_id'));
+			sessionStorage.setItem('mem_name', getParameterByName('mem_name'));
+			sessionStorage.setItem('mem_phone', getParameterByName('mem_phone'));
+			sessionStorage.setItem('mem_email', getParameterByName('mem_email'));
 			location.href = "main.do"
 			//window.close();
 		</script>
