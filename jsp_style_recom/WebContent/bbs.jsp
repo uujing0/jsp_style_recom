@@ -56,7 +56,7 @@
 	<div clas="container"> <!-- div 클래스 생성 아래쪽까지 공지사항 테이블 생성 -->
 		<div class="container-fluid">
 			<table class="table"
-				style="text-align: center; border: 4px; border-style: double; border-width: thick;">
+				style="text-align: center; border: 4px; border-style: solid; border-width: thin;">
 				<tbody>
 					<tr>
 						<td colspan="5"
@@ -104,7 +104,7 @@
 	<div clas="container"> <!-- 베스트 마이스타일 테이블 생성  -->
 		<div class="container-fluid">
 			<table class="table"
-				style="text-align: center; border: 4px; border-style: double; border-width: thick;">
+				style="text-align: center; border: 4px; border-style: solid; border-width: thin;">
 				<tbody>
 					<tr>
 						<td colspan="6"
@@ -167,7 +167,7 @@
 	<div clas="container"> <!-- 코기 코디 테이블 생성 -->
 		<div class="container-fluid">
 			<table class="table" id="table"
-				style="text-align: center; border: 4px; border-style: double; border-width: thick;">
+				style="text-align: center; border: 4px; border-style: solid; border-width: thin;">
 			
 				<thead>
 				<tr>

@@ -189,7 +189,7 @@
 				<thead>
 					<tr>
 						<th colspan="3"
-							style="background-color: #E55151; text-align: center;">웰시 코디</th>
+							style="background-color: #E55151; text-align: center; color: white;">웰시 코디</th>
 
 					</tr>
 				</thead>
