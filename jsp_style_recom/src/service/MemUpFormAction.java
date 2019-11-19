@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import common.Common;
 import dao.Member;
 import dao.UJ_MemberDao;
 
@@ -38,10 +39,17 @@ public class MemUpFormAction implements CommandProcess {
 	    
 	  /*  System.out.println("mem_addr " + mem_addr);*/
 		
+		String strLocCode = request.getParameter("locCode");
+		
+		
+		request.setAttribute("lc", strLocCode);
 		
 		
 		
-	
+		request.setAttribute("locMap", Common.getInstance().locationMap());	
+		
+		
+		
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

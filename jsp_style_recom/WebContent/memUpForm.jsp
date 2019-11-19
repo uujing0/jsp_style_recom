@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 
 <html lang="ko">
@@ -80,8 +81,8 @@
 										<br />
 										<li><p>
 												<label>이&nbsp;&nbsp;&nbsp;&nbsp;름</label><br> <label><input
-													type="text" class="a" name="mem_name" required="required"
-													value="${mem_name}">
+													type="text" class="a" name="mem_name" value="${mem_name}"
+													readonly >
 											</p> </label></li>
 										<br />
 										<br />
@@ -100,20 +101,21 @@
 										<br />
 										<br />
 										<li><p>
-												<label>주&nbsp;소</label><br> <select class="weatherLocation" name="mem_addr" >
-					
-	<option value="0">사는 곳을 선택해주세요</option>
-	       <c:forEach var="i" items="${locMap}">
-                       <option value="${i.key}">${i.key}</option>
-                                <c:if test="${lc == i.value }">
-                                  <option value="${i.key}" selected="selected">${i.key}</option>
-		        </c:if>
-								
-                     </c:forEach>
-					
-					
-				
-</select>     <input type="text" name="mem_add_addr" list="mem_addr"
+												<label>주&nbsp;소</label><br> <select
+													class="weatherLocation" name="mem_addr">
+
+													<option value="0">사는 곳을 선택해주세요</option>
+													<c:forEach var="i" items="${locMap}">
+														<option value="${i.key}">${i.key}</option>
+														<c:if test="${lc == i.value }">
+															<option value="${i.key}" selected="selected">${i.key}</option>
+														</c:if>
+
+													</c:forEach>
+
+
+
+												</select> <input type="text" name="mem_add_addr" list="mem_addr"
 													required="required" placeholder="나머지 주소">
 											</p></li>
 										<br />
