@@ -97,13 +97,13 @@ header a:active{color: black; text-decoration: none;}
 	 
 }
 #header_logo{
-	text-align: center;
+	margin-left: 45%;
 }
 
 /* icon */
 #dog_icon{
-	height: 300px;
-	width: 300px;
+	height: 220px;
+	width: 220px;
 	text-align: center;
 	border-radius: 100%;
 }
@@ -114,49 +114,48 @@ header a:active{color: black; text-decoration: none;}
 
 /* header section */
 #header_top{
-	padding : 0 15px 25px 15px;
-	margin-bottom: 3px;
-	/* margin-top: -35px; */
 
-}
-#header_left{
-	float: left;
 }
 #header_center{
 	margin-top: 0px; 
 	background-color: #E55151;
-}
-#header_right{
-	float: right;
+	border-bottom: 2px solid #d5d5d5;
 }
 
 /* weather_today */
 #weather_today{
-	margin-top: -60px;
+	margin-top: -100px;
+	margin-right: 30px;
 	float:right;
 	color: #c3c3c3;
+	font-size: 18px;
+}
+#weather_pic{
+	margin-bottom: -15px;
+	margin-left: 10px;
 }
 
 /* member_space */
 #member_space{
 	float:right;
-	padding: 10px;
+	padding: 10px 10px 0px 0px;
+	color: #373b43;
 }
 
 .top_left_button{
-	color: black;
 	background-color : #F9F7F6;
 	border : none;
 	font-size: 15px;
 	cursor: pointer;
+	font-weight: bold;
 }
  
 .top_right_button{
-	color: black;
 	background-color : #F9F7F6;
 	border : none;
 	font-size: 15px;
 	cursor: pointer;
+	font-weight: bold;
 }
 
 /* menu_bar */
@@ -170,31 +169,31 @@ header a:active{color: black; text-decoration: none;}
 	background-color: #E55151;
 }
 .menu_bar_table td{
-	padding: 25px;
-	font-size: 20px;
+	padding: 0px 30px;
+	font-size: 20px; 
 }
 .menu_bar_table td:hover{
 	border-bottom: 2px solid white;
 }
 .menu_bar_table td:first-child{
-	padding: 25px 5px 25px 5px;
+	padding: 15px 30px 15px 30px;
 	background-color: #D34747;
 	font-size: 30px;
+	font-weight: bold;
 }
 
 /* search_bar */
 #search_bar{
-	padding: 0px;
+	margin: 10px 29px 0px 0px;
 	display: inline-block;
 	float: right;
-	border-bottom: 10px solid #D34747;
 }
 #search_target{
 	border: none;
 	font-size: 15px;
 }
 #search_input{
-	border-bottom: 2px solid white;
+	border-bottom: 1px solid white;
 }
 #search_word{
 	width: 300px;
@@ -209,8 +208,8 @@ header a:active{color: black; text-decoration: none;}
 }
 
 #search_button{
-	height: 30px;
-	width: 40px;
+	height: 23px;
+	width: 30px;
 }
 
 #search_button:hover{
@@ -222,14 +221,16 @@ header a:active{color: black; text-decoration: none;}
 #search_radio{
 	float: right;
 	color: white;
+	margin-top: 7px;
+	font-size: 13px;
 }
 
 /* #search_radio  */
 #search_radio input[type='radio'],
 #search_radio input[type='radio']:checked {
   -webkit-appearance: none;
-  width: 1rem;
-  height: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
   border-radius: 100%;
   margin-right: 3px;
 }
@@ -282,12 +283,6 @@ header a:active{color: black; text-decoration: none;}
 			<span id="weather_icon"></span>
 		</div>
 	</div>
-	<div id="header_left">
-	</div>
-	
-	<div id="header_right">
-	</div>
-	
 	<div id="header_center">
 		<div id="menu_bar">
 			<table class="menu_bar_table">
@@ -300,12 +295,11 @@ header a:active{color: black; text-decoration: none;}
 			</table>
 		</div>
 		<div id="search_bar">
-			<form action="search.do" method="get">
+			<form action="search.do" method="get" id="search_form">
 				<div id="search_input">
 					<input type="text" id="search_word" name="search_word" class= "search_word" value='' placeholder="SEARCH" autocomplete="off">
 					<input type="image" alt="검색" id="search_button" src="images/search_button.png">
 				</div>
-				<br>
 				<div id="search_radio">
 					<input type="radio" id="search_style" name="search_target" value="0" checked><label for="search_style">스타일</label>
 					<input type="radio" id="search_board" name="search_target" value="1"><label for="search_board">게시판</label>
