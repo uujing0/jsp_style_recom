@@ -288,7 +288,7 @@
 			</table>
 
 			<a href="bbs.do" class="btn btn-danger"">목록</a>
-			<c:if test="${mem_id != null && mem_id == board.mem_id}">
+			<c:if test="${mem_id != null && mem_id == board.mem_id || mem_id == 'admin'}">
 				<a href="update.do?bd_id=${board.bd_id}" class="btn btn-danger">수정</a>
 				<a onclick="return confirm('정말로 삭제하시겠습니까?')"
 					href="delete.do?bd_id=${board.bd_id}" class="btn btn-danger"">삭제</a>
