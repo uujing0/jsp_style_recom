@@ -9,12 +9,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>mypage</title>
 <script type="text/javascript">
-window.onload=function(){
 	if('${sessionScope.mem_id}'){
-		alert("돼냐?");
+		
 	}
-	
-}
+	else{
+		alert("로그인 해주세요.");
+		history.go(-1);
+		login();
+	}
+	function login() {
+        window.open('loginForm.jsp','로그인','width=500,height=400,left=700,top=200,status=no,scrollbars=no')
+	}
 </script>
 
 </head>
