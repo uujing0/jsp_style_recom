@@ -134,6 +134,52 @@ public class JW_StyleInfoDao {
 		return total;
 	}
 	
+	
+	//test
+	public ArrayList<StyleInfo> getStyleMain() throws SQLException {
+		System.out.println("[WY]");
+		
+		Connection conn = null;
+		String sql = "select * from style_info";
+		
+		System.out.println("=> " + sql);
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<StyleInfo> styleInfos = new ArrayList<>();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+		
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				StyleInfo styleInfo = new StyleInfo();
+/*				styleInfo.setStl_pic_url(rs.getString("stl_pic_url"));
+*/
+				styleInfo.setStl_id(rs.getInt("stl_id"));
+				styleInfo.setCc_id_outer(rs.getInt("cc_id_outer"));
+				styleInfo.setCc_id_top(rs.getInt("cc_id_top"));
+				styleInfo.setCc_id_bottom(rs.getInt("cc_id_bottom"));
+				styleInfo.setCc_id_acc(rs.getInt("cc_id_acc"));
+				styleInfo.setStl_pic_url(rs.getString("stl_pic_url"));
+				styleInfo.setStl_desc(rs.getString("stl_desc"));
+				styleInfo.setStl_gender(rs.getInt("stl_gender"));
+				
+				styleInfos.add(styleInfo);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			
+		}  finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		
+		return styleInfos;
+	}
+	
 	// TAG에 따른 styleInfo list 받아오는 메소드
 	public ArrayList<StyleInfo> getStyleInfosFromTag(int tagId, int gender) throws SQLException {
 		System.out.println("[JW_StyleInfoDao - getStyleInfosFromTag]");
