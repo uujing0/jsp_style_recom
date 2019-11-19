@@ -63,8 +63,12 @@ public class UJ_MemberDao {
 	
 	public Member getMemberDate(String id) throws SQLException {
 		System.out.println("---------- UJ_MemberDao - confirmUser ----------");
+
 	
 		Connection conn = null;
+
+		
+
 		String sql = "SELECT * FROM member WHERE mem_id = ?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -102,7 +106,6 @@ public class UJ_MemberDao {
 		return mem;
 	}
 
+
+
 }
-
-
-

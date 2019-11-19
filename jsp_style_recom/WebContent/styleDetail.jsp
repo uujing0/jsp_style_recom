@@ -12,8 +12,8 @@
 </head>
 <%@ include file="header.jsp"%>
 
-
 <body>
+
 <%@ include file="styleDetailContent.jsp" %>
 <%@ include file="recentStyle.jsp" %>
 <script type="text/javascript">

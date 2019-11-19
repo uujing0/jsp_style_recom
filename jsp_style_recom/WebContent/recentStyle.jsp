@@ -5,30 +5,43 @@
 <Style>
 #rightSide {
 	position: absolute;
-	top: 547px;
+	top: 590px;
 	left: 50%;
 	margin: 0 0 0 510px;
-}
 
+}
+#rightSide #aaa {
+
+	margin-left: 180px;
+
+
+}
 #rightSide #right_zzim {
-	position: fixed;
+	float:right;
 	top: 200px;
 	left: 50%;
-	margin-left: 700px;
+	margin-left: 180px;
 	border: 1px solid #B0B5BD;
 	width:200px;
 	height: 700px;
+	background-color: #f9f7f6;
 }
 
 #rightSide #right_zzim  div {
 	text-align: center;
 }
 
-#rightSide #right_zzim  div.recTit {
-	line-height: 1.5em;
-	padding: 5px;
-	color: white;
-	background-color: #505A69;
+#rightSide #aaa div.recTit {
+	
+	padding-left:10px;
+	text-decoration:none;
+	color:white;
+	font-weight:bold;
+	display:inline-block;
+	border-right:30px solid transparent;
+	border-bottom:30px solid #373b43;
+	height:0;
+	line-height: 40px;
 }
 
 #right_zzim #recentCnt {
@@ -59,11 +72,13 @@
 </style>
 
 <div id="rightSide">
-
-	<div id="right_zzim">
-		<div class="recTit">
-			최근본스타일 <span id=recentCnt></span>
+<div id="aaa">
+<div class="recTit">
+			 최근본스타일 
 		</div>
+		</div>
+	<div id="right_zzim">
+		
 		<ul>	
 <!-- 본 상품이 뿌려질 부분  -->
 		</ul>		

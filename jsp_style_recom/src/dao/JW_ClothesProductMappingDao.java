@@ -53,7 +53,7 @@ public class JW_ClothesProductMappingDao {
 			while(rs.next()) {
 				p_cc1.add(rs.getString(1));
 				//product_id = rs.getString(1);
-				System.out.println(rs.getString(1));
+				System.out.println("---"+rs.getString(1));
 			}
 		} catch(Exception e) {
 			System.out.println(e.getMessage());

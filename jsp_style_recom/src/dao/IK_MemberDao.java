@@ -195,9 +195,17 @@ public class IK_MemberDao {
 		}
 		System.out.println("update result-->"+result);
 		return result;
+
 	} 
+
+	}
 	
-}
+	
+	
+	
+
+	
+
 
 
 

@@ -148,6 +148,9 @@ public class JW_StyleInfoDao {
 				"                   WHERE tc_id = ?) " +
 				" AND stl_gender = ?";
 		
+		System.out.println("=> " + sql);
+		System.out.println(tagId + " " + gender);
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<StyleInfo> styleInfos = new ArrayList<>();
@@ -182,6 +185,7 @@ public class JW_StyleInfoDao {
 		
 		return styleInfos;
 	}
+	
 	public String pic_url(int stl_id) throws SQLException {
 		Connection conn = null;
 		String sql = "select stl_pic_url from STYLE_INFO where stl_id = ?";
@@ -204,4 +208,99 @@ public class JW_StyleInfoDao {
 		}		
 		return stl_pic_url;
 	}
+	
+	public StyleInfo getStyleInfo(int stl_id) throws SQLException {
+
+		Connection conn = null;
+		String sql = 	
+				" SELECT * " +
+				" FROM STYLE_INFO " +
+				" WHERE stl_id = ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StyleInfo styleInfo = null;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, stl_id);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				styleInfo = new StyleInfo();
+				styleInfo.setStl_id(rs.getInt("stl_id"));
+				styleInfo.setCc_id_outer(rs.getInt("cc_id_outer"));
+				styleInfo.setCc_id_top(rs.getInt("cc_id_top"));
+				styleInfo.setCc_id_bottom(rs.getInt("cc_id_bottom"));
+				styleInfo.setCc_id_acc(rs.getInt("cc_id_acc"));
+				styleInfo.setStl_pic_url(rs.getString("stl_pic_url"));
+				styleInfo.setStl_desc(rs.getString("stl_desc"));
+				styleInfo.setStl_gender(rs.getInt("stl_gender"));
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			
+		}  finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		
+		return styleInfo;
+	}
+	
+	// Clothes에 따른 styleInfo list 받아오는 메소드
+	public ArrayList<StyleInfo> getStyleInfosFromClothesCategory(int cc_id, int gender) throws SQLException {
+		System.out.println("[JW_StyleInfoDao - getStyleInfosFromClothesCategory]");
+		
+		
+		Connection conn = null;
+		String sql = 	
+				" SELECT *  " +
+				" FROM style_info " +
+				" WHERE ( cc_id_outer = ? " +
+				"         OR    cc_id_top = ? " +
+				"         OR    cc_id_bottom = ? " +
+				"         OR    cc_id_acc     = ?) " +
+				" AND   stl_gender = ?";
+					
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<StyleInfo> styleInfos = new ArrayList<>();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cc_id);
+			pstmt.setInt(2, cc_id);
+			pstmt.setInt(3, cc_id);
+			pstmt.setInt(4, cc_id);
+			pstmt.setInt(5, gender);
+			
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				StyleInfo styleInfo = new StyleInfo();
+				styleInfo.setStl_id(rs.getInt("stl_id"));
+				styleInfo.setCc_id_outer(rs.getInt("cc_id_outer"));
+				styleInfo.setCc_id_top(rs.getInt("cc_id_top"));
+				styleInfo.setCc_id_bottom(rs.getInt("cc_id_bottom"));
+				styleInfo.setCc_id_acc(rs.getInt("cc_id_acc"));
+				styleInfo.setStl_pic_url(rs.getString("stl_pic_url"));
+				styleInfo.setStl_desc(rs.getString("stl_desc"));
+				styleInfo.setStl_gender(rs.getInt("stl_gender"));
+				
+				styleInfos.add(styleInfo);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			
+		}  finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		
+		return styleInfos;
+	}
+		
 }

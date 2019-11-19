@@ -46,8 +46,8 @@ public class TH_TownDao {
 			city = "제주";
 		else if (addr.equals( "4480038000"))
 			city = "홍성";
-		else if (addr.equals( "4376031000"))
-			city = "괴산";
+		else if (addr.equals( "4311133000"))
+			city = "청주";
 		return city;
 	}
 	public String location(String addr) {
@@ -86,7 +86,7 @@ public class TH_TownDao {
 			city = "제주특별자치도";
 		else if (addr.equals( "4480038000"))
 			city = "충청남도";
-		else if (addr.equals( "4376031000"))
+		else if (addr.equals( "4311133000"))
 			city = "충청북도";
 		return city;
 	}

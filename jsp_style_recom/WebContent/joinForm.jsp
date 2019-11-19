@@ -55,7 +55,7 @@
 									<ul>
 										<li><p>
 												<label>아&nbsp;이&nbsp;디</label> <br> <label><input
-													type="text" class="a" name="mem_id" placeholder="아이디"><a
+													type="text" class="a" name="mem_id" required="required" placeholder="아이디"><a
 													onclick="winop()">중복확인</a> </label>
 											</p></li>
 										<br>

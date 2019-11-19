@@ -17,9 +17,9 @@
 </head>
 <body>
 	<c:if test="${result == 1}">
-		<c:set var="mem_id" value="${mem_id}"/>
 		<script type="text/javascript">
 			alert("로그인을 성공하였습니다.")
+
 
 			opener.document.location.reload(); //팝업창닫으면서 원래창 새로고침
             self.close();
@@ -30,6 +30,15 @@
 			sessionStorage.setItem('mem_email', getParameterByName('mem_email')); */
 			location.href = "main.do"
 			//window.close();
+
+
+			sessionStorage.setItem('mem_id', getParameterByName('mem_id'));
+			sessionStorage.setItem('mem_name', getParameterByName('mem_name'));
+			sessionStorage.setItem('mem_phone', getParameterByName('mem_phone'));
+			sessionStorage.setItem('mem_email', getParameterByName('mem_email'));
+			opener.document.location.reload();//팝업창닫으면서 원래창 새로고침
+			//location.href = "main.do"
+			window.close();
 
 		</script>
 	</c:if>

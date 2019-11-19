@@ -20,7 +20,6 @@
 </script>
 <link rel="stylesheet" type="text/css" href="HJ_SrhLoginStyle.css">
 </head>
-<%@include file="header.jsp"%>
 <body>
 	<div class="content">
 		<br>
@@ -67,5 +66,4 @@
 		</div>
 	</div>
 </body>
-<%@include file="footer.jsp"%>
 </html>
