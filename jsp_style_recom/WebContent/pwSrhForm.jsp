@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>비밀번호 찾기</title>
 <script type='text/javascript'></script>
-<link rel="stylesheet" type="text/css" href="HJ_style.css">
+<link rel="stylesheet" type="text/css" href="HJ_SrhLoginStyle.css">
 </head>
 <body>
 	<div class="content">
@@ -15,7 +15,8 @@
 		<div class="agree">
 			<ul class="idpwSrh">
 				<li>
-					<div class="srhBox br">
+					<div class="srhBox br"
+							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
 						<div class="srhTop">
 						<h1>비밀번호 찾기</h1>
 						<br/>

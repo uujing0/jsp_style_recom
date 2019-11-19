@@ -16,11 +16,14 @@
 	</script>
 	
 </c:if>
-<c:if test="${result == 0 }">  
+<c:if test="${result <= 0 }">  
 	<script type="text/javascript">
 		alert("탈퇴 실패입니다.");  
-		history.go(-1);
+		location.href="main.do";
 	</script>
 </c:if>
+
+
+
 </body>
 </html>

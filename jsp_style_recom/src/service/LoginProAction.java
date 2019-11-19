@@ -19,19 +19,33 @@ public class LoginProAction implements CommandProcess {
 		try {
 			String mem_id = request.getParameter("mem_id");
 			String mem_pw = request.getParameter("mem_pw");
+			String mem_name = request.getParameter("mem_name");
+			String mem_email = request.getParameter("mem_email");
+			String mem_phone = request.getParameter("mem_phone");
+			
 			
 			int result = memberDao.confirmUser(mem_id, mem_pw);
 			
 			if (result == 1) {
 				HttpSession session = request.getSession();
 				session.setAttribute("mem_id", mem_id);
+
 				
 			
+
+				session.setAttribute("mem_name", mem_name);
+				session.setAttribute("mem_email", mem_email);
+				session.setAttribute("mem_phone", mem_phone);
+
 			} 
 			
 			request.setAttribute("result", result);
+
 		
-			} catch (Exception e) { 
+			} 
+			
+		      catch (Exception e) { 
+
 			System.out.println(e.getMessage());
 		}
 		

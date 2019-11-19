@@ -28,10 +28,15 @@ public class MemUpFormAction implements CommandProcess {
 		UJ_MemberDao mDao = UJ_MemberDao.getInstance();
 		
 		Member curMember = mDao.getMemberDate(mem_id);
+
 		 
+
+		
+
 		System.out.println("MemUpFormAction mem_id--->"+mem_id);
 		
 		request.setAttribute("mem_id", mem_id);
+
 		request.setAttribute("mem_name2", curMember.getMem_name());
 		
 		String strLocCode = request.getParameter("locCode");
@@ -48,13 +53,16 @@ public class MemUpFormAction implements CommandProcess {
 		
 		
 		
+
+		request.setAttribute("mem_name", curMember.getMem_name());
+		request.setAttribute("mem_phone", curMember.getMem_phone());
+		request.setAttribute("mem_email", curMember.getMem_email());
+
 		/*request.setAttribute("mem_addr", mem_add_addr);*/
 	    
 	  /*  System.out.println("mem_addr " + mem_addr);*/
 		
-		
-		
-		
+
 	
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
