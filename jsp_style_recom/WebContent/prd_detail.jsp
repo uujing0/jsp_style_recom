@@ -30,6 +30,7 @@
 
 h2 {
 	text-align: left;
+	
 }
 
 #iposition {
@@ -67,9 +68,10 @@ h2 {
 	font-weight: bold;
 	display: block; 
 	border-right: 30px solid transparent; 
-	border-bottom: 30px solid #4c4c4c; 
+	border-bottom: 60px solid #4c4c4c; 
 	height: 0; 
-	line-height: 50px; 
+	line-height: 75px; 
+	font-size: 20pt;
 	}
 
 </style>
@@ -89,8 +91,8 @@ h2 {
 							<td>
 								<table id="prdnametag">
 									<tr align="center">
-										<td> 상품명 : </td>
-										<td> ${Product.prd_name }</td>
+										
+										<td> ${ Product.prd_name }</td>
 									</tr>
 								</table>
 							</td>

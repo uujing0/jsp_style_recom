@@ -9,11 +9,11 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#hot_tag_list{ 
-		position:fixed;
-		float: right;
+		
+		position:absolute;
 		border: 2px solid;
 		right: 10px;
-		top: 200px;
+		top: 600px;
 		
 	}
 	#hot_tag_list a:link{text-decoration: none; color: black;} 
@@ -35,7 +35,7 @@
         height: 740px;
         overflow: hidden;
         position: relative;
-        margin: auto;
+        margin-left: 325px;
         padding: 0 auto;
       }
       .slide ul{
@@ -189,7 +189,7 @@
 	</div>
 	
  	<div class="slide">
-      <img id="back" src="images/back.png" alt="" width="50">
+      <img id="back" src="images/back.jpg" alt="" width="50">
       <ul>
         <li><img src="./images/category_images/${al[0] }" id="${al[0] }"
 			height="740px" width="580px">
@@ -202,7 +202,7 @@
 			height="740px" width="580px"></li>
       <li></li>
  	  </ul>
-      <img id="next" src="images/next.png" alt="" width="50">
+      <img id="next" src="images/next.jpg" alt="" width="50">
     </div>
 	<p>
     <div id="board" style="height: 500px;">
@@ -212,10 +212,11 @@
 					font-weight: bold;
 					display: inline-block;
 					border-right: 30px solid transparent;
-					border-bottom: 30px solid #4c4c4c; 
+					border-bottom: 50px solid #4c4c4c; 
 					 margin-bottom: -4px;
 					height: 0;
-					line-height: 50px;">게시판</a>
+					 font-size: 20pt;
+					line-height: 70px;">게시판</a>
         <table style="font:bold; float: left;" id="bList"  >
       	<c:forEach var="board" items="${bbsList}" begin="0" end="2">
         <td>
