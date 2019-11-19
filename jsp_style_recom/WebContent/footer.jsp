@@ -16,14 +16,12 @@ footer{
 	position:relative;
 	display: flow-root;
  	margin-top: 120px;
- 	padding: 4%;
+ 	padding: 100px;
  	
  	}
 
 #footer_root{
-	margin-left: 10%;
-	margin-right: 10%;
-	padding: 6%;
+	padding: 100px;
 	background-color: #d5d5d5;
 }
 
