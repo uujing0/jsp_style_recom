@@ -60,4 +60,49 @@ public class UJ_MemberDao {
 		
 		return result;
 	}
+	
+	public Member getMemberDate(String id) throws SQLException {
+		System.out.println("---------- UJ_MemberDao - confirmUser ----------");
+		int result = 0;
+		Connection conn = null;
+		String sql = "SELECT * FROM member WHERE mem_id = ?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Member mem = null;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				mem = new Member();
+				
+				mem.setMem_id(rs.getString("mem_id"));
+				mem.setMem_pw(rs.getString("mem_pw"));
+				mem.setMem_name(rs.getString("mem_name"));
+				mem.setMem_phone(rs.getString("mem_phone"));
+				mem.setMem_email(rs.getString("mem_email"));
+				mem.setMem_body_type(rs.getInt("mem_body_type"));
+				mem.setMem_addr(rs.getString("mem_addr"));
+				mem.setMem_gender(rs.getInt("mem_gender"));
+				mem.setMem_join_date(rs.getDate("mem_join_date"));
+				mem.setMem_status(rs.getInt("mem_status"));
+				mem.setMem_fav_loc(rs.getString("mem_fav_loc"));
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		
+		return mem;
+	}
+
 }
+
+
+

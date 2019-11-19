@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.Common;
 import dao.IK_MemberDao;
 import dao.Member;
 import dao.MemberDao;
@@ -50,7 +51,7 @@ public class JoinProAction implements CommandProcess {
 			request.setAttribute("mem_id", member.getMem_id());
        		request.setAttribute("result", result);
        		request.setAttribute("mem_add_addr", mem_add_addr);
-			
+       		
 				
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

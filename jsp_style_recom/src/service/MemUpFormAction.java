@@ -5,6 +5,11 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import common.Common;
+import dao.Member;
+import dao.UJ_MemberDao;
 
 public class MemUpFormAction implements CommandProcess {
 
@@ -12,15 +17,45 @@ public class MemUpFormAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	try {
-		String mem_addr = request.getParameter("mem_addr");
+		/*String mem_addr = request.getParameter("mem_addr");
 		String mem_add_addr =request.getParameter("mem_add_addr");
-		String modifiedAddr = mem_addr + " " + mem_add_addr;
-		String mem_id = request.getParameter("${mem_id}");
+		String modifiedAddr = mem_addr + " " + mem_add_addr;*/
+		//String mem_id = request.getParameter("mem_id");
+		
+		HttpSession session = request.getSession();
+		String mem_id = (String)session.getAttribute("mem_id");
+		
+		UJ_MemberDao mDao = UJ_MemberDao.getInstance();
+		
+		Member curMember = mDao.getMemberDate(mem_id);
+		 
+		System.out.println("MemUpFormAction mem_id--->"+mem_id);
+		
 		request.setAttribute("mem_id", mem_id);
-		request.setAttribute("mem_addr", mem_add_addr);
+		request.setAttribute("mem_name2", curMember.getMem_name());
+		
+		String strLocCode = request.getParameter("locCode");
+		
+		
+		request.setAttribute("lc", strLocCode);
+		
+		
+		
+		request.setAttribute("locMap", Common.getInstance().locationMap());	
+      System.out.println("getattribute----->"+request.getAttribute("locMap"));
+		
+		
+		
+		
+		
+		/*request.setAttribute("mem_addr", mem_add_addr);*/
 	    
-	    System.out.println("mem_addr " + mem_addr);
-		System.out.println("UpdateFormAction mem_id--->"+mem_id);
+	  /*  System.out.println("mem_addr " + mem_addr);*/
+		
+		
+		
+		
+	
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

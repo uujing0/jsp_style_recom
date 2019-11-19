@@ -25,13 +25,13 @@ public class LoginProAction implements CommandProcess {
 			if (result == 1) {
 				HttpSession session = request.getSession();
 				session.setAttribute("mem_id", mem_id);
+				
+			
 			} 
 			
 			request.setAttribute("result", result);
-			request.setAttribute("mem_id", mem_id);
-			
-			
-		} catch (Exception e) { 
+		
+			} catch (Exception e) { 
 			System.out.println(e.getMessage());
 		}
 		

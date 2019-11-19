@@ -31,7 +31,7 @@
 					 <br/>
 			 		 <input type="password" name="mem_pw" required="required"  class="a" placeholder="암호 입력하세요" id="mem_pw"><p>		 	
 			 		<br/>
-			 		<button type="submit">찾기</button>
+			 		<button type="submit">탈퇴</button> 
 				</fieldset>	
 			</form>	
 			</div>

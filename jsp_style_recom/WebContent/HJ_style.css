@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*기본 설정*/
 body {
-	font-size: 12px;
+	font-size: 15px;
 	color: #555555;
 	font-family: 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
 	word-break: keep-all
@@ -13,10 +13,10 @@ body {
 		padding: 0;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+	/* h1, h2, h3, h4, h5, h6 {
 		font-weight: normal;
 		text-align: center;
-	}
+	} */
 
 	ul, ol, li {
 		list-style: none
@@ -91,6 +91,7 @@ body {
 		border-collapse: collapse;
 		text-align: center;
 	}	
+
 /*바디 설정 */
 	.idpwSrh {
 		width: 100%;
@@ -111,7 +112,7 @@ body {
 				border-style: solid solid solid solid;
 				border-color: #d8d8d8;
 				background: #fbfbfb;
-				text-align: center;
+				/* text-align: center; */
 			}
 	
 				.idpwSrh li .or h2 {
@@ -119,7 +120,7 @@ body {
 					font-size: 22px;
 					font-weight: 900;
 					color: #816950;
-					text-align: center;
+					/* text-align: center; */
 				}
 
 				.idpwSrh li .br h2 {
@@ -127,7 +128,7 @@ body {
 					font-size: 22px;
 					font-weight: 900;
 					color: #816950;
-					text-align: center;
+					/* text-align: center; */
 				}
 
 			.idpwSrh li .br {
@@ -135,10 +136,10 @@ body {
 				border-width: 1px;
 				border-color: #d8d8d8;
 				background: #fbfbfb;
-				text-align: center;
+				/* text-align: center; */
 			}
 		.idpwSrh li .srhBox .srhTop {
-			text-align: center;
+			/* text-align: center; */
 			font-size: 13px
 		}
 
@@ -151,11 +152,11 @@ body {
 .idpwSrh li .srhBox .info label {disp;
 	width: 83px;
 	margin-right: 12px;
-	vertical-align: middle;
+    vertical-align: middle; 
 	font-weight: 900;
 	font-size: 13px;
 	color: #333333;
-	text-align: center;
+	/* text-align: center; */
 }
 
 .idpwSrh li .srhBox .info p {
@@ -189,3 +190,4 @@ body {
 	font-family: 'Malgun Gothic', '맑은 고딕';
 	color: #FFFFFF
 }
+	

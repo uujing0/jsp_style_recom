@@ -10,6 +10,7 @@
  #board{
  			top:90px;
            	margin-left: 8%;
+           	height: 450px;
         } 
  #bList{
             text-align :center;

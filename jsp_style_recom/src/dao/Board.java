@@ -7,9 +7,9 @@ import java.util.Date;
 public class Board {
 	private int bd_id; /* 野껊슣�뻻疫뀐옙ID */
 	private String bd_date; /* 野껊슣�뻻占쎄텊筌욑옙 */
-	private String bd_title; /* 占쎌젫筌륅옙 */
-	private String bd_file_url; /* 占쎈솁占쎌뵬雅뚯눘�꺖 */
-	private String bd_content; /* 占쎄땀占쎌뒠 */
+	private String bd_title; /* 占쎌젫筌륅옙 */ /* 占쎈솁占쎌뵬雅뚯눘�꺖 */
+	private String bd_content;
+	private String bd_file_url;/* 占쎄땀占쎌뒠 */
 	private int bd_readcount; /* 鈺곌퀬�돳占쎈땾 */
 	private String bd_notice; /* �⑤벊占쏙옙肉ч겫占� */
 	private int bbsNO;
@@ -19,12 +19,21 @@ public class Board {
 	private int star1;
 	private String popup;
 
+
 	public String getPopup() {
 		return popup;
 	}
 
 	public void setPopup(String popup) {
 		this.popup = popup;
+	}
+
+	public String getBd_file_url() {
+		return bd_file_url;
+	}
+
+	public void setBd_file_url(String bd_file_url) {
+		this.bd_file_url = bd_file_url;
 	}
 
 	public int getStar1() {
@@ -93,13 +102,6 @@ public class Board {
 		this.bd_title = bd_title;
 	}
 
-	public String getBd_file_url() {
-		return bd_file_url;
-	}
-
-	public void setBd_file_url(String bd_file_url) {
-		this.bd_file_url = bd_file_url;
-	}
 
 	public String getBd_content() {
 		return bd_content;

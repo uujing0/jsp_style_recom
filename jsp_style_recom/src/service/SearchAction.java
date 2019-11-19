@@ -12,6 +12,7 @@ import dao.HotTag;
 import dao.JM_HotTagDao;
 import dao.JM_SearchStyleDao;
 import dao.StyleInfo;
+import dao.YJ_BbsDAO;
 
 public class SearchAction implements CommandProcess{
 
@@ -43,31 +44,26 @@ public class SearchAction implements CommandProcess{
 			
 			try {
 				System.out.println("styleSearch.search_word->"+search_word);
-				JM_SearchStyleDao ss = JM_SearchStyleDao.getInstance();
-				//ArrayList<StyleInfo> style_info = new ArrayList<StyleInfo>();
+				JM_SearchStyleDao ss = JM_SearchStyleDao.getInstance();				
 				
-				ArrayList<Integer> id_list = new ArrayList<Integer>();
-				ArrayList<String> pic_list = new ArrayList<String>();
 				//검색어에 맞는 스타일들을 모두 가져오는 메소드
-				
 				ArrayList<StyleInfo> style_info = ss.searchStyle(search_word);
 				
-				//각 배열리스트에 id와 사진주소를 저장한다.
-				for(int i = 0 ; i < style_info.size() ; i++) {
-					id_list.add(i, style_info.get(i).getStl_id());
-					pic_list.add(i, style_info.get(i).getStl_pic_url());
-				}
-				//id와 사진주소 리스트를 넘긴다.
-				request.setAttribute("id_list", id_list);
-				request.setAttribute("pic_list", pic_list);
+				request.setAttribute("list", style_info);
+				request.setAttribute("tc_id", ss.searchStyleTag(search_word));
 				
 			}catch (Exception e) {
 				System.out.println("StyleSearch error : " + e.getMessage());
 			}
 			
 		}else {
-			//returnPage = "board.jsp";
+			returnPage = "bbs.do";
 			System.out.println("게시판 검색");
+			
+			YJ_BbsDAO bd = new YJ_BbsDAO();
+			request.setAttribute("bbsList", bd.boardgetList());
+			YJ_BbsDAO bd1 = new YJ_BbsDAO();
+			request.setAttribute("bbsList2", bd1.noticelist());
 		}
 		
 		//검색 결과 페이지로 검색 단어를 get방식으로 전송한다.

@@ -33,7 +33,8 @@ public class MemUpProAction implements CommandProcess {
 			member.setMem_gender(Integer.parseInt(request.getParameter("mem_gender")));
 			member.setMem_addr(modifiedAddr);
 			    
-			    System.out.println("====> " + modifiedAddr);
+		    System.out.println("====> " + modifiedAddr);
+		    System.out.println("mem_name====> " + request.getParameter("mem_name") );
 			String [] arr_mem_fav = request.getParameterValues("mem_fav_loc");
 			
 			String mem_fav_loc = arr_mem_fav == null ? "" : String.join(",", arr_mem_fav);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!doctype html>
 
 <html lang="ko">
@@ -63,30 +64,38 @@
 <legend>회원 정보 수정</legend>
 		<ul>
 			
-		    <li><p><label>아&nbsp;이&nbsp;디</label><label><input type="text" class="a" name="mem_id"
-					value="${mem_id}" readonly/></p></label></li>
+		    <li><label><input type="text" class="a" name="mem_id"
+					value="${mem_id}" readonly/></label></li>
 		
 			<br/>
 		
-			<li><p><label>비밀번호</label><label><input type="password" class="a" name="mem_pw"
-					required="required" placeholder="비밀번호 재설정"></p></label></li>
+			<li><label><input type="password" class="a" name="mem_pw"
+					required="required" placeholder="비밀번호 재설정"></label></li>
 
 			<br/>
-			<li><p><label>비밀번호&nbsp;확인</label><label><input type="password" class="a" name="mem_pw2"
-					required="required" placeholder="비밀번호 재설정 확인"></p></label></li>
+			<li><label><input type="password" class="a" name="mem_pw2"
+					required="required" placeholder="비밀번호 재설정 확인"></label></li>
 			<br/>
-			<li><p><label>이&nbsp;&nbsp;&nbsp;&nbsp;름</label><label><input type="text" class="a" name="mem_name"
-					required="required" value="${mem_name}" placeholder="이름"></p></label></li>
+			 <li><label><input type="text" class="a" name="mem_name"
+					required="required" value="${mem_name2}" readonly ></p></label></li>
+			<br/> 
+			<li><label><input type="tel" class="a" name="mem_phone"
+					required="required" value="${mem_phone}" placeholder="전화번호(000-0000-0000)"></label></li>
 			<br/>
-			<li><p><label>전화번호</label><label><input type="tel" class="a" name="mem_phone"
-					required="required" value="${mem_phone}" placeholder="전화번호(xxx-xxxx-xxxx)"></p></label></li>
+			<li><label><input type="text" class="a" name="mem_email"
+					required="required" value="${mem_email}" placeholder="이메일"></label></li>
 			<br/>
-			<li><p><label>이&nbsp;메&nbsp;일</label><label><input type="text" class="a" name="mem_email"
-					required="required" value="${mem_email}" placeholder="이메일"></p></label></li>
-			<br/>
-			<li><p><label>주&nbsp;소</label> <select
-				  name="mem_addr" onChange="categoryChange(this)" >
-					<option>사는 곳을 선택해주세요</option>
+			<li><label>주&nbsp;소</label> 
+				<select name="mem_addr" class="weatherLocation" onChange="categoryChange(this)" >
+				<option value="0">사는 곳을 선택해주세요</option>
+					 <c:forEach var="i" items="${locMap}">
+                       <option value="${i.key}">${i.key}</option>
+                                <c:if test="${lc == i.value }">
+									<option value="${i.key}" selected="selected">${i.key}</option>
+								</c:if>
+								
+                     </c:forEach>
+					<!-- <option>사는 곳을 선택해주세요</option>
 					<option value="서울특별시">서울특별시</option>
 					<option value="강원도">강원도</option>
 					<option value="경기북부">경기북부</option>
@@ -104,8 +113,8 @@
 					<option value="전라북도">전라북도</option>
 					<option value="제주특별자치도">제주특별자치도</option>
 					<option value="충청남도">충청남도</option>
-					<option value="충청북도">충청북도</option>
-                 	</select>   
+					<option value="충청북도">충청북도</option> -->
+                 	</select>    
                    <input type="text" name="mem_add_addr" list="mem_addr"
 						  required="required" placeholder="나머지 주소"></p> </li>
 				 <br/>
@@ -119,7 +128,7 @@
 
 			</select></li>
 			<br/>
-			 <li><h1><label class="" name="mem_fav_loc">관심지역(중복 선택 가능)</label></h1></li>
+			 <li><label class="" name="mem_fav_loc"><h3>관심지역(중복 선택 가능)</h3></label></li>
             <label><input type="checkbox" name="mem_fav_loc" value="서울특별시">서울특별시</label>
 			<label><input type="checkbox" name="mem_fav_loc" value="경기도">경기도</label>
 			<label><input type="checkbox" name="mem_fav_loc" value="강원도">강원도</label>
@@ -130,6 +139,7 @@
 			<label><input type="checkbox" name="mem_fav_loc" value="전라남도">전라남도</label>
 			<label><input type="checkbox" name="mem_fav_loc" value="전라북도">전라북도</label>
 			<label><input type="checkbox" name="mem_fav_loc" value="경상남도">경상남도</label>
+			<br/>
 			<label><input type="checkbox" name="mem_fav_loc" value="경상북도">경상북도</label>
 			<label><input type="checkbox" name="mem_fav_loc" value="제주도">제주도</label> 
          	 <br/>
@@ -154,4 +164,3 @@
 </div>
 </body>
 </html>
-
