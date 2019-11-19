@@ -10,7 +10,7 @@
 
 <script type="text/javascript" src="./js/jquery.js"></script>
 
-<style type="text/css">
+<style type="text/css"> 
 
 
 .styleList_content {

@@ -35,13 +35,16 @@ public class PrdDetailAction implements CommandProcess{
 			
 			HttpSession session = request.getSession();
 
-			String strGender = (String) session.getAttribute("strGender");
+			String strGender = (String) session.getAttribute("gender");
 			if (strGender == null || strGender.equals("")) {
 				strGender = "1";
 			}
 			int gender = Integer.parseInt(strGender);
 			System.out.println("gender->" + gender);
 			
+			/*
+			 * gender= 1; System.out.println("gender->>>>>>>>>>>>>>"+gender);
+			 */
 			dp = dpDao.Detail_prd(prd_id, gender);
 			
 			

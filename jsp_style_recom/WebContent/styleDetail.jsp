@@ -12,11 +12,7 @@
 </head>
 <%@ include file="header.jsp"%>
 
-
 <body>
-<h1>오늘의 추천 스타일${testTagType}</h1>
-<hr>
-
 
 <%@ include file="styleDetailContent.jsp" %>
 <%@ include file="recentStyle.jsp" %>

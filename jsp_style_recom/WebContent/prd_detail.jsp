@@ -125,7 +125,7 @@ h2 {
 			</tr>
 		</table>
 	</div>
-
+ 
 	<iframe id="iposition" src="prd_detail2.jsp?url=${Product.prd_url }"
 		width="1200" height="100%" scrolling="yes" frameborder="0" ></iframe>
 
