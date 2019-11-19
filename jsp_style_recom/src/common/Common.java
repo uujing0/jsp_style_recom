@@ -328,6 +328,6 @@ public class Common {
 		int randomIndex = (int)(Math.random()*styleInfos.size());
 		int stl_id = styleInfos.get(randomIndex).getStl_id();
 		
-		return stl_id;
+		return stl_id; 
 	}
 }

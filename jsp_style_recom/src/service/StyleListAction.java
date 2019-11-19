@@ -40,7 +40,6 @@ public class StyleListAction implements CommandProcess {
 
 		try {
 
-			// TODO: Set Default tagId
 			String strTagId = request.getParameter("tagId");
 			if (strTagId == null || strTagId.equals("")) {
 				strTagId = "1";
@@ -148,11 +147,11 @@ public class StyleListAction implements CommandProcess {
 		
 		this.stl_id = styleInfos.get(randomIndex).getStl_id();
 		
-		System.out.println("====> " + tmp);
-		System.out.println("====> " + rs);
-		System.out.println("====> " + level);
-		System.out.println("====> " + this.tagId);
-		System.out.println("====> " + this.stl_id);
+		System.out.println("tmp : " + tmp);
+		System.out.println("rs : " + rs);
+		System.out.println("level : " + level);
+		System.out.println("tagId : " + this.tagId);
+		System.out.println("stl_id : " + this.stl_id);
 		
 		request.setAttribute("lc", strLocCode);
 		
@@ -173,7 +172,7 @@ public class StyleListAction implements CommandProcess {
 
 		String mem_id = (String) session.getAttribute("mem_id");
 		System.out.println("memid->" + mem_id);
-		String strGender = (String) session.getAttribute("strGender");
+		String strGender = (String) session.getAttribute("gender");
 		if (strGender == null || strGender.equals("")) {
 			strGender = "1";
 		}

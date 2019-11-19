@@ -11,89 +11,97 @@
 <script type="text/javascript" src="./js/jquery.js"></script>
 
 <style type="text/css">
-.content {
-	margin: 40px 200px 40px 200px;
-	width: 700px;
+
+
+.styleList_content {
+	margin: 100px 0px 100px 200px;
 }
 
-table.categoryTable {
-	border-right:none;
+/* hr {
+	border: none;
+	border: 0.5px solid #adb5bd;
+} */
+
+table.styleList_categoryTable {
+	border: 1px solid #adb5bd;
+    width: 700px;
+    border-collapse: collapse;
 }
 
-table.categoryTable th {
-	width: 100px;
-	padding: 10px;
+table.styleList_categoryTable th {
+	font-size: 12px;
+	color: #343A40; /*font color*/
+	width: 70px;
+	padding: 10px 0px 10px 30px;
+	text-align: left;
+	background-color: #F1F3F5;
+	border-right: none;
 }
 
-#tagButton {
+table.styleList_categoryTable td {
+	font-size: 12px;
+	padding: 0px 0px 0px 30px;
 	background-color: white;
-	color: black;
+}
+
+.styleList_tagButton {
+	font-size: 12px;
+	background-color: white;
+	color: #495057;
 	border: none;
+	background-color: white;
+	padding: 3px;
+	margin: 0px 10px 0px 0px;
 }
 
-#actTagButton {
-	background-color: yellow;
-	color: black;
+.styleList_actTagButton {
+	font-size: 12px;
+	background-color: #e45151;
+	color: white;
 	border: none;
+	padding: 3px;
+	margin: 0px 10px 0px 0px;
 }
 
-.styleTable tr td {
-	padding: 0px 30px 60px 0px;
+.styleList_categoryTable {
+	font-size: 12px;
 }
 
-.thumb { 
-	display: block; 
+.styleList_resultDesc {
+	color: #666666;
+	font-size: 18px;
+	padding: 80px 0px 25px 5px;
+}
+
+.styleList_table tr td {
+	padding: 0px 95px 95px 0px;
+	margin: 15px 0px 0px 0px;
+	height: 315px; 
+	width: 270px; 
+}
+
+.styleList_thumb { 
+	position: relative;
 	overflow: hidden; 
-	height: 500px; 
-	width: 400px; 
+	height: 315px; 
+	width: 270px; 
 } 
 
-.thumb img { 
-	display: block; /* Otherwise it keeps some space around baseline */ 
-	min-width: 100%; /* Scale up to fill container width */ 
-	min-height: 100%; /* Scale up to fill container height */ 
-	-ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */  */
-}
+.styleList_thumb img { 
+	position: absolute;
+	top: 0; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	width: 100%; 
+	height: auto;
+} 
 
-#test1{
-background-color: red;}
 </style>
 
 <script type="text/javascript">
-function setCookie(cookieName, value) {
-	var i = 0;
-	pushCookie = cookieName +":"+ value
-	cookieData = document.cookie.split('stl_id=')
 
-	for(var list in cookieData){//중복 데이터 금지
-		if(cookieData[list]==pushCookie){
-			return;
-		}
-		i++;
-	}
-	if(i==6){
-		document.cookie=document.cookie.replace(cookieData[1]+"stl_id=","")
-		i--
-	}
-	
-	document.cookie += "stl_id=" + cookieName +":"+ value
-
-}
-	
-function getCookie(cookieName) {
-    cookieName = cookieName + '=';
-    var cookieData = document.cookie;
-    var start = cookieData.indexOf(cookieName);
-    var cookieValue = '';
-    if(start != -1){
-        start += cookieName.length;
-        var end = cookieData.indexOf(';', start);
-        if(end == -1)end = cookieData.length;
-        cookieValue = cookieData.substring(start, end);
-    }
-    return unescape(cookieValue);
-}
-function checkCookie() {
+function loadImage(obj) {
 
 }
 
@@ -101,18 +109,14 @@ function checkCookie() {
 </head>
 <%@ include file="header.jsp"%>
 <body>
-	<h1>테마 별 스타일 추천</h1>
-	<hr>
-
-	<div class="content">
-		<table class="categoryTable" border="1">
+	<div class="styleList_content">
+		<table class="styleList_categoryTable" border="1">
 			<tr>
 				<th>날씨</th>
 				<td colspan="4">
 					<form>
-						지역설정 : 
-						<select class="weatherLocation">
-							<option value="0">선택해주세요</option>
+						<select class="styleList_weatherLocation">	
+							<option value="0"> 지역을 선택해주세요</option>
 							<c:forEach var="i" items="${locMap}">
 								<c:if test="${lc == i.value }">
 									<option value="${i.value}" selected="selected">${i.key}</option>
@@ -122,6 +126,8 @@ function checkCookie() {
 								</c:if>
 							</c:forEach>
 						</select>
+						
+						<span>&nbsp;&nbsp;&nbsp;지역 날씨에 따라 스타일을 추천해드립니다^-^ </span>
 					</form>
 				</td>
 			</tr>
@@ -131,14 +137,14 @@ function checkCookie() {
 					<c:forEach var="tag" items="${sitTags}">
 						<c:choose>
 						    <c:when test="${tagId == tag.tc_id}">
-						        <c:set var="tagIdName" value="actTagButton"/>
+						        <c:set var="tagIdName" value="styleList_actTagButton"/>
 						    </c:when>
 						    <c:otherwise>
-						       <c:set var="tagIdName" value="tagButton"/>
+						       <c:set var="tagIdName" value="styleList_tagButton"/>
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=1'">${tag.tc_name}</button>
+						<button class="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=1'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
@@ -148,14 +154,14 @@ function checkCookie() {
 					<c:forEach var="tag" items="${bodyTags}">
 						<c:choose>
 						    <c:when test="${tagId == tag.tc_id}">
-						        <c:set var="tagIdName" value="actTagButton"/>
+						        <c:set var="tagIdName" value="styleList_actTagButton"/>
 						    </c:when>
 						    <c:otherwise>
-						       <c:set var="tagIdName" value="tagButton"/>
+						       <c:set var="tagIdName" value="styleList_tagButton"/>
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=2'">${tag.tc_name}</button>
+						<button class="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=2'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
@@ -165,14 +171,14 @@ function checkCookie() {
 					<c:forEach var="tag" items="${moodTags}">
 						<c:choose>
 						    <c:when test="${tagId == tag.tc_id}">
-						        <c:set var="tagIdName" value="actTagButton"/>
+						        <c:set var="tagIdName" value="styleList_actTagButton"/>
 						    </c:when>
 						    <c:otherwise>
-						       <c:set var="tagIdName" value="tagButton"/>
+						       <c:set var="tagIdName" value="styleList_tagButton"/>
 						    </c:otherwise>
 						</c:choose>
 					
-						<button id="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=3'">${tag.tc_name}</button>
+						<button class="${tagIdName}" value="${tag.tc_id}" onclick="location.href='styleList.do?tagId=${tag.tc_id}&tagType=3'">${tag.tc_name}</button>
 					</c:forEach>
 				</td>
 			</tr>
@@ -180,18 +186,21 @@ function checkCookie() {
 
 		<c:if test="${tagType != 4 }">
 	        <c:if test="${totCnt > 0 }">
-	            <p>${totCnt}개의 결과</p>
-	            <table class="styleTable">
+	            <div class="styleList_resultDesc"> 
+	            	<strong style="color: #e45151;">${totCnt} </strong>개의 결과
+	            </div>
+	            
+	            <table class="styleList_table">
 	                <c:forEach var="r" begin="0" end="${rowSize-1}">
 	                    <tr>
 	                        <c:forEach var="c" begin="0" end="${columnSize-1}">
 	                            <c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
 	                            <c:if test="${eIndex < list.size()}">
-	                                <td>
-	                                    <div class="thumb">
-	                                        <a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
-	                                            <img src="./images/category_images/${list[eIndex].stl_pic_url}" width="400px" height="500px">
-	                                        </a>
+	                                <td>       
+	                                    <div class="styleList_thumb">
+											<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
+	                                    		<img src="./images/category_images/${list[eIndex].stl_pic_url}" >
+	                                    	</a>
 	                                    </div>
 	                                </td>
 	                            </c:if>
@@ -205,12 +214,6 @@ function checkCookie() {
 
 	<c:if test="${tagType == 4 }">
 		<div class="test1">
-		    오늘의 날씨는 '${tmpWfKor }'이고<br>
-		    현재 기온은  ${tmp }도, 강수확률은 ${rs }퍼센트(%)입니다.<br>
-		  
-			<img alt="${tmpImgWfKor }" src="./${tmpImgWfKor }">
-		
-		
 			<%@ include file="styleDetailContent.jsp" %>
 		</div>
 	</c:if>
@@ -219,19 +222,42 @@ function checkCookie() {
 
 // 문서 시작시 적용
 $(function() {
-	$(".weatherLocation").change(function() {
-		var locCode = $(this).val()
-		
-		if (locCode == 0) {
-			return false
-		}
-		
-		location.href='styleList.do?tagType=4&locCode='+locCode;
-		
-	})
+	/* 이미지 비율에 맞게 크롭*/
+	var divs = document.querySelectorAll('td > div');
+
+	for (var i = 0; i < divs.length; ++i) {
+	    var div = divs[i];
+	    var divAspect = div.offsetHeight / div.offsetWidth;
+	    div.style.overflow = 'hidden';
+	    
+	    var img = div.querySelector('img');
+	    var imgAspect = img.height / img.width;
 	
-	//createTag()
-	//tagClickEvent()
+	    if (imgAspect <= divAspect) {
+	      // 이미지가 div보다 납작한 경우 세로를 div에 맞추고 가로는 잘라낸다
+	      var imgWidthActual = div.offsetHeight / imgAspect;
+	      var imgWidthToBe = div.offsetHeight / divAspect;
+	      var marginLeft = -Math.round((imgWidthActual - imgWidthToBe) / 2)
+	      img.style.cssText = 'width: auto; height: 100%; margin-left: '
+	                      + marginLeft + 'px;'
+	    } else {
+	      // 이미지가 div보다 길쭉한 경우 가로를 div에 맞추고 세로를 잘라낸다
+	      img.style.cssText = 'width: 100%; height: auto; margin-left: 0;';
+	    }
+	} 
+	
+	
+	/* select 박스 이벤트 추가*/
+	$(".styleList_weatherLocation").change(function() {
+        var locCode = $(this).val()
+        
+        if (locCode == 0) {
+            return false
+        }
+        
+        location.href='styleList.do?tagType=4&locCode='+locCode;
+        
+    })
 })
 
 </script>
