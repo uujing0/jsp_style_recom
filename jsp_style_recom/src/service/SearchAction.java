@@ -49,6 +49,7 @@ public class SearchAction implements CommandProcess{
 				//검색어에 맞는 스타일들을 모두 가져오는 메소드
 				ArrayList<StyleInfo> style_info = ss.searchStyle(search_word);
 				
+				request.setAttribute("search_word", search_word);
 				request.setAttribute("list", style_info);
 				request.setAttribute("tc_id", ss.searchStyleTag(search_word));
 				
