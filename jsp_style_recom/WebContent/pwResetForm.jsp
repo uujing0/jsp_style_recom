@@ -4,21 +4,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
 <title>비밀번호 찾기</title>
 <script type='text/javascript'>
 function chk() {
-	if(mem_pw = mem_pw2){
-		return ture;
-		}
-	alert("비밀번호가 다릅니다")
-	frm.mem_pw.focus();
-	return false;
+	if (pwForm.mem_pw.value != pwForm.mem_pw2.value) {
+		alert("암호가 다릅니다");
+		frm.mem_pw.focus();
+		return false;
 	}
+	 return true; 
 </script>
 <link rel="stylesheet" type="text/css" href="HJ_style.css">
 </head>
 <body>
+<form action="pwResetPro.do" name="frm" onsubmit="return chk()">
 	<div class="content">
 	<br>
 		<div class="agree">
@@ -34,10 +34,8 @@ function chk() {
 
 						</div>
 						<div class="info">
-							<form name="pwForm" method="post" action="pwResetPro.do" onsubmit="return chk()">
+							<form name="pwForm" method="post">
 								<input type="hidden" name="MEM_ID" value="${member.mem_id}" width= "100px" />
-								<input type="hidden" name="MEM_EMAIL" value="${member.mem_email}" width= "100px" />
-								<input type="hidden" name="MEM_PHONE" value="${member.mem_phone}" width= "100px" />
 								<fieldset>
 									<legend>비밀번호 재설정</legend>
 									<p>
@@ -57,5 +55,6 @@ function chk() {
 			</ul>
 		</div>
 	</div>
+	</form>
 </body>
 </html>
