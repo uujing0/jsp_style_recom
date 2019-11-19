@@ -56,7 +56,8 @@
 	<div clas="container"> <!-- div 클래스 생성 아래쪽까지 공지사항 테이블 생성 -->
 		<div class="container-fluid">
 			<table class="table"
-				style="text-align: center; border: 4px; border-style: solid; border-width: thin;">
+				style="text-align: center; border: 4px; border-style: solid; border-width: thin;
+				 ">
 				<tbody>
 					<tr>
 						<td colspan="5"
