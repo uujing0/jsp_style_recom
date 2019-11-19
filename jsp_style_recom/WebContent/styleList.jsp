@@ -14,17 +14,12 @@
 
 
 .styleList_content {
-	margin: 100px 0px 100px 200px;
+	margin: 35px 600px 100px 290px;
 }
-
-/* hr {
-	border: none;
-	border: 0.5px solid #adb5bd;
-} */
 
 table.styleList_categoryTable {
 	border: 1px solid #adb5bd;
-    width: 700px;
+    width: 1000px;
     border-collapse: collapse;
 }
 
@@ -70,21 +65,21 @@ table.styleList_categoryTable td {
 .styleList_resultDesc {
 	color: #666666;
 	font-size: 18px;
-	padding: 80px 0px 25px 5px;
+	padding: 60px 0px 20px 5px;
+	width: 1000px;
 }
 
 .styleList_table tr td {
-	padding: 0px 95px 95px 0px;
-	margin: 15px 0px 0px 0px;
-	height: 315px; 
-	width: 270px; 
+	padding: 0px 48px 48px 0px;
+	height: 325px; 
+	width: 310px; 
 }
 
 .styleList_thumb { 
 	position: relative;
 	overflow: hidden; 
-	height: 315px; 
-	width: 270px; 
+	height: 325px; 
+	width: 310px; 
 } 
 
 .styleList_thumb img { 
@@ -108,7 +103,7 @@ function loadImage(obj) {
 </script>	
 </head>
 <%@ include file="header.jsp"%>
-<body>
+<body bgColor="#f9f7f6">
 	<div class="styleList_content">
 		<table class="styleList_categoryTable" border="1">
 			<tr>
@@ -188,11 +183,12 @@ function loadImage(obj) {
 		<c:if test="${tagType ne 4 or not empty search_word}">
             <div class="styleList_resultDesc"> 
             	<c:if test="${tagType ne 4 and empty search_word}">
-            		<strong style="color: #e45151;">${totCnt} </strong>개의 결과
+            		<label style="color: #e45151; font-size:20px;">${totCnt}</label>개의 결과
             	</c:if>
             	<c:if test="${not empty search_word}">
-            		${search_word} <strong style="color: #e45151;">${totCnt}</strong>개 검색 결과
+            		${search_word} <label style="color: #e45151;">${totCnt}</label>개 검색 결과
             	</c:if>
+            	<hr style="width:1000px border:none; border:0.5px solid #E7E2E1; margin:20px 0px 5px 0px">
             </div>
             
             <table class="styleList_table">
@@ -224,8 +220,8 @@ function loadImage(obj) {
 	
 <script type="text/javascript">
 
-// 문서 시작시 적용
-$(function() {
+// html의 로딩이 끝난 후에 시작
+$(window).load(function() {
 	/* 이미지 비율에 맞게 크롭*/
 	var divs = document.querySelectorAll('td > div');
 
