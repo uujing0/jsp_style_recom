@@ -218,6 +218,12 @@ function loadImage(obj) {
 
 	<c:if test="${tagType eq 4 }">
 		<div class="test1">
+		 오늘의 날씨는 '${tmpWfKor }'이고<br>
+		    오늘의 날씨는 '${wfKor }'이고<br>
+		    현재 기온은  ${tmp }도, 강수확률은 ${rs }퍼센트(%)입니다.<br>
+
+			<img alt="${tmpImgWfKor }" src="./${tmpImgWfKor }">
+			<img alt="${imgWfKor }" src="./${imgWfKor }">
 			<%@ include file="styleDetailContent.jsp" %>
 		</div>
 	</c:if>
