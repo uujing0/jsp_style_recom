@@ -18,7 +18,9 @@
 
 <div id="content">
 		<div id="side_left">
-			<div id="head">마이페이지</div>
+			<label id="head">
+				mypage
+			</label>
 			<ul>
 			<li><a href="calendar.do?">달력</a></li>
 			
@@ -35,9 +37,9 @@
 <%@include file="myboardForm.jsp"%>
 </div>
 <%@include file="recentStyle.jsp" %>
-	<div id="bookmark"><p style="font-weight:bold;font-size:21px;">즐겨찾기</p>
+
 			<%@include file="bookmarkForm.jsp" %>
-		</div>
+
 </div>
 
 </body>

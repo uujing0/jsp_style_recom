@@ -3,10 +3,15 @@ package service;
 import java.text.SimpleDateFormat;
 import org.w3c.dom.*;
 
+import common.Common;
 import dao.BookMark;
 import dao.JW_BookMarkDao;
 import dao.JW_StyleInfoDao;
+import dao.Member;
+import dao.TH_CalendarDao;
 import dao.TH_TownDao;
+import dao.UJ_MemberDao;
+import sun.java2d.pipe.RenderQueue;
 
 import javax.xml.parsers.*;
 import java.util.*;
@@ -36,17 +41,25 @@ public class WeatherAction implements CommandProcess {
 					"광주", "목포", "여수", "순천", "광양", "나주", "전주", "군산", "정읍", "남원", "고창", "무주", "부산", "울산", "창원", "진주",
 					"거창", "통영", "대구", "안동", "포항", "경주", "운진", "울릉도", "제주", "서귀포" };
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-
-			Calendar c1 = Calendar.getInstance();
+			Calendar[] c = new Calendar[7];
+			for(int i =0;i<7;i++)
+				c[i]=Calendar.getInstance();
+			/*Calendar c1 = Calendar.getInstance();
 			Calendar c2 = Calendar.getInstance();
 			Calendar c3 = Calendar.getInstance();
 			Calendar c4 = Calendar.getInstance();
 			Calendar c5 = Calendar.getInstance();
 			Calendar c6 = Calendar.getInstance();
 			Calendar c7 = Calendar.getInstance();
-
-			String day1 = df.format(c1.getTime());
-			c2.add(Calendar.DATE, 1);
+			*/
+			String[] day=new String[7];
+			day[0]=df.format(c[0].getTime());
+			//String day1 = df.format(c[0].getTime());
+			for(int i = 1;i<7;i++) {
+				c[i].add(Calendar.DATE, i);
+				day[i] = df.format(c[i].getTime());
+			}
+			/*c2.add(Calendar.DATE, 1);
 			String day2 = df.format(c2.getTime());
 			c3.add(Calendar.DATE, 2);
 			String day3 = df.format(c3.getTime());
@@ -57,8 +70,8 @@ public class WeatherAction implements CommandProcess {
 			c6.add(Calendar.DATE, 5);
 			String day6 = df.format(c6.getTime());
 			c7.add(Calendar.DATE, 6);
-			String day7 = df.format(c7.getTime());
-			System.out.println("day들" + day3 + day4 + day5 + day6 + day7);
+			String day7 = df.format(c7.getTime());*/
+			//System.out.println("day들" + day3 + day4 + day5 + day6 + day7);
 			// 각 게시물하나에 해당하는 XML 노드를 담을 리스트
 			ArrayList<HashMap<String, String>> pubList = new ArrayList<HashMap<String, String>>();
 			ArrayList<HashMap<String, String>> pubList1 = new ArrayList<HashMap<String, String>>();
@@ -358,7 +371,7 @@ public class WeatherAction implements CommandProcess {
 				String tmEf = pub1.get("tmEf");
 				// System.out.println(tmEf);
 				int idx = tmEf.indexOf(" ");
-				String day = tmEf.substring(0, idx);
+				String days = tmEf.substring(0, idx);
 				System.out.println("tmEf1 : " + day);
 
 				// System.out.println("날짜검사1->" + day5);
@@ -380,7 +393,7 @@ public class WeatherAction implements CommandProcess {
 
 				String ct = pub1.get("city");
 
-				if (day.compareTo(day4) == 0 && city.equals(ct)) {
+				if (days.compareTo(day[3]) == 0 && city.equals(ct)) {
 					wfKor[3] = tmpWf;
 					imgWfKor[3] = tmpImgWfKor1;
 					rs[3] = Rs;
@@ -389,7 +402,7 @@ public class WeatherAction implements CommandProcess {
 			//		System.out.println("------------------------------------------------4"+wfKor[3]+imgWfKor[3]+rs[3]+Tmx[2]+Tmn[2]);
 					result++;
 				}
-				if (day.compareTo(day5) == 0 && city.equals(ct)) {
+				if (days.compareTo(day[4]) == 0 && city.equals(ct)) {
 					wfKor[4] = tmpWf;
 					imgWfKor[4] = tmpImgWfKor1;
 					rs[4] = Rs;
@@ -398,7 +411,7 @@ public class WeatherAction implements CommandProcess {
 			//		System.out.println("------------------------------------------------5"+wfKor[4]+imgWfKor[4]+rs[4]+Tmx[3]+Tmn[3]);
 					result++;
 				}
-				if (day.compareTo(day6) == 0 && city.equals(ct)) {
+				if (days.compareTo(day[5]) == 0 && city.equals(ct)) {
 					wfKor[5] = tmpWf;
 					imgWfKor[5] = tmpImgWfKor1;
 					rs[5] = Rs;
@@ -408,7 +421,7 @@ public class WeatherAction implements CommandProcess {
 			//		System.out.println("------------------------------------------------6"+wfKor[5]+imgWfKor[5]+rs[5]+Tmx[4]+Tmn[4]);
 					result++;
 				}
-				if (day.compareTo(day7) == 0 && city.equals(ct)) {
+				if (days.compareTo(day[6]) == 0 && city.equals(ct)) {
 					wfKor[6] = tmpWf;
 					imgWfKor[6] = tmpImgWfKor1;
 					rs[6] = Rs;
@@ -425,9 +438,13 @@ public class WeatherAction implements CommandProcess {
 			}
 			HttpSession session = request.getSession();
 			String mem_id = (String)session.getAttribute("mem_id");
+			UJ_MemberDao memberdao = UJ_MemberDao.getInstance();
+			Member mem = memberdao.getMemberDate(mem_id);
+			int gender = mem.getMem_gender();
 			JW_BookMarkDao bd = JW_BookMarkDao.getInstance();
 			ArrayList<Integer> stl_id=bd.select(mem_id);
 			request.setAttribute("mem_id", mem_id);
+			request.setAttribute("gender", gender);
 			JW_StyleInfoDao sl = JW_StyleInfoDao.getInstance();
 			
 			Map<String, String> Bmap = new HashMap<String, String>();
@@ -443,16 +460,77 @@ public class WeatherAction implements CommandProcess {
 			request.setAttribute("count", count);
 			request.setAttribute("BookMap", Bmap);
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd E요일");
-			day1 = sdf.format(c1.getTime());
+			SimpleDateFormat csdf= new SimpleDateFormat("yyyyMMdd");
+			String[] Cday = new String[7];
+			TH_CalendarDao cd = TH_CalendarDao.getInstance();
+			int[] tc_id = new int[7];
+			for(int i = 0;i<7;i++)
+				day[i]=sdf.format(c[i].getTime());
+			for(int i = 0;i<7;i++) {
+				Cday[i]=csdf.format(c[i].getTime())+mem_id;
+				System.out.println("Cday---------->"+Cday[i]);
+				dao.Calendar cal1 = cd.select(mem_id, Cday[i]);
+				tc_id[i]=cal1.getTc_id();
+				request.setAttribute("tc_id"+i,tc_id[i] );
+				//System.out.println("tc_id------>"+i+"      "+cal1.getTc_id());
+			}
+			int[] rec_stl_id=new int[7];
+			
+			for(int i =1;i<7;i++) {
+				 rec_stl_id[i]=Common.getInstance().getWeatherStyleIdByTmp(Tmn[i-1], gender);
+				 System.out.println(" rec_stl_id"+i+"---->"+rec_stl_id[i]);
+			}
+			 rec_stl_id[0]=Common.getInstance().getWeatherStyleIdByTmp(Temp1, gender);
+			 String[] rec_stl_pic_url=new String[7];
+			
+			 for(int i =0;i<7;i++) {
+				 rec_stl_pic_url[i]=sl.pic_url(rec_stl_id[i]);
+				 System.out.println("rec_stl_pic_url"+i+"----->"+rec_stl_pic_url[i]);
+				 request.setAttribute("rec_stl_id"+i, rec_stl_id[i]);
+				 request.setAttribute("rec_stl_pic_url"+i, rec_stl_pic_url[i]);
+			}
+			 if(tc_id[0] !=0) {
+					rec_stl_id[0]=Common.getInstance().getWeatherStyleIdBytc_id(Temp1, gender,tc_id[0]);
+					rec_stl_pic_url[0]=sl.pic_url(rec_stl_id[0]);
+					 request.setAttribute("rec_stl_id0", rec_stl_id[0]);
+					 request.setAttribute("rec_stl_pic_url0", rec_stl_pic_url[0]);
+				}
+			 for(int i = 1;i<7;i++) {
+			if(tc_id[i] !=0) {
+				rec_stl_id[i]=Common.getInstance().getWeatherStyleIdBytc_id(Tmn[i-1], gender,tc_id[i]);
+				rec_stl_pic_url[i]=sl.pic_url(rec_stl_id[i]);
+				 request.setAttribute("rec_stl_id"+i, rec_stl_id[i]);
+				 request.setAttribute("rec_stl_pic_url"+i, rec_stl_pic_url[i]);
+			}
+		}
+			/*day1 = sdf.format(c1.getTime());
 			day2 = sdf.format(c2.getTime());
 			day3 = sdf.format(c3.getTime());
 			day4 = sdf.format(c4.getTime());
 			day5 = sdf.format(c5.getTime());
 			day6 = sdf.format(c6.getTime());
-			day7 = sdf.format(c7.getTime());
+			day7 = sdf.format(c7.getTime());*/
+			
 			request.setAttribute("city", city);
-
-			request.setAttribute("wfKor0", wfKor[0]);
+			for(int i=0;i<7;i++) {
+				request.setAttribute("wfKor"+i, wfKor[i]);
+				request.setAttribute("rs"+i, rs[i]);
+				request.setAttribute("imgWfKor"+i, imgWfKor[i]);
+				request.setAttribute("day"+i, day[i]);
+			}
+			for(int i =0;i<6;i++) {
+				request.setAttribute("Tmx"+i, Tmx[i]);
+				request.setAttribute("Tmn"+i, Tmn[i]);
+			}
+			request.setAttribute("Temp1", Temp1);
+			/*request.setAttribute("day1", day1);
+			request.setAttribute("day2", day2);
+			request.setAttribute("day3", day3);
+			request.setAttribute("day4", day4);
+			request.setAttribute("day5", day5);
+			request.setAttribute("day6", day6);
+			request.setAttribute("day7", day7);*/
+			/*request.setAttribute("wfKor0", wfKor[0]);
 			request.setAttribute("wfKor1", wfKor[1]);
 			request.setAttribute("wfKor2", wfKor[2]);
 			request.setAttribute("wfKor3", wfKor[3]);
@@ -468,7 +546,7 @@ public class WeatherAction implements CommandProcess {
 			request.setAttribute("rs5", rs[5]);
 			request.setAttribute("rs6", rs[6]);
 
-			request.setAttribute("Temp1", Temp1);
+			
 			request.setAttribute("Tmx0", Tmx[0]);
 			request.setAttribute("Tmn0", Tmn[0]);
 			request.setAttribute("Tmx1", Tmx[1]);
@@ -480,30 +558,16 @@ public class WeatherAction implements CommandProcess {
 			request.setAttribute("Tmx4", Tmx[4]);
 			request.setAttribute("Tmn4", Tmn[4]);
 			request.setAttribute("Tmx5", Tmx[5]);
-			request.setAttribute("Tmn5", Tmn[5]);
-			request.setAttribute("day1", day1);
-			request.setAttribute("day2", day2);
-			request.setAttribute("day3", day3);
-			request.setAttribute("day4", day4);
-			request.setAttribute("day5", day5);
-			request.setAttribute("day6", day6);
-			request.setAttribute("day7", day7);
+			request.setAttribute("Tmn5", Tmn[5]);*/
+			
 
-			request.setAttribute("wfKor0", wfKor[0]);
-			request.setAttribute("wfKor1", wfKor[1]);
-			request.setAttribute("wfKor2", wfKor[2]);
-			request.setAttribute("wfKor3", wfKor[3]);
-			request.setAttribute("wfKor4", wfKor[4]);
-			request.setAttribute("wfKor5", wfKor[5]);
-			request.setAttribute("wfKor6", wfKor[6]);
-
-			request.setAttribute("imgWfKor0", imgWfKor[0]);
+			/*
 			request.setAttribute("imgWfKor1", imgWfKor[1]);
 			request.setAttribute("imgWfKor2", imgWfKor[2]);
 			request.setAttribute("imgWfKor3", imgWfKor[3]);
 			request.setAttribute("imgWfKor4", imgWfKor[4]);
 			request.setAttribute("imgWfKor5", imgWfKor[5]);
-			request.setAttribute("imgWfKor6", imgWfKor[6]);
+			request.setAttribute("imgWfKor6", imgWfKor[6]);*/
 			city=TD.location(addr);
 			request.setAttribute("city", city);
 			/*for(int i = 0;i<6;i++)

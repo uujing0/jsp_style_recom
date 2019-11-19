@@ -7,20 +7,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
- #board{
- 			top:px;
+ #mypage_board{
+ 			
            	margin-left: 8%;
            	height: 450px;
         } 
- #bList{
+ #mypage_bList{
+ 			border: solid 2px;
+			border-bottom: solid 4px;
+			border-color: #F9F7F6;
+			background-color: #F3F1F0;
+			color: black;
             text-align :center;
         }
 </style>
 </head>
 
 <body>
-<div id="board">
-        <table style="font:bold; margin-top:20px;" id="bList" width="1200" border="3" bordercolor="lightgray" >
+<div id="mypage_board">
+        <table  id="mypage_bList" width="1200" border="1" bgcolor="#F3F1F0"  >
             <tr heigh="30">
                 <td width="50">글번호</td>
                 <td width="550">제목</td>

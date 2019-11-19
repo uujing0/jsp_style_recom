@@ -15,7 +15,7 @@
 	<c:set var="gender" value="2" scope="session"></c:set>
 </c:if>
 
-<c:catch var="exception">
+<c:catch var="exception"> 
 	<!-- 받은 지역코드에 맞는 날씨 데이터를 기상청에서 가져온다. -->
 	<c:import var="xmldata" url="http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=${sessionScope.loc }" charEncoding="utf-8"></c:import>
 	<x:parse var="doc" xml="${xmldata }"></x:parse>
