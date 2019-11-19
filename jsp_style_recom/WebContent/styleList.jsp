@@ -184,35 +184,39 @@ function loadImage(obj) {
 			</tr>
 		</table>
 
-		<c:if test="${tagType != 4 }">
-	        <c:if test="${totCnt > 0 }">
-	            <div class="styleList_resultDesc"> 
-	            	<strong style="color: #e45151;">${totCnt} </strong>개의 결과
-	            </div>
-	            
-	            <table class="styleList_table">
-	                <c:forEach var="r" begin="0" end="${rowSize-1}">
-	                    <tr>
-	                        <c:forEach var="c" begin="0" end="${columnSize-1}">
-	                            <c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
-	                            <c:if test="${eIndex < list.size()}">
-	                                <td>       
-	                                    <div class="styleList_thumb">
-											<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
-	                                    		<img src="./images/category_images/${list[eIndex].stl_pic_url}" >
-	                                    	</a>
-	                                    </div>
-	                                </td>
-	                            </c:if>
-	                        </c:forEach>
-	                    </tr>
-	                </c:forEach>
-	            </table>    
-	        </c:if>
-		</c:if>
+		<!-- 검색 결과가 존재하거나 tagType=4(날씨)가 아닐 경우 -->
+		<c:if test="${tagType ne 4 or not empty search_word}">
+            <div class="styleList_resultDesc"> 
+            	<c:if test="${tagType ne 4 and empty search_word}">
+            		<strong style="color: #e45151;">${totCnt} </strong>개의 결과
+            	</c:if>
+            	<c:if test="${not empty search_word}">
+            		${search_word} <strong style="color: #e45151;">${totCnt}</strong>개 검색 결과
+            	</c:if>
+            </div>
+            
+            <table class="styleList_table">
+                <c:forEach var="r" begin="0" end="${rowSize-1}">
+                    <tr>
+                        <c:forEach var="c" begin="0" end="${columnSize-1}">
+                            <c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
+                            <c:if test="${eIndex < list.size()}">
+                                <td>       
+                                    <div class="styleList_thumb">
+										<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
+                                    		<img src="./images/category_images/${list[eIndex].stl_pic_url}" >
+                                    	</a>
+                                    </div>
+                                </td>
+                            </c:if>
+                        </c:forEach>
+                    </tr>
+                </c:forEach>
+            </table>    
+        </c:if>
 	</div>
 
-	<c:if test="${tagType == 4 }">
+	<c:if test="${tagType eq 4 }">
 		<div class="test1">
 			<%@ include file="styleDetailContent.jsp" %>
 		</div>

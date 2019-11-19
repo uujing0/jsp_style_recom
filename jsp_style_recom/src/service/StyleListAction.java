@@ -23,33 +23,47 @@ import dao.TagCategory;
 import dao.UJ_MemberDao;
 import dao.UJ_TagCategoryDao;
 
+
+/*
+ * tagId       : tagId가 있을 경우 그에 맞는 stylelist 세팅
+ * gender      : session에 값 존재
+ * tagType     : tagId가 어느 tagType에 존재하는가 (tagType=4일 경우 날씨 데이터 세팅)
+ * search_word : 검색일 경우 키워드 
+ * */
+
+
 public class StyleListAction implements CommandProcess {
-	// TODO: default value
 	private int tagId;
 	private int gender;
 	private int tagType;
 	private int stl_id;
-	
+
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("------------- StyleListAction -------------");
 		
-		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
+		
 		UJ_TagCategoryDao tagDao = UJ_TagCategoryDao.getInstance();
 
 		try {
-
+			/*
+			 * SETTING COMMON DATA - click tag, weather, search
+			 * 
+			 * */
 			String strTagId = request.getParameter("tagId");
 			if (strTagId == null || strTagId.equals("")) {
-				strTagId = "1";
+				strTagId = "0";
 			}
 			
 			String strTagType = request.getParameter("tagType");
 			if (strTagType == null || strTagType.equals("")) {
-				strTagType = "1";
+				strTagType = "0";
 			}
 			
+			String search_word = request.getParameter("search_word");
+			boolean isSearch = search_word == null || search_word.equals("") ? false : true;
+	
 			// session에서 gender type get
 			HttpSession session = request.getSession();
 			String strGender = (String)session.getAttribute("gender");
@@ -57,12 +71,13 @@ public class StyleListAction implements CommandProcess {
 				strGender = "1";
 			}
 			
+			
 			this.tagId = Integer.parseInt(strTagId);	
 			this.gender = Integer.parseInt(strGender);
 			this.tagType = Integer.parseInt(strTagType);
 			
 			System.out.println("===> tagType : " + this.tagType);
-			
+		
 			ArrayList<TagCategory> sitTags = new ArrayList<>();
 			ArrayList<TagCategory> bodyTags = new ArrayList<>();
 			ArrayList<TagCategory> moodTags = new ArrayList<>();
@@ -71,38 +86,31 @@ public class StyleListAction implements CommandProcess {
 			bodyTags = tagDao.getCategoryListFromTagType(2);
 			moodTags = tagDao.getCategoryListFromTagType(3);
 			
-			ArrayList<StyleInfo> styleInfos = null;
-
-			int totCnt = 0, columnSize = 3, rowSize = 0;
-			
-			// 날씨 상세 뷰를 위한 데이터 세팅 (tagType:4 - 날씨)
-			System.out.println("tag_type-> "+this.tagType);
-			if (this.tagType == 4) {
-				System.out.println("request.getParameter(\"stl_id\")->"+request.getParameter("stl_id"));
-
-				setStyleDetailData(request, response);
-			} else {
-				styleInfos = styleDao.getStyleInfosFromTag(tagId, gender);
-				totCnt = styleInfos.size();
-				rowSize = (int) Math.ceil((double)totCnt / columnSize);
-			}
-			
 			request.setAttribute("tagId", tagId);
 			request.setAttribute("tagType", tagType);
 			request.setAttribute("locMap", Common.getInstance().locationMap());
-			
-			/* table 그려줄 때 필요한 변수 세팅 */
-			// totCnt == 0일 경우 emptyView 띄어줌.
-			request.setAttribute("totCnt", totCnt);
-			request.setAttribute("list", styleInfos);
 			
 			request.setAttribute("sitTags", sitTags);
 			request.setAttribute("bodyTags", bodyTags);
 			request.setAttribute("moodTags", moodTags);
 			
-			request.setAttribute("styleInfos", styleInfos);
-            request.setAttribute("rowSize", rowSize);
-            request.setAttribute("columnSize", columnSize);
+			
+			/* 기능에 따른 분기 */
+			// table 그려줄 때 필요한 변수 세팅
+			if (isSearch) {
+
+			} else {
+				// 날씨 상세 뷰를 위한 데이터 세팅 (tagType:4 - 날씨)
+				System.out.println("tag_type-> "+this.tagType);
+				
+				if (this.tagType == 4) {
+					setStyleDetailData(request, response);
+				} else {
+					setDataByTagId(request, response);
+				}
+			}
+			
+			setDataOfTableView(request, response);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -112,12 +120,29 @@ public class StyleListAction implements CommandProcess {
 		return "styleList.jsp";
 	}
 	
-
+	public void setDataOfTableView(HttpServletRequest request, HttpServletResponse response) {
+		int totCnt = 0, columnSize = 3, rowSize = 0;
+		
+		ArrayList<StyleInfo> list = (ArrayList<StyleInfo>)request.getAttribute("list");
+		
+		totCnt = list.size();
+		rowSize = (int) Math.ceil((double)totCnt / columnSize);
+		
+		request.setAttribute("totCnt", totCnt);
+        request.setAttribute("rowSize", rowSize);
+        request.setAttribute("columnSize", columnSize);
+	}
+	
+	public void setDataByTagId(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
+		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(tagId, gender);
+		request.setAttribute("list", styleInfos);
+	}
 	
 	/* Ref: StyleDetailAction */
 	public void setStyleDetailData(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-		
-		System.out.println("여기안와?");
+		System.out.println("request.getParameter(\"stl_id\")->"+request.getParameter("stl_id"));
+
 		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
 
 		HttpSession session = request.getSession();
