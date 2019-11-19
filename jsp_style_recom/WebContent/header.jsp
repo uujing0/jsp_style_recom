@@ -5,12 +5,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <script src="./js/jquery.js"></script>
+<script src="./js/jquery-ui.js"></script>
+
 
 <!-- session이 없으면(비로그인시) 디폴트 값으로 서울의 날씨 코드를 넣어준다. -->
 <c:if test="${sessionScope.loc == null}">
 	<c:set var="loc" value="1168066000" scope="session"></c:set>
 </c:if>
 <!-- gender 1:남자, 2:여자 -->
+
 <c:if test="${sessionScope.gender == null }">
 	<c:set var="gender" value="2" scope="session"></c:set>
 </c:if>
@@ -36,6 +39,7 @@
 			history.pushState(null,null,"main.do");
 		}	
 		weatherIcon('<x:out select="$wf"/>')
+
 	})
 	
 	function weatherIcon(wf){//weather icon 추가
@@ -72,7 +76,25 @@
 		}
 	}
 	
-	
+	function searchWordAutoComplete(){
+		/* int load = 0;
+		
+		if('${tagList }'){
+			
+			var autoList = '${tagList }'.split('[')[1].split(']')[0].split(',')
+			
+		    $("#search_word").autocomplete({
+		        source: autoList,
+		        select: function(event, ui) {
+		            console.log(ui.item);
+		        },
+		        focus: function(event, ui) {
+		            return false;
+		        }
+		
+		    });			
+		} */
+	}
 	
 	function login() {
         window.open('loginForm.jsp','로그인','width=500,height=400,left=700,top=200,status=no,scrollbars=no')
@@ -267,6 +289,12 @@ header a:active{color: black; text-decoration: none;}
 	padding: 10px 25px 10px 25px;
 }
 
+.ui-autocomplete{
+	list-style: none;
+	background-color: white;
+	cursor: pointer;
+}
+
 /* header style end */
 </style>
 
@@ -310,7 +338,7 @@ header a:active{color: black; text-decoration: none;}
 		<div id="search_bar">
 			<form action="search.do" method="get" id="search_form">
 				<div id="search_input">
-					<input type="text" id="search_word" name="search_word" class= "search_word" value='' placeholder="SEARCH" autocomplete="off">
+					<input type="text" id="search_word" name="search_word" class= "search_word" value='' placeholder="SEARCH" autocomplete="off" onkeydown="searchWordAutoComplete()">
 					<input type="image" alt="검색" id="search_button" src="images/search_button.png">
 				</div>
 				<div id="search_radio">

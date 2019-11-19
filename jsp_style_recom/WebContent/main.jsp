@@ -235,7 +235,7 @@
 	<div id="hot_tag_list">
 		<span>@인기검색어@</span>
 		<ol>
-			<c:forEach var="list" items="${tagList }">
+			<c:forEach var="list" items="${tagList }" begin="0" end="9">
 				<li><a href="search.do?search_word=${list }&search_target=0">${list }</a></li>
 			</c:forEach>
 		</ol>
