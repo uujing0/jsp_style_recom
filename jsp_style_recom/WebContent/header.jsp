@@ -39,8 +39,9 @@
 	})
 	
 	function weatherIcon(wf){//weather icon 추가
-		var icon = icon="ico01.png"
+		var icon = null;
 		switch(wf){
+		case "맑음":		icon="ico01.png"; break;
 		case "구름 조금":	icon="ico02.png"; break;
 		case "구름 많음":	icon="ico03.png"; break;
 		case "흐림": 		icon="ico04.png"; break;
@@ -60,6 +61,18 @@
 	        return ;
 	    }
 	}
+	
+	function myCogiMenuControler(){
+		
+		if('${sessionScope.mem_id}'){
+			location.href='weather.do?sido=${sessionScope.loc}'
+		}else{
+			alert("로그인 해주세요.")
+			login()
+		}
+	}
+	
+	
 	
 	function login() {
         window.open('loginForm.jsp','로그인','width=500,height=400,left=700,top=200,status=no,scrollbars=no')
@@ -268,7 +281,7 @@ header a:active{color: black; text-decoration: none;}
 		<c:if test="${not empty sessionScope.mem_id }">
 			<span>${sessionScope.mem_id }님 환영합니다!</span>
 			<button id="top_logout_button" class="top_left_button" onclick="logoutConfirm()">로그아웃</button>
-			<button id="top_my_page_button" class="top_right_button" onclick="location.href='weather.do?sido=${sessionScope.loc}'" >마이코기</button>
+			<button id="top_my_page_button" class="top_right_button" onclick="myCogiMenuControler()" >마이코기</button>
 		</c:if>
 	</div>
 	<div id="header_top">
@@ -290,7 +303,7 @@ header a:active{color: black; text-decoration: none;}
 					<td onclick="location.href='main.do'">WELL-SEE COORDI</td>
 					<td onclick="location.href='styleList.do?tagId=1&tagType=1'">스타일 추천</td>
 					<td onclick="location.href='bbs.do'">게시판</td>
-					<td onclick="location.href='weather.do?sido=${sessionScope.loc }'">마이코기</td>
+					<td onclick="myCogiMenuControler()">마이코기</td>
 				</tr>
 			</table>
 		</div>
