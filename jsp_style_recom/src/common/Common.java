@@ -128,11 +128,15 @@ public class Common {
 	public Map<String,String > getWeatherTmp(String addr) {
 		String urlStr = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=" + addr;
 		ArrayList<HashMap<String, String>> pubList = new ArrayList<HashMap<String, String>>();
-		String[] fieldNames = { "temp", "hour", "day", "pop" };
+		String[] fieldNames = { "temp", "hour", "day", "pop", "wfKor" };
 		Map<String, String> map = new HashMap<String, String>();
 		int result = 0;
 		double Temp1 = -100.0;
 		double rs = 0.0;
+		String tmpImgWfKor = "";
+		String tmpWfKor="";
+		String imgWfKor = "";
+		String wfKor = "";
 		try {
 			// XML파싱 준비
 			DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
@@ -183,6 +187,22 @@ public class Common {
 			// System.out.println("rsWfRS->" + rsWfRS);
 			if (rsWfRS == null)
 				break;
+			tmpWfKor = pub.get("wfKor");
+			if (tmpWfKor == null)
+				tmpWfKor = "";
+			tmpImgWfKor = "images/ico01.png";
+			if (tmpWfKor.equals("구름 조금"))
+				tmpImgWfKor = "images/ico02.png";
+			else if (tmpWfKor.equals("구름 많음"))
+				tmpImgWfKor = "images/ico03.png";
+			else if (tmpWfKor.equals("흐림"))
+				tmpImgWfKor = "images/ico04.png";
+			else if (tmpWfKor.equals("비"))
+				tmpImgWfKor = "images/ico05.png";
+			else if (tmpWfKor.equals("눈/비"))
+				tmpImgWfKor = "images/ico06.png";
+			else if (tmpWfKor.equals("눈"))
+				tmpImgWfKor = "images/ico07.png";
 			Double Rs = Double.parseDouble(rsWfRS);// 받아온 강수량
 			String tmpWfTemp = pub.get("temp");
 			tmpWfTemp = tmpWfTemp.replace('"', ' ');
@@ -192,86 +212,114 @@ public class Common {
 				case ("3"): {
 					if (result == 1)
 						break;
+					wfKor = tmpWfKor;
+					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					Temp1 = Temp;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 				}
 				case ("6"): {
+					System.out.println("---------9");
 					if (result == 1)
 						break;
-
+					wfKor = tmpWfKor;
+					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
 				case ("9"): {
+					System.out.println("---------9");
 					if (result == 1)
 						break;
-
+					wfKor = tmpWfKor;
+					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
 				case ("12"): {
+					System.out.println("---------12");
 					if (result == 1)
 						break;
-
+					wfKor = tmpWfKor;
+					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
 				case ("15"): {
+					System.out.println("---------15");
 					if (result == 1)
 						break;
-
+					wfKor = tmpWfKor;
+					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
 				case ("18"): {
+					System.out.println("---------18");
 					if (result == 1)
 						break;
-
+					wfKor = tmpWfKor;
+					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
 				case ("21"): {
+					System.out.println("---------21");
 					if (result == 1)
 						break;
-
+					wfKor = tmpWfKor;
+					imgWfKor = tmpImgWfKor;
+					System.out.println("imgWfKor-->"+imgWfKor);
 					rs = Rs;
 					if (Temp1 == -100.0)
 						Temp1 = Temp;
 					else
 						break;
 					result = 1;
+					break;
 					// System.out.println(tmpWfDay);
 
 				}
@@ -282,9 +330,11 @@ public class Common {
 		String Rs = Double.toString(rs);
 		map.put("Temp", Temp);
 		map.put("Rs", Rs);
+		map.put("imgWfKor",imgWfKor);
+		map.put("wfKor", wfKor);
+		System.out.println("-----------map->"+map);
 		return map;
 	}
-	
 	public int getWeatherAccId(int level, double rs){
 		int cc4 = 0;
 		if(rs>=60) {
@@ -304,6 +354,7 @@ public class Common {
 		}
 		return cc4 ;
 	}
+
 	
 	public int getWeatherStyleIdByTmp(double tmp, int gender) throws SQLException {
 		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
@@ -317,5 +368,17 @@ public class Common {
 		int stl_id = styleInfos.get(randomIndex).getStl_id();
 		
 		return stl_id;
+	}
+	public int getWeatherStyleIdBytc_id(double tmp, int gender,int tc_id) throws SQLException {
+		JW_StyleInfoDao styleDao = JW_StyleInfoDao.getInstance();
+
+		int tagId = tc_id;
+		
+		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(tagId, gender);
+	
+		int randomIndex = (int)(Math.random()*styleInfos.size());
+		int stl_id = styleInfos.get(randomIndex).getStl_id();
+		
+		return stl_id; 
 	}
 }

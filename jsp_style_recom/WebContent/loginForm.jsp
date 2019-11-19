@@ -68,9 +68,7 @@ h2.loginForm_title {
 </head>
 
 <body bgColor="#f9f7f6">
-	
 	<h2 class="loginForm_title">로그인</h2>
-	
 	<form action="loginPro.do" onsubmit="return chk()" >
 		<ul class="loginForm_ul">
 			<li class="list-item">
@@ -91,25 +89,6 @@ h2.loginForm_title {
 			&nbsp;|&nbsp;
 			<button class="loginForm_searchButton" onclick="location.href='pwSrhForm.do'">비밀번호 찾기</button>
 		</div>
-		
-		<!-- <table>
-			<tr>
-				<td><input type="text" name="mem_id" required="required"></td>
-			</tr>
-			<tr>
-				<td><input type="password" name="mem_pw" required="required"> </td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="확인"></td>
-			</tr>
-			<tr>
-				<td>
-					&nbsp;<a href="idSrhForm.do">아이디 찾기</a>
-					&nbsp;/&nbsp;
-					&nbsp;<a href="pwSrhForm.do">비밀번호 찾기</a>
-				</td>
-			</tr>
-		</table> -->
 	</form>
 </body>
 </html>

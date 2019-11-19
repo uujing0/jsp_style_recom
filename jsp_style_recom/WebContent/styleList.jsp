@@ -10,7 +10,7 @@
 
 <script type="text/javascript" src="./js/jquery.js"></script>
 
-<style type="text/css">
+<style type="text/css"> 
 
 
 .styleList_content {
@@ -100,42 +100,6 @@ table.styleList_categoryTable td {
 </style>
 
 <script type="text/javascript">
-function setCookie(cookieName, value) {
-	var i = 0;
-	pushCookie = cookieName +":"+ value
-	cookieData = document.cookie.split('stl_id=')
-
-	for(var list in cookieData){//중복 데이터 금지
-		if(cookieData[list]==pushCookie){
-			return;
-		}
-		i++;
-	}
-	if(i==6){
-		document.cookie=document.cookie.replace(cookieData[1]+"stl_id=","")
-		i--
-	}
-	
-	document.cookie += "stl_id=" + cookieName +":"+ value
-
-}
-	
-function getCookie(cookieName) {
-    cookieName = cookieName + '=';
-    var cookieData = document.cookie;
-    var start = cookieData.indexOf(cookieName);
-    var cookieValue = '';
-    if(start != -1){
-        start += cookieName.length;
-        var end = cookieData.indexOf(';', start);
-        if(end == -1)end = cookieData.length;
-        cookieValue = cookieData.substring(start, end);
-    }
-    return unescape(cookieValue);
-}
-function checkCookie() {
-
-}
 
 function loadImage(obj) {
 

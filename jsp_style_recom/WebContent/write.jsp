@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
-<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="css/customDetail_btn.css">
 
 <%@include file="header.jsp"%>
 <script src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
@@ -98,7 +98,7 @@
 	
 </script>
 
-<title>게시판!!</title>
+<title>웰시코디</title>
 </head>
 
 <body>
@@ -155,7 +155,7 @@
 				<input type="hidden" name="bd_content" id="bd_content"
 					required="required" /> <input type="hidden" name="bd_file_url"
 					id="bd_file_url" required="required" /> <input type="button"
-					class="btn btn-warning pull-right" value="글쓰기" id="submit">
+					class="btn btn-danger pull-right" value="글쓰기" id="submit">
 			</form>
 
 		</div>

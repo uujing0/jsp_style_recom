@@ -333,7 +333,7 @@ public class YJ_BbsDAO {
 		String SQL = "UPDATE Board_comment "
 			    + "  SET "
 				+ " cm_contents = ?"
-			    + "WHERE 1=1 and cm_id = ?";
+			    + "WHERE cm_id = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, cm_contents);

@@ -32,10 +32,16 @@ public class MyBoardAction implements CommandProcess {
 			request.setAttribute("mem_id", mem_id);
 			JW_StyleInfoDao sl = JW_StyleInfoDao.getInstance();
 			
+			int count = 0;
 			for(int a : stl_id) {
 				String stl_pic_url=sl.pic_url(a);
 				Bmap.put(""+a, stl_pic_url);
+				count++;
+				if(count>4)
+					break;
+				/*System.out.println("--------------------------------------------------------map실험->"+Bmap);*/
 			}
+			request.setAttribute("count", count);
 			request.setAttribute("BookMap", Bmap);
 		}catch (Exception e) {
 			System.out.println("MainAction error : " + e.getMessage());

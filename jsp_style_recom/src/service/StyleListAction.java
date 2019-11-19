@@ -75,7 +75,9 @@ public class StyleListAction implements CommandProcess {
 			this.tagId = Integer.parseInt(strTagId);	
 			this.gender = Integer.parseInt(strGender);
 			this.tagType = Integer.parseInt(strTagType);
-			
+			/*
+			 * gender= 2; System.out.println("gender->>>>>>>>>>>>>>"+gender);
+			 */
 			System.out.println("===> tagType : " + this.tagType);
 		
 			ArrayList<TagCategory> sitTags = new ArrayList<>();
@@ -158,8 +160,13 @@ public class StyleListAction implements CommandProcess {
 		double rs = Double.parseDouble(map.get("Rs"));
 		int level = Common.getInstance().weatherLevelByTmp(tmp);
 		this.tagId = Common.getInstance().tagIdByWeatherLevel(level);
-
+		String imgWfKor = map.get("imgWfKor");
+		String wfKor = map.get("wfKor");
+		
 		System.out.println("--------------");
+		System.out.println("level->"+level);
+		System.out.println("rs->"+rs);
+		System.out.println("imgWfKor->"+imgWfKor);
 		
 		ArrayList<StyleInfo> styleInfos = styleDao.getStyleInfosFromTag(this.tagId, this.gender);
 	
@@ -227,6 +234,8 @@ public class StyleListAction implements CommandProcess {
 		// outer
 		
 		if (al.get(1) != null) {
+			System.out.println("겉옷 들어오니?");
+
 			p_cc1 = cpmDao.styleIdFind(Integer.parseInt(al.get(1)), gender);
 			for (int i = 0; i < p_cc1.size(); i++) {
 				p_cc1_id.add(p_cc1.get(i));
@@ -237,6 +246,8 @@ public class StyleListAction implements CommandProcess {
 
 		
 		if (al.get(2) != null) {
+			System.out.println("상의 들어오니?");
+
 			p_cc2 = cpmDao.styleIdFind(Integer.parseInt(al.get(2)), gender);
 			for (int i = 0; i < p_cc2.size(); i++) {
 				p_cc2_id.add(p_cc2.get(i));
@@ -245,6 +256,8 @@ public class StyleListAction implements CommandProcess {
 		}
 
 		if (al.get(3) != null) {
+			System.out.println("하의 들어오니?");
+
 			p_cc3 = cpmDao.styleIdFind(Integer.parseInt(al.get(3)), gender);
 			for (int i = 0; i < p_cc3.size(); i++) {
 				p_cc3_id.add(p_cc3.get(i));
@@ -298,6 +311,12 @@ public class StyleListAction implements CommandProcess {
 		request.setAttribute("status", status);
 		System.out.println("acc_desc->"+acc_desc);
 		request.setAttribute("acc_desc", acc_desc);
+		
+		request.setAttribute("tmp", tmp); //temp
+		request.setAttribute("rs", rs); //rain_probability
+		request.setAttribute("imgWfKor", imgWfKor); //weather_image 
+		request.setAttribute("wfKor", wfKor);
+		
 		System.out.println("StyleWeatherDetailAction end...");
 		
 	}
