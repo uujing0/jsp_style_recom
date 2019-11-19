@@ -283,15 +283,7 @@ padding: 3px 12px 0px 0px;
 	}
 </script>
 </head>
-<body bgcolor="f9f7f6">
-
-	<div id="styleDetailContent_MAIN">
-		<img src="./images/hanger.png" height="40px" width="65px"><h2>오늘의 스타일 추천</h2>
-	</div>
-	<div id ="styleDetailContent_11">
-	<hr>
-	</div>
-     
+<body bgcolor="f9f7f6"> 
 
 	<div id="styleDetailContent_ButtonDiv">
 
