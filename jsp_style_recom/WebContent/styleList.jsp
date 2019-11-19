@@ -231,12 +231,12 @@ $(function() {
 	})
 	
 	//createTag()
-	tagClickEvent()
+	//tagClickEvent()
 })
 
 </script>
 
-
+<%@ include file="recentStyle.jsp" %>
 </body>
 <%@ include file="footer.jsp"%>
 

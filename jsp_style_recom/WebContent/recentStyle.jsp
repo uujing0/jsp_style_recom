@@ -78,14 +78,27 @@
 		chkRecent();
 	}
 	
+	function styleCookieList(){
+		var cookie = document.cookie.split(';');
+		for(var list in cookie){
+			if(cookie[list].split('stl_id=')[1]){
+				return cookie[list].split('stl_id=')[1]
+			}
+		}
+	}
+	
 
 	function chkRecent() {
-		var cookieList = document.cookie.split('stl_id=');
-		$("#right_zzim ul").html(''); // 일단 Ul 내용 지우기... 
+		$("#right_zzim ul").html(''); // 일단 Ul 내용 지우기...
+		var cookieList = null;
+		if(styleCookieList()){
+			cookieList = styleCookieList().split('/');
+		}
+						
 		if (cookieList) {
 			for (var list in cookieList) {
 				var thisItem = cookieList[list]
-				if (thisItem) {
+				if (thisItem != ' ') {
 					var stl_id = thisItem.split(':')[0];
 					var itemImg = thisItem.split(':')[1];
 					$("#right_zzim ul")
@@ -95,14 +108,12 @@
 											+ '" target="_top"><img src="./images/category_images/'+itemImg+'"  width="102.92" height="108" border=1></a></li>')
 				}
 			}
-			$("#paging").show();
-		} else {
+		}
+		else {
 			$("#right_zzim ul").append(
 					'<p class="noData">최근 본 상품이<br> 없습니다.</p>');
-			$("#paging").hide();
 			$("#recentCnt").text('');
 		}
-		updateRecentPage(totcount, Cpage);
 	}
 </script>
 

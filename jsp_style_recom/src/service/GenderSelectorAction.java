@@ -24,7 +24,7 @@ public class GenderSelectorAction implements CommandProcess{
 			System.out.println(e.getMessage());
 		}
 			
-		return "main.do";
+		return returnPage;
 	}
 
 }
