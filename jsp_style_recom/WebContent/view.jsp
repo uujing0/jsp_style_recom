@@ -12,8 +12,8 @@
 
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
-<link rel="stylesheet" href="css/custom.css">
-<link rel="stylesheet" href="css/star.css">
+<link rel="stylesheet" href="css/customDetail_btn.css">
+<link rel="stylesheet" href="css/starDetail_btn.css">
 
 <%@include file="header.jsp"%>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -50,11 +50,17 @@
 	$('button[name="comment_update"]').click(function(){
 			var cm_id = $(this).attr("id");
 			var content2 = $("#content2").val();
+			var star = new Array();
+			$("input:radio[name='star']").each(function(){
+				if($(this).is(":checked") == true){
+					star.push($(this).val());
+				}
+			});
 			//이건 별점 라디오 체크박스 입력받는 부분
 
 			
 			 $.ajax({
-			url: "commentupdate.do?content2="+content2+"&&cm_id="+cm_id,
+			url: "commentupdate.do?content2="+content2+"&&cm_id="+cm_id+"&&star="+star,
 			type: "POST",
 			success : function(data){
 					location.reload();
@@ -81,7 +87,7 @@
 	
 </script>
 
-<title>게시판!!</title>
+<title>웰시코디</title>
 </head>
 <style>
 .star-rating {
@@ -183,7 +189,7 @@
 				<thead>
 					<tr>
 						<th colspan="3"
-							style="background-color: #F17F42; text-align: center;">웰시 코디</th>
+							style="background-color: #E55151; text-align: center;">웰시 코디</th>
 
 					</tr>
 				</thead>
@@ -242,8 +248,9 @@
 							</span> 
 								<br> <br> <input type="text" id="content"
 								name="content" />
-								<button id="write_comment" class="btn btn-warning btn-sm">댓글작성</button>
-							</td>
+								<button id="write_comment" class="btn btn-danger btn-sm">댓글작성</button>
+							　　<input type="text" id="content2"
+								name="content2" />[댓글수정]</td>
 							<td></td>
 						</c:if>
 						<c:if test="${mem_id == null}">
@@ -252,6 +259,8 @@
 							<td></td>
 						</c:if>
 					</tr>
+						<td></td><td></td><td></td>
+								
 					<c:forEach var="comment" items="${comments}">
 						<tr>
 							<td style="text-align: left";><c:forEach begin="1"
@@ -262,11 +271,12 @@
 							<P>
 									<b>${comment.mem_id}</b> <br> ${comment.cm_date }</td>
 							<td><c:if test="${mem_id == comment.mem_id}">
-									<input type="text" id="content2"
-								name="content2" />
-									<button name="comment_update" id="${comment.cm_id }" class="btn btn-warning btn-sm">댓글수정</button>
+									<c:if test="${comments==comments }">
+								
+								</c:if>
+									<button name="comment_update" id="${comment.cm_id }" class="btn btn-danger btn-sm">댓글수정</button>
 									<button name="comment_delete" id="${comment.cm_id}"
-										class="btn btn-warning btn-sm">댓글삭제</button>
+										class="btn btn-danger btn-sm">댓글삭제</button>
 										
 								</c:if></td>
 
@@ -277,15 +287,15 @@
 				<!-- 글쓰기 버튼 => 실제로 데이터를 액션페이지로 보냄 -->
 			</table>
 
-			<a href="bbs.do" class="btn btn-warning"">목록</a>
+			<a href="bbs.do" class="btn btn-danger"">목록</a>
 			<c:if test="${mem_id != null && mem_id == board.mem_id}">
-				<a href="update.do?bd_id=${board.bd_id}" class="btn btn-warning">수정</a>
+				<a href="update.do?bd_id=${board.bd_id}" class="btn btn-danger">수정</a>
 				<a onclick="return confirm('정말로 삭제하시겠습니까?')"
-					href="delete.do?bd_id=${board.bd_id}" class="btn btn-warning"">삭제</a>
+					href="delete.do?bd_id=${board.bd_id}" class="btn btn-danger"">삭제</a>
 			</c:if>
 
 			<c:if test="${mem_id != null}">
-				<a href="writeView.do" class="btn btn-warning"pull-right">글쓰기</a>
+				<a href="writeView.do" class="btn btn-danger"pull-right">글쓰기</a>
 				<!-- <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a> -->
 			</c:if>
 

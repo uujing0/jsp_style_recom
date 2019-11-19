@@ -81,7 +81,7 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
 
-<title>게시판!!</title>
+<title>웰시코디</title>
 </head>
 <body>
 
