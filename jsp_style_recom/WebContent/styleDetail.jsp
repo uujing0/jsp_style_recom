@@ -13,6 +13,12 @@
 <%@ include file="header.jsp"%>
 
 <body>
+<div id="styleDetailContent_MAIN">
+		<img src="./images/hanger.png" height="40px" width="65px"><h2>오늘의 스타일 추천</h2>
+	</div>
+	<div id ="styleDetailContent_11">
+	<hr>
+</div>
 
 <%@ include file="styleDetailContent.jsp" %>
 <%@ include file="recentStyle.jsp" %>
