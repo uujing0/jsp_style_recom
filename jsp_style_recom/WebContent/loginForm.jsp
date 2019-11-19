@@ -18,11 +18,81 @@
 		return true
 	}
 </script>
+<style type="text/css">
+h2.loginForm_title {
+	color: #343A40; /*font color*/
+	text-align: center;
+	margin: 30px 0px 30px 0px;
+}
+
+.loginForm_ul {
+	list-style-type: none;
+	padding: 0;
+	width: 80%;
+	margin-left: 10%;
+}
+
+.loginForm_ul li label {
+	display: block;
+  	color: #343A40;
+  	padding: 10px 0px;
+  	font-size: 15px;
+}
+
+.loginForm_ul li input {
+	padding: 12px 10px;
+	border: 1px solid #e0dcdc;
+	width: -webkit-fill-available;
+}
+
+.loginForm_loginButton {
+	border: solid 2px;
+	border-bottom: solid 4px;
+	border-color: #F9F7F6;
+	background-color: #373B43;
+	color: white;
+	font-size: 15px;
+	padding:12px 26px;
+}
+
+.loginForm_searchButton {
+	font-size: 15px;
+	color: #343A40;
+	border: none;
+	padding: 3px;
+	margin: 0px 10px 0px 0px;
+	background-color: #f9f7f6;
+}
+
+</style>
 </head>
-<body>
-	<h2>로그인</h2>
+
+<body bgColor="#f9f7f6">
+	
+	<h2 class="loginForm_title">로그인</h2>
+	
 	<form action="loginPro.do" onsubmit="return chk()" >
-		<table>
+		<ul class="loginForm_ul">
+			<li class="list-item">
+				<label>아이디</label>
+				<input name="mem_id" type="text" required="required">
+			</li>
+			<li>
+				<label>비밀번호</label>
+				<input name="mem_pw" type="password" required="required">
+			</li>
+		</ul>
+		
+		<div style="text-align: center; margin: 30px 0px 40px 0px;">
+			<input class="loginForm_loginButton" type="submit" value="LOGIN">
+		</div>
+		<div style="text-align: center;">
+			<button class="loginForm_searchButton" onclick="location.href='idSrhForm.do'">아이디 찾기</button>
+			&nbsp;|&nbsp;
+			<button class="loginForm_searchButton" onclick="location.href='pwSrhForm.do'">비밀번호 찾기</button>
+		</div>
+		
+		<!-- <table>
 			<tr>
 				<td><input type="text" name="mem_id" required="required"></td>
 			</tr>
@@ -39,7 +109,7 @@
 					&nbsp;<a href="pwSrhForm.do">비밀번호 찾기</a>
 				</td>
 			</tr>
-		</table>
+		</table> -->
 	</form>
 </body>
 </html>
