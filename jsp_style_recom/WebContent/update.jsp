@@ -136,7 +136,7 @@
 				<!-- 글쓰기 버튼 => 실제로 데이터를 액션페이지로 보냄 -->
 				<input type="hidden" name="bd_content" id="bd_content" /> <input
 					type="hidden" name="bd_file_url" id="bd_file_url" /> <input
-					type="button" id="update" class="btn btn-primary pull-right"
+					type="button" id="update" class="btn btn-danger pull-right"
 					value="글수정">
 			</form>
 

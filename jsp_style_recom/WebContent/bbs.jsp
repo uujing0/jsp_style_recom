@@ -224,9 +224,7 @@
 								</c:if></td>
 						</tr>
 					</c:forEach>
-
 				</tbody>
-
 			</table>
 			<c:if test="${mem_id != null}"> <!-- 멤버아이이디가 널이 아니라면 글쓰기 버튼 활성화 -->
 				<a href="writeView.do" class="btn btn-danger pull-right">글쓰기</a>
