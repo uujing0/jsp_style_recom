@@ -61,25 +61,25 @@
 				<tbody>
 					<tr>
 						<td colspan="5"
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">
 							공 지</td>
 
 
 					</tr>
 					<tr>
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">번호</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">제목</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">작성자</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">날짜</th>
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">조회수</th>
 
 					</tr>
 				</tbody>
@@ -102,34 +102,34 @@
 			</table>
 		</div>
 	</div>
-	<div clas="container"> <!-- 베스트 마이스타일 테이블 생성  -->
+	<div class="container"> <!-- 베스트 마이스타일 테이블 생성  -->
 		<div class="container-fluid">
 			<table class="table"
 				style="text-align: center; border: 4px; border-style: solid; border-width: thin;">
 				<tbody>
 					<tr>
 						<td colspan="6"
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">
 							베스트 마이 스타일</td>
 
 
 					</tr>
 					<tr>
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">번호</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">제목</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">작성자</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">날짜</th>
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">조회수</th>
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">별점</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">별점</th>
 
 					</tr>
 				</tbody>
@@ -165,7 +165,7 @@
 			</table>
 		</div>
 	</div>
-	<div clas="container"> <!-- 코기 코디 테이블 생성 -->
+	<div class="container"> <!-- 코기 코디 테이블 생성 -->
 		<div class="container-fluid">
 			<table class="table" id="table"
 				style="text-align: center; border: 4px; border-style: solid; border-width: thin;">
@@ -173,27 +173,27 @@
 				<thead>
 				<tr>
 						<td colspan="6"
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">
 							코기 코디!</td>
 
 
 					</tr>
 					<tr>
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">NO</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">번호</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">SUBJECT</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">제목</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">WRITER</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">작성자</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">DATE</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">날짜</th>
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">HIT</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">조회수</th>
 						<th
-							style="background-color: #E55151; color: white; text-align: center; font-style: italic; font-size: 15px;">별점</th>
+							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">별점</th>
 
 					</tr>
 				</thead>
