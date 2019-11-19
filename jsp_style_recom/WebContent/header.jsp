@@ -97,7 +97,7 @@
 	}
 	
 	function login() {
-        window.open('loginForm.jsp','로그인','width=500,height=400,left=700,top=200,status=no,scrollbars=no')
+        window.open('loginForm.jsp','로그인','width=500,height=500,left=700,top=200,status=no,scrollbars=no')
 	}
 
 </script>

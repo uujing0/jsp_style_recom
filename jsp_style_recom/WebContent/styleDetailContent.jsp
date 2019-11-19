@@ -12,10 +12,10 @@
 <style type="text/css">
 
 #styleDetailContent_styledesc{
-font-size: 25px;
+font-size: 23px;
 display: inline-block;
 margin-top: 40px;
-margin-left: 460px;
+margin-left: 100px;
 }
 
 
@@ -60,7 +60,7 @@ margin-left: 30px;
 margin-top: 30px;
 
 }
-table tr td{
+.styeDetailContent_table tr td{
 text-align: center;
 font-size: 20px;
 margin: 10px;
@@ -110,14 +110,33 @@ margin: 10px;
 }
 
 #styleDetailContent_product{
+
+}
+
+#styleDetailcontent_pcc1{
    width: 78%;
-   height:1400px;
    boader: none;
    background-color: #f3f1f0;
    margin-left: 170px;
 
 }
+#styleDetailcontent_pcc2{
 
+   margin-top: 20px;
+   width: 78%;
+   boader: none;
+   background-color: #f3f1f0;
+   margin-left: 170px;
+
+}
+#styleDetailcontent_pcc3{
+   margin-top: 20px;
+   width: 78%;
+   boader: none;
+   background-color: #f3f1f0;
+   margin-left: 170px;
+
+}
 </style>
 
 <script type="text/javascript">
@@ -193,7 +212,7 @@ margin: 10px;
 								<input type="submit" class="styleDetailContent_btn"
 									value="즐겨찾기 해제">
 							</form>
-						</c:if>
+						</c:if> 
 					</c:if></td>
 			</tr>
 		</table>
@@ -201,7 +220,7 @@ margin: 10px;
 
 	<div id="styleDetailContent_mainImage">
 		<img src="./images/category_images/${al[0] }" id="${al[0] }"
-			height="940px" width="800px">
+			height="700px" width="550px">
 	</div>
 
 
@@ -212,7 +231,7 @@ margin: 10px;
 		</div>
 
 		<div id="styleDetailContent_cc1234">
-			<table border="2">
+			<table class="styeDetailContent_table" border="2">
 				<tr>
 					<td><c:if test="${al[1]!=null }">
 							<img src="./images/clothes_category_icon/${al[1] }"
