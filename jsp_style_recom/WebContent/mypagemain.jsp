@@ -8,7 +8,14 @@
 <!-- 처음 접속 주소(서울을 defalut값으로 지정)weather.do?sido=1168066000 -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>mypage</title>
-
+<script type="text/javascript">
+window.onload=function(){
+	if('${sessionScope.mem_id}'){
+		alert("돼냐?");
+	}
+	
+}
+</script>
 
 </head>
 

@@ -39,8 +39,9 @@
 	})
 	
 	function weatherIcon(wf){//weather icon 추가
-		var icon = icon="ico01.png"
+		var icon = null;
 		switch(wf){
+		case "맑음":   	icon="ico01.png"; break;
 		case "구름 조금":	icon="ico02.png"; break;
 		case "구름 많음":	icon="ico03.png"; break;
 		case "흐림": 		icon="ico04.png"; break;
