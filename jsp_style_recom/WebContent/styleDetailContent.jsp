@@ -60,7 +60,7 @@ margin-left: 30px;
 margin-top: 30px;
 
 }
-table tr td{
+.styeDetailContent_table tr td{
 text-align: center;
 font-size: 20px;
 margin: 10px;
@@ -212,7 +212,7 @@ margin: 10px;
 		</div>
 
 		<div id="styleDetailContent_cc1234">
-			<table border="2">
+			<table class="styeDetailContent_table" border="2">
 				<tr>
 					<td><c:if test="${al[1]!=null }">
 							<img src="./images/clothes_category_icon/${al[1] }"

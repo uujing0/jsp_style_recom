@@ -223,7 +223,7 @@ function loadImage(obj) {
 // html의 로딩이 끝난 후에 시작
 $(window).load(function() {
 	/* 이미지 비율에 맞게 크롭*/
-	var divs = document.querySelectorAll('td > div');
+	var divs = document.querySelectorAll('.styleList_thumb');
 
 	for (var i = 0; i < divs.length; ++i) {
 	    var div = divs[i];
