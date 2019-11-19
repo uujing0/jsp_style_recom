@@ -9,11 +9,11 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#hot_tag_list{ 
-		position:fixed;
-		float: right;
+		
+		position:absolute;
 		border: 2px solid;
 		right: 10px;
-		top: 200px;
+		top: 600px;
 		
 	}
 	#hot_tag_list a:link{text-decoration: none; color: black;} 
@@ -21,48 +21,52 @@
 	#hot_tag_list a:visited{text-decoration: none; color: black;}
 	#hot_tag_list a:hover{text-decoration: none; color: black;}
 
-	#nav { position : fixed; top: 150px; font-family:'arial'; }
+	#nav {  margin-top:50px; font-family:'arial'; }
 	#nav ul{ width:200px; margin:0; padding:0; }
-	#nav ul.menu li{ position:relative; float:left; width:200px; list-style-type:none; font-size:20px;  }
-	#nav ul.menu li a{ display:block; width:200px; height:100%; line-height:100px; text-indent:20px; color:#000; font-weight:bold; text-decoration:none; }
-	#nav ul.menu li a:hover{ background:#eee; }
-	#nav ul.menu li .sub a{ position:relative; float:left; display:block; width:200px; z-index:999; background:#ccc; }
-	#nav ul.menu li .sub a:hover{ background:#444;  color:#fff; }
+	#nav ul.menu li{ position:relative; float:left; width:200px; list-style-type:none; font-size:20px; margin-bottom: 5px; }
+	#nav ul.menu li a{ display:block; width:200px; height:100%; line-height:100px; text-indent:20px; color:#f3f1f0; font-weight:bold; text-decoration:none; background:#373b43;  }
+	#nav ul.menu li a:hover{ background:#e55151; }
+	#nav ul.menu li .sub a{ position:relative; float:right; display:block; width:180px; z-index:999; background:#f3f1f0; color:#373b43; height: 80px; line-height: 80px;}
+	#nav ul.menu li .sub a:hover{ background:#e55151;  color:#373b43; }
 
-	*{
-        margin: 0; padding: 0;
-      }
       .slide{
         top: 50px;
-        width: 1000px;
-        height: 600px;
+        width: 1160px;
+        height: 740px;
         overflow: hidden;
         position: relative;
-        margin: 0 auto;
+        margin-left: 325px;
+        padding: 0 auto;
       }
       .slide ul{
-        width: 5000px;
+        width: 2320px;
         position: absolute;
         top:0;
         left:0;
         font-size: 0;
+        padding: 0;
       }
       .slide ul li{
         display: inline-block;
+        padding: 0;
       }
       #back{
         position: absolute;
-        top: 250px;
+        top: 370px;
         left: 0;
         cursor: pointer;
         z-index: 1;
+        margin: 0 auto;
+        padding: 0 auto;
       }
       #next{
         position: absolute;
-        top: 250px;
+        top: 370px;
         right: 0;
         cursor: pointer;
         z-index: 1;
+        margin: 0 auto;
+        padding: 0 auto;
       }
 		#wrap {
 		
@@ -75,19 +79,29 @@
         }
         #board{
         	position:relative;
-            top: 90px;
-            left: 29%;
-            
+            top: 50px;
+            font-family: "나눔고딕",sans-serif;
+			width: 500px;
+			left: 250px;
+            right: 250px;
+           
+           
         } 
         
-        #pageForm, #searchForm{
-            text-align :center;
-        }
         
         #bList{
-            text-align :center;
+        	margin-bottom:20%;
+            float: left; 
         }
-
+		#bdcontent {
+			border: 1px solid #4c4c4c;
+	 		border-top: 3px solid #4c4c4c;
+	 		padding: 20px;
+	 		background: #e3e3e3;
+	 		
+		}
+		
+		
 </style>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
@@ -117,7 +131,7 @@
 	      function back() {
 	        if(1<img_position){
 	          images.animate({
-	            left:'+=1000px'
+	            left:'+=580px'
 	          });
 	          img_position--;
 	        }
@@ -125,7 +139,7 @@
 	      function next() {
 	        if(img_count>img_position){
 	          images.animate({
-	            left:'-=1000px'
+	            left:'-=580px'
 	          });
 	          img_position++;
 	        }
@@ -140,10 +154,10 @@
 <%@include file="header.jsp" %>
 <body>
 	
-<div>
+
 	<div id="nav" >
 		<ul class="menu">
-			<li><a href="#">날씨별</a></li>
+			<li><a href="styleList.do?tagType=4&locCode=1168066000">날씨별</a></li>
 			<li><a href="#">상황별</a>
 				<ul class="sub">
 					<li><a href="styleList.do?tagId=1">오피스룩</a></li>
@@ -170,61 +184,65 @@
 					<li><a href="styleList.do?tagId=14">러블리</a></li>					
 				</ul>
 			</li>
-			<li><a href="#">태그별</a>
-				<ul class="sub">
-					<li><a href="#">SUB MENU 3-1s</a></li>
-					<li><a href="#">SUB MENU 3-2</a></li>
-					<li><a href="#">SUB MENU 3-3</a></li>
-				</ul>
-			</li>
+			
 		</ul>
 	</div>
+	
  	<div class="slide">
-      <img id="back" src="images/back.png" alt="" width="50">
+      <img id="back" src="images/back.jpg" alt="" width="50">
       <ul>
-        <li><img src="images/name1.jpg" alt="" width="1000" height="600"></li>
-        <li><img src="images/name2.jpg" alt="" width="1000" height="600"></li>
-        <li><img src="images/name3.jpg" alt="" width="1000" height="600"></li>
-        <li><img src="images/name4.jpg" alt="" width="1000" height="600"></li>
-        <li><img src="images/name5.jpg" alt="" width="1000" height="600"></li>
-      </ul>
-      <img id="next" src="images/next.png" alt="" width="50">
+        <li><img src="./images/category_images/${al[0] }" id="${al[0] }"
+			height="740px" width="580px">
+        <img src="./images/category_images/${al[0] }" id="${al[0] }"
+			height="740px" width="580px"></li>
+      
+        <li><img src="./images/category_images/${al[0] }" id="${al[0] }"
+			height="740px" width="580px">
+        <img src="./images/category_images/${al[0] }" id="${al[0] }"
+			height="740px" width="580px"></li>
+      <li></li>
+ 	  </ul>
+      <img id="next" src="images/next.jpg" alt="" width="50">
     </div>
 	<p>
-    <div id="board">
-        <table style="font:bold;" id="bList" width="800" border="3" bordercolor="lightgray" >
-            <tr heigh="30">
-                <td width="50">글번호</td>
-                <td width="550">제목</td>
-                <td width="50">작성자</td>
-                <td width="100">작성일</td>
-                <td width="50">조회수</td>
-            </tr>
-        <c:forEach var="board" items="${bbsList}">
-            <tr>
-                <td>${board.bbsNO}</td>
-                <td>
-                    <a href="view.do?bd_id=${board.bd_id}">
-                    ${board.bd_title}
-                    </a>
-                </td>
-                <td>${board.mem_id}</td>
-                <td>${board.bd_date}</td>
-                <td>${board.bd_readcount}</td>
-            </tr>
-        </c:forEach>
+    <div id="board" style="height: 500px;">
+         <a href="bbs.do" style="padding: 10px; float:left;
+					text-decoration: none;
+					color: white;
+					font-weight: bold;
+					display: inline-block;
+					border-right: 30px solid transparent;
+					border-bottom: 50px solid #4c4c4c; 
+					 margin-bottom: -4px;
+					height: 0;
+					 font-size: 20pt;
+					line-height: 70px;">게시판</a>
+        <table style="font:bold; float: left;" id="bList"  >
+      	<c:forEach var="board" items="${bbsList}" begin="0" end="2">
+        <td>
+                 <div id="bdcontent" > 
+                    <a href="view.do?bd_id=${board.bd_id}">${board.popup }</a>
+                    <a href="view.do?bd_id=${board.bd_id}">${board.bd_title}</a>
+                	<a href="view.do?bd_id=${board.bd_id}">${board.mem_id}</a>
+<%--                 	 --%>                 </div>  
+     
+      	</td>
+      	</c:forEach>
+     
         </table>
     </div>
 
 	<div id="hot_tag_list">
-		<span >@인기검색어@</span>
+		<span>@인기검색어@</span>
 		<ol>
 			<c:forEach var="list" items="${tagList }">
 				<li><a href="search.do?search_word=${list }&search_target=0">${list }</a></li>
 			</c:forEach>
 		</ol>
 	</div>
-</div>
+
 </body>
+
 <%@include file="footer.jsp" %>
+
 </html>
