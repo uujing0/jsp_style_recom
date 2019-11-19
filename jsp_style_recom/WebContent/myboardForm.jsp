@@ -1,52 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
- #mypage_board{
- 			
-           	margin-left: 8%;
-           	height: 450px;
-        } 
- #mypage_bList{
- 			border: solid 2px;
-			border-bottom: solid 4px;
-			border-color: #F9F7F6;
-			background-color: #F3F1F0;
-			color: black;
-            text-align :center;
-        }
+#board {
+	position: relative;
+	top: 50px;
+	font-family: "나눔고딕", sans-serif;
+	width: 500px;
+	height: 1200px;
+}
+
+#bList {
+	margin-bottom: 20%;
+	float: left;
+}
+
+#bdcontent {
+	border: 1px solid #4c4c4c;
+	border-top: 3px solid #4c4c4c;
+	padding: 20px;
+}
 </style>
 </head>
 
 <body>
-<div id="mypage_board">
-        <table  id="mypage_bList" width="1200" border="1" bgcolor="#F3F1F0"  >
-            <tr heigh="30">
-                <td width="50">글번호</td>
-                <td width="550">제목</td>
-                <td width="50">작성자</td>
-                <td width="100">작성일</td>
-                <td width="50">조회수</td>
-            </tr>         
-        <c:forEach var="board" items="${myList}">
-            <tr>
-                <td>${board.bbsNO}</td>
-                <td>
-                    <a href="view.do?bd_id=${board.bd_id}">
-                    ${board.bd_title}
-                    </a>
-                </td>
-                <td>${board.mem_id}</td>
-                <td>${board.bd_date}</td>
-                <td>${board.bd_readcount}</td>
-            </tr>
-        </c:forEach>
-        </table>
-    </div>
+	<div id="board" style="height: 700px;">
+
+		<table style="font: bold; float: left;" id="bList">
+			<c:forEach var="board" items="${myList}" begin="0" end="2">
+				<td>
+					<div id="bdcontent">
+						<a href="view.do?bd_id=${board.bd_id}">${board.popup }</a> <a
+							href="view.do?bd_id=${board.bd_id}">${board.bd_title}</a> <a
+							href="view.do?bd_id=${board.bd_id}">${board.mem_id}</a>
+						<%--                 	 --%>
+					</div>
+
+				</td>
+			</c:forEach>
+
+		</table>
+	</div>
 </body>
 </html>
