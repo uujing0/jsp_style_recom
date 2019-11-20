@@ -111,11 +111,11 @@ samp {
 button,
 input,
 optgroup,
-select,
+select, 
 textarea {
-  margin: 0;
-  font: inherit;
-  color: inherit;
+  /* margin: 0;
+  font: inherit; 
+  color: inherit;*/
 }
 button {
   overflow: visible;
@@ -145,10 +145,10 @@ input {
 }
 input[type="checkbox"],
 input[type="radio"] {
-  -webkit-box-sizing: border-box;
+  /* -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 0;
+  padding: 0; */
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -189,7 +189,7 @@ th {
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
-  *,
+  /* *,
   *:before,
   *:after {
     color: #000 !important;
@@ -197,7 +197,7 @@ th {
     background: transparent !important;
     -webkit-box-shadow: none !important;
             box-shadow: none !important;
-  }
+  } */
   a,
   a:visited {
     text-decoration: underline;
@@ -1077,24 +1077,25 @@ th {
           box-sizing: border-box;
 }
 html {
-  font-size: 10px;
+  /* font-size: 10px; */
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  /* font-size: 14px; */
+  /* line-height: 1.42857143; */
   color: #333;
   background-color: #fff;
+  margin: 8px;
 }
 input,
 button,
 select,
 textarea {
-  font-family: inherit;
+  /* font-family: inherit;
   font-size: inherit;
-  line-height: inherit;
+  line-height: inherit; */
 }
 a {
   color: #337ab7;
@@ -2509,7 +2510,10 @@ label {
   display: inline-block;
   max-width: 100%;
   margin-bottom: 5px;
-  font-weight: bold;
+  /* font-weight: bold; */
+}
+.container label{
+	font-weight: bold;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -2518,7 +2522,7 @@ input[type="search"] {
 }
 input[type="radio"],
 input[type="checkbox"] {
-  margin: 4px 0 0;
+  /* margin: 4px 0 0; */
   margin-top: 1px \9;
   line-height: normal;
 }

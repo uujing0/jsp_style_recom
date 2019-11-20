@@ -38,8 +38,9 @@
 		if(thisPage == "logout.do"){
 			history.pushState(null,null,"main.do");
 		}	
-		weatherIcon('<x:out select="$wf"/>')
-
+		if('<x:out select="$wf"/>'){
+			weatherIcon('<x:out select="$wf"/>')	
+		}
 	})
 	
 	function weatherIcon(wf){//weather icon 추가
@@ -131,16 +132,12 @@ header a:active{color: black; text-decoration: none;}
 	padding-right: 15px;
 	 
 }
-#header_logo{
-	margin-left: 45%;
-}
 
 /* icon */
-#dog_icon{
-	height: 220px;
-	width: 220px;
+#header_logo{
 	text-align: center;
-	border-radius: 100%;
+}
+#header_logo_pic{
 }
 #sun_icon{
 	border-radius: 5px;
@@ -155,6 +152,7 @@ header a:active{color: black; text-decoration: none;}
 	margin-top: 0px; 
 	background-color: #E55151;
 	border-bottom: 2px solid #d5d5d5;
+	/* height: 72px; */
 }
 
 /* weather_today */
@@ -166,8 +164,8 @@ header a:active{color: black; text-decoration: none;}
 	font-size: 18px;
 }
 #weather_pic{
-	margin-bottom: -15px;
 	margin-left: 10px;
+	vertical-align: -15px; 
 }
 
 /* member_space */
@@ -197,18 +195,19 @@ header a:active{color: black; text-decoration: none;}
 #menu_bar{
 	display: inline-block;
 	cursor: pointer;
-	color: white;
 }
 .menu_bar_table{
 	text-align: center;
 	background-color: #E55151;
+	color: white;
+	border-spacing: 0px;
 }
 .menu_bar_table td{
 	padding: 0px 30px;
 	font-size: 20px; 
 }
 .menu_bar_table td:hover{
-	border-bottom: 2px solid white;
+	box-shadow: 0px -2px white inset;
 }
 .menu_bar_table td:first-child{
 	padding: 15px 30px 15px 30px;
@@ -294,6 +293,48 @@ header a:active{color: black; text-decoration: none;}
 	background-color: white;
 	cursor: pointer;
 }
+/* hot_tag */
+
+#hot_tag_list{ 
+	position:absolute;
+	/* border: 2px solid; */
+	right: 50px;
+	float: right;
+	top: 400px;
+	width: 170px;
+	/*
+	width: 10%;
+	margin-top: 1%;
+	margin-bottom: 2%; */
+
+}
+
+#hot_tag_Tic{ 
+	padding-left: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid #373b43;
+    height: 0;
+    line-height: 40px; 
+}
+
+#hot_tag_top10{
+	border: 1px solid #B0B5BD;
+	background-color: #f9f7f6;
+	color: #666666;
+}
+
+#hot_tag_top10 ol li{
+	margin: 0px 0px 10px 0px;
+}
+
+#hot_tag_list a:link{text-decoration: none; color: #666666;} 
+#hot_tag_list a:active{text-decoration: none; color: #666666;}
+#hot_tag_list a:visited{text-decoration: none; color: #666666;}
+#hot_tag_list a:hover{text-decoration: none; color: #666666;}
 
 /* header style end */
 </style>
@@ -315,7 +356,7 @@ header a:active{color: black; text-decoration: none;}
 	<div id="header_top">
 		<div id="header_logo">
 			<a href="main.do">
-				<img alt="dog_icon" src="images/dog_icon.png" id="dog_icon">
+				<img alt="logo" src="images/logo.jpg" id="header_logo_pic">
 			</a>
 		</div>
 		<div id="weather_today">
@@ -330,7 +371,7 @@ header a:active{color: black; text-decoration: none;}
 				<tr>
 					<td onclick="location.href='main.do'">WELL-SEE COORDI</td>
 					<td onclick="location.href='styleList.do?tagId=1&tagType=1'">스타일 추천</td>
-					<td onclick="location.href='bbs.do'">게시판</td>
+					<td onclick="location.href='bbs.do'">스타일 배틀</td>
 					<td onclick="myCogiMenuControler()">마이코기</td>
 				</tr>
 			</table>
@@ -343,7 +384,7 @@ header a:active{color: black; text-decoration: none;}
 				</div>
 				<div id="search_radio">
 					<input type="radio" id="search_style" name="search_target" value="0" checked><label for="search_style">스타일</label>
-					<input type="radio" id="search_board" name="search_target" value="1"><label for="search_board">게시판</label>
+					<input type="radio" id="search_board" name="search_target" value="1"><label for="search_board">게시글</label>
 				</div>
 			</form>
 		</div>

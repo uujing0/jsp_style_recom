@@ -19,8 +19,8 @@
 <%@include file="header.jsp"%>
 
 <link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<!-- <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  -->
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
 	
 <link rel="stylesheet" href="css/customDetail_btn.css">
@@ -107,7 +107,7 @@
 	</div>
 	<div class="container"> <!-- 베스트 마이스타일 테이블 생성  -->
 		<div class="container-fluid">
-			<table class="table"
+			<table class="table" id = "table2"
 				style="text-align: center; border: 4px; border-style: solid; border-width: thin;">
 				<tbody>
 					<tr>

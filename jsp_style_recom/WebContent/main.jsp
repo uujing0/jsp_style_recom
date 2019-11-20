@@ -8,18 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	#hot_tag_list{ 
-		
-		position:absolute;
-		border: 2px solid;
-		right: 10px;
-		top: 400px;
-		
-	}
-	#hot_tag_list a:link{text-decoration: none; color: black;} 
-	#hot_tag_list a:active{text-decoration: none; color: black;}
-	#hot_tag_list a:visited{text-decoration: none; color: black;}
-	#hot_tag_list a:hover{text-decoration: none; color: black;}
+
 
 	#nav {  margin-top:50px; font-family:'arial'; }
 	#nav ul{ width:200px; margin:0; padding:0; }
@@ -310,14 +299,15 @@
      
         </table>
     </div>
-
 	<div id="hot_tag_list">
-		<span>@인기검색어@</span>
-		<ol>
-			<c:forEach var="list" items="${tagList }" begin="0" end="9">
-				<li><a href="search.do?search_word=${list }&search_target=0">${list }</a></li>
-			</c:forEach>
-		</ol>
+	<div id="hot_tag_Tic">인기검색어</div>
+		<div id="hot_tag_top10">
+			<ol>
+				<c:forEach var="list" items="${tagList }" begin="0" end="9">
+					<li><a href="search.do?search_word=${list }&search_target=0">${list }</a></li>
+				</c:forEach>
+			</ol>
+		</div>
 	</div>
 
 </body>
