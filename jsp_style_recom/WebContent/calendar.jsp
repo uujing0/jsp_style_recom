@@ -13,14 +13,14 @@
 <div id="content">
 		<div id="side_left">
 			<label id="head">
-				mypage
+			
 			</label>
 			<ul>
-<<<<<<< HEAD
+
 			<li><a href="calendar.do?">달력</a></li>
-=======
+
 			<li ><a href="calendar.do?" style="background-color: #ccc">달력</a></li>
->>>>>>> refs/remotes/origin/merge
+
 			
 			<li><a href="memUpForm.do">개인정보수정</a></li>
 			
