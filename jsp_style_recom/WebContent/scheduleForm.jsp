@@ -49,7 +49,7 @@ div{
 		<ul id="schedule_ul">
 			<li>
 				<label>제목</label>
-				<input type="text" name="cal_title" value="${ cal_title}" focus>
+				<input type="text" name="cal_title" value="${ cal_title}" >
 			</li>
 
 			<li>
