@@ -77,26 +77,6 @@
 		}
 	}
 	
-	function searchWordAutoComplete(){
-		/* int load = 0;
-		
-		if('${tagList }'){
-			
-			var autoList = '${tagList }'.split('[')[1].split(']')[0].split(',')
-			
-		    $("#search_word").autocomplete({
-		        source: autoList,
-		        select: function(event, ui) {
-		            console.log(ui.item);
-		        },
-		        focus: function(event, ui) {
-		            return false;
-		        }
-		
-		    });			
-		} */
-	}
-	
 	function login() {
         window.open('loginForm.jsp','로그인','width=500,height=500,left=700,top=200,status=no,scrollbars=no')
 	}

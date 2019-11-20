@@ -13,7 +13,7 @@
 	<c:if test="${mem_pw == null }">  
 		<script type="text/javascript">
 			alert("존재하지 않는 회원이거나 탈퇴한 회원입니다.");  
-			location.href="loginForm.do";
+			history.go(-1);
 		</script>
 	</c:if>
 </body>
