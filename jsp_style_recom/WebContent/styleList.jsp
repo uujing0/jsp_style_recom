@@ -196,24 +196,26 @@ table.styleList_categoryTable td {
             	<hr style="width:1000px border:none; border:0.5px solid #E7E2E1; margin:20px 0px 5px 0px">
             </div>
             
-            <table class="styleList_table">
-                <c:forEach var="r" begin="0" end="${rowSize-1}">
-                    <tr>
-                        <c:forEach var="c" begin="0" end="${columnSize-1}">
-                            <c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
-                            <c:if test="${eIndex < list.size()}">
-                                <td>       
-                                    <div class="styleList_thumb">
-										<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
-                                    		<img src="./images/category_images/${list[eIndex].stl_pic_url}" >
-                                    	</a>
-                                    </div>
-                                </td>
-                            </c:if>
-                        </c:forEach>
-                    </tr>
-                </c:forEach>
-            </table>    
+            <c:if test="${totCnt > 0}">
+	            <table class="styleList_table">
+	                <c:forEach var="r" begin="0" end="${rowSize-1}">
+	                    <tr>
+	                        <c:forEach var="c" begin="0" end="${columnSize-1}">
+	                            <c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
+	                            <c:if test="${eIndex < list.size()}">
+	                                <td>       
+	                                    <div class="styleList_thumb">
+											<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
+	                                    		<img src="./images/category_images/${list[eIndex].stl_pic_url}" >
+	                                    	</a>
+	                                    </div>
+	                                </td>
+	                            </c:if>
+	                        </c:forEach>
+	                    </tr>
+	                </c:forEach>
+	            </table> 
+            </c:if>   
         </c:if>
 	</div>
 
