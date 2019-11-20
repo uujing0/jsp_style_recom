@@ -13,7 +13,9 @@
 <%@include file="header.jsp"%>
 <script src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
-
+<style>
+ body {background-color: #f9f7f6;}
+</style>
 <script>
 	$(document).ready(function() {
 		// Replace the <textarea id="editor1"> with a CKEditor
@@ -60,6 +62,10 @@
 			}	  */
 		var data2 = data.substring(n1, n2 + 3);
 
+			if (data2 == "" || data2 == "<p")
+				{
+				data2 = "<img alt='' src='/upload/null_id.PNG' style='height:300px; width:400px' />";
+					} 
 		$("#bd_content").val(data);
 		$("#bd_file_url").val(data2);/* 
 					alert("data2->"+data2); */
@@ -136,7 +142,7 @@
 				<!-- 글쓰기 버튼 => 실제로 데이터를 액션페이지로 보냄 -->
 				<input type="hidden" name="bd_content" id="bd_content" /> <input
 					type="hidden" name="bd_file_url" id="bd_file_url" /> <input
-					type="button" id="update" class="btn btn-danger pull-right"
+					type="button" id="update" class="btn btn-Default pull-right"
 					value="글수정">
 			</form>
 
