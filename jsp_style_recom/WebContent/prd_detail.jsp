@@ -7,20 +7,7 @@
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품 상세 페이지</title>
-<script type="text/javascript">
-	function clickbtn(gubun){
 
-	var frameName =document.frames["iposition"];
-
-	if(gubun=='Y'){
-	    frameName.document.getElementById('main').style.visibility="hidden";  //div 감추기
-	}else{
-	   frameName.document.getElementById('main').style.visibility="visible";   //div 보여주기
-
-	}
-} 
-
-</script>
 <style type="text/css">
 #detailproduct {
 	margin-left: 100px;
@@ -77,7 +64,7 @@ h2 {
 </style>
 </head>
 <%@include file="header.jsp"%>
-<body>
+<body bgcolor="#f9f7f6">
 
 
 	<h2>상품 상세</h2>

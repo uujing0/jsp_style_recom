@@ -100,7 +100,10 @@
 	 		background: #e3e3e3;
 	 		
 		}
-		
+		#bdcontent a:link{color: black; text-decoration: none; font-family: "나눔고딕",sans-serif;}
+		#bdcontent a:visited{color: black; text-decoration: none; font-family: "나눔고딕",sans-serif; }
+		#bdcontent a:hover{color: black; text-decoration: none; font-family: "나눔고딕",sans-serif;}
+		#bdcontent a:active{color: black; text-decoration: none; font-family: "나눔고딕",sans-serif;}
 		
 </style>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -153,7 +156,7 @@
 </head>
 
 <%@include file="header.jsp" %>
-<body>
+<body bgcolor="#f9f7f6">
 	
 	<div id="nav" >
 		<ul class="menu">
@@ -219,12 +222,12 @@
 					border-bottom: 50px solid #4c4c4c; 
 					 margin-bottom: -4px;
 					height: 0;
-					 font-size: 20pt;
+					 font-size: 16pt;
 					line-height: 70px;">게시판</a>
         <table style="font:bold; float: left;" id="bList"  >
       	<c:forEach var="board" items="${bbsList}" begin="0" end="2">
-        <td>
-                 <div id="bdcontent" > 
+        <td >
+                 <div id="bdcontent" style="width: 400px; height: 400px;" > 
                     <a href="view.do?bd_id=${board.bd_id}">${board.popup }</a>
                     <a href="view.do?bd_id=${board.bd_id}">${board.bd_title}</a>
                 	<a href="view.do?bd_id=${board.bd_id}">${board.mem_id}</a>
