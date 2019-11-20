@@ -8,10 +8,12 @@ table#bookmark tr {
 
 }
 table#bookmark td {
-	padding:30px;
+	padding-left:30px;
+	/* padding-right:0; */
 }
 img#bmg {
 	height: 180px;
+
 }
 </style>
 <div class="bookmark">
@@ -27,8 +29,8 @@ img#bmg {
 							</a>
 						</c:if></td>
 				</c:forEach>
-				<c:if test="${count > 4 }">
-					<td><a href="/jsp_style_recom/bookMarkMore.do?onoff=1"> <img  
+				<c:if test="${count > 5 }">
+					<td style="padding-left:40px;padding-right:20px;"><a href="/jsp_style_recom/bookMarkMore.do?onoff=1"> <img  
 							src="./images/more.png" style="width: 50px; height: 50px">
 					</a></td>
 				</c:if>

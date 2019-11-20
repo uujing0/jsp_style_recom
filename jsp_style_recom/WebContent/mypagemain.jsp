@@ -8,6 +8,7 @@
 <!-- 처음 접속 주소(서울을 defalut값으로 지정)weather.do?sido=1168066000 -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>mypage</title>
+<script src="./js/jquery.js"></script>
 <script type="text/javascript">
 	if('${sessionScope.mem_id}'){
 		
@@ -20,6 +21,7 @@
 	function login() {
         window.open('loginForm.jsp','로그인','width=500,height=400,left=700,top=200,status=no,scrollbars=no')
 	}
+	
 </script>
 
 </head>
@@ -30,9 +32,6 @@
 <%-- <pre style="font-size:18px;font-weight:bold;top:20px;">${city }날씨</pre> --%>	
 	<div id="content">
 		<div id="side_left">
-			<label id="head">
-				mypage
-			</label>
 			<ul id="side_left">
 			<li><a href="calendar.do">달력</a></li>
 			
@@ -40,7 +39,7 @@
 			
 			<li><a href="myboard.do">내가 쓴 게시물</a></li>
 			
-			<li><a href="weather.do?sido=1168066000" style="background-color: #ccc">일주일 코디추천</a></li>
+			<li><a href="weather.do?sido=1168066000" style="background-color: #e55151">일주일 코디추천</a></li>
 			</ul>
 		</div>
 

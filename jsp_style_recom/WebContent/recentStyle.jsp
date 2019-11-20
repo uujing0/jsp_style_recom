@@ -11,17 +11,14 @@
 
 }
 #rightSide #aaa {
-
 	margin-left: 180px;
-
-
 }
 #rightSide #right_zzim {
 	float:right;
 	top: 200px;
 	left: 50%;
 	margin-left: 180px;
-	border: 1px solid #B0B5BD;
+	border: 1px solid #373b43;
 	width:200px;
 	height: 700px;
 	background-color: #f9f7f6;
@@ -41,7 +38,7 @@
 	border-right:30px solid transparent;
 	border-bottom:30px solid #373b43;
 	height:0;
-	line-height: 40px;
+	line-height: 30px;
 }
 
 #right_zzim #recentCnt {
