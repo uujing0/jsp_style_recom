@@ -98,11 +98,6 @@ table.styleList_categoryTable td {
 	text-align: center;
 }
 
-.styleList_wDesc {
-	display: inline-block;
-	height: 100px;
-}
-
 .styleList_wLabel {
 	font-size: 20px;
 	color: #666666;
@@ -224,8 +219,19 @@ table.styleList_categoryTable td {
 
 	<c:if test="${tagType eq 4 }">
 		<div class="styleList_weatherContent">
-			<label style="color: #666666; font-size:22px; font-weight: bold">지역 날씨에 딱 맞는 스타일을 추천해드립니다!</label>
-			<hr style="width:1000px border:none; border:0.5px solid #E7E2E1; margin:20px 0px 5px 0px">
+
+			<table style="margin:50px 0px 0px 230px; width: 650px;">
+				<tr>
+					<td>
+						<img src="./images/newhanger.png" height="50px" width="80px">
+					</td>
+					<td>
+						<label style="font-size:25px; font-weight: bold; color:#666666;">지역 날씨에 딱 맞는 스타일을 추천해드립니다!</label>
+					</td>
+				</tr>
+			</table>
+			
+			<hr style="width:1100px border:none; border:0.5px solid #E7E2E1; margin:20px 0px 5px 0px">
 			
 			<table style="margin:50px 250px; width: 600px;">
 				<tr>
