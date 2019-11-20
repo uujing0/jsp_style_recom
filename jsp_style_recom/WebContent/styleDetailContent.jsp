@@ -10,15 +10,7 @@
 <title>스타일추천 상세</title>
 
 <style type="text/css">
-#styleDetailContent_MAIN h2 {
-	text-align: center;
-	margin-top: 100px;
-	font-size: 35px;
-}
 
-#styleDetailContent_MAIN h2{
-font-color: #666666;
-}
 #styleDetailContent_ImageDesc {
 	line-height: 35px;
 	margin-left: 390px;
@@ -47,7 +39,7 @@ font-color: #666666;
 }
 
 #styleDetailContent_Name {
-	width: 140px;
+	width: 150px;
 	/* margin: 100px auto;*/
 	padding: 20px;
 	text-decoration: none;
@@ -56,7 +48,7 @@ font-color: #666666;
 	font-weight: bold;
 	display: block;
 	border-right: 30px solid transparent;
-	border-bottom: 40px solid #4c4c4c;
+	border-bottom: 40px solid #e45151;
 	height: 0;
 	line-height: 15px;
 	margin-bottom: -4px;
@@ -64,7 +56,7 @@ font-color: #666666;
 }
 
 #styleDetailContent_Name h3 {
-font-size: 14px;
+	font-size: 17px;
 	margin-top: 33px;
 }
 
@@ -90,7 +82,7 @@ font-size: 14px;
 
 #styleDetailContent_ccstyle {
 	margin-left: 40px;
-	padding: 20px;
+	padding: 70px;
 	display: inline-block;
 	justify-content: center;
 }
@@ -237,13 +229,6 @@ margin-left: 0px;
 
 }
 
-#styleDetailContent_11 hr{
-
-width : 1000px;
-border:none; border:0.6px solid #E7E2E1; 
-margin-left: 320px;
-
-}
 
 .styleDetailContent_table tr td {
 font-size: 17px;
@@ -283,15 +268,7 @@ padding: 3px 12px 0px 0px;
 	}
 </script>
 </head>
-<body bgcolor="f9f7f6">
-
-	<div id="styleDetailContent_MAIN">
-		<img src="./images/hanger.png" height="40px" width="65px"><h2>오늘의 스타일 추천</h2>
-	</div>
-	<div id ="styleDetailContent_11">
-	<hr>
-	</div>
-     
+<body bgcolor="#f9f7f6"> 
 
 	<div id="styleDetailContent_ButtonDiv">
 
@@ -429,7 +406,7 @@ padding: 3px 12px 0px 0px;
 					</c:if> <c:if test="${p_cc1[i] !=null }">
 						<a href="prddetail.do?prd_id=${p_cc1_id[i] }"> <img
 							alt="{p_cc1[i] }" src="./images/product_images/${p_cc1[i]}"
-							width="210px" height="200px">
+							width="210px" height="200px" style="padding:10px">
 						</a>
 					</c:if>
 				</span>
@@ -450,7 +427,7 @@ padding: 3px 12px 0px 0px;
 					</c:if> <c:if test="${p_cc2[i] !=null }">
 						<a href="prddetail.do?prd_id=${p_cc2_id[i] }"> <img
 							alt="{p_cc2[i] }" src="./images/product_images/${p_cc2[i]}"
-							width="210px" height="200px">
+							width="210px" height="200px" style="padding:10px">
 						</a>
 					</c:if>
 				</span>
@@ -473,7 +450,7 @@ padding: 3px 12px 0px 0px;
 					</c:if> <c:if test="${p_cc3[i] !=null }">
 						<a href="prddetail.do?prd_id=${p_cc3_id[i] }"> <img
 							alt="{p_cc3[i] }" src="./images/product_images/${p_cc3[i]}"
-							width="210px" height="200px">
+							width="210px" height="200px" style="padding:10px">
 						</a>
 					</c:if>
 				</span>
