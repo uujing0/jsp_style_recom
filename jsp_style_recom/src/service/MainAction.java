@@ -64,30 +64,29 @@ public class MainAction implements CommandProcess {
 				System.out.println("temp----->" + temp);
 				for (int i = 0; i < 4; i++) {
 					stl_id[i] = Common.getInstance().getWeatherStyleIdByTmp(temp, gender);
+					for (int j = 0; j < i; j++) {
+						if (stl_id[i] == stl_id[j]) {
+							i--;
+							break;
+						}	
+					}
 					System.out.println("stl_id" + i + "은????" + stl_id[i]);
 				}
-				for (int i = 0; i < 4; i++) {
-					for (int j = 3; j > i; j--) {
-						if (stl_id[i] == stl_id[j]) {
-							stl_id[i] = Common.getInstance().getWeatherStyleIdByTmp(temp, gender);
-						}
-					}
-				}
+				
 
 			} else {
 				for (int i = 0; i < 4; i++) {
 					gender=i%2+1;
 					System.out.println("gender->"+gender);
 					stl_id[i] = Common.getInstance().getWeatherStyleIdByTmp(temp, gender);
-				}
-				for (int i = 0; i < 4; i++) {
-					gender=i%2+1;
-					for (int j = 3; j > i; j--) {
+					for (int j = 0; j < i; j++) {
 						if (stl_id[i] == stl_id[j]) {
-							stl_id[i] = Common.getInstance().getWeatherStyleIdByTmp(temp, gender);
+							i--;
+							break;
 						}
 					}
 				}
+				
 			}
 			for (int i = 0; i < 4; i++) {
 				msi[i] = msiDao.styleFind(stl_id[i]);
