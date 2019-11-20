@@ -90,6 +90,9 @@
 <title>웰시코디</title>
 </head>
 <style>
+ body {background-color: #f9f7f6;}
+</style>
+<style>
 .star-rating {
 	font-size: 0;
 	white-space: nowrap;
@@ -189,7 +192,7 @@
 				<thead>
 					<tr>
 						<th colspan="3"
-							style="background-color: #E55151; text-align: center; color: white;">웰시 코디</th>
+							style="background-color: #F3F1F0; text-align: center; color: black;">웰시 코디</th>
 
 					</tr>
 				</thead>
@@ -204,16 +207,17 @@
 						<td>작성자</td>
 						<td colspan="1">${board.mem_id}</td>
 
-						<td>별점평균:<c:if test="${board.staravg==1}">★</c:if> <c:if
-								test="${board.staravg==2}">★★</c:if> <c:if
-								test="${board.staravg==3}">★★★</c:if> <c:if
-								test="${board.staravg==4}">★★★★</c:if> <c:if
-								test="${board.staravg==5}">★★★★★</c:if> <c:if
-								test="${board.staravg==6}">★★★★★★</c:if> <c:if
-								test="${board.staravg==7}">★★★★★★★</c:if> <c:if
-								test="${board.staravg==8}">★★★★★★★★</c:if> <c:if
-								test="${board.staravg==9}">★★★★★★★★★</c:if> <c:if
-								test="${board.staravg==10}">★★★★★★★★★</c:if>
+						<td>별점평균:
+						<font color = olive><c:if test="${board.staravg==1}">★</c:if> </font>
+					<font color = olive>	<c:if		test="${board.staravg==2}">★★</c:if> </font>
+					<font color = olive>			 <c:if		test="${board.staravg==3}">★★★</c:if> </font>
+							<font color = olive>	<c:if			test="${board.staravg==4}">★★★★</c:if> </font>
+							<font color = olive>	<c:if		test="${board.staravg==5}">★★★★★</c:if> </font>
+								<font color = olive><c:if			test="${board.staravg==6}">★★★★★★</c:if></font>
+						<font color = olive>		 <c:if		test="${board.staravg==7}">★★★★★★★</c:if> </font>
+							<font color = olive>	 <c:if			test="${board.staravg==8}">★★★★★★★★</c:if> 
+								<c:if		test="${board.staravg==9}">★★★★★★★★★</c:if>
+								 <c:if			test="${board.staravg==10}">★★★★★★★★★</c:if> </font>
 
 
 						</td>
@@ -225,10 +229,12 @@
 						<td>조회수 : ${board.bd_readcount}</td>
 					</tr>
 					<tr>
-						<td>내용</td>
-						<td colspan="1" style="min-height: 200px;">
+						<td colspan = "3">내용</td>
+						</tr>
+						
+						<tr><td colspan="3" style="min-height: 200px; text-align: center;">
 							${board.bd_content}</td>
-						<td></td>
+						
 					</tr>
 
 					<tr>
@@ -248,7 +254,7 @@
 							</span> 
 								<br> <br> <input type="text" id="content"
 								name="content" />
-								<button id="write_comment" class="btn btn-danger btn-sm">댓글작성</button>
+								<button id="write_comment" class="btn btn-default btn-sm">댓글작성</button>
 							　　<input type="text" id="content2"
 								name="content2" />[댓글수정]</td>
 							<td></td>
@@ -265,7 +271,7 @@
 						<tr>
 							<td style="text-align: left";><c:forEach begin="1"
 									end="${comment.star}">
-								★
+							<font color = olive>	★</font>
 								</c:forEach></td>
 							<td style="text-align: left";>${comment.cm_contents}<br>
 							<P>
@@ -274,9 +280,9 @@
 									<c:if test="${comments==comments }">
 								
 								</c:if>
-									<button name="comment_update" id="${comment.cm_id }" class="btn btn-danger btn-sm">댓글수정</button>
+									<button name="comment_update" id="${comment.cm_id }" class="btn btn-default btn-sm">댓글수정</button>
 									<button name="comment_delete" id="${comment.cm_id}"
-										class="btn btn-danger btn-sm">댓글삭제</button>
+										class="btn btn-default btn-sm">댓글삭제</button>
 										
 								</c:if></td>
 
@@ -287,15 +293,15 @@
 				<!-- 글쓰기 버튼 => 실제로 데이터를 액션페이지로 보냄 -->
 			</table>
 
-			<a href="bbs.do" class="btn btn-danger"">목록</a>
+			<a href="bbs.do" class="btn btn-default"">목록</a>
 			<c:if test="${mem_id != null && mem_id == board.mem_id || mem_id == 'admin'}">
-				<a href="update.do?bd_id=${board.bd_id}" class="btn btn-danger">수정</a>
+				<a href="update.do?bd_id=${board.bd_id}" class="btn btn-default">수정</a>
 				<a onclick="return confirm('정말로 삭제하시겠습니까?')"
-					href="delete.do?bd_id=${board.bd_id}" class="btn btn-danger"">삭제</a>
+					href="delete.do?bd_id=${board.bd_id}" class="btn btn-default"">삭제</a>
 			</c:if>
 
 			<c:if test="${mem_id != null}">
-				<a href="writeView.do" class="btn btn-danger"pull-right">글쓰기</a>
+				<a href="writeView.do" class="btn btn-default"pull-right">글쓰기</a>
 				<!-- <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a> -->
 			</c:if>
 
