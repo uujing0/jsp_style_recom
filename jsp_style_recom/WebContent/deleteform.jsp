@@ -7,14 +7,14 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="HJ_SrhLoginStyle.css">
 </head>
+<%@include file="header.jsp" %>
 <body>
 	<div class="content">
 		<br>
 		<div class="agree">
 			<ul class="idpwSrh">
 				<li>
-					<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
+					<div class="srhBox br">
 						<div class="srhTop">
 							<h1>회원 탈퇴</h1>
 							<br /> 회원 탈퇴를 위해서 비밀번호를 확인합니다. <br />
@@ -41,4 +41,5 @@
 		</div>
 	</div>
 </body>
+<%@include file="footer.jsp" %>
 </html>

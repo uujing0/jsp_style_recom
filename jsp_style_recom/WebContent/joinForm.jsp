@@ -30,6 +30,7 @@
 
 
 </head>
+<%@include file="header.jsp" %>
 <body>
 
 
@@ -39,8 +40,7 @@
 			<div class="agree">
 				<ul class="idpwSrh">
 					<li>
-						<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
+						<div class="srhBox br">
 							<div class="srhTop">
 								<h1>회원 가입</h1>
 								<br> <br> "웰시코디"에 회원으로 <br> 등록합니다. <br>
@@ -122,9 +122,8 @@
 										</select></li>
 										<br>
 										<br>
-										<li>
-												<label class="" name="mem_fav_loc">관심지역(중복 선택 가능)</label>
-											</li>
+										<li><label class="" name="mem_fav_loc">관심지역(중복 선택
+												가능)</label></li>
 										<label><input type="checkbox" name="mem_fav_loc"
 											value="서울특별시">서울특별시</label>
 										<label><input type="checkbox" name="mem_fav_loc"
@@ -166,4 +165,5 @@
 	</form>
 
 </body>
+<%@include file="footer.jsp" %>
 </html>

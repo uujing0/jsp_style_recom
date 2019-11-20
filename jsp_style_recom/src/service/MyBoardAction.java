@@ -26,7 +26,7 @@ public class MyBoardAction implements CommandProcess {
 			String mem_id = (String)session.getAttribute("mem_id");
 			YJ_BbsDAO bd = new YJ_BbsDAO(); 
 			request.setAttribute("myList", bd.myList(mem_id));
-			
+			System.out.println("myList------->"+bd.myList(mem_id));
 			JW_BookMarkDao bmd = JW_BookMarkDao.getInstance();
 			ArrayList<Integer> stl_id=bmd.select(mem_id);
 			request.setAttribute("mem_id", mem_id);

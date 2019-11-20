@@ -111,13 +111,8 @@ public class JM_HotTagDao {
 			pstmt = conn.prepareStatement(sql);//기존 검색어의 카운트 값을 받아온다.
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
-				for(int i = 1 ; i <= 10 ; i++) {
-					tagList.add(rs.getString(1));
-					rs.next();
-				}
-			}else {
-				System.out.println("검색어 리스트를 찾을 수 없음");
+			while(rs.next()) {
+				tagList.add(rs.getString(1));
 			}
 			
 		} catch (Exception e) {	System.out.println(e.getMessage()); }

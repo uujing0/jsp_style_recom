@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*기본 설정*/
 body {
-	font-size: 12px;
+	font-size: 20px;
 	color: #555555;
 	word-break: keep-all
 }
@@ -100,9 +100,15 @@ table {
 	float: center;
 }
 
-.idpwSrh li .srhBox {
-	padding: 40px 40px 40px
-}
+.idpwSrh li .srhBox  {
+	border-right-width: 0.990;
+	margin-right: 40%;
+	margin-left: 35%;
+	margin-top: 2%;
+	margin-bottom:2%;
+	padding-left: 2%; overflow : hidden;
+	padding: 40px 40px 40px;
+	overflow: hidden;}
 
 .idpwSrh li .or {
 	border-style: solid none solid solid;
@@ -115,7 +121,7 @@ table {
 	margin-bottom: 10px;
 	font-size: 22px;
 	font-weight: 900;
-	color: #816950;
+	color: #666666;
 	text-align: left;
 }
 
@@ -123,7 +129,7 @@ table {
 	margin-bottom: 10px;
 	font-size: 22px;
 	font-weight: 900;
-	color: #816950;
+	color: #666666;
 	text-align: left;
 }
 
@@ -136,8 +142,8 @@ table {
 }
 
 .idpwSrh li .srhBox .srhTop {
-	text-align: center;
-	font-size: 13px
+	text-align: left;
+	font-size: 20px
 }
 
 .idpwSrh li .srhBox .info {
@@ -151,7 +157,7 @@ table {
 	margin-right: 12px;
 	vertical-align: middle;
 	font-weight: 900;
-	font-size: 13px;
+	font-size: 20px;
 	color: #333333;
 	text-align: left;
 }
@@ -169,10 +175,10 @@ table {
 .idpwSrh li .or button {
 	display: block;
 	width: 145px;
-	margin: 26px auto 0;
+	margin: 26px 0 0;
 	padding: 7px 0;
-	border: 1px solid #6a5845;
-	background-color: #82705e;
+	border: 1px solid #d5d5d5;
+	background-color: #666666;
 	
 	color: #FFFFFF
 }
@@ -180,9 +186,9 @@ table {
 .idpwSrh li .br button {
 	display: block;
 	width: 145px;
-	margin: 26px auto 0;
+	margin: 26px 0 0;
 	padding: 7px 0;
-	border: 1px solid #6a5845;
+	border: 1px solid #d5d5d5;
 	background-color: #666666;
 	
 	color: #FFFFFF

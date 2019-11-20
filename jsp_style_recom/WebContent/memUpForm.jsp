@@ -37,6 +37,7 @@
 <link rel="stylesheet" type="text/css" href="HJ_MemberStyle.css">
 
 </head>
+<%@include file="header.jsp" %>
 <body>
 	<div class="content">
 		<br>
@@ -44,8 +45,7 @@
 			<form action="memUpPro.do" name="frm" onsubmit="return chk()">
 				<ul class="idpwSrh">
 					<li>
-						<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
+						<div class="srhBox br">
 							<div class="srhTop">
 								<h1>회원정보 수정</h1>
 								<br /> <br /> 등록된 회원 정보를 <br /> 수정할 수 있습니다. <br />
@@ -130,9 +130,8 @@
 
 										</select></li>
 										<br />
-										<li><h1>
-												<label class="" name="mem_fav_loc">관심지역(중복 선택 가능)</label>
-											</h1></li>
+										<li><label class="" name="mem_fav_loc">관심지역(중복 선택
+												가능)</label></li>
 										<label><input type="checkbox" name="mem_fav_loc"
 											value="서울특별시">서울특별시</label>
 										<label><input type="checkbox" name="mem_fav_loc"
@@ -149,8 +148,9 @@
 											value="전라남도">전라남도</label>
 										<label><input type="checkbox" name="mem_fav_loc"
 											value="전라북도">전라북도</label>
-										<label><input type="checkbox" name="mem_fav_loc" <br/>
+										<label><input type="checkbox" name="mem_fav_loc" 
 											value="경상남도">경상남도</label>
+										<br/>
 										<label><input type="checkbox" name="mem_fav_loc"
 											value="경상북도">경상북도</label>
 										<label><input type="checkbox" name="mem_fav_loc"
@@ -165,7 +165,7 @@
 
 										<br />
 										<br />
-										<li><button type="submit">수정하기</button></li>
+										<li><label><button type="submit">수정하기</button></label></li>
 										<br />
 										<br />
 										<li>&nbsp;<a onclick="next()" value="회원탈퇴">회원탈퇴</a></li>
@@ -179,5 +179,6 @@
 		</div>
 	</div>
 </body>
+<%@include file="footer.jsp" %>
 </html>
 
