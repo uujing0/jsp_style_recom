@@ -38,8 +38,9 @@
 		if(thisPage == "logout.do"){
 			history.pushState(null,null,"main.do");
 		}	
-		weatherIcon('<x:out select="$wf"/>')
-
+		if('<x:out select="$wf"/>'){
+			weatherIcon('<x:out select="$wf"/>')	
+		}
 	})
 	
 	function weatherIcon(wf){//weather icon 추가
