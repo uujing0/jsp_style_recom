@@ -17,8 +17,14 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 }
 
-ul, ol, li {
+ol, li {
 	list-style: none
+}
+ul{
+	list-style-type: none;
+	padding: 0;
+	width: 80%;
+	margin-left: 10%;
 }
 
 hr {
@@ -101,7 +107,10 @@ table {
 }
 
 .idpwSrh li .srhBox {
-	padding: 40px 40px 40px
+    border: 0px 0px 0px 0px;
+    margin-left: 30%;
+    margin-right: 30%;
+	padding: 40px 40px 40px 40px
 }
 
 .idpwSrh li .or {
@@ -131,7 +140,6 @@ table {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #d8d8d8;
-	background: #fbfbfb;
 	text-align: left;
 }
 
@@ -167,23 +175,21 @@ table {
 }
 
 .idpwSrh li .or button {
-	display: block;
-	width: 145px;
-	margin: 26px auto 0;
-	padding: 7px 0;
-	border: 1px solid #6a5845;
-	background-color: #82705e;
-	
-	color: #FFFFFF
+	border: solid 2px;
+	border-bottom: solid 4px;
+	border-color: #F9F7F6;
+	background-color: #373B43;
+	color: white;
+	font-size: 15px;
+	padding:12px 26px;
 }
 
 .idpwSrh li .br button {
-	display: block;
-	width: 145px;
-	margin: 26px auto 0;
-	padding: 7px 0;
-	border: 1px solid #6a5845;
-	background-color: #666666;
-	
-	color: #FFFFFF
+	border: solid 2px;
+	border-bottom: solid 4px;
+	border-color: #F9F7F6;
+	background-color: #373B43;
+	color: white;
+	font-size: 15px;
+	padding:12px 26px;
 }

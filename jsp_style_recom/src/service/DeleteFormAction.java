@@ -20,7 +20,7 @@ try {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "deleteform.jsp";
+		return "deleteForm.jsp";
 	}
 
 }

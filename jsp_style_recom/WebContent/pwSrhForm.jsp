@@ -16,18 +16,14 @@
 			<ul class="idpwSrh">
 				<li>
 					<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
+						style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px;">
 						<div class="srhTop">
-						<h1>비밀번호 찾기</h1>
-						<br/>
-						<br/>
-						내정보에 등록한 정보로
-						<br/>
-						비밀번호를 찾을 수 있습니다.
+							<h1>비밀번호 찾기</h1>
+							<br /> <br /> 내정보에 등록한 정보로 <br /> 비밀번호를 찾을 수 있습니다.
 						</div>
 						<div class="info">
 							<form name="pwForm" method="post" action="pwSrhPro.do">
-								<input type="hidden" name="MEM_PW" value="" width= "100px" />
+								<input type="hidden" name="MEM_PW" value="" width="100px" />
 								<fieldset>
 									<legend>비밀번호 찾기 폼</legend>
 									<p>
@@ -35,8 +31,9 @@
 											title="아이디 입력" placeholder="아이디" required=required />
 									</p>
 									<p>
-										<label>이&nbsp;&nbsp;름 </label><input type="text" name="mem_name"
-											title="이름 입력" placeholder="이름" required=required />
+										<label>이&nbsp;&nbsp;름 </label><input type="text"
+											name="mem_name" title="이름 입력" placeholder="이름"
+											required=required />
 									</p>
 									<p>
 										<label>이메일</label> <input type="text" name="mem_email"

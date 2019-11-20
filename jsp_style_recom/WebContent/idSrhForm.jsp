@@ -17,14 +17,10 @@
 			<ul class="idpwSrh">
 				<li>
 					<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
+						style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px;">
 						<div class="srhTop">
 							<h1>아이디 찾기</h1>
-							<br/>
-							<br/>
-							내정보에 등록한 정보로
-							<br/>
-							아이디를 찾을 수 있습니다.
+							<br /> <br /> 내정보에 등록한 정보로 <br /> 아이디를 찾을 수 있습니다.
 						</div>
 						<div class="info">
 							<form name="idForm" method="post" action="idSrhPro.do">
@@ -32,8 +28,9 @@
 								<fieldset>
 									<legend>아이디 찾기 폼</legend>
 									<p>
-										<label>이&nbsp;&nbsp;름</label> <input type="text" name="mem_name"
-											required=required placeholder="이름" title="이름 입력" />
+										<label>이&nbsp;&nbsp;름</label> <input type="text"
+											name="mem_name" required=required placeholder="이름"
+											title="이름 입력" />
 									</p>
 									<p>
 										<label>연락처</label> <input type="text" name="mem_phone"

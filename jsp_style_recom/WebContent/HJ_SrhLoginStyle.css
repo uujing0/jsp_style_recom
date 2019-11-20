@@ -101,13 +101,13 @@ table {
 }
 
 .idpwSrh li .srhBox {
-	padding: 40px 40px 40px
+	border: 0px 0px 0px 0px;
+	padding: 40px 40px 40px 40px;
 }
 
 .idpwSrh li .or {
 	border-style: solid none solid solid;
 	border-color: #d8d8d8;
-	background: #fbfbfb;
 	text-align: center;
 }
 
@@ -131,7 +131,6 @@ table {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #d8d8d8;
-	background: #fbfbfb;
 	text-align: center;
 }
 
@@ -147,13 +146,10 @@ table {
 }
 
 .idpwSrh li .srhBox .info label {disp;
-	width: 83px;
-	margin-right: 12px;
-	vertical-align: middle;
-	font-weight: 900;
-	font-size: 13px;
-	color: #333333;
-	text-align: center;
+	display: block;
+  	color: #343A40;
+  	padding: 10px 0px;
+  	font-size: 15px;
 }
 
 .idpwSrh li .srhBox .info p {
