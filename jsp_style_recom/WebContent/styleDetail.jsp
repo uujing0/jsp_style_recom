@@ -10,6 +10,9 @@
 <title>추천 스타일 상세</title>
 
 <style type="text/css">
+#styleDetail_MainDiv{
+text-align: center;
+}
 #styleDetail_main {
 	text-align: center;
 	margin-left: 400px; margin-top : 100px;
