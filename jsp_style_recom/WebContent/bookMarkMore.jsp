@@ -17,7 +17,7 @@
 	width: 1320px;
 	border: none;
 	border: 0.6px solid #E7E2E1;
-	margin-top : 80px;
+	margin-top : 55px;
 	margin-left: 20px;
 }
 </style>
@@ -25,7 +25,7 @@
 </head>
 
 
-<body>
+<body bgcolor="#f9f7f6">
 <div id ="bmMore">
 <h1>${mem_id }님의 즐겨찾기 목록</h1>
 </div>

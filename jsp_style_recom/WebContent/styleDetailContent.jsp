@@ -39,7 +39,7 @@
 }
 
 #styleDetailContent_Name {
-	width: 140px;
+	width: 150px;
 	/* margin: 100px auto;*/
 	padding: 20px;
 	text-decoration: none;
@@ -56,7 +56,7 @@
 }
 
 #styleDetailContent_Name h3 {
-font-size: 14px;
+	font-size: 17px;
 	margin-top: 33px;
 }
 
@@ -268,7 +268,7 @@ padding: 3px 12px 0px 0px;
 	}
 </script>
 </head>
-<body bgcolor="f9f7f6"> 
+<body bgcolor="#f9f7f6"> 
 
 	<div id="styleDetailContent_ButtonDiv">
 

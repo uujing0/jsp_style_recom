@@ -38,8 +38,8 @@
 	<div id="styleDetail_MainDiv">
 		<table id="styleDetail_main">
 			<tr>
-				<td><img src="./images/newhanger.png" height="40px"
-					width="65px"></td>
+				<td><img src="./images/nnewhanger.png" height="85px"
+					width="85px"></td>
 				<td><h2>오늘의 스타일 추천</h2></td>
 			</tr>
 		</table>
