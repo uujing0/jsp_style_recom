@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 #board {
+	margin-left:50px;
 	position: relative;
 	top: 50px;
 	font-family: "나눔고딕", sans-serif;
@@ -23,7 +24,9 @@
 #bdcontent {
 	border: 1px solid #4c4c4c;
 	border-top: 3px solid #4c4c4c;
-	padding: 20px;
+	padding-left: 20px;
+	width:400px;
+	height: 400px;
 }
 </style>
 </head>
@@ -35,10 +38,21 @@
 			<c:forEach var="board" items="${myList}" begin="0" end="2">
 				<td>
 					<div id="bdcontent">
-						<a href="view.do?bd_id=${board.bd_id}">${board.popup }</a> <a
-							href="view.do?bd_id=${board.bd_id}">${board.bd_title}</a> <a
-							href="view.do?bd_id=${board.bd_id}">${board.mem_id}</a>
-						<%--                 	 --%>
+						<a href="view.do?bd_id=${board.bd_id}">${board.popup }</a> 
+						<a href="view.do?bd_id=${board.bd_id}">${board.bd_title}</a> 
+						<a href="view.do?bd_id=${board.bd_id}">${board.mem_id}</a>
+						<span style="color: #e55151"><c:if test="${board.staravg>0}">
+							<c:if test="${board.staravg==1}">★</c:if>
+							<c:if test="${board.staravg==2}">★★</c:if>
+							<c:if test="${board.staravg==3}">★★★</c:if>
+							<c:if test="${board.staravg==4}">★★★★</c:if>
+							<c:if test="${board.staravg==5}">★★★★★</c:if>
+							<c:if test="${board.staravg==6}">★★★★★★</c:if>
+							<c:if test="${board.staravg==7}">★★★★★★★</c:if>
+							<c:if test="${board.staravg==8}">★★★★★★★★</c:if>
+							<c:if test="${board.staravg==9}">★★★★★★★★★</c:if>
+							<c:if test="${board.staravg==10}">★★★★★★★★★</c:if>
+						</c:if></span>
 					</div>
 
 				</td>

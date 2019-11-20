@@ -37,7 +37,7 @@ public class MyBoardAction implements CommandProcess {
 				String stl_pic_url=sl.pic_url(a);
 				Bmap.put(""+a, stl_pic_url);
 				count++;
-				if(count>4)
+				if(count>5)
 					break;
 				/*System.out.println("--------------------------------------------------------map실험->"+Bmap);*/
 			}

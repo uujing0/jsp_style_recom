@@ -8,15 +8,15 @@
 <link rel="stylesheet" type="text/css" href="TH_style.css" />
 </head>
 <%@include file="header.jsp"%>
-<body>
+<body bgcolor="#f9f7f6">
 
 <div id="content">
 		<div id="side_left">
-			<label id="head">
+			<!-- <label id="head">
 				mypage
-			</label>
+			</label> -->
 			<ul>
-			<li ><a href="calendar.do?" style="background-color: #ccc">달력</a></li>
+			<li ><a href="calendar.do?" style="background-color: #e55151">달력</a></li>
 			
 			<li><a href="memUpForm.do">개인정보수정</a></li>
 			

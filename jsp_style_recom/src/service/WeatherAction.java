@@ -42,36 +42,30 @@ public class WeatherAction implements CommandProcess {
 					"거창", "통영", "대구", "안동", "포항", "경주", "운진", "울릉도", "제주", "서귀포" };
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 			Calendar[] c = new Calendar[7];
-			for(int i =0;i<7;i++)
-				c[i]=Calendar.getInstance();
-			/*Calendar c1 = Calendar.getInstance();
-			Calendar c2 = Calendar.getInstance();
-			Calendar c3 = Calendar.getInstance();
-			Calendar c4 = Calendar.getInstance();
-			Calendar c5 = Calendar.getInstance();
-			Calendar c6 = Calendar.getInstance();
-			Calendar c7 = Calendar.getInstance();
-			*/
-			String[] day=new String[7];
-			day[0]=df.format(c[0].getTime());
-			//String day1 = df.format(c[0].getTime());
-			for(int i = 1;i<7;i++) {
+			for (int i = 0; i < 7; i++)
+				c[i] = Calendar.getInstance();
+			/*
+			 * Calendar c1 = Calendar.getInstance(); Calendar c2 = Calendar.getInstance();
+			 * Calendar c3 = Calendar.getInstance(); Calendar c4 = Calendar.getInstance();
+			 * Calendar c5 = Calendar.getInstance(); Calendar c6 = Calendar.getInstance();
+			 * Calendar c7 = Calendar.getInstance();
+			 */
+			String[] day = new String[7];
+			day[0] = df.format(c[0].getTime());
+			// String day1 = df.format(c[0].getTime());
+			for (int i = 1; i < 7; i++) {
 				c[i].add(Calendar.DATE, i);
 				day[i] = df.format(c[i].getTime());
 			}
-			/*c2.add(Calendar.DATE, 1);
-			String day2 = df.format(c2.getTime());
-			c3.add(Calendar.DATE, 2);
-			String day3 = df.format(c3.getTime());
-			c4.add(Calendar.DATE, 3);
-			String day4 = df.format(c4.getTime());
-			c5.add(Calendar.DATE, 4);
-			String day5 = df.format(c5.getTime());
-			c6.add(Calendar.DATE, 5);
-			String day6 = df.format(c6.getTime());
-			c7.add(Calendar.DATE, 6);
-			String day7 = df.format(c7.getTime());*/
-			//System.out.println("day들" + day3 + day4 + day5 + day6 + day7);
+			/*
+			 * c2.add(Calendar.DATE, 1); String day2 = df.format(c2.getTime());
+			 * c3.add(Calendar.DATE, 2); String day3 = df.format(c3.getTime());
+			 * c4.add(Calendar.DATE, 3); String day4 = df.format(c4.getTime());
+			 * c5.add(Calendar.DATE, 4); String day5 = df.format(c5.getTime());
+			 * c6.add(Calendar.DATE, 5); String day6 = df.format(c6.getTime());
+			 * c7.add(Calendar.DATE, 6); String day7 = df.format(c7.getTime());
+			 */
+			// System.out.println("day들" + day3 + day4 + day5 + day6 + day7);
 			// 각 게시물하나에 해당하는 XML 노드를 담을 리스트
 			ArrayList<HashMap<String, String>> pubList = new ArrayList<HashMap<String, String>>();
 			ArrayList<HashMap<String, String>> pubList1 = new ArrayList<HashMap<String, String>>();
@@ -81,7 +75,7 @@ public class WeatherAction implements CommandProcess {
 			double Temp1 = -100.0;
 			double[] rs = new double[7];
 
-			double[] Tmx = new double[6] ;
+			double[] Tmx = new double[6];
 
 			double[] Tmn = new double[6];
 			int result = 0;
@@ -399,7 +393,7 @@ public class WeatherAction implements CommandProcess {
 					rs[3] = Rs;
 					Tmx[2] = TempM;
 					Tmn[2] = TempN;
-			//		System.out.println("------------------------------------------------4"+wfKor[3]+imgWfKor[3]+rs[3]+Tmx[2]+Tmn[2]);
+					// System.out.println("------------------------------------------------4"+wfKor[3]+imgWfKor[3]+rs[3]+Tmx[2]+Tmn[2]);
 					result++;
 				}
 				if (days.compareTo(day[4]) == 0 && city.equals(ct)) {
@@ -408,7 +402,7 @@ public class WeatherAction implements CommandProcess {
 					rs[4] = Rs;
 					Tmx[3] = TempM;
 					Tmn[3] = TempN;
-			//		System.out.println("------------------------------------------------5"+wfKor[4]+imgWfKor[4]+rs[4]+Tmx[3]+Tmn[3]);
+					// System.out.println("------------------------------------------------5"+wfKor[4]+imgWfKor[4]+rs[4]+Tmx[3]+Tmn[3]);
 					result++;
 				}
 				if (days.compareTo(day[5]) == 0 && city.equals(ct)) {
@@ -418,7 +412,7 @@ public class WeatherAction implements CommandProcess {
 					/// System.out.println("온도들1" + TempM + " " + TempN);
 					Tmx[4] = TempM;
 					Tmn[4] = TempN;
-			//		System.out.println("------------------------------------------------6"+wfKor[5]+imgWfKor[5]+rs[5]+Tmx[4]+Tmn[4]);
+					// System.out.println("------------------------------------------------6"+wfKor[5]+imgWfKor[5]+rs[5]+Tmx[4]+Tmn[4]);
 					result++;
 				}
 				if (days.compareTo(day[6]) == 0 && city.equals(ct)) {
@@ -428,151 +422,100 @@ public class WeatherAction implements CommandProcess {
 					// System.out.println("온도들2" + TempM + " " + TempN);
 					Tmx[5] = TempM;
 					Tmn[5] = TempN;
-				//	System.out.println("------------------------------------------------7"+wfKor[6]+imgWfKor[6]+rs[6]+Tmx[5]+Tmn[5]);
+					// System.out.println("------------------------------------------------7"+wfKor[6]+imgWfKor[6]+rs[6]+Tmx[5]+Tmn[5]);
 					result++;
 				}
-				if(result==9) {
+				if (result == 9) {
 					break;
 				}
 
 			}
 			HttpSession session = request.getSession();
-			String mem_id = (String)session.getAttribute("mem_id");
+			String mem_id = (String) session.getAttribute("mem_id");
 			UJ_MemberDao memberdao = UJ_MemberDao.getInstance();
 			Member mem = memberdao.getMemberDate(mem_id);
 			int gender = mem.getMem_gender();
 			JW_BookMarkDao bd = JW_BookMarkDao.getInstance();
-			ArrayList<Integer> stl_id=bd.select(mem_id);
+			ArrayList<Integer> stl_id = bd.select(mem_id);
 			request.setAttribute("mem_id", mem_id);
 			request.setAttribute("gender", gender);
 			JW_StyleInfoDao sl = JW_StyleInfoDao.getInstance();
-			
+
 			Map<String, String> Bmap = new HashMap<String, String>();
 			int count = 0;
-			for(int a : stl_id) {
-				String stl_pic_url=sl.pic_url(a);
-				Bmap.put(""+a, stl_pic_url);
+			for (int a : stl_id) {
+				String stl_pic_url = sl.pic_url(a);
+				Bmap.put("" + a, stl_pic_url);
 				count++;
-				if(count>4)
+				if (count > 5)
 					break;
-				/*System.out.println("--------------------------------------------------------map실험->"+Bmap);*/
+				/*
+				 * System.out.println(
+				 * "--------------------------------------------------------map실험->"+Bmap);
+				 */
 			}
 			request.setAttribute("count", count);
 			request.setAttribute("BookMap", Bmap);
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd E요일");
-			SimpleDateFormat csdf= new SimpleDateFormat("yyyyMMdd");
+			SimpleDateFormat csdf = new SimpleDateFormat("yyyyMMdd");
 			String[] Cday = new String[7];
 			TH_CalendarDao cd = TH_CalendarDao.getInstance();
 			int[] tc_id = new int[7];
-			for(int i = 0;i<7;i++)
-				day[i]=sdf.format(c[i].getTime());
-			for(int i = 0;i<7;i++) {
-				Cday[i]=csdf.format(c[i].getTime())+mem_id;
-				System.out.println("Cday---------->"+Cday[i]);
+			for (int i = 0; i < 7; i++)
+				day[i] = sdf.format(c[i].getTime());
+			for (int i = 0; i < 7; i++) {
+				Cday[i] = csdf.format(c[i].getTime()) + mem_id;
+				System.out.println("Cday---------->" + Cday[i]);
 				dao.Calendar cal1 = cd.select(mem_id, Cday[i]);
-				tc_id[i]=cal1.getTc_id();
-				request.setAttribute("tc_id"+i,tc_id[i] );
-				//System.out.println("tc_id------>"+i+"      "+cal1.getTc_id());
+				tc_id[i] = cal1.getTc_id();
+				request.setAttribute("tc_id" + i, tc_id[i]);
+				// System.out.println("tc_id------>"+i+" "+cal1.getTc_id());
 			}
-			int[] rec_stl_id=new int[7];
-			
-			for(int i =1;i<7;i++) {
-				 rec_stl_id[i]=Common.getInstance().getWeatherStyleIdByTmp(Tmn[i-1], gender);
-				 System.out.println(" rec_stl_id"+i+"---->"+rec_stl_id[i]);
-			}
-			 rec_stl_id[0]=Common.getInstance().getWeatherStyleIdByTmp(Temp1, gender);
-			 String[] rec_stl_pic_url=new String[7];
-			
-			 for(int i =0;i<7;i++) {
-				 rec_stl_pic_url[i]=sl.pic_url(rec_stl_id[i]);
-				 System.out.println("rec_stl_pic_url"+i+"----->"+rec_stl_pic_url[i]);
-				 request.setAttribute("rec_stl_id"+i, rec_stl_id[i]);
-				 request.setAttribute("rec_stl_pic_url"+i, rec_stl_pic_url[i]);
-			}
-			 if(tc_id[0] !=0) {
-					rec_stl_id[0]=Common.getInstance().getWeatherStyleIdBytc_id(Temp1, gender,tc_id[0]);
-					rec_stl_pic_url[0]=sl.pic_url(rec_stl_id[0]);
-					 request.setAttribute("rec_stl_id0", rec_stl_id[0]);
-					 request.setAttribute("rec_stl_pic_url0", rec_stl_pic_url[0]);
+			// 일주일 코디추천 소스
+			double[] tmep = new double[7];
+			tmep[0] = Temp1;
+			for (int i = 1; i < 7; i++)
+				tmep[i] = Tmn[i - 1];
+			int[] rec_stl_id = new int[7];
+			String[] rec_stl_pic_url = new String[7]; // 변수선언
+			// 오늘의 추천코디
+			for (int i = 0; i < 7; i++) {
+				if (tc_id[i] != 0) {
+					rec_stl_id[i] = Common.getInstance().getWeatherStyleIdBytc_id(tmep[i], gender, tc_id[i]);
+
+				} else {
+					rec_stl_id[i] = Common.getInstance().getWeatherStyleIdByTmp(tmep[i], gender);
 				}
-			 for(int i = 1;i<7;i++) {
-			if(tc_id[i] !=0) {
-				rec_stl_id[i]=Common.getInstance().getWeatherStyleIdBytc_id(Tmn[i-1], gender,tc_id[i]);
-				rec_stl_pic_url[i]=sl.pic_url(rec_stl_id[i]);
-				 request.setAttribute("rec_stl_id"+i, rec_stl_id[i]);
-				 request.setAttribute("rec_stl_pic_url"+i, rec_stl_pic_url[i]);
+				for (int j = 0; j < i; j++) {
+					if (rec_stl_id[i] == rec_stl_id[j]) {
+						i--;
+						break;
+					}
+				}
+				System.out.println("------->" + rec_stl_id[i]);
 			}
-		}
-			/*day1 = sdf.format(c1.getTime());
-			day2 = sdf.format(c2.getTime());
-			day3 = sdf.format(c3.getTime());
-			day4 = sdf.format(c4.getTime());
-			day5 = sdf.format(c5.getTime());
-			day6 = sdf.format(c6.getTime());
-			day7 = sdf.format(c7.getTime());*/
-			
+
+			for (int i = 0; i < 7; i++) {
+				rec_stl_pic_url[i] = sl.pic_url(rec_stl_id[i]);
+				request.setAttribute("rec_stl_id" + i, rec_stl_id[i]);
+				request.setAttribute("rec_stl_pic_url" + i, rec_stl_pic_url[i]);
+			}
+			// 일주일추천 끝
 			request.setAttribute("city", city);
-			for(int i=0;i<7;i++) {
-				request.setAttribute("wfKor"+i, wfKor[i]);
-				request.setAttribute("rs"+i, rs[i]);
-				request.setAttribute("imgWfKor"+i, imgWfKor[i]);
-				request.setAttribute("day"+i, day[i]);
+			for (int i = 0; i < 7; i++) {
+				request.setAttribute("wfKor" + i, wfKor[i]);
+				request.setAttribute("rs" + i, rs[i]);
+				request.setAttribute("imgWfKor" + i, imgWfKor[i]);
+				request.setAttribute("day" + i, day[i]);
 			}
-			for(int i =0;i<6;i++) {
-				request.setAttribute("Tmx"+i, Tmx[i]);
-				request.setAttribute("Tmn"+i, Tmn[i]);
+			for (int i = 0; i < 6; i++) {
+				request.setAttribute("Tmx" + i, Tmx[i]);
+				request.setAttribute("Tmn" + i, Tmn[i]);
 			}
 			request.setAttribute("Temp1", Temp1);
-			/*request.setAttribute("day1", day1);
-			request.setAttribute("day2", day2);
-			request.setAttribute("day3", day3);
-			request.setAttribute("day4", day4);
-			request.setAttribute("day5", day5);
-			request.setAttribute("day6", day6);
-			request.setAttribute("day7", day7);*/
-			/*request.setAttribute("wfKor0", wfKor[0]);
-			request.setAttribute("wfKor1", wfKor[1]);
-			request.setAttribute("wfKor2", wfKor[2]);
-			request.setAttribute("wfKor3", wfKor[3]);
-			request.setAttribute("wfKor4", wfKor[4]);
-			request.setAttribute("wfKor5", wfKor[5]);
-			request.setAttribute("wfKor6", wfKor[6]);
 
-			request.setAttribute("rs0", rs[0]);
-			request.setAttribute("rs1", rs[1]);
-			request.setAttribute("rs2", rs[2]);
-			request.setAttribute("rs3", rs[3]);
-			request.setAttribute("rs4", rs[4]);
-			request.setAttribute("rs5", rs[5]);
-			request.setAttribute("rs6", rs[6]);
-
-			
-			request.setAttribute("Tmx0", Tmx[0]);
-			request.setAttribute("Tmn0", Tmn[0]);
-			request.setAttribute("Tmx1", Tmx[1]);
-			request.setAttribute("Tmn1", Tmn[1]);
-			request.setAttribute("Tmx2", Tmx[2]);
-			request.setAttribute("Tmn2", Tmn[2]);
-			request.setAttribute("Tmx3", Tmx[3]);
-			request.setAttribute("Tmn3", Tmn[3]);
-			request.setAttribute("Tmx4", Tmx[4]);
-			request.setAttribute("Tmn4", Tmn[4]);
-			request.setAttribute("Tmx5", Tmx[5]);
-			request.setAttribute("Tmn5", Tmn[5]);*/
-			
-
-			/*
-			request.setAttribute("imgWfKor1", imgWfKor[1]);
-			request.setAttribute("imgWfKor2", imgWfKor[2]);
-			request.setAttribute("imgWfKor3", imgWfKor[3]);
-			request.setAttribute("imgWfKor4", imgWfKor[4]);
-			request.setAttribute("imgWfKor5", imgWfKor[5]);
-			request.setAttribute("imgWfKor6", imgWfKor[6]);*/
-			city=TD.location(addr);
+			city = TD.location(addr);
 			request.setAttribute("city", city);
-			/*for(int i = 0;i<6;i++)
-				System.out.println("온도Tmx"+i+" "+Tmx[i]);
-*/
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
