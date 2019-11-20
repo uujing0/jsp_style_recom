@@ -64,7 +64,11 @@
 			  alert("n2->" + n2);
 			}	  */
 		var data2 = data.substring( n1, n2+3 );
-
+			
+			if (data2 == "" || data2 == "<p")
+				{
+				data2 = "<img alt='' src='/upload/null_id.PNG' style='height:300px; width:400px' />";
+					} 
 			$("#bd_content").val(data);
 			$("#bd_file_url").val(data2);/* 
 			alert("data2->"+data2); */
@@ -100,7 +104,9 @@
 
 <title>웰시코디</title>
 </head>
-
+<style>
+ body {background-color: #f9f7f6;}
+</style>
 <body>
 	
 
@@ -155,7 +161,7 @@
 				<input type="hidden" name="bd_content" id="bd_content"
 					required="required" /> <input type="hidden" name="bd_file_url"
 					id="bd_file_url" required="required" /> <input type="button"
-					class="btn btn-danger pull-right" value="글쓰기" id="submit">
+					class="btn btn-Default pull-right" value="글쓰기" id="submit">
 			</form>
 
 		</div>
