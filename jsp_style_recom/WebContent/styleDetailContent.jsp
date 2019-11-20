@@ -10,13 +10,17 @@
 <title>스타일추천 상세</title>
 
 <style type="text/css">
+table.styleDetailContent_ImageDesc{
 
+}
 #styleDetailContent_ImageDesc {
 	line-height: 35px;
 	margin-left: 390px;
 }
 
 #styleDetailContent_styledesc {
+
+	padding-top: 20px;
 	display: inline-block;
 	width: 420px;
 	height: 200px; 
@@ -24,6 +28,18 @@
 	font-size: 20px;
 	color: #666666;
 	font-weight: bold;
+}
+
+
+#styleDetallContent_accDesc{
+	display: inline-block;
+	width: 420px;
+	height: 200px; 
+	margin-left: 80px;
+	font-size: 20px;
+	color: #666666;
+	font-weight: bold;
+
 }
 
 #styleDetailContent_mainImage {
@@ -236,6 +252,7 @@ padding: 3px 12px 0px 0px;
 }
 
 
+
 </style>
 
 <script type="text/javascript">
@@ -314,16 +331,20 @@ padding: 3px 12px 0px 0px;
 
 	<table id="styleDetailContent_ImageDesc">
 		<tr>
-			<td><span id="styleDetailContent_mainImage"> <img
+			<td rowspan="2"><span id="styleDetailContent_mainImage"> <img
 					src="./images/category_images/${al[0] }" id="${al[0] }"
 					height="480px" width="450px">
 			</span></td>
-			<td><span id="styleDetailContent_styledesc"> 
-					${std_desc}
+			<td style="padding-top: 80px"><span id="styleDetailContent_styledesc"> 
+					<p>${std_desc}</p>
 			</span></td>
 		</tr>
+			 <c:if test="${acc_desc!=null }">
+		
+		<tr>
+		<td><span id="styleDetallContent_accDesc"><p>오늘의 IT템 : ${acc_desc }<p></span></td>
+		</tr></c:if>
 	</table>
-
 
 
 	<div id="styleDetailContent_cciconName">
@@ -383,9 +404,7 @@ padding: 3px 12px 0px 0px;
 
 	<div id="styleDetailContent_ccicon"></div>
 
-	<%-- <c:if test="${acc_desc!=null }">
-				   ${acc_desc }
-	 </c:if> --%>
+	 	 
 	 <div id = "styleDetailContent_p">
 	 <p>연관상품</p>
      <hr>
