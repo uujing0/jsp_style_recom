@@ -12,7 +12,6 @@
 
 <div id="content">
 		<div id="side_left">
-			<div id="head">마이페이지</div>
 			<ul>
 			<li ><a href="calendar.do?">달력</a></li>
 			

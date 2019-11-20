@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 h1.deleteForm_title {
-	color: #343A40; /*font color*/ 
+	color: #343A40; /*font color*/
 	text-align: center;
 	margin: 30px 0px 30px 0px;
 }

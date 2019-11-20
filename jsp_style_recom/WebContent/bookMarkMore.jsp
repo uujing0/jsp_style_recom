@@ -9,15 +9,16 @@
 <meta charset="UTF-8">
 <style type="text/css">
 #bmMore{
-	margin-left: 70px; 
-	margin-top : 60px;
-	font-size: 16px;
+	margin-left: 50px; 
+	margin-top : -40px;
+	font-size: 14px;
+	color: #666666;
 }
 #bmMore_hr hr {
 	width: 1320px;
 	border: none;
 	border: 0.6px solid #E7E2E1;
-	margin-top : 55px;
+	margin-top : 20px;
 	margin-left: 20px;
 }
 </style>
