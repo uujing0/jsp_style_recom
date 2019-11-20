@@ -92,15 +92,24 @@ table.styleList_categoryTable td {
 	height: auto;
 } 
 
-</style>
-
-<script type="text/javascript">
-
-function loadImage(obj) {
-
+.styleList_weatherContent {
+	margin: 100px 0px 50px 290px;
+	width: 1000px;
+	text-align: center;
 }
 
-</script>	
+.styleList_wDesc {
+	display: inline-block;
+	height: 100px;
+}
+
+.styleList_wLabel {
+	font-size: 20px;
+	color: #666666;
+} 
+
+</style>
+
 </head>
 <%@ include file="header.jsp"%>
 <body bgColor="#f9f7f6">
@@ -115,6 +124,7 @@ function loadImage(obj) {
 							<c:forEach var="i" items="${locMap}">
 								<c:if test="${lc == i.value }">
 									<option value="${i.value}" selected="selected">${i.key}</option>
+									<c:set var="selectedLocation" value="${i.key}" scope="page"/>
 								</c:if>
 								<c:if test="${lc != i.value }">
 									<option value="${i.value}">${i.key}</option>
@@ -213,15 +223,24 @@ function loadImage(obj) {
 	</div>
 
 	<c:if test="${tagType eq 4 }">
-		<div class="test1">
-		 오늘의 날씨는 '${tmpWfKor }'이고<br>
-		    오늘의 날씨는 '${wfKor }'이고<br>
-		    현재 기온은  ${tmp }도, 강수확률은 ${rs }퍼센트(%)입니다.<br>
-
-			<img alt="${tmpImgWfKor }" src="./${tmpImgWfKor }">
-			<img alt="${imgWfKor }" src="./${imgWfKor }">
-			<%@ include file="styleDetailContent.jsp" %>
+		<div class="styleList_weatherContent">
+			<label style="color: #666666; font-size:22px; font-weight: bold">지역 날씨에 딱 맞는 스타일을 추천해드립니다!</label>
+			<hr style="width:1000px border:none; border:0.5px solid #E7E2E1; margin:20px 0px 5px 0px">
+			
+			<table style="margin:50px 250px; width: 600px;">
+				<tr>
+					<td>
+						<img class="styleList_wImg" alt="${imgWfKor }" src="./${imgWfKor }" style="height:100px;weight:100px;">
+					</td>
+					<td>
+						<label class="styleList_wLabel">${selectedLocation} 기온  ${tmp }도 강수확률 ${rs }%</label>
+					</td>
+				</tr>
+			</table>
 		</div>
+
+		<%@ include file="styleDetailContent.jsp" %>
+
 	</c:if>
 	
 <script type="text/javascript">
