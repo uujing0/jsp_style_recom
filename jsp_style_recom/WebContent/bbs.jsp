@@ -20,7 +20,7 @@
 
 <link rel="stylesheet" href="css/bootstrap.css"> <!-- 
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.cs -->s"> 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  -->
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
 	
 <link rel="stylesheet" href="css/customDetail_btn.css">
@@ -50,7 +50,7 @@
 	$(document).on("keyup", "#search", function(){
 		table.search($(this).val()).draw() ;//search 함수 사용
 	});
-</script>
+</script> <p>
 <style>
   body {background-color: #f9f7f6;}
 </style>
