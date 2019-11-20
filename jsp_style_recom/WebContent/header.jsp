@@ -359,7 +359,7 @@ header a:active{color: black; text-decoration: none;}
 		<div id="search_bar">
 			<form action="search.do" method="get" id="search_form">
 				<div id="search_input">
-					<input type="text" id="search_word" name="search_word" class= "search_word" value='' placeholder="SEARCH" autocomplete="off" onkeydown="searchWordAutoComplete()">
+					<input type="text" id="search_word" name="search_word" class= "search_word" value='' placeholder="SEARCH" autocomplete="off">
 					<input type="image" alt="검색" id="search_button" src="images/search_button.png">
 				</div>
 				<div id="search_radio">

@@ -11,12 +11,20 @@
 <meta name="viewport" content="width=device-width" , initial-scale="1">
 <!-- viewport=화면상의 표시영역, content=모바일 장치들에 맞게 크기조정, initial=초기화면 배율 설정 -->
 
+
+
+
 <title>웰시코디</title>
 
-<link rel="stylesheet" href="css/bootstrap.css">
+<%@include file="header.jsp"%>
+
+<link rel="stylesheet" href="css/bootstrap.css"> <!-- 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  -->
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
 	
 <link rel="stylesheet" href="css/customDetail_btn.css">
+</head>
 <% request.setCharacterEncoding("UTF-8"); %>
 <script src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 
@@ -42,12 +50,10 @@
 	$(document).on("keyup", "#search", function(){
 		table.search($(this).val()).draw() ;//search 함수 사용
 	});
-</script>
+</script> <p>
 <style>
   body {background-color: #f9f7f6;}
 </style>
-</head>
-<%@include file="header.jsp"%>
 <body>
 
 	<div class="container"> <!-- div 클래스 생성 아래쪽까지 공지사항 테이블 생성 -->
