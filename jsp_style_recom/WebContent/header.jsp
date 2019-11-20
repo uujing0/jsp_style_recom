@@ -131,16 +131,12 @@ header a:active{color: black; text-decoration: none;}
 	padding-right: 15px;
 	 
 }
-#header_logo{
-	margin-left: 45%;
-}
 
 /* icon */
-#dog_icon{
-	height: 220px;
-	width: 220px;
+#header_logo{
 	text-align: center;
-	border-radius: 100%;
+}
+#header_logo_pic{
 }
 #sun_icon{
 	border-radius: 5px;
@@ -155,6 +151,7 @@ header a:active{color: black; text-decoration: none;}
 	margin-top: 0px; 
 	background-color: #E55151;
 	border-bottom: 2px solid #d5d5d5;
+	/* height: 72px; */
 }
 
 /* weather_today */
@@ -166,8 +163,8 @@ header a:active{color: black; text-decoration: none;}
 	font-size: 18px;
 }
 #weather_pic{
-	margin-bottom: -15px;
 	margin-left: 10px;
+	vertical-align: -15px; 
 }
 
 /* member_space */
@@ -358,7 +355,7 @@ header a:active{color: black; text-decoration: none;}
 	<div id="header_top">
 		<div id="header_logo">
 			<a href="main.do">
-				<img alt="dog_icon" src="images/dog_icon.png" id="dog_icon">
+				<img alt="logo" src="images/logo.jpg" id="header_logo_pic">
 			</a>
 		</div>
 		<div id="weather_today">
