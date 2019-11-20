@@ -65,6 +65,14 @@ h2 {
 	font-size: 20pt;
 	}
 
+#deadline hr{
+
+width : 1000px;
+border:none; border:0.6px solid #E7E2E1; 
+margin-left: 320px;
+
+}
+
 </style>
 </head>
 <%@include file="header.jsp"%>
@@ -72,7 +80,10 @@ h2 {
 
 
 	<h2>${ Product.prd_name }</h2>
+	<div id="deadline">
 	<hr>
+	</div>
+	
 
 	<div id="product">
 		<table style="margin: 0;">
