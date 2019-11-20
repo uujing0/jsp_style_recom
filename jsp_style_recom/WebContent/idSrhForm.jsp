@@ -16,8 +16,7 @@
 		<div class="agree">
 			<ul class="idpwSrh">
 				<li>
-					<div class="srhBox br"
-							style="border-right-width: 0.990; margin-right: 40%; margin-left: 35%; padding-left: 2% overflow: hidden">
+					<div class="srhBox br">
 						<div class="srhTop">
 							<h1>아이디 찾기</h1>
 							<br/>

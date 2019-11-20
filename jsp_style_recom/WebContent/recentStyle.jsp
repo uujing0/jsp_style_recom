@@ -5,7 +5,7 @@
 <Style>
 #rightSide {
 	position: absolute;
-	top: 590px;
+	top: 420px;
 	left: 50%;
 	margin: 0 0 0 510px;
 

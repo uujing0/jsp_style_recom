@@ -48,12 +48,17 @@ h3.align-center {
 	margin-left: 30%;
 }
 
- 
- 
+/* .joinForm_ul li label {
+	display: block;
+  	color: #343A40;
+  	padding: 10px 0px;
+  	font-size: 15px;
+}
+ */
 .joinForm_ul li input {
 	padding: 20px 10px;
 	border: 1px solid #e0dcdc;
-	width: 40%; 
+	 width: 40%; 
 } 
 
 .joinForm_joinButton {
@@ -64,6 +69,7 @@ h3.align-center {
 	color: white;
 	font-size: 15px;
 	padding:12px 26px; 
+	text-align: center;
 	
 }
 
@@ -71,16 +77,21 @@ h3.align-center {
   font-size: 20px;
   font-weight:bold;
 }
+
+
 </style>
+
+
+
 
 </head>
 <%@include file="header.jsp" %>
 <body bgColor="#f9f7f6">
 <h1 class="joinForm_title">회원가입</h1>
 <h3 class="align-center"> "웰시코디"에 회원으로 등록합니다. </h3>
- <form action="joinPro.do" name="frm" onsubmit="return chk()">
-  <ul class="joinForm_ul">
-   <li>
+<form action="joinPro.do" name="frm" onsubmit="return chk()">
+<ul class="joinForm_ul">
+   <li class="list-item">
       <label class="element">아&nbsp;이&nbsp;디</label><br>
       <input type="text" class="a" name="mem_id" required="required" >  
       <label class="joinForm_joinButton"><a onclick="winop()">중복확인</a> </label>
@@ -91,11 +102,11 @@ h3.align-center {
 	  <input type="password" class="a" name="mem_pw" required="required" >
    </li><br>
    <li>
-	  <label class="element">비밀번호&nbsp;확인</label><br> 
+	  <label class="element">비밀번호&nbsp;확인</label> <br> 
 	  <input type="password" class="a" name="mem_pw2" required="required" > 
    </li><br>
    <li>
-	  <label class="element">이&nbsp;&nbsp;&nbsp;&nbsp;름</label><br>
+	  <label class="element">이&nbsp;&nbsp;&nbsp;&nbsp;름</label> <br>
 	  <input type="text" class="a" name="mem_name" required="required"> 
    </li><br>
    <li>
@@ -107,7 +118,7 @@ h3.align-center {
 	  <input type="text" class="a" name="mem_email" required="required">
    </li><br>
    <li>
-	  <label class="element">주&nbsp;소</label><br> 
+	  <label class="element">주&nbsp;소</label> <br> 
 	  <select class="weatherLocation" name="mem_addr">
 		<option value="0">사는 곳을 선택해주세요</option>
 		  <c:forEach var="i" items="${locMap}">
@@ -121,7 +132,7 @@ h3.align-center {
   </li>
 	<br>								
    <li>
-    <label class="element">체&nbsp;형</label><br> 
+    <label class="element">체&nbsp;형</label> 
      <select name="mem_body_type">
 	  <option value="1">통통</option>
 	  <option value="2">슬림</option>
@@ -138,6 +149,7 @@ h3.align-center {
 	  <label><input type="checkbox" name="mem_fav_loc" value="경기도">경기도</label>
 	  <label><input type="checkbox" name="mem_fav_loc" value="강원도">강원도</label><br>
 	  <label><input type="checkbox" name="mem_fav_loc" value="충청남도">충청남도</label>
+										
 	  <label><input type="checkbox" name="mem_fav_loc" value="충청북도">충청북도</label>
 	  <label><input type="checkbox" name="mem_fav_loc" value="전라남도">전라남도</label><br>
 	  <label><input type="checkbox" name="mem_fav_loc" value="전라북도">전라북도</label>
@@ -150,11 +162,27 @@ h3.align-center {
 	
 	<label><input type="radio" name="mem_gender" value="1" required="required">남</label>
 	<label><input type="radio" name="mem_gender" value="2" required="required">여</label>
-	 <br><br><br>								
+	
+									
+	<br><br>								
+	
+	
 	<input class="joinForm_joinButton" type="submit" value="가입하기">
 	
 	</ul>
-  </form>
+
+
+	</form>
+
+
 <%@include file="footer.jsp" %>
+   
+   
+   
+
+
+
+
+
 </body>
 </html>

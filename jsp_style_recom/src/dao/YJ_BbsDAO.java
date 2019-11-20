@@ -348,17 +348,7 @@ public class YJ_BbsDAO {
 	}
 	
 	public ArrayList<Board> myList(String mem_id) {
-	String SQL = "SELECT ROWNUM AS bbsNO"
-			   + "     , b.bd_id"
-			   + "     , b.bd_Title"
-			   + "     , b.mem_id"
-			   + "     , to_char(b.bd_date,'yyyy-mm-dd') as bd_date "
-			   + "     , b.bd_readcount"
-			   + "     , (select count(*) from board_comment bc where b.bd_id = bc.bd_id) as commentCount"
-			   + "     ,(select round(avg(star),0) as staravg from board_comment bc where b.bd_id = bc.bd_id) as staravg"
-			   + "     from board b"
-			   + "     where b.BD_NOTICE = 0 and b.mem_id=?"
-			   + "     ORDER BY bd_id DESC";
+		String SQL = "SELECT ROWNUM AS bbsNO     , b.bd_id , b.bd_Title     , b.mem_id    , to_char(b.bd_date,'yyyy-mm-dd') as bd_date     , b.bd_readcount, (select count(*) from board_comment bc where b.bd_id = bc.bd_id) as commentCount    ,(select round(avg(star),0) as staravg from board_comment bc where b.bd_id = bc.bd_id) as staravg,(select '<img' || regexp_replace(bd_file_url, '(.*)<img(.*)style=(.*)', '\\2')||'style=' || replace( replace( translate( regexp_replace(bd_file_url, '(.*)style=(.*)/>(.*)', '\\2') , '#0123456789', '#') || '/>' , 'height:', 'height:300'), 'width:', 'width:400')from board d where d.bd_id = b.bd_id) as bd_file_url from board b    where b.BD_NOTICE = 0 and mem_id=?    ORDER BY bd_id DESC";	
 	ArrayList<Board> list = new ArrayList<Board>();
 	try {
 		PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -376,8 +366,10 @@ public class YJ_BbsDAO {
 			board.setBd_readcount(rs.getInt(6));
 			board.setCommentCount(rs.getInt(7));
 			board.setStaravg(rs.getInt(8));
-
+			board.setPopup(rs.getString(9));
 			list.add(board);
+			
+
 		}
 		rs.close();
 		pstmt.close();

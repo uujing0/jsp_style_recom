@@ -12,7 +12,7 @@
 	</c:if>
 	<c:if test="${mem_id == null }">  
 		<script type="text/javascript">
-			alert("존재하지 않는 회원이거나 탈퇴한 회원입니다.");
+			alert("존재하지 않는 회원이거나 탈퇴한 회원입니다.");  
 			location.href="loginForm.do";
 		</script>
 	</c:if>

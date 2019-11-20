@@ -12,15 +12,12 @@ public class DeleteFormAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 try {
-	String mem_id = request.getParameter("mem_id");
-	System.out.println("DeleteFormAction mem_id--->"+mem_id);
-	request.setAttribute("mem_id", mem_id);
 	
-		System.out.println("--------------");	
+		
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "deleteform.jsp";
+		return "deleteForm.jsp";
 	}
 
 }
