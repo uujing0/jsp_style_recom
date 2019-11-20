@@ -26,7 +26,7 @@
 
 <%@include file="header.jsp"%>
 <link rel="stylesheet" type="text/css" href="TH_style.css" />
-<body>
+<body bgcolor="#f9f7f6">
 <%-- <pre style="font-size:18px;font-weight:bold;top:20px;">${city }날씨</pre> --%>	
 	<div id="content">
 		<div id="side_left">

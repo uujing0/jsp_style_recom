@@ -113,14 +113,13 @@ div#side_left {
 	border-radius: 10px;
 	width: 28%;
 	margin-left: 1%;
-	background-color: white;
 	float: left;
 	padding: 1%;
 	text-align: center;
 }
 
 #day_bottom {
-	background-color: white;
+
 	/* border:solid; */
 	border-color: #d5d5d5;
 	width: 28%;
