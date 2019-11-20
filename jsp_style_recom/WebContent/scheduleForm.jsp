@@ -53,7 +53,7 @@ div{
 			</li>
 
 			<li>
-				<label>이벤트</label>
+				<label>이벤트 <span style="font-size:12px;">(선택하신 이벤트에 맞는 스타일을 추천해드립니다^-^)</span></label>
 				<select name="tc_id">
 					<option value="0" selected>선택안함</option>
 					<option value="1" <c:if test="${tc_id eq '1'}"> selected </c:if>>오피스</option>
