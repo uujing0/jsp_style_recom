@@ -116,8 +116,10 @@ header a:active{color: black; text-decoration: none;}
 /* icon */
 #header_logo{
 	text-align: center;
+	display: flex;
 }
 #header_logo_pic{
+	margin-left: 5%;
 }
 #sun_icon{
 	border-radius: 5px;

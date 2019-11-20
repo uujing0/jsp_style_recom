@@ -45,11 +45,21 @@
 		$('#table').parent().append(searchBar); //테이블의 부모에 searchbar 등록
 		
 		$("#search").parent().css("float", "right"); //search를 오른쪽으로 정렬
+		$("#search").val(getParameterByName("search_word"));
+		
+		table.search($("#search").val()).draw() ;
 	} );
 	
 	$(document).on("keyup", "#search", function(){
 		table.search($(this).val()).draw() ;//search 함수 사용
 	});
+	
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
 </script> <p>
 <style>
   body {background-color: #f9f7f6;}
