@@ -61,8 +61,9 @@ public class StyleListAction implements CommandProcess {
 				strTagType = "0";
 			}
 			
-			String search_word = request.getParameter("search_word");
+			String search_word = (String)request.getAttribute("search_word");
 			boolean isSearch = search_word == null || search_word.equals("") ? false : true;
+			
 	
 			// session에서 gender type get
 			HttpSession session = request.getSession();
@@ -71,13 +72,10 @@ public class StyleListAction implements CommandProcess {
 				strGender = "1";
 			}
 			
-			
 			this.tagId = Integer.parseInt(strTagId);	
 			this.gender = Integer.parseInt(strGender);
 			this.tagType = Integer.parseInt(strTagType);
-			/*
-			 * gender= 2; System.out.println("gender->>>>>>>>>>>>>>"+gender);
-			 */
+
 			System.out.println("===> tagType : " + this.tagType);
 		
 			ArrayList<TagCategory> sitTags = new ArrayList<>();
@@ -121,13 +119,13 @@ public class StyleListAction implements CommandProcess {
 		
 		return "styleList.jsp";
 	}
-	
+
 	public void setDataOfTableView(HttpServletRequest request, HttpServletResponse response) {
 		int totCnt = 0, columnSize = 3, rowSize = 0;
 		
 		ArrayList<StyleInfo> list = (ArrayList<StyleInfo>)request.getAttribute("list");
 		
-		totCnt = list.size();
+		totCnt = list == null ? 0 : list.size();
 		rowSize = (int) Math.ceil((double)totCnt / columnSize);
 		
 		request.setAttribute("totCnt", totCnt);

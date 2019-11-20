@@ -10,47 +10,33 @@
 <title>추천 스타일 상세</title>
 
 <style type="text/css">
-#styleDetail_MainDiv{
-text-align: center;
-}
-#styleDetail_main {
-	text-align: center;
-	margin-left: 400px; margin-top : 100px;
-	font-size: 35px;
-	margin-top: 80px;
-}
-
-#styleDetail_MainDiv h2 {
-	font-color: #666666;
-	text-align: center;
-	font-size: 35px;
-}
-
-#styleDetail_hr hr {
+.styleList_weatherContent {
+	margin: 100px 0px 50px 290px;
 	width: 1000px;
-	border: none;
-	border: 0.6px solid #E7E2E1;
-	margin-left: 320px;
+	text-align: center;
 }
+
 </style>
 
 </head>
 <%@ include file="header.jsp"%>
 
 <body>
-	<div id="styleDetail_MainDiv">
-		<table id="styleDetail_main">
+	<div class="styleList_weatherContent">
+
+		<table style="margin:50px 0px 0px 400px; width: 400px; height: 50px;">
 			<tr>
-				<td><img src="./images/nnewhanger.png" height="85px"
-					width="85px"></td>
-				<td><h2>오늘의 스타일 추천</h2></td>
+				<td>
+					<img src="./images/newhanger.png" height="40px" width="70px">
+				</td>
+				<td>
+					<label style="font-size:30px; font-weight: bold; color:#666666;">오늘의 스타일 추천</label>
+				</td>
 			</tr>
 		</table>
-
-	</div>
-	<div id="styleDetail_hr">
-		<hr>
-	</div>
+		
+		<hr style="width:1100px border:none; border:0.5px solid #E7E2E1; margin:20px 0px 5px 0px">
+	</div>	
 
 	<%@ include file="styleDetailContent.jsp"%>
 	<%@ include file="recentStyle.jsp"%>
