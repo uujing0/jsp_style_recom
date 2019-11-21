@@ -33,13 +33,17 @@ public class MainAction implements CommandProcess {
 			HttpSession session = request.getSession();
 			String mem_id = (String) session.getAttribute("mem_id");
 			System.out.println("멤버 아이디:::::::" + mem_id);
+			
 			UJ_MemberDao memberdao = UJ_MemberDao.getInstance();
-			int gender = 0;
-			if (mem_id != null) {
-				Member mem = memberdao.getMemberDate(mem_id);
-				gender = mem.getMem_gender();
-				System.out.println("gender->" + gender);
+			
+			String strGender = (String)session.getAttribute("gender");
+			if (strGender == null || strGender.equals("")) {
+				strGender = "2";
 			}
+			
+			int gender = Integer.parseInt(strGender);
+			System.out.println("gender->" + gender);
+
 			String mem_loc = (String) session.getAttribute("loc");
 			
 			ArrayList<StyleInfo> styleInfos = styleDao.getStyleMain();
@@ -76,7 +80,7 @@ public class MainAction implements CommandProcess {
 
 			} else {
 				for (int i = 0; i < 4; i++) {
-					gender=i%2+1;
+					// gender=i%2+1;
 					System.out.println("gender->"+gender);
 					stl_id[i] = Common.getInstance().getWeatherStyleIdByTmp(temp, gender);
 					for (int j = 0; j < i; j++) {

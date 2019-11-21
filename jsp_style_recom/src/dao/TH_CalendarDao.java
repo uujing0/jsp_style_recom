@@ -67,7 +67,6 @@ public class TH_CalendarDao {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 	
-			
 			pstmt.setInt(1, cal.getTc_id());
 			pstmt.setString(2, cal.getCal_contents());
 			pstmt.setString(3, cal.getCal_title());
@@ -86,6 +85,14 @@ public class TH_CalendarDao {
 		int result = 0;			
 		String sql="insert into calendar values(?,?,?,sysdate,?,?)";
 		try {
+			
+			System.out.println("sql : " + sql);
+			System.out.println("1 " + cal.getCal_id());
+			System.out.println("2 " + cal.getMem_id());
+			System.out.println("3 " + cal.getTc_id());
+			System.out.println("4 " + cal.getCal_contents());
+			System.out.println("5 " + cal.getCal_title());
+			
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, cal.getCal_id());
