@@ -4,7 +4,7 @@
 <%@ page import="dao.YJ_BbsDAO"%>
 <%@ page import="dao.Board"%>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
@@ -64,7 +64,7 @@
 				<tbody>
 					<tr>
 						<td colspan="5"
-							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">
+							style="background-color: #373B43; color: white; text-align: center;  font-size: 15px;">
 							공 지</td>
 
 
