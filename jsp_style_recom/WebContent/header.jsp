@@ -33,6 +33,11 @@
 		var thisPage = window.location.href.split('jsp_style_recom/')[1];
 		if(thisPage.split('?')[0] == "genderSelector.do"){
 			history.pushState(null,null,window.location.href.split('thisPage=')[1]);
+			window.location.reload();
+		}
+		
+		if(thisPage.split('?')[0] == "styleDetail.do" || thisPage.split('?')[0] == "prddetail.do"){
+			$("#header_bottom").css('display','none')
 		}
 		
 		if(thisPage == "logout.do"){
@@ -272,6 +277,7 @@ header a:active{color: black; text-decoration: none;}
 }
 #gender_selector td{
 	padding: 10px 25px 10px 25px;
+	color: #666666;
 }
 
 .ui-autocomplete{
