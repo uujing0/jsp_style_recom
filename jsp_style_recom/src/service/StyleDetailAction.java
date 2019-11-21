@@ -45,12 +45,19 @@ public class StyleDetailAction implements CommandProcess {
 			HttpSession session = request.getSession();
 			String mem_id = (String) session.getAttribute("mem_id");
 			System.out.println("memid->" + mem_id);
-			String strGender = (String) session.getAttribute("gender");
+			
+			/*String strGender = (String) session.getAttribute("gender");
 			if (strGender == null || strGender.equals("")) {
 				strGender = "2";
 			}
 			int gender = Integer.parseInt(strGender);
 			System.out.println("gender->" + gender);
+			*
+			*/
+			
+			
+			
+			
 			/*
 			 * gender= 1; System.out.println("gender->>>>>>>>>>>>>>"+gender);
 			 */
@@ -80,6 +87,8 @@ public class StyleDetailAction implements CommandProcess {
 			}
 			// product id
 			// outer
+			
+			int gender = siDao.getStyleInfo(stl_id).getStl_gender();
 			
 			if (al.get(1) != null) {
 				System.out.println("겉옷 들어오니?");
