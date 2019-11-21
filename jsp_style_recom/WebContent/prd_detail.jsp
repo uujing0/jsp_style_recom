@@ -18,7 +18,7 @@
 h2 {
 	text-align: center;
 	margin-top: 100px;
-	font-size: 35px;
+	font-size: 30px;
 	color: #666666;
 	
 }
@@ -121,7 +121,7 @@ margin-left: 320px;
 		</table>
 	</div>
  
-	<iframe id="iposition" src="prd_detail2.jsp?url=${Product.prd_url }"
+	<iframe id="iposition" src="prd_iframe.jsp?url=${Product.prd_url }"
 		width="1200" height="100%" scrolling="yes" frameborder="0" ></iframe>
 <%@include file="recentStyle.jsp" %>
 </body>
