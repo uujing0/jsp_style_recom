@@ -4,9 +4,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+h2.confirmId_title {
+	color: #343A40; /*font color*/
+	text-align: center;
+	margin: 30px 0px 30px 0px;
+}
+
+.confirmId_ul {
+	list-style-type: none;
+	padding: 0;
+	width: 80%;
+	margin-left: 10%;
+}
+
+.confirmId_ul li label {
+	display: block;
+  	color: #343A40;
+  	padding: 10px 0px;
+  	font-size: 15px;
+}
+
+.confirmId_ul li input {
+	padding: 12px 10px;
+	border: 1px solid #e0dcdc;
+	width: -webkit-fill-available;
+}
+
+.confirmId_Button {
+	border: solid 2px;
+	border-bottom: solid 4px;
+	border-color: #F9F7F6;
+	background-color: #373B43;
+	color: white;
+	font-size: 15px;
+	padding:12px 26px;
+}
+
+
+</style>
 </head>
 
-<body>
+<body bgColor="#f9f7f6">
  
 <script type="text/javascript">
 	function wincl() {
@@ -21,8 +60,19 @@
 <c:if test="${result==-1}">
 	
 	<form>
-	${param.mem_id} 는 사용해도 좋습니다<p>
-	<input type="button" value="닫기" onclick="wincl()">
+	<h2 class="confirmId_title">중복확인</h2>
+	<ul class="confirmId_ul">
+	<li class="list-item">
+	<div style="text-align: center;">
+	<label>${param.mem_id} 는 사용해도 좋습니다</label>
+	</div>
+	</li>
+	<li>
+	<div style="text-align: center; margin: 30px 30% 40px 30%;">
+	<input  class="confirmId_Button" type="button" value="닫기" onclick="wincl()">
+	</div>
+	</li>
+	</ul>
 	</form>
 </c:if>
 
@@ -32,9 +82,17 @@
 		/* location.href="joinForm.do"; */
 	  </script>
 	<form>
-	   다른 아이디를 입력해 주세요<p>
-		아이디 : <input type="text" name="mem_id"><p>
-		<input type="submit" value="확인">
+	<h2 class="confirmId_title">중복확인</h2>
+	<ul class="confirmId_ul">
+	<li class="list-item">
+	<div style="text-align: center;">
+		<label><input type="text" name="mem_id" placeholder="다른 아이디를 입력하세요" required="required"></label>
+	</div>
+	<div style="text-align: center; margin: 30px 30% 40px 30%;">
+		<input class="confirmId_Button" type="submit" value="확인">
+	</div>
+	</li>
+	</ul>
      </form>
    
  </c:if>
@@ -45,11 +103,19 @@
 		/* location.href="joinForm.do"; */
 	  </script>
 	<form>
-	   다른 아이디를 입력해 주세요<p>
-		아이디 : <input type="text" name="mem_id"><p>
-		<input type="submit" value="확인">
+	<h2 class="confirmId_title">중복확인</h2>
+	<ul class="confirmId_ul">
+	<li class="list-item">
+	<div style="text-align: center;">
+		<label><input type="text" name="mem_id" placeholder="다른 아이디를 입력하세요" required="required"></label>
+	</div>
+	<div style="text-align: center; margin: 30px 30% 40px 30%;">
+		<input class="confirmId_Button" type="submit" value="확인">
+	</div>
+	</li>
+	</ul>
      </form>
-</c:if>
-
+   
+ </c:if>
 </body>
 </html>
