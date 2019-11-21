@@ -43,7 +43,7 @@ public class LoginProAction implements CommandProcess {
 				HttpSession session = request.getSession();
 				session.setAttribute("mem_id", mem_id);
 				session.setAttribute("loc", locCode);
-				session.setAttribute("gender", mem.getMem_gender());
+				session.setAttribute("gender", Integer.toString(mem.getMem_gender()));
 			} 
 			
 			request.setAttribute("result", result);
