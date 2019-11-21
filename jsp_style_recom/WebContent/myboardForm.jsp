@@ -41,7 +41,7 @@
 						<a href="view.do?bd_id=${board.bd_id}">${board.popup }</a> 
 						<a href="view.do?bd_id=${board.bd_id}">${board.bd_title}</a> 
 						<a href="view.do?bd_id=${board.bd_id}">${board.mem_id}</a>
-						<span style="color: #e55151"><c:if test="${board.staravg>0}">
+						<span style="color: olive;"><c:if test="${board.staravg>0}">
 							<c:if test="${board.staravg==1}">★</c:if>
 							<c:if test="${board.staravg==2}">★★</c:if>
 							<c:if test="${board.staravg==3}">★★★</c:if>
