@@ -119,7 +119,7 @@ header a:active{color: black; text-decoration: none;}
 	display: flex;
 }
 #header_logo_pic{
-	margin-left: 5%;
+	margin-left: 8%;
 }
 #sun_icon{
 	border-radius: 5px;
@@ -128,7 +128,7 @@ header a:active{color: black; text-decoration: none;}
 
 /* header section */
 #header_top{
-
+	position: relative;
 }
 #header_center{
 	margin-top: 0px; 
@@ -155,6 +155,8 @@ header a:active{color: black; text-decoration: none;}
 	float:right;
 	padding: 10px 10px 0px 0px;
 	color: #373b43;
+	position: relative;
+	z-index: 1;
 }
 
 .top_left_button{
