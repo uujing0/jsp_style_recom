@@ -93,7 +93,7 @@ h3.align-center {
 </head>
 <%@include file="header.jsp" %>
 <body bgColor="#f9f7f6">
- <h1 class="memUpForm_title">회원정보 수정</h1>
+ <h1 class="memUpForm_title">개인정보 수정</h1>
  <h3 class="align-center"> 등록된 회원정보를 수정할 수 있습니다. </h3>
    <form action="memUpPro.do" name="frm" onsubmit="return chk()">
 	 <ul class="memUpForm_ul">

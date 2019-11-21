@@ -139,11 +139,13 @@ header a:active{color: black; text-decoration: none;}
 
 /* weather_today */
 #weather_today{
-	margin-top: -100px;
+	margin-top: -65px;
 	margin-right: 30px;
 	float:right;
-	color: #c3c3c3;
+	color: #666666;
 	font-size: 18px;
+	position: relative;
+	z-index: 2;
 }
 #weather_pic{
 	margin-left: 10px;

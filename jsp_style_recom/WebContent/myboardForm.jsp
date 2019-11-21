@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>내가 쓴 게시글</title>
 <style type="text/css">
 #board {
 	margin-left:50px;
