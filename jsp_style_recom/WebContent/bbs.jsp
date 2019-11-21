@@ -4,7 +4,7 @@
 <%@ page import="dao.YJ_BbsDAO"%>
 <%@ page import="dao.Board"%>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
@@ -18,9 +18,9 @@
 
 <%@include file="header.jsp"%>
 
-<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap.css"> <!-- 
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  -->
 <!-- 스타일시트로 css폴더의 bootstrap.css파일 사용 -->
 	
 <link rel="stylesheet" href="css/customDetail_btn.css">
@@ -45,12 +45,25 @@
 		$('#table').parent().append(searchBar); //테이블의 부모에 searchbar 등록
 		
 		$("#search").parent().css("float", "right"); //search를 오른쪽으로 정렬
+		$("#search").val(getParameterByName("search_word"));
+		
+		table.search($("#search").val()).draw() ;
 	} );
 	
 	$(document).on("keyup", "#search", function(){
 		table.search($(this).val()).draw() ;//search 함수 사용
 	});
-</script>
+	
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+</script> <p>
+<style>
+  body {background-color: #f9f7f6;}
+</style>
 <body>
 
 	<div class="container"> <!-- div 클래스 생성 아래쪽까지 공지사항 테이블 생성 -->
@@ -61,25 +74,25 @@
 				<tbody>
 					<tr>
 						<td colspan="5"
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">
 							공 지</td>
 
 
 					</tr>
 					<tr>
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">번호</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">번호</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">제목</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">제목</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">작성자</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">작성자</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">날짜</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">날짜</th>
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">조회수</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">조회수</th>
 
 					</tr>
 				</tbody>
@@ -104,32 +117,32 @@
 	</div>
 	<div class="container"> <!-- 베스트 마이스타일 테이블 생성  -->
 		<div class="container-fluid">
-			<table class="table"
+			<table class="table" id = "table2"
 				style="text-align: center; border: 4px; border-style: solid; border-width: thin;">
 				<tbody>
 					<tr>
 						<td colspan="6"
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">
-							베스트 마이 스타일</td>
+							style="background-color: #373B43; color: white; text-align: center;  font-size: 15px;">
+							베스트 스타일</td>
 
 
 					</tr>
 					<tr>
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">번호</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">번호</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">제목</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">제목</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">작성자</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">작성자</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">날짜</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">날짜</th>
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">조회수</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">조회수</th>
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">별점</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">별점</th>
 
 					</tr>
 				</tbody>
@@ -148,16 +161,16 @@
 							<td>${board1.mem_id}
 							<td>${board1.bd_date}
 							<td>${board1.bd_readcount}
-							<td><c:if test="${board1.staravg>0}"> 	 <!-- 게시글의 별점 평균이 0보다 크면 1일떄 ★1개 순으로 10개까지 출력 -->							<c:if test="${board1.staravg==1}">★</c:if>
-									<c:if test="${board1.staravg==2}">★★</c:if>
-									<c:if test="${board1.staravg==3}">★★★</c:if>
-									<c:if test="${board1.staravg==4}">★★★★</c:if>
-									<c:if test="${board1.staravg==5}">★★★★★</c:if>
-									<c:if test="${board1.staravg==6}">★★★★★★</c:if>
-									<c:if test="${board1.staravg==7}">★★★★★★★</c:if>
-									<c:if test="${board1.staravg==8}">★★★★★★★★</c:if>
-									<c:if test="${board1.staravg==9}">★★★★★★★★★</c:if>
-									<c:if test="${board1.staravg==10}">★★★★★★★★★</c:if>
+							<td><c:if test="${board1.staravg>0}"> 	 <!-- 게시글의 별점 평균이 0보다 크면 1일떄 ★1개 순으로 10개까지 출력 -->						<font color = olive> 	<c:if test="${board1.staravg==1}">★</c:if> </font>
+									<font color = olive> <c:if test="${board1.staravg==2}">★★</c:if></font>
+								<font color = olive> 	<c:if test="${board1.staravg==3}">★★★</c:if> </font>
+								<font color = olive> 	<c:if test="${board1.staravg==4}">★★★★</c:if> </font>
+									<font color = olive> <c:if test="${board1.staravg==5}">★★★★★</c:if> </font>
+								<font color = olive> 	<c:if test="${board1.staravg==6}">★★★★★★</c:if> </font>
+									<font color = olive> <c:if test="${board1.staravg==7}">★★★★★★★</c:if> </font>
+								<font color = olive> 	<c:if test="${board1.staravg==8}">★★★★★★★★</c:if> </font>
+							<font color = olive> 		<c:if test="${board1.staravg==9}">★★★★★★★★★</c:if> </font>
+								<font color = olive> 	<c:if test="${board1.staravg==10}">★★★★★★★★★</c:if> </font>
 								</c:if></td>
 						</tr>
 					</c:forEach>
@@ -173,27 +186,27 @@
 				<thead>
 				<tr>
 						<td colspan="6"
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">
-							코기 코디!</td>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">
+							웰시 코디!</td>
 
 
 					</tr>
 					<tr>
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">번호</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">번호</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">제목</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">제목</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">작성자</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">작성자</th>
 
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">날짜</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">날짜</th>
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">조회수</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">조회수</th>
 						<th
-							style="background-color: #E55151; color: white; text-align: center;  font-size: 15px;">별점</th>
+							style="background-color: #F3F1F0; color: black; text-align: center;  font-size: 15px;">별점</th>
 
 					</tr>
 				</thead>
@@ -211,23 +224,23 @@
 							<td>${board.bd_readcount}
 							<td><c:if test="${board.staravg>0}">
 									<!-- bbslist에서 쿼리문으로 생성한 commentcount가 0보다 크면 제목 옆에 댓글 갯수 출력 -->
-									<c:if test="${board.staravg==1}">★</c:if>
-									<c:if test="${board.staravg==2}">★★</c:if>
-									<c:if test="${board.staravg==3}">★★★</c:if>
-									<c:if test="${board.staravg==4}">★★★★</c:if>
-									<c:if test="${board.staravg==5}">★★★★★</c:if>
-									<c:if test="${board.staravg==6}">★★★★★★</c:if>
-									<c:if test="${board.staravg==7}">★★★★★★★</c:if>
-									<c:if test="${board.staravg==8}">★★★★★★★★</c:if>
-									<c:if test="${board.staravg==9}">★★★★★★★★★</c:if>
-									<c:if test="${board.staravg==10}">★★★★★★★★★</c:if>
+									<font color = olive><c:if test="${board.staravg==1}">★</c:if> </font>
+							<font color = olive>		<c:if test="${board.staravg==2}">★★</c:if> </font>
+								<font color = olive>	<c:if test="${board.staravg==3}">★★★</c:if> </font>
+								<font color = olive>	<c:if test="${board.staravg==4}">★★★★</c:if> </font>
+								<font color = olive>	<c:if test="${board.staravg==5}">★★★★★</c:if> </font>
+								<font color = olive>	<c:if test="${board.staravg==6}">★★★★★★</c:if> </font>
+								<font color = olive>	<c:if test="${board.staravg==7}">★★★★★★★</c:if> </font>
+								<font color = olive>	<c:if test="${board.staravg==8}">★★★★★★★★</c:if> </font>
+							<font color = olive>		<c:if test="${board.staravg==9}">★★★★★★★★★</c:if> </font>
+								<font color = olive>	<c:if test="${board.staravg==10}">★★★★★★★★★</c:if> </font>
 								</c:if></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<c:if test="${mem_id != null}"> <!-- 멤버아이이디가 널이 아니라면 글쓰기 버튼 활성화 -->
-				<a href="writeView.do" class="btn btn-danger pull-right">글쓰기</a>
+				<a href="writeView.do" class="btn btn-default pull-right">글쓰기</a>
 			</c:if>
 			<br>
 

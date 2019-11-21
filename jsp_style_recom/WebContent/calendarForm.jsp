@@ -70,7 +70,7 @@ table#title{
 			<c:forEach var="i" begin="1" end="${lastday }" step="1">
 				<c:choose>
 					<c:when test="${(w-2+i)%7 eq 0 }">
-						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=100,top=120,status=no,scrollbars=no')">
+						<td style="cursor:pointer; color:red" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=500,height=700,left=100,top=120,status=no,scrollbars=no')">
 							${i }<br>
 							<span style="color:gray;font-weight:bold;font-size:14px;float:left;">
 								<c:forEach var="b" items="${EventMap}">
@@ -89,7 +89,7 @@ table#title{
 						</td>
 					</c:when>
 					<c:when test="${(w-2+i)%7 eq 6 }">
-						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
+						<td style="cursor:pointer; color:blue" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=500,height=700,left=500,top=200,status=no,scrollbars=no')">
 							${i }<br>
 							<span style="color:gray;font-weight:bold;font-size:14px;float:left;">
 								<c:forEach var="b" items="${EventMap}">
@@ -113,7 +113,7 @@ table#title{
 						</c:if>
 						</c:when>
 					<c:otherwise>
-						<td style="cursor:pointer;" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=280,height=360,left=500,top=200,status=no,scrollbars=no')">
+						<td style="cursor:pointer;" OnClick="window.open('scheduleForm.do?dd=${i }&yy=${ yy}&mm=${mm}&mem_id=${sessionScope.mem_id }','일정등록','width=500,height=700,left=500,top=200,status=no,scrollbars=no')">
 							${i }<br>
 							<span style="color:gray;font-weight:bold;font-size:14px;float:left;">
 								<c:forEach var="b" items="${EventMap}">

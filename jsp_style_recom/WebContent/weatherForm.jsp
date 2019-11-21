@@ -7,13 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <style type="text/css">
-#mypage_buttonst {
+#buttonst {
 	border: solid 2px;
 	border-bottom: solid 4px;
 	border-color: #F9F7F6;
 	background-color: #373B43;
 	color: white;
 	font-size: 16px;
+	height:32px;
 }
 
 select#mypage {
@@ -26,31 +27,33 @@ select#mypage {
 	border-color: #F9F7F6;
 	background-color: #F3F1F0;
 	color: black;
-	height: 25px;
+	height: 35px;
+	margin-left: 5px;
 }
 
 
-div#mypage_selector {
+div#selector {
 	float: initial;
 	margin-left:1%;
 	font-size: 16px;
+
 }
 
-#mypage_loc {
-	padding-left:3px;
-	margin-top:1%;
-	width:5%;
-	border: solid 2px;
-	border-bottom: solid 4px;
-	border-color: #F9F7F6;
+#loc {
+	padding:4px 6px 0px 6px;
+	
 	background-color: #F3F1F0;
 	color: black;
+	float:left;
+	width:auto;
+	height:25px;
+	margin-top: 2px;
 }
 </style>
 
-<div id="mypage_selector">
+<div id="selector">
 	<form action="weather.do">
-		<div id="mypage_loc">지역선택</div>
+		<div id="loc">지역선택</div>
 		<select id="mypage" name="sido">
 			<option value="1168066000"
 				<c:if test="${city eq '서울특별시'}"> selected </c:if>>서울특별시</option>

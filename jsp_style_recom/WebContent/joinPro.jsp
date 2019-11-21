@@ -11,7 +11,7 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("가입 완료 되었습니다.환영 합니다!");  
-		location.href="main.jsp";
+		location.href="main.do";
 
 	</script>
 </c:if>

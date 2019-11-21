@@ -1,37 +1,37 @@
 @charset "UTF-8";
 
-@font-face {
+/* @font-face {
 	font-family: 'NanumGothic';
 	src: url(fonts/NanumGothic.ttf) format('truetype');
 }
 
 div {
 	font-family: NanumGothic;
-}
+} */
 
 a:link {
 	text-decoration: none;
-	color: black;
+	color:#373b43;
 }
 
 a:visited {
 	text-decoration: none;
-	color: black;
+	color:#373b43;
 }
 
 a:active {
 	text-decoration: none;
-	color: black;
+	color:#373b43;
 }
 
 div#side_left {
 	font-weight: bold;
-	width: 12%;
+	width: 200px;
 	font-size: 20px;
 	text-align: center;
 	margin-top: 1%;
 	margin-bottom: 5%;
-	height: 80%;
+	height: 100px;
 	float: left;
 
 }
@@ -41,51 +41,52 @@ div#side_left {
 	width: 100%;
 	text-decoration: none;
 	display: block;
-	height: 150px;
+	height: 100px;
 	margin: 0;
 	padding: 0;
 }
 
 #side_left ul li {
-	height: 150px;
-	text-align: center;
+	height: 100px;
 	text-decoration: none;
 	list-style: none;
-	line-height: 150px;
+	line-height: 100px;
 	display: block;
 	padding: 0;
-	margin: 0;
+	margin-bottom: 5px;
 }
 
 #side_left ul li:hover {
-	background-color: #ccc;
+	background-color:#e55151;
 }
 
 #side_left ul li a:hover, #mypage_side_left ul li a:focus {
-	background-color: #ccc;
+	background-color:#e55151;
 }
 
 #side_left ul li a {
+	text-align:left;
+	padding-left:20px;
 	display: block;
-	background-color: #f9f7f6;
-	height: 150px;
+	background-color:#373b43;
+	height: 100px;
+	color:#f9f7f6;
 }
 
 #today {
 	font-weight: bold;
 	font-size: 20.5px;
-	border: solid;
+/* 	border: solid;
 	border-right: solid 10px;
-	border-bottom: solid 10px;
+	border-bottom: solid 10px; */
 	width: 23%;
 	height: 65%;
-	border-color:#f3f1f0;
 	float: left;
-	border-radius: 10px;
+
 	margin-left: 1.2%;
 	margin-top: 1%;
 	margin-bottom: 0.8%;
-	background-color: #f9f7f6;
+	background-color: #f1f1f0;
 	text-align: center;
 	padding-top: 1.5%;
 }
@@ -113,14 +114,13 @@ div#side_left {
 	border-radius: 10px;
 	width: 28%;
 	margin-left: 1%;
-	background-color: white;
 	float: left;
 	padding: 1%;
 	text-align: center;
 }
 
 #day_bottom {
-	background-color: white;
+
 	/* border:solid; */
 	border-color: #d5d5d5;
 	width: 28%;
@@ -160,16 +160,17 @@ div#day_bottom img {
 div.bookmark {	
 	width: 70%;
 	float: left;	
-	margin-left: 15%;
+	margin-left: 13%;
 	margin-bottom: 2%;
 	margin-top: 3%;
 }
 
 #bookmark { 
-	padding: 20px;
-	background-color: #f9f7f6;
-	width:1400px;
+	padding-left: 20px;
+	/* border:solid 2px #373b43;*/	
+	width:1350px;
 	height:284px;
+	background-color: #f1f1f0;
 }
 #bookmarkhead {
 	padding: 10px;

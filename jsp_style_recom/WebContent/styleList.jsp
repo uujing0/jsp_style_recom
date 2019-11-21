@@ -92,15 +92,19 @@ table.styleList_categoryTable td {
 	height: auto;
 } 
 
-</style>
-
-<script type="text/javascript">
-
-function loadImage(obj) {
-
+.styleList_weatherContent {
+	margin: 100px 0px 50px 290px;
+	width: 1000px;
+	text-align: center;
 }
 
-</script>	
+.styleList_wLabel {
+	font-size: 20px;
+	color: #666666;
+} 
+
+</style>
+
 </head>
 <%@ include file="header.jsp"%>
 <body bgColor="#f9f7f6">
@@ -115,6 +119,7 @@ function loadImage(obj) {
 							<c:forEach var="i" items="${locMap}">
 							<c:if test="${lc == i.value }">
 									<option value="${i.value}" selected="selected">${i.key}</option>
+									<c:set var="selectedLocation" value="${i.key}" scope="page"/>
 								</c:if>
 								<c:if test="${lc != i.value }">
 									<option value="${i.value}">${i.key}</option>
@@ -191,37 +196,59 @@ function loadImage(obj) {
             	<hr style="width:1000px border:none; border:0.5px solid #E7E2E1; margin:20px 0px 5px 0px">
             </div>
             
-            <table class="styleList_table">
-                <c:forEach var="r" begin="0" end="${rowSize-1}">
-                    <tr>
-                        <c:forEach var="c" begin="0" end="${columnSize-1}">
-                            <c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
-                            <c:if test="${eIndex < list.size()}">
-                                <td>       
-                                    <div class="styleList_thumb">
-										<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
-                                    		<img src="./images/category_images/${list[eIndex].stl_pic_url}" >
-                                    	</a>
-                                    </div>
-                                </td>
-                            </c:if>
-                        </c:forEach>
-                    </tr>
-                </c:forEach>
-            </table>    
+            <c:if test="${totCnt > 0}">
+	            <table class="styleList_table">
+	                <c:forEach var="r" begin="0" end="${rowSize-1}">
+	                    <tr>
+	                        <c:forEach var="c" begin="0" end="${columnSize-1}">
+	                            <c:set var="eIndex" value="${r*columnSize+c}" scope="page" />
+	                            <c:if test="${eIndex < list.size()}">
+	                                <td>       
+	                                    <div class="styleList_thumb">
+											<a href="styleDetail.do?stl_id=${list[eIndex].stl_id}&onoff=0">
+	                                    		<img src="./images/category_images/${list[eIndex].stl_pic_url}" >
+	                                    	</a>
+	                                    </div>
+	                                </td>
+	                            </c:if>
+	                        </c:forEach>
+	                    </tr>
+	                </c:forEach>
+	            </table> 
+            </c:if>   
         </c:if>
 	</div>
 
 	<c:if test="${tagType eq 4 }">
-		<div class="test1">
-		 오늘의 날씨는 '${tmpWfKor }'이고<br>
-		    오늘의 날씨는 '${wfKor }'이고<br>
-		    현재 기온은  ${tmp }도, 강수확률은 ${rs }퍼센트(%)입니다.<br>
+		<div class="styleList_weatherContent">
 
-			<img alt="${tmpImgWfKor }" src="./${tmpImgWfKor }">
-			<img alt="${imgWfKor }" src="./${imgWfKor }">
-			<%@ include file="styleDetailContent.jsp" %>
+			<table style="margin:50px 0px 0px 230px; width: 650px;">
+				<tr>
+					<td>
+						<img src="./images/newhanger.png" height="50px" width="80px">
+					</td>
+					<td>
+						<label style="font-size:25px; font-weight: bold; color:#666666;">지역 날씨에 딱 맞는 스타일을 추천해드립니다!</label>
+					</td>
+				</tr>
+			</table>
+			
+			<hr style="width:1100px border:none; border:0.5px solid #E7E2E1; margin:20px 0px 5px 0px">
+			
+			<table style="margin:50px 250px; width: 600px;">
+				<tr>
+					<td>
+						<img class="styleList_wImg" alt="${imgWfKor }" src="./${imgWfKor }" style="height:100px;weight:100px;">
+					</td>
+					<td>
+						<label class="styleList_wLabel">${selectedLocation} 기온  ${tmp }도 강수확률 ${rs }%</label>
+					</td>
+				</tr>
+			</table>
 		</div>
+
+		<%@ include file="styleDetailContent.jsp" %>
+
 	</c:if>
 	
 <script type="text/javascript">

@@ -14,19 +14,19 @@
 
 <%@include file="header.jsp"%>
 
-<body>
+<body bgcolor="#f9f7f6">
 
 <div id="content">
 		<div id="side_left">
-			<label id="head">
+			<!-- <label id="head">
 				mypage
-			</label>
+			</label> -->
 			<ul>
 			<li><a href="calendar.do?">달력</a></li>
 			
 			<li><a href="memUpForm.do">개인정보수정</a></li>
 			
-			<li><a href="myboard.do" style="background-color: #ccc">내가 쓴 게시물</a></li>
+			<li><a href="myboard.do" style="background-color: #e55151">내가 쓴 게시물</a></li>
 			
 			<li><a href="weather.do?sido=1168066000" >일주일 코디추천</a></li>
 			</ul>

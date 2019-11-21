@@ -81,33 +81,33 @@ h3.align-center {
  <form action="joinPro.do" name="frm" onsubmit="return chk()">
   <ul class="joinForm_ul">
    <li>
-      <label class="element">아&nbsp;이&nbsp;디</label><br>
+      <label>아&nbsp;이&nbsp;디</label><br>
       <input type="text" class="a" name="mem_id" required="required" >  
       <label class="joinForm_joinButton"><a onclick="winop()">중복확인</a> </label>
     
    </li><br>
    <li>
-	  <label class="element">비밀번호</label><br>  
+	  <label>비밀번호</label><br>  
 	  <input type="password" class="a" name="mem_pw" required="required" >
    </li><br>
    <li>
-	  <label class="element">비밀번호&nbsp;확인</label><br> 
+	  <label>비밀번호&nbsp;확인</label><br> 
 	  <input type="password" class="a" name="mem_pw2" required="required" > 
    </li><br>
    <li>
-	  <label class="element">이&nbsp;&nbsp;&nbsp;&nbsp;름</label><br>
+	  <label>이&nbsp;&nbsp;&nbsp;&nbsp;름</label><br>
 	  <input type="text" class="a" name="mem_name" required="required"> 
    </li><br>
    <li>
-	  <label class="element">연&nbsp;락&nbsp;처</label> <br> 
+	  <label>연&nbsp;락&nbsp;처</label> <br> 
 	  <input type="text" name="mem_phone" required="required" pattern="\d{2,3}-\d{3,4}-\d{4}" placeholder="000-0000-0000">
    </li><br>
    <li>
-	  <label class="element">이&nbsp;메&nbsp;일</label> <br>
+	  <label>이&nbsp;메&nbsp;일</label> <br>
 	  <input type="text" class="a" name="mem_email" required="required">
    </li><br>
    <li>
-	  <label class="element">주&nbsp;소</label><br> 
+	  <label>주&nbsp;소</label><br> 
 	  <select class="weatherLocation" name="mem_addr">
 		<option value="0">사는 곳을 선택해주세요</option>
 		  <c:forEach var="i" items="${locMap}">
@@ -116,12 +116,13 @@ h3.align-center {
 			<option value="${i.key}" selected="selected">${i.key}</option>
 	          </c:if>
 		  </c:forEach>
-      </select> <br><br>
+      </select>
+      <br>
       <input type="text" name="mem_add_addr" list="mem_addr" required="required" placeholder="나머지 주소">
   </li>
 	<br>								
    <li>
-    <label class="element">체&nbsp;형</label><br> 
+    <label>체&nbsp;형</label><br> 
      <select name="mem_body_type">
 	  <option value="1">통통</option>
 	  <option value="2">슬림</option>
@@ -132,7 +133,7 @@ h3.align-center {
 								
 										
 	
-	  <label class="element" name="mem_fav_loc">관심지역(중복 선택가능)</label><br>
+	  <label name="mem_fav_loc">관심지역(중복 선택가능)</label><br>
 	
 	  <label><input type="checkbox" name="mem_fav_loc" value="서울특별시">서울특별시</label>
 	  <label><input type="checkbox" name="mem_fav_loc" value="경기도">경기도</label>
@@ -146,7 +147,7 @@ h3.align-center {
 	  <label><input type="checkbox" name="mem_fav_loc" value="제주도">제주도</label><br><br>
     <br>								
 	 									
-	 <label class="element">&nbsp;성&nbsp;별</label><br>
+	 <label>&nbsp;성&nbsp;별</label><br>
 	
 	<label><input type="radio" name="mem_gender" value="1" required="required">남</label>
 	<label><input type="radio" name="mem_gender" value="2" required="required">여</label>

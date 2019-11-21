@@ -31,6 +31,12 @@
 		} else {
 		}
 	}
+	function next() {
+		if (confirm("회원 탈퇴를 하겠습니까?")) {
+			location.href = "deleteForm.do";
+		} else {
+		}
+	}
 </script>
 <style type="text/css">
 h1.memUpForm_title {
@@ -92,31 +98,31 @@ h3.align-center {
    <form action="memUpPro.do" name="frm" onsubmit="return chk()">
 	 <ul class="memUpForm_ul">
 	  <li>
-       <label class="element">아&nbsp;이&nbsp;디</label><br>
+       <label>아&nbsp;이&nbsp;디</label><br>
        <input type="text" class="a" name="mem_id" value="${mem_id}" readonly required="required" >  
       </li><br>
    <li>
-	  <label class="element">비밀번호</label><br>  
+	  <label>비밀번호</label><br>  
 	  <input type="password" class="a" name="mem_pw" required="required" >
    </li><br>
    <li>
-	  <label class="element">비밀번호&nbsp;확인</label><br> 
+	  <label>비밀번호&nbsp;확인</label><br> 
 	  <input type="password" class="a" name="mem_pw2" required="required" > 
    </li><br>
    <li>
-	  <label class="element">이&nbsp;&nbsp;&nbsp;&nbsp;름</label><br>
+	  <label>이&nbsp;&nbsp;&nbsp;&nbsp;름</label><br>
 	  <input type="text" class="a" name="mem_name" value="${mem_name}" readonly required="required"> 
    </li><br>
    <li>
-	  <label class="element">연&nbsp;락&nbsp;처</label> <br> 
+	  <label>연&nbsp;락&nbsp;처</label> <br> 
 	  <input type="text" name="mem_phone" value="${mem_phone}" required="required" pattern="\d{2,3}-\d{3,4}-\d{4}" placeholder="000-0000-0000">
    </li><br>
    <li>
-	  <label class="element">이&nbsp;메&nbsp;일</label> <br>
+	  <label>이&nbsp;메&nbsp;일</label> <br>
 	  <input type="text" class="a" name="mem_email" value="${mem_email}" required="required">
    </li><br>
    <li>
-	  <label class="element">주&nbsp;소</label><br> 
+	  <label>주&nbsp;소</label><br> 
 	  <select class="weatherLocation" name="mem_addr">
 		<option value="0">사는 곳을 선택해주세요</option>
 		  <c:forEach var="i" items="${locMap}">
@@ -125,12 +131,12 @@ h3.align-center {
 			<option value="${i.key}" selected="selected">${i.key}</option>
 	          </c:if>
 		  </c:forEach>
-      </select> <br><br>
+      </select> <br>
       <input type="text" name="mem_add_addr" list="mem_addr" required="required" placeholder="나머지 주소">
   </li>
 	<br>								
    <li>
-    <label class="element">체&nbsp;형</label><br> 
+    <label>체&nbsp;형</label><br> 
      <select name="mem_body_type">
 	  <option value="1">통통</option>
 	  <option value="2">슬림</option>
@@ -161,11 +167,12 @@ h3.align-center {
 	<label><input type="radio" name="mem_gender" value="2" required="required">여</label>
 	 <br><br><br>								
 	<input class="memUpForm_memUpButton" type="submit" value="수정하기">
-	<a class="memUpForm_memUpButton" onclick="next()" >회원탈퇴</a> 
-	
-     </ul>
-	</form>
-	
+	<br/>
+	<br/>
+	<br/>
+	&nbsp;&nbsp;<a onclick="next()" value="회원탈퇴" font-color="gray">회원탈퇴</a>
+	</ul>
+  </form>
 <%@include file="footer.jsp" %>
 </body>
 </html>

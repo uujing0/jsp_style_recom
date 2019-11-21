@@ -165,8 +165,9 @@ public class YJ_BbsDAO {
 		return list;
 	}
 	public ArrayList<Board> beststylelist() {
+		 System.out.println("beststyle");
 		String SQL = "SELECT ROWNUM AS bbsNO,d.bd_id,d.bd_Title, d.mem_id , to_char(d.bd_date,'yyyy-mm-dd') as bd_date,d.bd_readcount,(select count(*) from board_comment bc where d.bd_id = bc.bd_id) as commentCount,(select round(avg(star),0) as staravg from board_comment bc where d.bd_id = bc.bd_id) as staravg,star as star1 ,(select '<img' || regexp_replace(bd_file_url, '(.*)<img(.*)style=(.*)', '\\2')||'style=' || replace( replace( translate( regexp_replace(bd_file_url, '(.*)style=(.*)/>(.*)', '\\2') , '#0123456789', '#') || '/>' , 'height:', 'height:300'), 'width:', 'width:400')from board b where d.bd_id = b.bd_id) as popup FROM (select c.bd_id , avg(star) as star from board_comment c  group by c.bd_id order by star desc) c, board d  where c.bd_id = d.bd_id and  d.bd_notice=0 and ROWNUM <= 1 order by star desc ,d.bd_readcount desc";
-				   
+		 System.out.println("sql"+SQL);	
 		ArrayList<Board> list = new ArrayList<Board>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);

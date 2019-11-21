@@ -7,20 +7,7 @@
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품 상세 페이지</title>
-<script type="text/javascript">
-	function clickbtn(gubun){
 
-	var frameName =document.frames["iposition"];
-
-	if(gubun=='Y'){
-	    frameName.document.getElementById('main').style.visibility="hidden";  //div 감추기
-	}else{
-	   frameName.document.getElementById('main').style.visibility="visible";   //div 보여주기
-
-	}
-} 
-
-</script>
 <style type="text/css">
 #detailproduct {
 	margin-left: 100px;
@@ -29,13 +16,17 @@
 }
 
 h2 {
-	text-align: left;
+	text-align: center;
+	margin-top: 100px;
+	font-size: 35px;
+	font-color: #666666;
 	
 }
 
 #iposition {
 	position: absolute;
 	left: 400px;
+	margin-top: 100px;
 }
 
 .item {
@@ -48,7 +39,7 @@ h2 {
 #product {
 	position: relative;
 	overflow: hidden;
-	left: 500px;
+	margin-left: 500px;
 }
 
 .prdimg {
@@ -77,26 +68,18 @@ h2 {
 </style>
 </head>
 <%@include file="header.jsp"%>
-<body>
+<body bgcolor="#f9f7f6">
 
 
-	<h2>상품 상세</h2>
+	<h2>${ Product.prd_name }</h2>
 	<hr>
+
 	<div id="product">
 		<table style="margin: 0;">
 			<tr>
 				<td>
 					<table border="0" id="prdinfo">
-						<tr>
-							<td>
-								<table id="prdnametag">
-									<tr align="center">
-										
-										<td> ${ Product.prd_name }</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
+						
 						<tr>
 							<td><img
 								src="./images/product_images/${Product.prd_thumbnail }"
