@@ -71,7 +71,7 @@ h3.align-center {
 			<li>
 									
 				<input type="hidden" name="mem_id" value="${mem_id}"> <br />
-				<input type="password" name="mem_pw" required="required" placeholder="암호 입력하세요" id="mem_pw"><br>
+				<input type="password" name="mem_pw" required="required" placeholder="비밀번호를 입력하세요" id="mem_pw"><br>
 				<input class="deleteForm_deleteButton" type="submit" value="탈퇴하기">
 		    </li>				
 		
