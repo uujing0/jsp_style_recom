@@ -95,12 +95,8 @@ table.styleDetailContent_ImageDesc{
 	margin-left: 320px;
 	margin-top: -20px;
 }
-
 #styleDetailContent_ccstyle {
 	margin-left: 40px;
-	padding: 70px;
-	display: inline-block;
-	justify-content: center;
 }
 
 .styleDetailContent_btn {
@@ -325,6 +321,7 @@ padding: 3px 12px 0px 0px;
 						</c:if>
 					</c:if></td>
 			</tr>
+			
 		</table>
 	</div>
 
@@ -359,7 +356,7 @@ padding: 3px 12px 0px 0px;
 							<img src="./images/clothes_category_icon/${al[1] }"
 								id="${al[1] }" width="210px" height="170px">
 						</c:if> <c:if test="${al[1]==null }">
-							<img alt="no_data" src="./images/null_cc_id.png" width="210px"
+							<img alt="no_data" src="./images/null_id.png" width="210px"
 								height="170px">
 						</c:if></td>
 
@@ -368,7 +365,7 @@ padding: 3px 12px 0px 0px;
 							<img src="./images/clothes_category_icon/${al[2] }"
 								id="${al[2] }" width="210px" height="170px">
 						</c:if> <c:if test="${al[2]==null }">
-							<img alt="no_data" src="./images/null_cc_id.png" width="210px"
+							<img alt="no_data" src="./images/null_id.png" width="210px"
 								height="170px">
 						</c:if></td>
 
@@ -376,7 +373,7 @@ padding: 3px 12px 0px 0px;
 							<img src="./images/clothes_category_icon/${al[3] }"
 								id="${al[3] }" width="210px" height="170px">
 						</c:if> <c:if test="${al[3]==null }">
-							<img alt="no_data" src="./images/null_cc_id.png" width="210px"
+							<img alt="no_data" src="./images/null_id.png" width="210px"
 								height="170px">
 						</c:if></td>
 
@@ -385,7 +382,7 @@ padding: 3px 12px 0px 0px;
 								id="${al[4] }" width="210px" height="170px">
 
 						</c:if> <c:if test="${al[4]==null }">
-							<img alt="no_data" src="./images/null_cc_id.png" width="210px"
+							<img alt="no_data" src="./images/null_id.png" width="210px"
 								height="170px">
 						</c:if></td>
 				</tr>
@@ -420,10 +417,9 @@ padding: 3px 12px 0px 0px;
 		<div id="styleDetailcontent_pcc1">
 
 			<c:forEach var="i" begin="0" end="${fn:length(p_cc1)-1}">
-				<span class="styleDetailContent_ccstyle"> <c:if
-						test="${p_cc1[i] ==null }">
-					</c:if> <c:if test="${p_cc1[i] !=null }">
-						<a href="prddetail.do?prd_id=${p_cc1_id[i] }"> <img
+				<span class="styleDetailContent_ccstyle"> 
+				<c:if test="${p_cc1[i] !=null }">
+						<a href="prddetail.do?prd_id=${p_cc1_id[i] }" style="text-decoration:none"> <img
 							alt="{p_cc1[i] }" src="./images/product_images/${p_cc1[i]}"
 							width="210px" height="200px" style="padding:10px">
 						</a>
@@ -444,7 +440,7 @@ padding: 3px 12px 0px 0px;
 				<span class="styleDetailContent_ccstyle"> <c:if
 						test="${p_cc2[i] ==null }">
 					</c:if> <c:if test="${p_cc2[i] !=null }">
-						<a href="prddetail.do?prd_id=${p_cc2_id[i] }"> <img
+						<a href="prddetail.do?prd_id=${p_cc2_id[i] }" style="text-decoration:none"> <img
 							alt="{p_cc2[i] }" src="./images/product_images/${p_cc2[i]}"
 							width="210px" height="200px" style="padding:10px">
 						</a>
@@ -467,7 +463,7 @@ padding: 3px 12px 0px 0px;
 				<span class="styleDetailContent_ccstyle"> <c:if
 						test="${p_cc3[i] ==null }">
 					</c:if> <c:if test="${p_cc3[i] !=null }">
-						<a href="prddetail.do?prd_id=${p_cc3_id[i] }"> <img
+						<a href="prddetail.do?prd_id=${p_cc3_id[i] }" style="text-decoration:none"> <img
 							alt="{p_cc3[i] }" src="./images/product_images/${p_cc3[i]}"
 							width="210px" height="200px" style="padding:10px">
 						</a>
