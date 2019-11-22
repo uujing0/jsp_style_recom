@@ -125,7 +125,7 @@
 							style="background-color: #373B43; color: white; text-align: center;  font-size: 15px;">
 							베스트 스타일</td>
 
-
+<p>
 					</tr>
 					<tr>
 						<th
