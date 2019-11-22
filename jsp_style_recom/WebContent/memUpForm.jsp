@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>회원정보 수정</title>
+<title>개인정보 수정</title>
 <script type="text/javascript">
 	function chk() {
 		if (frm.mem_pw.value != frm.mem_pw2.value) {
@@ -93,7 +93,7 @@ h3.align-center {
 </head>
 <%@include file="header.jsp" %>
 <body bgColor="#f9f7f6">
- <h1 class="memUpForm_title">회원정보 수정</h1>
+ <h1 class="memUpForm_title">개인정보 수정</h1>
  <h3 class="align-center"> 등록된 회원정보를 수정할 수 있습니다. </h3>
    <form action="memUpPro.do" name="frm" onsubmit="return chk()">
 	 <ul class="memUpForm_ul">
@@ -134,7 +134,8 @@ h3.align-center {
       </select> <br>
       <input type="text" name="mem_add_addr" list="mem_addr" required="required" placeholder="나머지 주소">
   </li>
-	<br>								
+	<br/>
+							
    <li>
     <label>체&nbsp;형</label><br> 
      <select name="mem_body_type">
@@ -143,33 +144,44 @@ h3.align-center {
 	  <option value="3">키작은</option>
 	  <option value="4">키큰</option>
      </select>
-   </li><br><br>
-								
-										
-	
-	  <label class="element" name="mem_fav_loc">관심지역(중복 선택가능)</label><br>
-	
+   </li>
+      <br/>
+	  <label name="mem_fav_loc">관심지역(중복 선택가능)</label><br>
 	  <label><input type="checkbox" name="mem_fav_loc" value="서울특별시">서울특별시</label>
-	  <label><input type="checkbox" name="mem_fav_loc" value="경기도">경기도</label>
-	  <label><input type="checkbox" name="mem_fav_loc" value="강원도">강원도</label><br>
-	  <label><input type="checkbox" name="mem_fav_loc" value="충청남도">충청남도</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="부산광역시">부산광역시</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="울산광역시">울산광역시</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="대전광역시">대전광역시</label>
+	  <br/>
+	  <label><input type="checkbox" name="mem_fav_loc" value="광주광역시">광주광역시</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="인천광역시">인천광역시</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="대구광역시">대구광역시</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="경기남부">경기남부</label>
+	  <br/>
+	  <label><input type="checkbox" name="mem_fav_loc" value="경기북부">경기북부&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="강원도">강원도&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="경상남도">경상남도&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="경상북도">경상북도</label>
+	  <br/>
+	  <label><input type="checkbox" name="mem_fav_loc" value="전라남도">전라남도&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="전라북도">전라북도&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="충청남도">충청남도&nbsp;&nbsp;&nbsp;</label>
 	  <label><input type="checkbox" name="mem_fav_loc" value="충청북도">충청북도</label>
-	  <label><input type="checkbox" name="mem_fav_loc" value="전라남도">전라남도</label><br>
-	  <label><input type="checkbox" name="mem_fav_loc" value="전라북도">전라북도</label>
-	  <label><input type="checkbox" name="mem_fav_loc" value="경상남도">경상남도</label>
-	  <label><input type="checkbox" name="mem_fav_loc" value="경상북도">경상북도</label><br>
-	  <label><input type="checkbox" name="mem_fav_loc" value="제주도">제주도</label><br><br>
-    <br>								
-	 									
-	 <label class="element">&nbsp;성&nbsp;별</label><br>
-	
-	<label><input type="radio" name="mem_gender" value="1" required="required">남</label>
-	<label><input type="radio" name="mem_gender" value="2" required="required">여</label>
-	 <br><br><br>								
-	<input class="memUpForm_memUpButton" type="submit" value="수정하기">
-	<br/>
-	<br/>
-	<br/>
+	  <br/>
+	  <label><input type="checkbox" name="mem_fav_loc" value="제주특별자치도">제주특별자치도&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="세종특별자치시">세종특별자치시</label>
+	  <br/>	
+	  <br/>							
+	  <br/>																	
+	 <label>&nbsp;성&nbsp;별</label><br>
+	 <label><input type="radio" name="mem_gender" value="1" required="required">남</label>
+	 <label><input type="radio" name="mem_gender" value="2" required="required">여</label>
+	 <br/>
+	 <br/>
+	 <br/>								
+	 <input class="memUpForm_memUpButton" type="submit" value="수정하기">
+	 <br/>
+	 <br/>
+	 <br/>
 	&nbsp;&nbsp;<a onclick="next()" value="회원탈퇴" font-color="gray">회원탈퇴</a>
 	</ul>
   </form>

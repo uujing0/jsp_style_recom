@@ -35,7 +35,7 @@
 			</tr>
 		</table>
 		
-		<hr style="width:1100px border:none; border:0.5px solid #E7E2E1; margin:20px 0px 5px 0px">
+		<hr style="width:1300px border:none; border:0.5px solid #E7E2E1; margin:20px 0px 5px 0px">
 	</div>	
 
 	<%@ include file="styleDetailContent.jsp"%>

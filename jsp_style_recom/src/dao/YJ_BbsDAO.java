@@ -13,7 +13,7 @@ public class YJ_BbsDAO {
 
 	public YJ_BbsDAO() {
 		try {
-			String dbURL = "jdbc:oracle:thin:@211.183.2.63:1521:xe";
+			String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
 			String dbID = "J20191001";
 			String dbPassword = "tiger";
 			Class.forName("oracle.jdbc.driver.OracleDriver");

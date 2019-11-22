@@ -134,19 +134,31 @@ h3.align-center {
 										
 	
 	  <label name="mem_fav_loc">관심지역(중복 선택가능)</label><br>
-	
 	  <label><input type="checkbox" name="mem_fav_loc" value="서울특별시">서울특별시</label>
-	  <label><input type="checkbox" name="mem_fav_loc" value="경기도">경기도</label>
-	  <label><input type="checkbox" name="mem_fav_loc" value="강원도">강원도</label><br>
-	  <label><input type="checkbox" name="mem_fav_loc" value="충청남도">충청남도</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="부산광역시">부산광역시</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="울산광역시">울산광역시</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="대전광역시">대전광역시</label>
+	  <br/>
+	  <label><input type="checkbox" name="mem_fav_loc" value="광주광역시">광주광역시</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="인천광역시">인천광역시</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="대구광역시">대구광역시</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="경기남부">경기남부</label>
+	  <br/>
+	  <label><input type="checkbox" name="mem_fav_loc" value="경기북부">경기북부&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="강원도">강원도&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="경상남도">경상남도&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="경상북도">경상북도</label>
+	  <br/>
+	  <label><input type="checkbox" name="mem_fav_loc" value="전라남도">전라남도&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="전라북도">전라북도&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="충청남도">충청남도&nbsp;&nbsp;&nbsp;</label>
 	  <label><input type="checkbox" name="mem_fav_loc" value="충청북도">충청북도</label>
-	  <label><input type="checkbox" name="mem_fav_loc" value="전라남도">전라남도</label><br>
-	  <label><input type="checkbox" name="mem_fav_loc" value="전라북도">전라북도</label>
-	  <label><input type="checkbox" name="mem_fav_loc" value="경상남도">경상남도</label>
-	  <label><input type="checkbox" name="mem_fav_loc" value="경상북도">경상북도</label><br>
-	  <label><input type="checkbox" name="mem_fav_loc" value="제주도">제주도</label><br><br>
-    <br>								
-	 									
+	  <br/>
+	  <label><input type="checkbox" name="mem_fav_loc" value="제주특별자치도">제주특별자치도&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+	  <label><input type="checkbox" name="mem_fav_loc" value="세종특별자치시">세종특별자치시</label>
+	  <br/>	
+	  <br/>							
+	 <br/>								
 	 <label>&nbsp;성&nbsp;별</label><br>
 	
 	<label><input type="radio" name="mem_gender" value="1" required="required">남</label>

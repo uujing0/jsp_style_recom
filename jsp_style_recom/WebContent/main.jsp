@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>WELL-SEE COORDI</title>
 <style type="text/css">
 
 
@@ -193,7 +193,7 @@
 	
 	<div id="nav" >
 		<ul class="menu">
-			<li><a href="styleList.do?tagType=4&locCode=1168066000">날씨별</a></li>
+			<li><a href="styleList.do?tagType=4&locCode=${sessionScope.loc }">날씨별</a></li>
 			<li><a href="#">상황별</a>
 				<ul class="sub">
 					<li><a href="styleList.do?tagId=1">오피스룩</a></li>
@@ -277,6 +277,7 @@
                  <div id="bdcontent" style="width: 400px; height: 400px;" > 
                     <a href="view.do?bd_id=${board.bd_id}">${board.popup }</a><p>
                 	<a href="view.do?bd_id=${board.bd_id}" style="font-size: 14pt; font: bold;">${board.bd_title}</a>
+                	<span style="color: olive;">
                 	<c:if test="${board.staravg>0}">
 									<!-- bbslist에서 쿼리문으로 생성한 commentcount가 0보다 크면 제목 옆에 댓글 갯수 출력 -->
 									<c:if test="${board.staravg==1}">★</c:if>
@@ -289,7 +290,9 @@
 									<c:if test="${board.staravg==8}">★★★★★★★★</c:if>
 									<c:if test="${board.staravg==9}">★★★★★★★★★</c:if>
 									<c:if test="${board.staravg==10}">★★★★★★★★★</c:if>
-					</c:if><p>
+					</c:if>
+					</span>
+					<p>
 					<a href="view.do?bd_id=${board.bd_id}">${board.mem_id}</a>
 						
                 </div>  

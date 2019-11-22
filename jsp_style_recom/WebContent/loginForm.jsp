@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>로그인</title>
 <script type="text/javascript">
 	function chk() {
 		var mem_id = document.getElementById("mem_id")

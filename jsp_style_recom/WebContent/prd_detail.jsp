@@ -18,8 +18,8 @@
 h2 {
 	text-align: center;
 	margin-top: 100px;
-	font-size: 35px;
-	font-color: #666666;
+	font-size: 30px;
+	color: #666666;
 	
 }
 
@@ -40,6 +40,7 @@ h2 {
 	position: relative;
 	overflow: hidden;
 	margin-left: 500px;
+	margin-top: 50px;
 }
 
 .prdimg {
@@ -65,14 +66,25 @@ h2 {
 	font-size: 20pt;
 	}
 
+#deadline hr{
+
+width : 1300px;
+border:none; border:0.6px solid #E7E2E1; 
+margin-left: 320px;
+
+}
+
 </style>
 </head>
 <%@include file="header.jsp"%>
 <body bgcolor="#f9f7f6">
 
-
-	<h2>${ Product.prd_name }</h2>
+	
+	<h2><img src="./images/newhanger.png" height="30px" width="60px">&nbsp;&nbsp;${ Product.prd_name }</h2>
+	<div id="deadline">
 	<hr>
+	</div>
+	
 
 	<div id="product">
 		<table style="margin: 0;">
@@ -109,8 +121,8 @@ h2 {
 		</table>
 	</div>
  
-	<iframe id="iposition" src="prd_detail2.jsp?url=${Product.prd_url }"
+	<iframe id="iposition" src="prd_iframe.jsp?url=${Product.prd_url }"
 		width="1200" height="100%" scrolling="yes" frameborder="0" ></iframe>
-
+<%@include file="recentStyle.jsp" %>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <title>비밀번호 찾기</title></head><body>
 	<c:if test="${mem_pw != null }">
 		<script type="text/javascript">
-			alert("당신의 패스워드는 ${mem_pw} 입니다.");  
+			alert("당신의 비밀번호는 ${mem_pw} 입니다.");  
 			location.href="loginForm.do";
 		</script>
 	</c:if>

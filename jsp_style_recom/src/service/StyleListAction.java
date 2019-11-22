@@ -69,7 +69,7 @@ public class StyleListAction implements CommandProcess {
 			HttpSession session = request.getSession();
 			String strGender = (String)session.getAttribute("gender");
 			if (strGender == null || strGender.equals("")) {
-				strGender = "1";
+				strGender = "2";
 			}
 			
 			this.tagId = Integer.parseInt(strTagId);	

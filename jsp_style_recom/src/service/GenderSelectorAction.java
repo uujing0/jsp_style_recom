@@ -13,11 +13,12 @@ public class GenderSelectorAction implements CommandProcess{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String returnPage = request.getParameter("thisPage");
+		String gender = request.getParameter("select");
 		try {
 			HttpSession session = request.getSession();
-			if(request.getParameter("select").equals("1")) {
+			if(gender.equals("1")) {
 				session.setAttribute("gender", "1");
-			}else {
+			}else if(gender.equals("2")) {
 				session.setAttribute("gender", "2");
 			}
 		}catch (Exception e) {
