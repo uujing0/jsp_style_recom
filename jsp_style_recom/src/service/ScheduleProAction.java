@@ -1,4 +1,4 @@
-package service;
+  package service;
 
 import java.io.IOException;
 
@@ -30,7 +30,7 @@ public class ScheduleProAction implements CommandProcess {
 			cal.setTc_id(Integer.parseInt(request.getParameter("tc_id")));
 			cal.setCal_contents(request.getParameter("cal_contents"));
 			cal.setCal_title(request.getParameter("cal_title"));
-	
+	 
 		
 			int result = cd.update(cal);
 			if(result<1) {
